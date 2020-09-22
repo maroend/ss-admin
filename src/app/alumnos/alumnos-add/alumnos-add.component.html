@@ -1,1 +1,165 @@
-<p>alumnos-add works!</p>
+
+<app-menu></app-menu>
+
+<!-- BEGIN: Content -->
+<div class="content">
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            Agregar Alumno
+        </h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <a  routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
+            <button  class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+        </div>
+    </div>
+
+
+    <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
+   
+    <div class="intro-y box mt-5">
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Información Personal
+            </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+            <div class="preview">
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Universidad:</label>
+                    <select class="input input--sm border mr-2 sm:w-64">
+                        <option>Universidad Anáhuac México Norte</option>
+                        <option>Universidad Anáhuac México Sur</option>
+                        
+                    </select>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">ID Matricula:</label>
+                    <input type="text" class="input border mt-2"  placeholder="">
+                </div>
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Nombre</label>
+                    <input type="text" class="input border sm:w-64" placeholder="">
+                </div>
+   
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Paterno</label>
+                    <input type="text" class="input border sm:w-64" placeholder="">
+                </div>
+                
+                
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Materno</label>
+                    <input type="text" class="input border sm:w-64" placeholder="">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Facultad:</label>
+                    <select class="input input--sm border mr-2 sm:w-64">
+                        <option>Chris Evans</option>
+                        <option>Liam Neeson</option>
+                        <option>Daniel Craig</option>
+                    </select>
+                </div>
+
+                
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Carrera:</label>
+                    <select class="input input--sm border mr-2 sm:w-64">
+                        <option>Chris Evans</option>
+                        <option>Liam Neeson</option>
+                        <option>Daniel Craig</option>
+                    </select>
+                </div>
+
+                
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Periodo:</label>
+                    <select class="input input--sm border mr-2 sm:w-64">
+                        <option>Chris Evans</option>
+                        <option>Liam Neeson</option>
+                        <option>Daniel Craig</option>
+                    </select>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Porcentaje Academico</label>
+                    <input type="text" class="input border" placeholder="0%">
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                    <h2 class="font-medium text-base mr-auto">
+                        Medios de Contacto
+                    </h2>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Correo:</label>
+                    <input type="text" class="input border" placeholder="">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Celular:</label>
+                    <input type="text" class="input border" placeholder="">
+                </div>
+
+
+
+                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                    <h2 class="font-medium text-base mr-auto">
+                        Dirección
+                    </h2>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Pais:</label>
+                    <input type="text" class="input border" value="México" placeholder="">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">CP:</label>
+                    <input type="text" class="input border"  placeholder="">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Municipio:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="">
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Colonia:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="">
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Calle:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="">
+                </div>
+
+
+
+                
+
+                
+
+
+            </div>
+          
+        </div>
+    </div>
+   
+    <!-- END: FORM -->
+</div>
+<!-- END: Content -->
