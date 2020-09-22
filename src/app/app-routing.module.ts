@@ -10,6 +10,8 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmpresashomeComponent } from './empresas/empresas-home/empresas-home.component';
+import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
 
 const routes: Routes = [
 {  path: '',
@@ -29,14 +31,11 @@ const routes: Routes = [
   {path:'proyectos',component:ProyectosComponent},
   {path:'convocatorias',component:ConvocatoriasComponent},
   {path:'administracion',component:AdministracionComponent},
+  {path:'empresas/home',component:EmpresashomeComponent},
+  {path:'empresas/add',component:EmpresasAddComponent}
 
-  {path:'',
-  component: AdminLayoutComponent,
-  children: [{
-    path: 'empresas',
-    loadChildren: () => import('./empresas/empresas.module').then(m => m.EmpresasModule)
-  }]
-  },  
+
+    
 
 ];
 

@@ -1,14 +1,12 @@
-<div class="app">
+<app-menu></app-menu>
 
-    <!-- END: Top Menu -->
-    <!-- BEGIN: Content -->
     <div class="content">
         <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
             <h2 class="text-lg font-medium mr-auto">
-                Alumnos
+                Empresa
             </h2>
             <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <button hr class="button text-white bg-theme-1 shadow-md mr-2">Agregar Empresa</button>
+                <button routerLink="/empresas/add" class="button text-white bg-theme-1 shadow-md mr-2">Agregar Empresa</button>
                 <div class="dropdown relative ml-auto sm:ml-0">
                     <button class="dropdown-toggle button px-2 box text-gray-700 dark:text-gray-300">
                         <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
@@ -66,6 +64,4 @@
             </table>
         </div>
         <!-- END: Datatable -->
-    </div>
-    <!-- END: Content -->
     </div>

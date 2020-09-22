@@ -7,7 +7,7 @@ import { Utils } from 'src/app/shared/functions/utils';
   providedIn: 'root'
 })
 export class SepomexService {
-  private api = `${environment.api}VSepomex`
+  private api = `${environment.baseUrl}VSepomex`
 
   constructor(private http: HttpClient, private utils: Utils) { }
 
