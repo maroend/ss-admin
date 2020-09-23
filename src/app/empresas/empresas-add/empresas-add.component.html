@@ -2,16 +2,18 @@
 
 
 <div class="content">
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Agregar Empresa
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a  routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-            <button  class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+            <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
         </div>
     </div>
 
+    <form (ngSubmit)="create()" #formMascota="ngForm">
 
     <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
    
@@ -50,59 +52,51 @@
 
                 <div class="flex flex-col sm:flex-row items-center">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Organización:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.organizacion" [ngModelOptions]="{standalone: true}">
                 </div>
-                <div class="flex flex-col sm:flex-row items-center mt-3">
-                    <label class="sm:w-32 sm:text-right sm:mr-5">Responsable:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
-                </div>
+             
    
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Misión:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.mision" [ngModelOptions]="{standalone: true}">
                 </div>
                 
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Objetivo:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.objetivo" [ngModelOptions]="{standalone: true}">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                   <label class="sm:w-32 sm:text-right sm:mr-5">¿Legionario?  </label>
                   <div class="controls"><br>
                     
-                    Sí&nbsp;<input type="radio" #legion#="" value="S" name="legionario" class="input-xlarge focused">	  No&nbsp;<input type="radio" value="N" checked="checked" name="legionario" class="input-xlarge focused">
+                    Sí&nbsp;<input type="radio" #legion#="" value=1 name="legionario" class="input-xlarge focused" [(ngModel)]="agregarModel.legionario" [ngModelOptions]="{standalone: true}">	  No&nbsp;<input type="radio" value=0 checked="checked" name="legionario" class="input-xlarge focused" [(ngModel)]="agregarModel.legionario" [ngModelOptions]="{standalone: true}">
   </div>              </div>
 
            
   <div class="flex flex-col sm:flex-row items-center mt-3">
     <label class="sm:w-32 sm:text-right sm:mr-5">Descripción:</label>
-    <input type="text" class="input border sm:w-64" placeholder="">
+    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.descripcion" [ngModelOptions]="{standalone: true}">
 </div>
 
 
-                <div class="flex flex-col sm:flex-row items-center mt-3">
+                <!-- <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Descripción:</label>
                     <select class="input input--sm border mr-2 sm:w-64">
                         <option>Departamento Universitario</option>
                         <option>Departamento de Gobierno</option>
                         <option>Organización de la Sociedad Civil </option>
                     </select>
-                </div>
+                </div> -->
 
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Giro:</label>
                     <select class="input input--sm border mr-2 sm:w-64">
-                        <option>Altruismo</option>
-                        <option>Beneficiencia Pública</option>
-                        <option>Espiritual </option>
-                        <option>No declarado </option>
-                        <option>Otros  </option>
-                        <option>Salud  </option>
-                        <option>Servicios  </option>
+                      <option [value]="gi.id" *ngFor="let gi of giro">{{gi.giro}} </option>
 
+                
                     </select>
                 </div>
 
@@ -110,16 +104,15 @@
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Clacificación:</label>
                     <select class="input input--sm border mr-2 sm:w-64">
-                        <option>Asociaciones Civiles</option>
-                        <option>Delegaciones</option>
-                        <option>Educación</option>
+                      <option [value]="cl.id" *ngFor="let cl of clasificacion">{{cl.clasificacion}}</option>
+
                     </select>
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Web:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" placeholder=""  [(ngModel)]="agregarModel.web" [ngModelOptions]="{standalone: true}">
                 </div>
 
 
@@ -132,23 +125,23 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">CP:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" placeholder=""  [(ngModel)]="agregarModel.cp" [ngModelOptions]="{standalone: true}">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Pais:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.pais" [ngModelOptions]="{standalone: true}">
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                   <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
-                  <input type="text" class="input border sm:w-64" placeholder="">
+                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.estado" [ngModelOptions]="{standalone: true}">
                 </div>
 
               <div class="flex flex-col sm:flex-row items-center mt-3">
                   <label class="sm:w-32 sm:text-right sm:mr-5">Municipio/Delegación:</label>
-                  <input type="text" class="input border sm:w-64" placeholder="">
+                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.municipio" [ngModelOptions]="{standalone: true}">
                 </div>
 
 
@@ -156,21 +149,21 @@
 
             <div class="flex flex-col sm:flex-row items-center mt-3">
               <label class="sm:w-32 sm:text-right sm:mr-5">Colonia:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.colonia" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="flex flex-col sm:flex-row items-center mt-3">
             <label class="sm:w-32 sm:text-right sm:mr-5">Calle:</label>
-            <input type="text" class="input border sm:w-64" placeholder="">
+            <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.calle" [ngModelOptions]="{standalone: true}">
           </div>
 
         <div class="flex flex-col sm:flex-row items-center mt-3">
           <label class="sm:w-32 sm:text-right sm:mr-5">Num. Ext.:</label>
-          <input type="text" class="input border" placeholder="">
+          <input type="text" class="input border" placeholder="" [(ngModel)]="agregarModel.noExt" [ngModelOptions]="{standalone: true}">
       </div>
       <div class="flex flex-col sm:flex-row items-center mt-3">
         <label class="sm:w-32 sm:text-right sm:mr-5">Num. Int.:</label>
-        <input type="text" class="input border" placeholder="">
+        <input type="text" class="input border" placeholder="" [(ngModel)]="agregarModel.noInt" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
       <h2 class="font-medium text-base mr-auto">
@@ -184,7 +177,7 @@
       <tbody>
         <tr *ngFor="let area of areas">
 
-      <td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS1" onclick="" name="areasa[]" value="10"></td>
+      <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea($event.checked, area.id)" ></td>
              <td>{{area.areaAccion}}</td>
       
     </tr></tbody></table>
@@ -192,48 +185,48 @@
 
    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
     <h2 class="font-medium text-base mr-auto">
-     3. Área de Acción
-    </h2>
+      4. Número de personas que atienden
+        </h2>
 </div>
 
 
                 
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder="">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.ancianos" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Ancianos.</label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder="">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.discapacitados" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Discapacitados.  </label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder="">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.indigenas" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Indígenas.</label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder="">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.jovenes" [ngModelOptions]="{standalone: true}" >
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Jóvenes.</label>
 </div>
 
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder="">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.mujeres" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Mujeres.</label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder="">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.ninos" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Niños.</label>
 </div>
-<div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder="">
+<!-- <div class="flex flex-col sm:flex-row items-center mt-3">
+  <input type="number" class="input border" placeholder="" >
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Público General.</label>
-</div>
+</div> -->
 
 
 
@@ -246,12 +239,11 @@
 
 <div class="well">
 <table style="padding: 15px; margin-left: 25px;">				
-  <tbody><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS1" onclick="" name="areasa[]" value="10"></td>
-         <td>Instituciones de la Universidad Anáhuac.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS2" onclick="" name="areasa[]" value="5"></td>
-         <td>Asociación Civil con RSE.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS3" onclick="" name="areasa[]" value="9"></td>
-         <td>Dependencia Gubernamental. </td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS4" onclick="" name="areasa[]" value="11"></td>
-         <td>Empresas con proyectos de RSE.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS5" onclick="" name="areasa[]" value="64"></td>
-          <td>Institución de asistencia pública o privada.</td></tr><tr>
+  <tbody>
+    <tr *ngFor="let rubro of rubros">
+      
+      <td style="padding:5px;"> <input type="checkbox" id="{{rubro.id}}"   (change)="toggleArea($event.checked, rubro.id)"></td>
+         <td>{{rubro.rubro}}</td>
 
 </tr></tbody></table>
 </div>
@@ -264,23 +256,31 @@
 </div>
         <div class="flex flex-col sm:flex-row items-center mt-3">
   <label class="sm:w-32 sm:text-right sm:mr-5">Nombre:</label>
-  <input type="text" class="input border sm:w-64" placeholder="">
+  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="contactoModel.nombre" [ngModelOptions]="{standalone: true}">
 </div>
 
+<div class="flex flex-col sm:flex-row items-center mt-3">
+  <label class="sm:w-32 sm:text-right sm:mr-5">Prefijo:</label>
+  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="contactoModel.prefijo" [ngModelOptions]="{standalone: true}">
+</div>
 
 
 
 <div class="flex flex-col sm:flex-row items-center mt-3">
   <label class="sm:w-32 sm:text-right sm:mr-5">Correo electronico:</label>
-  <input type="text" class="input border sm:w-64" placeholder="">
+  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="contactoModel.correo" [ngModelOptions]="{standalone: true}">
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
   <label class="sm:w-32 sm:text-right sm:mr-5">Telefono:</label>
-  <input type="text" class="input border sm:w-64" placeholder="">
+  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="contactoModel.telefono" [ngModelOptions]="{standalone: true}">
+</div>
+<div class="flex flex-col sm:flex-row items-center mt-3">
+  <label class="sm:w-32 sm:text-right sm:mr-5">Ext:</label>
+  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="contactoModel.ext" [ngModelOptions]="{standalone: true}">
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
   <label class="sm:w-32 sm:text-right sm:mr-5">Celular:</label>
-  <input type="text" class="input border sm:w-64" placeholder="">
+  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="contactoModel.celular" [ngModelOptions]="{standalone: true}">
 </div>
 
   <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
@@ -292,7 +292,7 @@
     <label class="sm:w-32 sm:text-right sm:mr-5">¿Disponible?  </label>
     <div class="controls"><br>
       
-      Sí&nbsp;<input type="radio" #legion#="" value="S" name="legionario" class="input-xlarge focused">	  No&nbsp;<input type="radio" value="N" checked="checked" name="legionario" class="input-xlarge focused">
+      Sí&nbsp;<input type="radio" #legion#="" value=1 [(ngModel)]="agregarModel.disponible" name="legionario" class="input-xlarge focused">	  No&nbsp;<input type="radio" value=0 [(ngModel)]="agregarModel.disponible" checked="checked" name="legionario" class="input-xlarge focused">
 </div>              </div>
 
 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
@@ -302,18 +302,10 @@
 </div>
 <div class="well">
   <table style="padding: 15px; margin-left: 25px;">				
-    <tbody><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS1" onclick="" name="areasa[]" value="10"></td>
-           <td>UA México Norte.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS2" onclick="" name="areasa[]" value="5"></td>
-           <td> UA México Sur.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS3" onclick="" name="areasa[]" value="9"></td>
-           <td> IEST. </td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS4" onclick="" name="areasa[]" value="11"></td>
-           <td>Instituto Juan Pablo II.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS5" onclick="" name="areasa[]" value="64"></td>
-            <td>UA Cancún.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS5" onclick="" name="areasa[]" value="64"></td>
-            
-              <td>UA Mayab.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS5" onclick="" name="areasa[]" value="64"></td>
-                <td>UA Oaxaca.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS5" onclick="" name="areasa[]" value="64"></td>
-                  <td>UA Puebla.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS5" onclick="" name="areasa[]" value="64"></td>
-                    <td>UA Xalapa.</td></tr><tr><td style="padding:5px;"> <input type="checkbox" id="CHK-AREAS5" onclick="" name="areasa[]" value="64"></td>
-                      <td>UA Querétaro.</td></tr><tr>
+    <tbody>
+      <tr *ngFor="let uni of universidades">
+        <td style="padding:5px;"> <input type="checkbox" id="uni{{uni.id}}" onclick="" name="areasa[]" value="10"></td>
+           <td>{{uni.universidad}}</td>
 
   </tr></tbody></table>
   </div>
@@ -327,21 +319,24 @@
   <div class="flex flex-col sm:flex-row items-center mt-3">
     <label class="sm:w-32 sm:text-right sm:mr-5">Tipo:</label>
     <select class="input input--sm border mr-2 sm:w-64">
-        <option>PREREGISTRO</option>
-        <option>AUTORIZADA</option>
-        <option>PENDIENTE</option>
-        <option>VETADA</option>
-        <option>RECHAZADA</option>
-        <option>CON ERRORES</option>
+      <option [value]="gi.id" *ngFor="let gi of tipo">{{gi.tipo}}</option>
+
     </select>
 </div>
 
+<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+  <h2 class="font-medium text-base mr-auto">
+     Observaciones
+  </h2>
+</div>
+
+<textarea class="mt-3" name="textarea" rows="10" cols="100"></textarea>
 
             </div>
           
         </div>
     </div>
-   
+  </form>
     <!-- END: FORM -->
 </div>
 <!-- END: Content -->

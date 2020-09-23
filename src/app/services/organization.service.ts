@@ -20,9 +20,31 @@ export class OrganizationService {
     return this.http.get(uri);
   }
 
+  getRubros(){
+    const uri = `${this.api}Rubros`;
+    return this.http.get(uri);
+  }
+  getUniversidades(){
+    const uri = `${this.api}Universidades`;
+    return this.http.get(uri);
+  }
+  getTipo(){
+    const uri = `${this.api}TiposOrganizaciones`;
+    return this.http.get(uri);
+  }
 
+  getGiro(){
+    const uri = `${this.api}GirosOrganizaciones`;
+    return this.http.get(uri);
+  }
+  getClasificacion(){
+    const uri = `${this.api}ClasificacionesOrganizaciones`;
+    return this.http.get(uri);
+  }
+
+  
   create(model){
-    const uri = `${this.api}`
+    const uri = `${this.api}Organizaciones`
     return this.http.post(uri, model);
   }
 

@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Alumno } from '../models/alumno';
 import { environment } from "../../environments/environment";
 
-import { map } from 'rxjs/operators/map';
 
 @Injectable({
   providedIn: 'root'
