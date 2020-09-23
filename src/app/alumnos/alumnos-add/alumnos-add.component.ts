@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
+import { AlumnoService } from '../../services/alumno.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-alumnos-add',
@@ -8,10 +11,24 @@ import * as Feather from 'feather-icons';
 })
 export class AlumnosAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(private alumnoService: AlumnoService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+
+  onSubmit(data) {
+          
+    //console.warn(data.value);
+
+    this.alumnoService.addAlumno(data.value).subscribe(() => {
+      
+      this.router.navigate(['/alumnos']);
+    })
+
+  }
+
+
 
 
   ngAfterViewInit() {

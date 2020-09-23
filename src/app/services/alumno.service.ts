@@ -23,7 +23,7 @@ export class AlumnoService {
   }
 
   addAlumno(alumno: Alumno) {
-    return this.http.post(`${this.baseUrl}/post.php`, alumno);
+    return this.http.post(`${this.baseUrl}/alumnos/post.php`, alumno);
   }
 
   deleteAlumno(alumno: Alumno) {

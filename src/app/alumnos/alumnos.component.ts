@@ -34,10 +34,7 @@ export class AlumnosComponent implements OnInit {
 
 
 
-
   obtenerAlumnos() {
-
-    const that = this;
 
     this.dtOptions = {
       pagingType: 'full_numbers',
@@ -45,12 +42,16 @@ export class AlumnosComponent implements OnInit {
       serverSide: true,
       processing: true,
       ajax: (dataTablesParameters: any, callback) => {
-        that.http
+        this.http
           .post<DataTablesResponse>(
-            'https://angular-datatables-demo-server.herokuapp.com/',
+            'http://localhost/mascotas/alumnos/getAll.php',
             dataTablesParameters, {}
           ).subscribe(resp => {
-            that.alumnos = resp.data;
+            
+            console.log(resp);
+
+            this.alumnos = resp.data;
+
 
             callback({
               recordsTotal: resp.recordsTotal,
@@ -59,7 +60,7 @@ export class AlumnosComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'id' }, { data: 'firstName' }, { data: 'lastName' }]
+      columns: [{ data: 'id' }, { data: 'nombre' }, { data: 'paterno' }]
     };
 
 

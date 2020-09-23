@@ -3,13 +3,16 @@
 
 <!-- BEGIN: Content -->
 <div class="content">
+
+    <form  #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Agregar Alumno
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a  routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-            <button  class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+            <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
         </div>
     </div>
 
@@ -36,57 +39,57 @@
 
                 <div class="flex flex-col sm:flex-row items-center">
                     <label class="sm:w-32 sm:text-right sm:mr-5">ID Matricula:</label>
-                    <input type="text" class="input border mt-2"  placeholder="">
+                    <input type="text" class="input border mt-2" name="matricula" ngModel placeholder="">
                 </div>
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Nombre</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" name="nombre" ngModel placeholder="">
                 </div>
    
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Paterno</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" name="paterno" ngModel placeholder="">
                 </div>
                 
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Materno</label>
-                    <input type="text" class="input border sm:w-64" placeholder="">
+                    <input type="text" class="input border sm:w-64" name="materno" ngModel placeholder="">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Facultad:</label>
-                    <select class="input input--sm border mr-2 sm:w-64">
-                        <option>Chris Evans</option>
-                        <option>Liam Neeson</option>
-                        <option>Daniel Craig</option>
+                    <select class="input input--sm border mr-2 sm:w-64" name="facultad" ngModel>
+                        <option value="ING">Ingeniería</option>
+                        <option value="ME">Medicina</option>
+                        <option value="DI">Diseño</option>
                     </select>
                 </div>
 
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Carrera:</label>
-                    <select class="input input--sm border mr-2 sm:w-64">
-                        <option>Chris Evans</option>
-                        <option>Liam Neeson</option>
-                        <option>Daniel Craig</option>
+                    <select class="input input--sm border mr-2 sm:w-64" name="carrera" ngModel>
+                        <option value="Ingenieria">Ingenieria en Sistemas</option>
+                        <option value="Empresas">Administración de Empresas</option>
+                        <option value="Turismo">Lic. en Turismo</option>
                     </select>
                 </div>
 
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Periodo:</label>
-                    <select class="input input--sm border mr-2 sm:w-64">
-                        <option>Chris Evans</option>
-                        <option>Liam Neeson</option>
-                        <option>Daniel Craig</option>
+                    <select class="input input--sm border mr-2 sm:w-64" name="periodo" ngModel>
+                        <option value="201860">201860</option>
+                        <option value="201861">201930</option>
+                        <option value="201862">203220</option>
                     </select>
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Porcentaje Academico</label>
-                    <input type="text" class="input border" placeholder="0%">
+                    <input type="text" class="input border" placeholder="0%" name="porcentaje" ngModel>
                 </div>
 
 
@@ -99,12 +102,12 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Correo:</label>
-                    <input type="text" class="input border" placeholder="">
+                    <input type="text" class="input border" placeholder="" name="correo" ngModel>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Celular:</label>
-                    <input type="text" class="input border" placeholder="">
+                    <input type="text" class="input border" placeholder="" name="celular" ngModel>
                 </div>
 
 
@@ -118,48 +121,41 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Pais:</label>
-                    <input type="text" class="input border" value="México" placeholder="">
+                    <input type="text" class="input border" value="México" placeholder="" name="pais" ngModel>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">CP:</label>
-                    <input type="text" class="input border"  placeholder="">
+                    <input type="text" class="input border"  placeholder="" name="cp" ngModel>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="">
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="estado" ngModel>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Municipio:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="">
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="municipio" ngModel>
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Colonia:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="">
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="colonia" ngModel>
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Calle:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="">
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="calle" ngModel>
                 </div>
-
-
-
-                
-
-                
-
 
             </div>
           
         </div>
     </div>
-   
+    </form>
     <!-- END: FORM -->
 </div>
 <!-- END: Content -->
