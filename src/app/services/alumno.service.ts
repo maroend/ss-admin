@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Alumno } from '../models/alumno';
 import { environment } from "../../environments/environment";
 
+import { map } from 'rxjs/operators/map';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,23 +14,23 @@ export class AlumnoService {
 
   constructor(private http: HttpClient) { }
 
-  getMascotas() {
+  getAlumnos() {
     return this.http.get(`${this.baseUrl}/getAll.php`);
   }
 
-  getMascota(id: string | number) {
+  getAlumno(id: string | number) {
     return this.http.get(`${this.baseUrl}/get.php?idAlumno=${id}`);
   }
 
-  addMascota(alumno: Alumno) {
+  addAlumno(alumno: Alumno) {
     return this.http.post(`${this.baseUrl}/post.php`, alumno);
   }
 
-  deleteMascota(alumno: Alumno) {
+  deleteAlumno(alumno: Alumno) {
     return this.http.delete(`${this.baseUrl}/delete.php?idAlumno=${alumno.id}`);
   }
 
-  updateMascota(alumno: Alumno) {
+  updateAlumno(alumno: Alumno) {
     return this.http.put(`${this.baseUrl}/update.php`, alumno);
   }
 
