@@ -15,7 +15,7 @@ export class EmpresasAddComponent implements OnInit {
   public tipo: Tipo[] = [];
   public giro: Giro[] = [];
   public clasificacion: Clasificacion[] = [];
-  agregarModel = new AgregarOrganizacion("","","","","","","","","","","","","","","","","","","","","","",false,false,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
+  agregarModel = new AgregarOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
   contactoModel = new Contactoagregar("","","","","","","",true)
   public listaAreasAccion = [];
   public listaRubros = [];

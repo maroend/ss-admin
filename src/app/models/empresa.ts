@@ -149,15 +149,15 @@ export class AgregarOrganizacion {
         public calle: string,
         public noExt: string,
         public noInt: string,
-        public activo: string,
-        public configuracion: string,
-        public idUniversidad: string,
-        public idEstadoOrganizacion: string,
+        public activo: boolean,
+        public configuracion: number,
         public observaciones: string,
 
         public legionario: boolean,
         public disponible:  boolean,
 
+        public idEstadoOrganizacion: number,
+        public idUniversidad: number,
         public idTipoOrganizacion: number,
         public idGiroOrganizacion: number,
         public idClasificacionOrganizacion: number,
@@ -165,6 +165,7 @@ export class AgregarOrganizacion {
         public jovenes: number,
         public mujeres: number,
         public ninos: number,
+
         public ancianos: number,
         public discapacitados: number,
   public listaAreasAccion: any,
