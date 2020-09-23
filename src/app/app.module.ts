@@ -16,7 +16,7 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EmpresashomeComponent } from './empresas/empresas-home/empresas-home.component';
+import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
 
 @NgModule({
