@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Empresa } from '../models/empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -59,4 +60,10 @@ export class OrganizationService {
     const uri = `${this.api}/CreateWithDetails`
     return this.http.post(uri, model);
   }
+  updateempresa(id: string | number,empresa: Empresa) {
+    empresa.id = Number(id);
+    empresa.activo = true;
+    return this.http.put(`${this.api}/Organizaciones/${id}`, empresa);
+  }
+
 }
