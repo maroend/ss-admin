@@ -44,6 +44,8 @@ export class AlumnoService {
   }
 
   updateAlumno(id: string | number,alumno: Alumno) {
+    alumno.id = Number(id);
+    alumno.activo = true;
     return this.http.put(`${this.baseUrl}/Alumnos/${id}`, alumno);
   }
 

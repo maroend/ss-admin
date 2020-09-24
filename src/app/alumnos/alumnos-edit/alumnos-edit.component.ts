@@ -31,8 +31,6 @@ export class AlumnosEditComponent implements OnInit {
 
   public idAlumno : string;
 
-
-
   public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "", true, 0,);
 
   constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService) { }
