@@ -18,7 +18,7 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
-import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.component';
+import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.compon
     DashboardComponent,
     EmpresashomeComponent,
     EmpresasAddComponent,
-    AlumnosEditComponent
+    EmpresasEditComponent
   ],
   imports: [
     BrowserModule,
