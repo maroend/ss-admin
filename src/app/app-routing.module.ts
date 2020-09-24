@@ -27,7 +27,9 @@ const routes: Routes = [
   {path:'convocatorias',component:ConvocatoriasComponent},
   {path:'administracion',component:AdministracionComponent},
   {path:'empresas',component:EmpresashomeComponent},
-  {path:'empresas/add',component:EmpresasAddComponent}
+  {path:'empresas/add',component:EmpresasAddComponent},
+  {path:'empresas/Edit/:id',component:EmpresasEditComponent}
+
 ];
 
 @NgModule({

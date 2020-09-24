@@ -11,17 +11,18 @@ import { Router,ActivatedRoute } from '@angular/router';
 })
 export class EmpresasEditComponent implements OnInit {
   public areas: Areasaccion[] = [];
-  public obtenerorganizacion: obtenerOrganizacion[] = [];
+  public obtenerorganizacion = new obtenerOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
+
 
   public rubros: Rubros[] = [];
   public universidades: Universidades[] = [];
   public tipo: Tipo[] = [];
-public idobtenido="";
+public idobtenido:string;
   public giro: Giro[] = [];
   public estado: Estado[] = [];
 
   public clasificacion: Clasificacion[] = [];
-  agregarModel = new AgregarOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
+  // agregarModel = new AgregarOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
   contactoModel = new Contactoagregar("","","","","","","",true)
   public listaAreasAccion = [];
   public listaRubros = [];
@@ -37,10 +38,8 @@ public idobtenido="";
 
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
-    var y: number = +this.idobtenido;
-console.log(y);
-this.obtenerorg(y);
-console.log(this.obtenerorganizacion);
+    this.organizacionService.getOrganizacion(this.idobtenido).subscribe((obtenerorganizacion: obtenerOrganizacion) => this.obtenerorganizacion = obtenerorganizacion);
+console.log(this.obtenerorganizacion);  
     this.obtenerAreas();
     this.obtenerRubros();
     this.obtenerUniversidades();
@@ -75,11 +74,7 @@ var valor= { "idRubro": id ,"activo": true};
   ngAfterViewInit() {
     Feather.replace();
   }
-  obtenerorg(id) {
-    return this.organizacionService
-    .getOrganizacion(id)
-    .subscribe((obtenerorganizacion: obtenerOrganizacion[]) => this.obtenerorganizacion = obtenerorganizacion );
-  }
+
   obtenerAreas() {
     return this.organizacionService
       .getAreas()

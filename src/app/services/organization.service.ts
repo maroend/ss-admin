@@ -12,48 +12,47 @@ export class OrganizationService {
   constructor(private http: HttpClient) { }
 
   getAll(){
-    return this.http.get(`${this.api}Organizaciones`);
+    return this.http.get(`${this.api}/Organizaciones`);
   }
-  getOrganizacion(id){
-    const uri = `${this.api}Organizaciones/${id}`;
-    console.log(uri);
-
+  getOrganizacion(id: string | number){
+    const uri = `${this.api}/Organizaciones/${id}`;
+         console.log(uri);
     return this.http.get(uri);
   }
   getAreas(){
-    const uri = `${this.api}AreasAccion`;
+    const uri = `${this.api}/AreasAccion`;
     return this.http.get(uri);
   }
 
   getRubros(){
-    const uri = `${this.api}Rubros`;
+    const uri = `${this.api}/Rubros`;
     return this.http.get(uri);
   }
   getUniversidades(){
-    const uri = `${this.api}Universidades`;
+    const uri = `${this.api}/Universidades`;
     return this.http.get(uri);
   }
   getTipo(){
-    const uri = `${this.api}TiposOrganizaciones`;
+    const uri = `${this.api}/TiposOrganizaciones`;
     return this.http.get(uri);
   }
 
   getGiro(){
-    const uri = `${this.api}GirosOrganizaciones`;
+    const uri = `${this.api}/GirosOrganizaciones`;
     return this.http.get(uri);
   }
   getClasificacion(){
-    const uri = `${this.api}ClasificacionesOrganizaciones`;
+    const uri = `${this.api}/ClasificacionesOrganizaciones`;
     return this.http.get(uri);
   }
   getEstado(){
-    const uri = `${this.api}EstadosOrganizaciones
+    const uri = `${this.api}/EstadosOrganizaciones
     `;
     return this.http.get(uri);
   }
   
   create(model){
-    const uri = `${this.api}Organizaciones`
+    const uri = `${this.api}/Organizaciones`
     return this.http.post(uri, model);
   }
   createWithDetails(model){
