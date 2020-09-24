@@ -4,16 +4,6 @@ import { Alumno } from '../models/alumno';
 import { AlumnoService } from '../services/alumno.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 
-
-
-class DataTablesResponse {
-  data: any[];
-  draw: number;
-  recordsFiltered: number;
-  recordsTotal: number;
-}
-
-
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
@@ -24,14 +14,13 @@ export class AlumnosComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   alumnos: Alumno[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private alumnosService: AlumnoService,private http: HttpClient) { }
 
   ngOnInit(): void {
 
    this.obtenerAlumnos();
     
   }
-
 
 
   obtenerAlumnos() {
@@ -42,16 +31,12 @@ export class AlumnosComponent implements OnInit {
       serverSide: true,
       processing: true,
       ajax: (dataTablesParameters: any, callback) => {
-        this.http
-          .post<DataTablesResponse>(
-            'http://localhost/mascotas/alumnos/getAll.php',
-            dataTablesParameters, {}
-          ).subscribe(resp => {
+
+        this.alumnosService
+        .getAlumnos(dataTablesParameters)
+        .subscribe((resp:any) => {
             
-            console.log(resp);
-
             this.alumnos = resp.data;
-
 
             callback({
               recordsTotal: resp.recordsTotal,
@@ -60,9 +45,8 @@ export class AlumnosComponent implements OnInit {
             });
           });
       },
-      columns: [{ data: 'id' }, { data: 'nombre' }, { data: 'paterno' }]
+      //columns: [{ data: 'id' }, { data: 'nombre' }, { data: 'paterno' }]
     };
-
 
   }
 

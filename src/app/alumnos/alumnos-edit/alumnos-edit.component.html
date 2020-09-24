@@ -16,12 +16,11 @@
     </div>
 
 
-
     <form  #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
 
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Agregar Alumno
+            Editar Alumno
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a  routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
@@ -44,42 +43,42 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Activo:</label>
-                    <input type="radio" ng-value="true" name="activo" [(ngModel)]="activo" [checked]="true" /> 
+                    <input type="radio" ng-value="true" name="activo" [ngModel]="alumno.activo"  /> 
                 </div>
               
                
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Universidad:</label>
-                    <select *ngFor="let universidad of universidades" class="input input--sm border mr-2 sm:w-64" name="idUniversidad" ngModel>
-                        <option [ngValue]="universidad.id">{{ universidad.universidad }}</option>
+                    <select *ngFor="let universidad of universidades"  class="input input--sm border mr-2 sm:w-64" name="idUniversidad" [(ngModel)]="alumno.idUniversidad">
+                        <option  [ngValue]="universidad.id">{{ universidad.universidad }}</option>
 
                     </select>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center">
                     <label class="sm:w-32 sm:text-right sm:mr-5">ID Matricula:</label>
-                    <input type="text" class="input border mt-2" name="matricula" ngModel placeholder="">
+                    <input type="text" class="input border mt-2" name="matricula" [(ngModel)]="alumno.matricula" placeholder="">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Nombre</label>
-                    <input type="text" class="input border sm:w-64" name="nombre" ngModel placeholder="">
+                    <input type="text" class="input border sm:w-64" name="nombre" [(ngModel)]="alumno.nombre" placeholder="">
                 </div>
    
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Paterno</label>
-                    <input type="text" class="input border sm:w-64" name="paterno" ngModel placeholder="">
+                    <input type="text" class="input border sm:w-64" name="paterno" [(ngModel)]="alumno.paterno" placeholder="">
                 </div>
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Materno</label>
-                    <input type="text" class="input border sm:w-64" name="materno" ngModel placeholder="">
+                    <input type="text" class="input border sm:w-64" name="materno" [(ngModel)]="alumno.materno" placeholder="">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Facultad:</label>
-                    <select *ngFor="let facultad of facultades" class="input input--sm border mr-2 sm:w-64" name="idFacultad" ngModel>
+                    <select *ngFor="let facultad of facultades" class="input input--sm border mr-2 sm:w-64" name="idFacultad" [(ngModel)]="alumno.idCarrera">
                         <option [ngValue]="facultad.id">{{ facultad.facultad }}</option>
                     </select>
                 </div>
@@ -87,7 +86,7 @@
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Carrera:</label>
-                    <select *ngFor="let carrera of carreras" class="input input--sm border mr-2 sm:w-64" name="idCarrera" ngModel>
+                    <select *ngFor="let carrera of carreras" class="input input--sm border mr-2 sm:w-64" name="idCarrera" [(ngModel)]="alumno.idCarrera">
                         <option [ngValue]="carrera.id">{{ carrera.carrera }}</option>
                     </select>
                 </div>
@@ -105,7 +104,7 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Porcentaje Academico</label>
-                    <input type="number" class="input border" placeholder="0%" name="porcentaje" ngModel>
+                    <input type="number" class="input border" placeholder="0%" name="porcentaje" [(ngModel)]="alumno.porcentaje">
                 </div>
 
 
@@ -118,12 +117,12 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Correo:</label>
-                    <input type="text" class="input border" placeholder="" name="correo" ngModel>
+                    <input type="text" class="input border" placeholder="" name="correo" [(ngModel)]="alumno.correo">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Celular:</label>
-                    <input type="text" class="input border" placeholder="" name="celular" ngModel>
+                    <input type="text" class="input border" placeholder="" name="celular" [(ngModel)]="alumno.celular">
                 </div>
 
 
@@ -137,34 +136,34 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Pais:</label>
-                    <input type="text" class="input border" value="México" placeholder="" name="pais" ngModel>
+                    <input type="text" class="input border" value="México" placeholder="" name="pais" [(ngModel)]="alumno.pais">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">CP:</label>
-                    <input type="text" class="input border"  placeholder="" name="cp" ngModel>
+                    <input type="text" class="input border"  placeholder="" name="cp" [(ngModel)]="alumno.cp">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="" name="estado" ngModel>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="estado" [(ngModel)]="alumno.estado">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Municipio:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="" name="municipio" ngModel>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="municipio" [(ngModel)]="alumno.municipio">
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Colonia:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="" name="colonia" ngModel>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="colonia" [(ngModel)]="alumno.colonia">
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Calle:</label>
-                    <input type="text" class="input border sm:w-64"  placeholder="" name="calle" ngModel>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="calle" [(ngModel)]="alumno.calle">
                 </div>
 
             </div>

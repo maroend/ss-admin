@@ -18,6 +18,7 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
+import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.compo
     AdministracionComponent,
     DashboardComponent,
     EmpresashomeComponent,
-    EmpresasAddComponent
+    EmpresasAddComponent,
+    AlumnosEditComponent
   ],
   imports: [
     BrowserModule,

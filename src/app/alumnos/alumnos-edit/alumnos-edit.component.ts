@@ -7,18 +7,21 @@ import { FacultadService } from '../../services/facultad.service';
 import { Universidad } from "../../models/universidad";
 import { Carrera } from "../../models/carrera";
 import { Facultad } from "../../models/facultad";
+import { Alumno } from '../../models/alumno';
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
+import { AlumnosComponent } from '../alumnos.component';
 
 
 declare var $: any;
 
 @Component({
-  selector: 'app-alumnos-add',
-  templateUrl: './alumnos-add.component.html',
-  styleUrls: ['./alumnos-add.component.css']
+  selector: 'app-alumnos-edit',
+  templateUrl: './alumnos-edit.component.html',
+  styleUrls: ['./alumnos-edit.component.css']
 })
-export class AlumnosAddComponent implements OnInit {
+export class AlumnosEditComponent implements OnInit {
+
 
   activo = true;
 
@@ -26,16 +29,24 @@ export class AlumnosAddComponent implements OnInit {
   public carreras: Carrera[] = [];
   public facultades: Facultad[] = [];
 
-  constructor(private facultadService: FacultadService,private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService, private router: Router) { }
+  public idAlumno : string;
+
+
+
+  public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "", true, 0,);
+
+  constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService) { }
+
+
+ 
 
   ngOnInit(): void {
-
+    this.idAlumno = this.route.snapshot.paramMap.get("id");
+    this.alumnoService.getAlumno(this.idAlumno).subscribe((alumno: Alumno) => this.alumno = alumno);
     this.obtenerUniversidades();
     this.obtenerCarreras();
     this.obtenerFacultades();
-
   }
-
 
   obtenerUniversidades(){
 
@@ -68,7 +79,7 @@ export class AlumnosAddComponent implements OnInit {
           
     console.log(JSON.stringify(data.value));
 
-    this.alumnoService.addAlumno(data.value).subscribe(() => {
+    this.alumnoService.updateAlumno(this.idAlumno,data.value).subscribe(() => {
       
   
       $('#success-modal-preview').modal('show');

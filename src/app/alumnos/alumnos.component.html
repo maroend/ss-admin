@@ -3,6 +3,18 @@
 
 <!-- BEGIN: Content -->
 <div class="content">
+
+    <div class="modal" id="delete-modal-preview">
+        <div class="modal__content">
+            <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                <div class="text-3xl mt-5">¿Estas seguro de eliminar al alumno?</div>
+                <div class="text-gray-600 mt-2">Eliminar al alumno es irreversible y no se puede deshacer.</div>
+            </div>
+            <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button> <button type="button" class="button w-24 bg-theme-6 text-white">Eliminar</button> </div>
+        </div>
+    </div>
+
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Alumnos
@@ -42,21 +54,23 @@
                     <td class="border-b">
                         <a href="#">
                         <div class="font-medium whitespace-no-wrap">{{ alumno.nombre }}</div>
-                        <div class="text-gray-600 text-xs whitespace-no-wrap">Admón. Turística 1995 UAX</div>
+                        <div class="text-gray-600 text-xs whitespace-no-wrap">{{ alumno.carrera }}</div>
                         </a>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">00263783</div>
+                        <div class="font-medium flex sm:justify-center items-center">{{ alumno.matricula }}</div>
                     </td>
-                    <td class="text-center border-b">UAMN</td>
-                    <td class="text-center border-b">Ingeniería</td>
+                    <td class="text-center border-b">
+                        <div class="font-medium flex sm:justify-center items-center">{{ alumno.universidad }}</div>
+                    </td>
+                    <td class="text-center border-b">{{ alumno.facultad }}</td>
                     <td class="w-40 border-b">
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> INCONCLUSO </div>
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">
-                            <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
-                            <a class="flex items-center text-theme-6" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
+                            <a class="flex items-center mr-3" [routerLink]="['/alumnos/edit', alumno.id]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                            <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
                         </div>
                     </td>
                 </tr>

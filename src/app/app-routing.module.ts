@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { AlumnosAddComponent } from './alumnos/alumnos-add/alumnos-add.component';
-
+import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
@@ -13,7 +13,7 @@ import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.compo
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-{  path: '',
+{ path: '',
   redirectTo: 'login',
   pathMatch: 'full',
 },
@@ -21,15 +21,12 @@ const routes: Routes = [
   {path:'dashboard',component:DashboardComponent},
   {path:'alumnos',component:AlumnosComponent},
   {path:'alumnos/add',component:AlumnosAddComponent},
+  {path:'alumnos/edit/:id', component: AlumnosEditComponent },
   {path:'proyectos',component:ProyectosComponent},
   {path:'convocatorias',component:ConvocatoriasComponent},
   {path:'administracion',component:AdministracionComponent},
   {path:'empresas',component:EmpresashomeComponent},
   {path:'empresas/add',component:EmpresasAddComponent}
-
-
-    
-
 ];
 
 @NgModule({
