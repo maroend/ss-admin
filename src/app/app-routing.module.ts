@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
 import { LoginComponent } from './login/login.component';
+import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.component';
 
 const routes: Routes = [
 {  path: '',
@@ -25,7 +26,8 @@ const routes: Routes = [
   {path:'convocatorias',component:ConvocatoriasComponent},
   {path:'administracion',component:AdministracionComponent},
   {path:'empresas',component:EmpresashomeComponent},
-  {path:'empresas/add',component:EmpresasAddComponent}
+  {path:'empresas/add',component:EmpresasAddComponent},
+  {path:'empresas/Edit',component:EmpresasEditComponent}
 
 
     

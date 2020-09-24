@@ -18,6 +18,7 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
+import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.compo
     AdministracionComponent,
     DashboardComponent,
     EmpresashomeComponent,
-    EmpresasAddComponent
+    EmpresasAddComponent,
+    EmpresasEditComponent
   ],
   imports: [
     BrowserModule,

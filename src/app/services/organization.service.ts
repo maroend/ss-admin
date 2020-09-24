@@ -14,7 +14,12 @@ export class OrganizationService {
   getAll(){
     return this.http.get(`${this.api}Organizaciones`);
   }
+  getOrganizacion(id){
+    const uri = `${this.api}Organizaciones/${id}`;
+    console.log(uri);
 
+    return this.http.get(uri);
+  }
   getAreas(){
     const uri = `${this.api}AreasAccion`;
     return this.http.get(uri);
@@ -41,13 +46,16 @@ export class OrganizationService {
     const uri = `${this.api}ClasificacionesOrganizaciones`;
     return this.http.get(uri);
   }
-
+  getEstado(){
+    const uri = `${this.api}EstadosOrganizaciones
+    `;
+    return this.http.get(uri);
+  }
   
   create(model){
     const uri = `${this.api}Organizaciones`
     return this.http.post(uri, model);
   }
-
   createWithDetails(model){
     const uri = `${this.api}/CreateWithDetails`
     return this.http.post(uri, model);

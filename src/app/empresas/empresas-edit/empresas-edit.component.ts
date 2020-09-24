@@ -1,20 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
-import { Areasaccion, Rubros,Universidades,Tipo,Giro,Clasificacion,Estado,AgregarOrganizacion,Contactoagregar,Responsablemodel,check } from "../../models/empresa"
-import { Router } from '@angular/router';
+import { Areasaccion, Rubros,Universidades,Tipo,Giro,Clasificacion,Estado,AgregarOrganizacion,Contactoagregar,Responsablemodel,check,obtenerOrganizacion } from "../../models/empresa"
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-organization-add',
-  templateUrl: './empresas-add.component.html',
-  styleUrls: ['./empresas-add.component.scss']
+  templateUrl: './empresas-edit.component.html',
+  styleUrls: ['./empresas-edit.component.scss']
 })
-export class EmpresasAddComponent implements OnInit {
+export class EmpresasEditComponent implements OnInit {
   public areas: Areasaccion[] = [];
+  public obtenerorganizacion: obtenerOrganizacion[] = [];
+
   public rubros: Rubros[] = [];
   public universidades: Universidades[] = [];
   public tipo: Tipo[] = [];
-
+public idobtenido="";
   public giro: Giro[] = [];
   public estado: Estado[] = [];
 
@@ -28,9 +30,17 @@ export class EmpresasAddComponent implements OnInit {
   checkmodel = new check("false","false")
 
 
-  constructor(private organizacionService: OrganizationService,private router: Router) {}
+  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) {
+
+    
+  }
 
   ngOnInit(): void {
+    this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
+    var y: number = +this.idobtenido;
+console.log(y);
+this.obtenerorg(y);
+console.log(this.obtenerorganizacion);
     this.obtenerAreas();
     this.obtenerRubros();
     this.obtenerUniversidades();
@@ -64,6 +74,11 @@ var valor= { "idRubro": id ,"activo": true};
 
   ngAfterViewInit() {
     Feather.replace();
+  }
+  obtenerorg(id) {
+    return this.organizacionService
+    .getOrganizacion(id)
+    .subscribe((obtenerorganizacion: obtenerOrganizacion[]) => this.obtenerorganizacion = obtenerorganizacion );
   }
   obtenerAreas() {
     return this.organizacionService
