@@ -38,7 +38,6 @@ export class AlumnosEditComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService) { }
 
 
- 
 
   ngOnInit(): void {
     this.idAlumno = this.route.snapshot.paramMap.get("id");

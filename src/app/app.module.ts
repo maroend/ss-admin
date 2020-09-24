@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { LoginComponent } from './login/login.component';
 import { AlumnosAddComponent } from './alumnos/alumnos-add/alumnos-add.component';
+import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
@@ -26,6 +27,7 @@ import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.co
     AlumnosComponent,
     LoginComponent,
     AlumnosAddComponent,
+    AlumnosEditComponent,
     MenuComponent,
     ProyectosComponent,
     ConvocatoriasComponent,
