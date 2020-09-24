@@ -9,7 +9,7 @@ import { OrganizationService } from '../services/organization.service';
   styleUrls: ['./empresas-home.component.scss']
 })
 export class EmpresashomeComponent implements OnInit {
-  public empresas: Empresa[] = [
+  public empresa: Empresa[] = [
 
   ];
   constructor(private organizacionService: OrganizationService) { }
@@ -24,7 +24,7 @@ export class EmpresashomeComponent implements OnInit {
   obtenerorganizaciones() {
     return this.organizacionService
       .getAll()
-      .subscribe((empresas: Empresa[]) => this.empresas = empresas);
+      .subscribe((empresa: Empresa[]) => this.empresa = empresa);
   }
 
   ngAfterViewInit() {

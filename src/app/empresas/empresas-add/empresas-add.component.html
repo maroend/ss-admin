@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <form (ngSubmit)="create()" #formMascota="ngForm">
+    <form (ngSubmit)="create()" #form="ngForm">
 
     <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
    
@@ -52,23 +52,23 @@
 
                 <div class="flex flex-col sm:flex-row items-center">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Organización:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.organizacion" [ngModelOptions]="{standalone: true}" required>
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.organizacion" [ngModelOptions]="{standalone: true}" required>
                 </div>
              
    
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Misión:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.mision" [ngModelOptions]="{standalone: true}" required>
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.mision" [ngModelOptions]="{standalone: true}" required>
                 </div>
                 
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Objetivo:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.objetivo" [ngModelOptions]="{standalone: true}" required>
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.objetivo" [ngModelOptions]="{standalone: true}" required>
                 </div>
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                   <label class="sm:w-32 sm:text-right sm:mr-5">Logros:</label>
-                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.logros" [ngModelOptions]="{standalone: true}" required>
+                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.logros" [ngModelOptions]="{standalone: true}" required>
               </div>
 
                  <!-- <div class="flex flex-col sm:flex-row items-center mt-3">
@@ -81,33 +81,35 @@
      
  <div class="flex flex-col sm:flex-row items-center mt-3">
     <label class="sm:w-32 sm:text-right sm:mr-5">¿Legionario? </label>
-    <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="checkmodel.jerarquia" [ngModelOptions]="{standalone: true}" >
-      <option [value]="1" selected >Si </option>
+    <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.legionario" [ngModelOptions]="{standalone: true}" >
+      <option [ngValue]="true"  >Si </option>
 
-      <option [value]="2" >No </option>
+      <option [ngValue]="false" >No </option>
 
     </select>
 </div> 
            
   <!-- <div class="flex flex-col sm:flex-row items-center mt-3">
     <label class="sm:w-32 sm:text-right sm:mr-5">Descripción:</label>
-    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.descripcion" [ngModelOptions]="{standalone: true}" required>
+    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.descripcion" [ngModelOptions]="{standalone: true}" required>
 </div> -->
 
 
-                 <div class="flex flex-col sm:flex-row items-center mt-3">
-                    <label class="sm:w-32 sm:text-right sm:mr-5">Descripción:</label>
-                    <select class="input input--sm border mr-2 sm:w-64">
-                      <option [value]="gi.tipo" *ngFor="let gi of tipo">{{gi.tipo}}</option>
+              
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                  <label class="sm:w-32 sm:text-right sm:mr-5">Descripción:</label>
+                  <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.idTipoOrganizacion" [ngModelOptions]="{standalone: true}">
+                    <option [ngValue]="ti.id" *ngFor="let ti of tipo">{{ti.tipo}} </option>
 
-                    </select>
-                </div> 
+              
+                  </select>
+              </div>
 
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Giro:</label>
-                    <select class="input input--sm border mr-2 sm:w-64">
-                      <option [value]="gi.id" *ngFor="let gi of giro">{{gi.giro}} </option>
+                    <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.idGiroOrganizacion" [ngModelOptions]="{standalone: true}">
+                      <option [ngValue]="gi.id" *ngFor="let gi of giro">{{gi.giro}} </option>
 
                 
                     </select>
@@ -116,8 +118,8 @@
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Clacificación:</label>
-                    <select class="input input--sm border mr-2 sm:w-64">
-                      <option [value]="cl.id" *ngFor="let cl of clasificacion">{{cl.clasificacion}}</option>
+                    <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.idClasificacionOrganizacion" [ngModelOptions]="{standalone: true}">
+                      <option [ngValue]="cl.id" *ngFor="let cl of clasificacion">{{cl.clasificacion}}</option>
 
                     </select>
                 </div>
@@ -125,7 +127,7 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Web:</label>
-                    <input type="text" class="input border sm:w-64" placeholder=""  [(ngModel)]="agregarModel.web" [ngModelOptions]="{standalone: true}" required>
+                    <input type="text" class="input border sm:w-64" placeholder=""  [(ngModel)]="empresaModel.web" [ngModelOptions]="{standalone: true}" required>
                 </div>
 
 
@@ -138,23 +140,23 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">CP:</label>
-                    <input type="text" class="input border sm:w-64" placeholder=""  [(ngModel)]="agregarModel.cp" [ngModelOptions]="{standalone: true}">
+                    <input type="text" class="input border sm:w-64" placeholder=""  [(ngModel)]="empresaModel.cp" [ngModelOptions]="{standalone: true}">
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Pais:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.pais" [ngModelOptions]="{standalone: true}">
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.pais" [ngModelOptions]="{standalone: true}">
                 </div>
 
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                   <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
-                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.estado" [ngModelOptions]="{standalone: true}">
+                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.estado" [ngModelOptions]="{standalone: true}">
                 </div>
 
               <div class="flex flex-col sm:flex-row items-center mt-3">
                   <label class="sm:w-32 sm:text-right sm:mr-5">Municipio/Delegación:</label>
-                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.municipio" [ngModelOptions]="{standalone: true}">
+                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.municipio" [ngModelOptions]="{standalone: true}">
                 </div>
 
 
@@ -162,21 +164,21 @@
 
             <div class="flex flex-col sm:flex-row items-center mt-3">
               <label class="sm:w-32 sm:text-right sm:mr-5">Colonia:</label>
-                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.colonia" [ngModelOptions]="{standalone: true}">
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.colonia" [ngModelOptions]="{standalone: true}">
           </div>
 
           <div class="flex flex-col sm:flex-row items-center mt-3">
             <label class="sm:w-32 sm:text-right sm:mr-5">Calle:</label>
-            <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="agregarModel.calle" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="empresaModel.calle" [ngModelOptions]="{standalone: true}">
           </div>
 
         <div class="flex flex-col sm:flex-row items-center mt-3">
           <label class="sm:w-32 sm:text-right sm:mr-5">Num. Ext.:</label>
-          <input type="text" class="input border" placeholder="" [(ngModel)]="agregarModel.noExt" [ngModelOptions]="{standalone: true}">
+          <input type="text" class="input border" placeholder="" [(ngModel)]="empresaModel.noExt" [ngModelOptions]="{standalone: true}">
       </div>
       <div class="flex flex-col sm:flex-row items-center mt-3">
         <label class="sm:w-32 sm:text-right sm:mr-5">Num. Int.:</label>
-        <input type="text" class="input border" placeholder="" [(ngModel)]="agregarModel.noInt" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="input border" placeholder="" [(ngModel)]="empresaModel.noInt" [ngModelOptions]="{standalone: true}">
     </div>
     <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
       <h2 class="font-medium text-base mr-auto">
@@ -205,33 +207,33 @@
 
                 
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.ancianos" [ngModelOptions]="{standalone: true}">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="empresaModel.ancianos" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Ancianos.</label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.discapacitados" [ngModelOptions]="{standalone: true}">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="empresaModel.discapacitados" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Discapacitados.  </label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.indigenas" [ngModelOptions]="{standalone: true}">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="empresaModel.indigenas" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Indígenas.</label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.jovenes" [ngModelOptions]="{standalone: true}" >
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="empresaModel.jovenes" [ngModelOptions]="{standalone: true}" >
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Jóvenes.</label>
 </div>
 
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.mujeres" [ngModelOptions]="{standalone: true}">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="empresaModel.mujeres" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Mujeres.</label>
 </div>
 <div class="flex flex-col sm:flex-row items-center mt-3">
-  <input type="number" class="input border" placeholder=""  [(ngModel)]="agregarModel.ninos" [ngModelOptions]="{standalone: true}">
+  <input type="number" class="input border" placeholder=""  [(ngModel)]="empresaModel.ninos" [ngModelOptions]="{standalone: true}">
 
   <label class="sm:w-32 sm:text-right sm:mr-5">Niños.</label>
 </div>
@@ -314,15 +316,15 @@
     <label class="sm:w-32 sm:text-right sm:mr-5">¿Disponible?  </label>
     <div class="controls"><br>
       
-      Sí&nbsp;<input type="radio"  checked value='TRUE' [(ngModel)]="agregarModel.disponible" name="disponible" class="input-xlarge focused">	  No&nbsp;<input type="radio" value='FALSE' [(ngModel)]="agregarModel.disponible" name="disponible" checked="checked" class="input-xlarge focused">
+      Sí&nbsp;<input type="radio"  checked value='TRUE' [(ngModel)]="empresaModel.disponible" name="disponible" class="input-xlarge focused">	  No&nbsp;<input type="radio" value='FALSE' [(ngModel)]="empresaModel.disponible" name="disponible" checked="checked" class="input-xlarge focused">
 </div>              </div> -->
      
 <div class="flex flex-col sm:flex-row items-center mt-3">
   <label class="sm:w-32 sm:text-right sm:mr-5">¿Disponible? </label>
-  <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="checkmodel.disponible" [ngModelOptions]="{standalone: true}" >
-    <option [value]="1" selected >Si </option>
+  <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.disponible" [ngModelOptions]="{standalone: true}" >
+    <option [ngValue]="true"  >Si </option>
 
-    <option [value]="2" >No </option>
+    <option [ngValue]="false" >No </option>
 
   </select>
 </div> 
@@ -337,7 +339,7 @@
   <table style="padding: 15px; margin-left: 25px;">				
     <tbody>
       <tr *ngFor="let uni of universidades">
-        <td style="padding:5px;"> <input type="checkbox" id="uni{{uni.id}}" [(ngModel)]="agregarModel.idUniversidad" [ngModelOptions]="{standalone: true}" value="10"></td>
+        <td style="padding:5px;"> <input type="checkbox" id="uni{{uni.id}}" [(ngModel)]="empresaModel.idUniversidad" [ngModelOptions]="{standalone: true}" value="10"></td>
            <td>{{uni.universidad}}</td>
 
   </tr></tbody></table>
@@ -351,8 +353,8 @@
 
   <div class="flex flex-col sm:flex-row items-center mt-3">
     <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
-    <select class="input input--sm border mr-2 sm:w-64">
-      <option [value]="gi.id" *ngFor="let gi of estado">{{gi.estado}}</option>
+    <select class="input input--sm border mr-2 sm:w-64"  [(ngModel)]="empresaModel.idEstadoOrganizacion" name="observaciones" >
+      <option [ngValue]="gi.id" *ngFor="let gi of estado">{{gi.estado}}</option>
 
     </select>
 </div>
@@ -363,7 +365,7 @@
   </h2>
 </div>
 
-<textarea class="mt-3" name="textarea" [(ngModel)]="agregarModel.observaciones" name="observaciones"   rows="10" cols="100"></textarea>
+<textarea class="mt-3" name="textarea" [(ngModel)]="empresaModel.observaciones" name="observaciones"   rows="10" cols="100"></textarea>
 
             </div>
           
