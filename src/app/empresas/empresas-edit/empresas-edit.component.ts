@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
-import { Empresa,Responsablemodel,check, listaAreasModel } from "../../models/empresa"
+import { Empresa,Responsablemodel,check } from "../../models/empresa"
 import { AreaAccion } from "../../models/areaaccion"
 
 import { RubroEmpresa } from "../../models/rubrosempresa"
@@ -14,6 +14,7 @@ import { EstadoEmpresa } from "../../models/estadoempresa"
 
 
 import { Router,ActivatedRoute } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-organization-add',
@@ -155,7 +156,7 @@ var valor= { "idRubro": id ,"activo": true};
     this.organizacionService.updateempresa(this.idobtenido,model).subscribe(() => {
       
   
-     // $('#success-modal-preview').modal('show');
+      $('#success-modal-preview').modal('show');
 
       this.router.navigate(['/empresas']);
     })

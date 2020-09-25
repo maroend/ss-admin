@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { Empresa } from "../models/empresa"
 import { OrganizationService } from '../services/organization.service';
+declare var $: any;
 
 @Component({ 
   selector: 'app-empresas-projects',
@@ -28,6 +29,9 @@ export class EmpresashomeComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+
+    $('#tablaempresa').DataTable().destroy();
+    $('#tablaempresa').DataTable();
     Feather.replace();
   }
 }

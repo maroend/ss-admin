@@ -11,6 +11,7 @@ import { GiroEmpresa } from "../../models/giroempresa"
 import { ClasificacionEmpresa } from "../../models/clasificacionempresa"
 import { EstadoEmpresa } from "../../models/estadoempresa"
 import { Router } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-organization-add',
@@ -123,7 +124,10 @@ console.log(this.responsablemodel);
     console.log(model)
 
     this.organizacionService.create(model).subscribe((res: any)=>{
-      console.log(res.message)
+      console.log(res.message);
+      $('#success-modal-preview').modal('show');
+
+
       this.router.navigate(['/empresas']);
 
     }, error=>{

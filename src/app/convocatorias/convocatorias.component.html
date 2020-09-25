@@ -3,12 +3,23 @@
 
 <!-- BEGIN: Content -->
 <div class="content">
+    <div class="content">
+        <div class="modal" id="success-modal-preview">
+          <div class="modal__content">
+              <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                  <div class="text-3xl mt-5">Muy bien!</div>
+                  <div class="text-gray-600 mt-2">Has editado una empresa!</div>
+              </div>
+              <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+          </div>
+      </div>
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Convocatorias
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Agregar Alumno</button>
+            <button routerLink="/convocatorias/add" class="button text-white bg-theme-1 shadow-md mr-2">Agregar Convocatoria</button>
             <div class="dropdown relative ml-auto sm:ml-0">
                 <button class="dropdown-toggle button px-2 box text-gray-700 dark:text-gray-300">
                     <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
@@ -29,38 +40,48 @@
         <table datatable  class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
-                    <th class="border-b-2 whitespace-no-wrap">NOMBRE COMPLETO</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">MATRICULA</th>
+                    <th class="border-b-2 whitespace-no-wrap">CONVOCATORIA</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">TIPO</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">UNIVERSIDAD</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">FACULTAD</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">STATUS</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">ACCIONES</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">PERIODO</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">FECHA INICIO</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">FECHA TERMINO</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">ACCIÓN</th>
+
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    
+            <tbody *ngIf="convocatorias?.length != 0">
+             
+                <tr *ngFor="let convocatoria of convocatorias">
                     <td class="border-b">
-                        <a href="#">
-                        <div class="font-medium whitespace-no-wrap">Jose Carlos Ruiz García</div>
-                        <div class="text-gray-600 text-xs whitespace-no-wrap">Admón. Turística 1995 UAX</div>
-                        </a>
+                        <div class="font-medium flex sm:justify-center items-center">{{convocatoria.convocatoria}}</div>
+                    </td>
+                    <td class="w-40  border-b">
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="convocatoria.tipo==1">Alumnos</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="convocatoria.tipo==2">Empresas</div>
+
+                    </td>
+               
+                    <td class=" border-b">
+                        <div class="font-medium flex sm:justify-center items-center"> {{convocatoria.universidad}}</div>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">00263783</div>
+                        <div class="font-medium flex sm:justify-center items-center">{{convocatoria.periodo}}</div>
                     </td>
-                    <td class="text-center border-b">UAMN</td>
-                    <td class="text-center border-b">Ingeniería</td>
-                    <td class="w-40 border-b">
-                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> INCONCLUSO </div>
+                    <td class="border-b">
+                        <div class="font-medium flex sm:justify-center items-center">{{convocatoria.fechaInicio}}</div>
+                    </td>
+                    <td class="border-b">
+                        <div class="font-medium flex sm:justify-center items-center">{{convocatoria.fechaTermino}}</div>
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">
-                            <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
-                            <a class="flex items-center text-theme-6" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
+                            <a class="flex items-center mr-3" [routerLink]="['/convocatorias/edit', convocatoria.id  ]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                            <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
                         </div>
                     </td>
                 </tr>
+
                 
             </tbody>
         </table>
