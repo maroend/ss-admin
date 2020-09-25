@@ -7,6 +7,9 @@ import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.compon
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
+import { ConvocatoriaAddComponent } from './convocatorias/convocatoria-add/convocatoria-add.component';
+import { ConvocatoriaEditComponent } from './convocatorias/convocatoria-edit/convocatoria-edit.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
@@ -25,6 +28,9 @@ const routes: Routes = [
   {path:'alumnos/edit/:id', component: AlumnosEditComponent },
   {path:'proyectos',component:ProyectosComponent},
   {path:'convocatorias',component:ConvocatoriasComponent},
+  {path:'convocatorias/add',component:ConvocatoriaAddComponent},
+  {path:'convocatorias/edit/:id',component:ConvocatoriaEditComponent},
+
   {path:'administracion',component:AdministracionComponent},
   {path:'empresas',component:EmpresashomeComponent},
   {path:'empresas/add',component:EmpresasAddComponent},

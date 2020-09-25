@@ -1,8 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
-import { Areasaccion, Rubros,Universidades,Tipo,Giro,Clasificacion,Estado,AgregarOrganizacion,Contactoagregar,Responsablemodel,check,obtenerOrganizacion } from "../../models/empresa"
+import { Empresa,Responsablemodel,check } from "../../models/empresa"
+import { AreaAccion } from "../../models/areaaccion"
+
+import { RubroEmpresa } from "../../models/rubrosempresa"
+import { Universidad } from "../../models/universidad"
+import { TipoEmpresa } from "../../models/tipoempresa"
+import { GiroEmpresa } from "../../models/giroempresa"
+import { ClasificacionEmpresa } from "../../models/clasificacionempresa"
+import { EstadoEmpresa } from "../../models/estadoempresa"
+
+
+
 import { Router,ActivatedRoute } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-organization-add',
@@ -10,25 +22,26 @@ import { Router,ActivatedRoute } from '@angular/router';
   styleUrls: ['./empresas-edit.component.scss']
 })
 export class EmpresasEditComponent implements OnInit {
-  public areas: Areasaccion[] = [];
-  public obtenerorganizacion = new obtenerOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
-
-
-  public rubros: Rubros[] = [];
-  public universidades: Universidades[] = [];
-  public tipo: Tipo[] = [];
-  public idobtenido:string;
-  public giro: Giro[] = [];
-  public estado: Estado[] = [];
-
-  public clasificacion: Clasificacion[] = [];
-  agregarModel = new AgregarOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
-  contactoModel = new Contactoagregar("","","","","","","",true)
+  public areas: AreaAccion[] = [];
+  public responsable: Responsablemodel[] = [];
+  public rubros: RubroEmpresa[] = [];
+  public universidades: Universidad[] = [];
+  public tipo: TipoEmpresa[] = [];
+public idobtenido:string;
+  public giro: GiroEmpresa[] = [];
+  public estado: EstadoEmpresa[] = [];
   public listaAreasAccion = [];
   public listaRubros = [];
+  public idRubro:any;
+  public idAreaAccion:any;
+
   public contactos = [];
-  responsablemodel = new Responsablemodel("","","","","","","","","",true,true)
+  public clasificacion: ClasificacionEmpresa[] = [];
+  horasAlumno = [];
+
+  public responsablemodel = new Responsablemodel("","","","","","","","","",true,true)
   checkmodel = new check("false","false")
+  empresaModel = new Empresa("","","","","","","","","","","","","","","","","","","",true,0,"",null,false,true,1,1,1,1,1,0,0,0,0,0,0,this.listaAreasAccion,this.listaRubros,this.responsablemodel)
 
 
   constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) {
@@ -38,8 +51,8 @@ export class EmpresasEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
-    this.organizacionService.getOrganizacion(this.idobtenido).subscribe((obtenerorganizacion: obtenerOrganizacion) => this.obtenerorganizacion = obtenerorganizacion);
-console.log(this.obtenerorganizacion);  
+    this.organizacionService.getOrganizacion(this.idobtenido).subscribe((empresaModel: Empresa) => this.empresaModel = empresaModel);
+    this.getempresa(this.idobtenido);
     this.obtenerAreas();
     this.obtenerRubros();
     this.obtenerUniversidades();
@@ -50,7 +63,6 @@ console.log(this.obtenerorganizacion);
 
   }
   toggleArea(checked, id){
-    console.log(checked);
 var valor= { "idAreaAccion": id ,"activo": true};
 
     var area = this.areas.find(x=>x.id===id);
@@ -74,82 +86,80 @@ var valor= { "idRubro": id ,"activo": true};
   ngAfterViewInit() {
     Feather.replace();
   }
+  getempresa(id){
+    this.organizacionService.getOrganizacion(id).subscribe((res: any[])=>{
+      this.horasAlumno = res;
+      console.log(this.horasAlumno);
+      this.responsablemodel=res['responsable'];
+      this.listaAreasAccion=res['listaAreasAccion'];
+      this.listaRubros=res['listaRubros'];
 
+      console.log(this.listaAreasAccion);
+      this.idRubro =  this.listaRubros.map(({ idRubro }) => idRubro);
+      this.idAreaAccion =  this.listaAreasAccion.map(({ idAreaAccion }) => idAreaAccion);
+
+
+      
+    })
+  }
   obtenerAreas() {
     return this.organizacionService
       .getAreas()
-      .subscribe((areas: Areasaccion[]) => this.areas = areas );
+      .subscribe((areas: AreaAccion[]) => this.areas = areas );
   }
   obtenerRubros() {
     return this.organizacionService
       .getRubros()
-      .subscribe((rubros: Rubros[]) => this.rubros = rubros );
+      .subscribe((rubros: RubroEmpresa[]) => this.rubros = rubros );
   }
   obtenerUniversidades() {
     return this.organizacionService
       .getUniversidades()
-      .subscribe((universidades: Universidades[]) => this.universidades = universidades );
+      .subscribe((universidades: Universidad[]) => this.universidades = universidades );
   }
   obtenerTipo() {
     return this.organizacionService
       .getTipo()
-      .subscribe((tipo: Tipo[]) => this.tipo = tipo );
+      .subscribe((tipo: TipoEmpresa[]) => this.tipo = tipo );
   }
  
   obtenerEstado() {
     return this.organizacionService
       .getEstado()
-      .subscribe((estado: Estado[]) => this.estado = estado );
+      .subscribe((estado: EstadoEmpresa[]) => this.estado = estado );
   }
   obtenerGiro() {
     return this.organizacionService
       .getGiro()
-      .subscribe((giro: Giro[]) => this.giro = giro );
+      .subscribe((giro: GiroEmpresa[]) => this.giro = giro );
   }
   obtenerClasificacion() {
     return this.organizacionService
       .getClasificacion()
-      .subscribe((clasificacion: Clasificacion[]) => this.clasificacion = clasificacion );
+      .subscribe((clasificacion: ClasificacionEmpresa[]) => this.clasificacion = clasificacion );
   }
 
 
-  create(){
-    let model = this.agregarModel;
 
-    if(this.checkmodel.jerarquia == "1"){
-      model.legionario=true;
-    }
-    else{
-      model.legionario=false;
+  onSubmit() {
+    let model = this.empresaModel;
 
-    }
-    if(this.checkmodel.disponible == "1"){
-      model.disponible=true;
-    }
-    else{
-      model.disponible=false;
-
-    }
+   
+    model.responsable = this.responsablemodel;
 
     model.listaAreasAccion = this.listaAreasAccion;
     model.listaRubros = this.listaRubros ;
-    var contacto= { "nombre": this.contactoModel.nombre ,"prefijo": this.contactoModel.prefijo,"puesto": this.contactoModel.puesto,
-    "correo": this.contactoModel.correo,"telefono": this.contactoModel.telefono,  "ext": this.contactoModel.ext,"celular": this.contactoModel.celular,"activo": true };
 
-  
     
-    model.listaContactos = new Array()  ;
-    model.responsable = this.responsablemodel;
+    console.log(model);
 
-    console.log(model)
+    this.organizacionService.updateempresa(this.idobtenido,model).subscribe(() => {
+      
+  
+      $('#success-modal-preview').modal('show');
 
-    this.organizacionService.create(model).subscribe((res: any)=>{
-      console.log(res.message)
       this.router.navigate(['/empresas']);
-
-    }, error=>{
-      alert(error.error)
     })
-  }
 
+  }
 }

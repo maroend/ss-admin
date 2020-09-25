@@ -15,6 +15,9 @@ import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.compon
 import { MenuComponent } from './menu/menu.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
+import { ConvocatoriaEditComponent } from './convocatorias/convocatoria-edit/convocatoria-edit.component';
+import { ConvocatoriaAddComponent } from './convocatorias/convocatoria-add/convocatoria-add.component';
+
 import { AdministracionComponent } from './administracion/administracion.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresashomeComponent } from './empresas/empresas-home.component';
@@ -35,7 +38,9 @@ import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.co
     DashboardComponent,
     EmpresashomeComponent,
     EmpresasAddComponent,
-    EmpresasEditComponent
+    EmpresasEditComponent,
+    ConvocatoriaAddComponent,
+    ConvocatoriaEditComponent
   ],
   imports: [
     BrowserModule,

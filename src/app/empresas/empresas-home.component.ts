@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { Empresa } from "../models/empresa"
 import { OrganizationService } from '../services/organization.service';
+declare var $: any;
 
 @Component({ 
   selector: 'app-empresas-projects',
@@ -9,7 +10,7 @@ import { OrganizationService } from '../services/organization.service';
   styleUrls: ['./empresas-home.component.scss']
 })
 export class EmpresashomeComponent implements OnInit {
-  public empresas: Empresa[] = [
+  public empresa: Empresa[] = [
 
   ];
   constructor(private organizacionService: OrganizationService) { }
@@ -24,10 +25,13 @@ export class EmpresashomeComponent implements OnInit {
   obtenerorganizaciones() {
     return this.organizacionService
       .getAll()
-      .subscribe((empresas: Empresa[]) => this.empresas = empresas);
+      .subscribe((empresa: Empresa[]) => this.empresa = empresa);
   }
 
   ngAfterViewInit() {
+
+   // $('#tablaempresa').DataTable().destroy();
+    //$('#tablaempresa').DataTable();
     Feather.replace();
   }
 }
