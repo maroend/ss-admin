@@ -45,7 +45,7 @@ export class AlumnosComponent implements OnInit {
             });
           });
       },
-      //columns: [{ data: 'id' }, { data: 'nombre' }, { data: 'paterno' }]
+      columns: [{ data: 'nombre' }, { data: 'matricula' }, { data: 'universidad' },{ data: 'facultad' }]
     };
 
   }

@@ -17,12 +17,12 @@ export class EmpresasEditComponent implements OnInit {
   public rubros: Rubros[] = [];
   public universidades: Universidades[] = [];
   public tipo: Tipo[] = [];
-public idobtenido:string;
+  public idobtenido:string;
   public giro: Giro[] = [];
   public estado: Estado[] = [];
 
   public clasificacion: Clasificacion[] = [];
-  // agregarModel = new AgregarOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
+  agregarModel = new AgregarOrganizacion("","","","","","","","","","","","","","","","","",true,0,"",false,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined,undefined)
   contactoModel = new Contactoagregar("","","","","","","",true)
   public listaAreasAccion = [];
   public listaRubros = [];

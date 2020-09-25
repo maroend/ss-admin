@@ -19,15 +19,16 @@
           </div>
           <!-- END: Login Info -->
           <!-- BEGIN: Login Form -->
+         
           <div class="h-screen xl:h-auto flex py-5 xl:py-0 my-10 xl:my-0">
               <div class="my-auto mx-auto xl:ml-20 bg-white xl:bg-transparent px-5 sm:px-8 py-8 xl:p-0 rounded-md shadow-md xl:shadow-none w-full sm:w-3/4 lg:w-2/4 xl:w-auto">
                   <h2 class="intro-x font-bold text-2xl xl:text-3xl text-center xl:text-left">
                       Ingresar
                   </h2>
-                  
+                  <form  #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
                   <div class="intro-x mt-8">
-                      <input type="text" class="intro-x login__input input input--lg border border-gray-300 block" placeholder="Email">
-                      <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Password">
+                      <input type="mail" class="intro-x login__input input input--lg border border-gray-300 block" name="usuario" placeholder="usuario@email.com" ngModel>
+                      <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" name="password" placeholder="********" ngModel>
                   </div>
                   <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4">
                       <div class="flex items-center mr-auto">
@@ -37,15 +38,17 @@
                       <a href="">Olvidaste tu Password?</a> 
                   </div>
                   <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
-                      <button class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3">Login</button>
+                      <button class="button button--lg w-full xl:w-32 text-white bg-theme-1 xl:mr-3">Ingresar</button>
                       
                   </div>
+                </form>
                   <div class="intro-x mt-10 xl:mt-24 text-gray-700 dark:text-gray-600 text-center xl:text-left">
                       
                       <a class="text-theme-1 dark:text-theme-10" href="">Términos y Condiciones</a> & <a class="text-theme-1 dark:text-theme-10" href="">Aviso de Privacidad</a> 
                   </div>
               </div>
           </div>
+      
           <!-- END: Login Form -->
       </div>
     </div>
