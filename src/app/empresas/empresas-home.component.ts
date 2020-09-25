@@ -30,8 +30,8 @@ export class EmpresashomeComponent implements OnInit {
 
   ngAfterViewInit() {
 
-    $('#tablaempresa').DataTable().destroy();
-    $('#tablaempresa').DataTable();
+   // $('#tablaempresa').DataTable().destroy();
+    //$('#tablaempresa').DataTable();
     Feather.replace();
   }
 }
