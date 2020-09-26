@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
-import { ConvocatoriaServices } from '../services/convocatoria.service';
-import { Convocatoria } from "../models/convocatoria"
+import { UsuarioServices } from '../services/usuario.service';
+import { Usuario } from "../models/usuario"
 
 @Component({
   selector: 'app-convocatorias',
-  templateUrl: './convocatorias.component.html',
-  styleUrls: ['./convocatorias.component.css']
+  templateUrl: './usuarios.component.html',
+  styleUrls: ['./usuarios.component.css']
 })
-export class ConvocatoriasComponent implements OnInit {
-  public convocatorias:Convocatoria [] = [
+export class UsuariosComponent implements OnInit {
+  public usuarios: Usuario[] = [
 
   ];
-  constructor(private convocatoriaService: ConvocatoriaServices) { }
+  constructor(private convocatoriaService:UsuarioServices ) { }
 
   ngOnInit(): void {
     this.obtenerConvocatoria();
@@ -23,7 +23,7 @@ export class ConvocatoriasComponent implements OnInit {
   }
   obtenerConvocatoria() {
     return this.convocatoriaService
-      .getConvocatoria()
-      .subscribe((convocatorias: Convocatoria[]) => this.convocatorias = convocatorias);
+      .getUsuarios()
+      .subscribe((usuarios: Usuario[]) => this.usuarios = usuarios);
   }
 }

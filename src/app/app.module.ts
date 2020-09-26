@@ -24,6 +24,10 @@ import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
 import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.component';
 
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
+import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +44,11 @@ import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.co
     EmpresasAddComponent,
     EmpresasEditComponent,
     ConvocatoriaAddComponent,
-    ConvocatoriaEditComponent
+    ConvocatoriaEditComponent,
+    UsuariosComponent,
+    UsuariosAddComponent,
+    UsuariosEditComponent
+
   ],
   imports: [
     BrowserModule,

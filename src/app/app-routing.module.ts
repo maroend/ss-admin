@@ -15,6 +15,9 @@ import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
 import { LoginComponent } from './login/login.component';
 import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
+import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
 
 const routes: Routes = [
 { path: '',
@@ -34,8 +37,10 @@ const routes: Routes = [
   {path:'administracion',component:AdministracionComponent},
   {path:'empresas',component:EmpresashomeComponent},
   {path:'empresas/add',component:EmpresasAddComponent},
-  {path:'empresas/Edit/:id',component:EmpresasEditComponent}
-
+  {path:'empresas/Edit/:id',component:EmpresasEditComponent},
+  {path:'usuarios',component:UsuariosComponent},
+  {path:'usuarios/add',component:UsuariosAddComponent},
+  {path:'usuarios/edit/:id',component:UsuariosEditComponent}
 ];
 
 @NgModule({

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConvocatoriaEditComponent } from './convocatoria-edit.component';
+import { UsuariosiaEditComponent } from './usuarios-edit.component';
 
 describe('ConvocatoriaEditComponent', () => {
-  let component: ConvocatoriaEditComponent;
-  let fixture: ComponentFixture<ConvocatoriaEditComponent>;
+  let component: UsuariosiaEditComponent;
+  let fixture: ComponentFixture<UsuariosiaEditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConvocatoriaEditComponent ]
+      declarations: [ UsuariosiaEditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConvocatoriaEditComponent);
+    fixture = TestBed.createComponent(UsuariosiaEditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

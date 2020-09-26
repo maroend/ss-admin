@@ -20,7 +20,7 @@ export class ConvocatoriaEditComponent implements OnInit {
 
   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
 
-  public convocatoria = new Convocatoria("",0,0,0,"",0,"",this.d,this.d,true,"");
+  public convocatoria = new Convocatoria("",0,0,0,"",0,"",this.d,this.d,false,"");
   
 public fechaini="";
 public fechafin="";

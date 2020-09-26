@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
-import { ConvocatoriaServices } from '../../services/convocatoria.service';
-import { Convocatoria } from "../../models/convocatoria"
+import { UsuarioServices } from '../../services/usuario.service';
+import { Usuario } from "../../models/usuario"
 
-import { Periodos } from "../../models/periodo"
 import { Universidad } from "../../models/universidad"
 
 import { Router } from '@angular/router';
@@ -11,24 +10,22 @@ declare var $: any;
 
 @Component({
   selector: 'app-organization-add',
-  templateUrl: './convocatoria-add.component.html',
-  styleUrls: ['./convocatoria-add.component.scss']
+  templateUrl: './usuarios-add.component.html',
+  styleUrls: ['./usuarios-add.component.scss']
 })
-export class ConvocatoriaAddComponent implements OnInit {
+export class UsuariosAddComponent implements OnInit {
   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
 
-  public convocatoria = new Convocatoria("",0,0,0,"",0,"",this.d,this.d,true,"");
-  public periodos:Periodos[] = [];
+  public usuarios = new Usuario("","","","","",1,1,true);
 
   public universidades:Universidad[] = [];
 
 
 
-  constructor(private convocatoriaservices: ConvocatoriaServices,private router: Router) {}
+  constructor(private convocatoriaservices: UsuarioServices,private router: Router) {}
 
   ngOnInit(): void {
 this.obtenerUniversidad();
-this.obtenerperiodo();
 
   }
   obtenerUniversidad(){
@@ -38,25 +35,19 @@ this.obtenerperiodo();
       .subscribe((universidades: Universidad[]) => this.universidades = universidades);
 
   }
-  obtenerperiodo(){
 
-    return this.convocatoriaservices
-      .getPeriodo()
-      .subscribe((periodos: Periodos[]) => this.periodos = periodos);
-
-  }
   ngAfterViewInit() {
     Feather.replace();
   }
 
   create(){
-    let model = this.convocatoria;
+    let model = this.usuarios;
 
     console.log(model)
 
     this.convocatoriaservices.create(model).subscribe((res: any)=>{
       console.log(res.message)
-      this.router.navigate(['/convocatorias']);
+      this.router.navigate(['/usuarios']);
       $('#success-modal-preview').modal('show');
 
     }, error=>{

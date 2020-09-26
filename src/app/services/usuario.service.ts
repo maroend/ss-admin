@@ -1,45 +1,41 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
-import { Convocatoria } from '../models/convocatoria';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConvocatoriaServices {
+export class UsuarioServices {
 
   api = environment.baseUrl;
 
   constructor(private http:HttpClient) { }
 
 
-  getConvocatoria() {
-    const uri = `${this.api}/Convocatorias`;
+  getUsuarios() {
+    const uri = `${this.api}/Usuarios`;
     console.log(uri);
     return this.http.get(uri);
  
   } 
    create(model){
-    const uri = `${this.api}/Convocatorias`
+    const uri = `${this.api}/Usuarios`
     return this.http.post(uri, model);
   }
-  getPeriodo(){
-    const uri = `${this.api}/Periodos`;
-    console.log(uri);
-    return this.http.get(uri);
-  }
+  
   getUniversidad(){
     const uri = `${this.api}/Universidades`;
     console.log(uri);
     return this.http.get(uri);
   }
-  getConvocatoriaid(id){
-    const uri = `${this.api}/Convocatorias/${id}`;
+  getUsuarioid(id){
+    const uri = `${this.api}/Usuarios/${id}`;
          console.log(uri);
     return this.http.get(uri);
   }
-  updateconvocatoria(id: string | number,convocatoria: Convocatoria) {
-    convocatoria.id = Number(id);
-    return this.http.put(`${this.api}/Convocatorias/${id}`, convocatoria);
+  updateusuarios(id: string | number,usuario: Usuario) {
+    usuario.id = Number(id);
+    return this.http.put(`${this.api}/Usuarios/${id}`, usuario);
   }
 }
