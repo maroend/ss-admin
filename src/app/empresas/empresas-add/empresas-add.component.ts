@@ -24,7 +24,7 @@ export class EmpresasAddComponent implements OnInit {
   public universidades: Universidad[] = [];
   public tipo: TipoEmpresa[] = [];
   public responsablemodel = new Responsablemodel("","","","","","","","","",true,true)
-
+public validar=false;
   public giro: GiroEmpresa[] = [];
   public estado: EstadoEmpresa[] = [];
   public listaAreasAccion = [];
@@ -125,14 +125,19 @@ console.log(this.responsablemodel);
 
     this.organizacionService.create(model).subscribe((res: any)=>{
       console.log(res.message);
-      $('#success-modal-preview').modal('show');
+      this.validar=true;
 
-
-      this.router.navigate(['/empresas']);
 
     }, error=>{
       alert(error.error)
     })
-  }
+  
+  if(this.validar){
+    $('#success-modal-preview').modal('show');
 
+
+    this.router.navigate(['/empresas']);
+  }
+  }
+  
 }

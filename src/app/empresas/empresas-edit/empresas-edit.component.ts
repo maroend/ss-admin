@@ -34,7 +34,7 @@ public idobtenido:string;
   public listaRubros = [];
   public idRubro:any;
   public idAreaAccion:any;
-
+public validar=false;
   public contactos = [];
   public clasificacion: ClasificacionEmpresa[] = [];
   horasAlumno = [];
@@ -150,16 +150,20 @@ var valor= { "idRubro": id ,"activo": true};
     model.listaAreasAccion = this.listaAreasAccion;
     model.listaRubros = this.listaRubros ;
 
-    
     console.log(model);
 
     this.organizacionService.updateempresa(this.idobtenido,model).subscribe(() => {
       
-  
-      $('#success-modal-preview').modal('show');
+      this.validar=true;
 
-      this.router.navigate(['/empresas']);
+     
     })
 
+
+if(this.validar){
+    this.router.navigate(['/empresas']);
+    $('#success-modal-preview').modal('show');
+
+}
   }
 }

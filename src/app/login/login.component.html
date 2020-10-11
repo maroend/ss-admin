@@ -1,5 +1,7 @@
 <div class="login" style="position: absolute; top: 0px; width: 100%; height: 100%;">
     <div class="container sm:px-10">
+        <div class="content">
+      
       <div class="block xl:grid grid-cols-2 gap-4">
           <!-- BEGIN: Login Info -->
           <div class="hidden xl:flex flex-col min-h-screen">
@@ -27,8 +29,8 @@
                   </h2>
                   <form  #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
                   <div class="intro-x mt-8">
-                      <input type="mail" class="intro-x login__input input input--lg border border-gray-300 block" name="usuario" placeholder="usuario@email.com" ngModel>
-                      <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" name="password" placeholder="********" ngModel>
+                      <input type="mail" class="intro-x login__input input input--lg border border-gray-300 block" name="email" placeholder="usuario@email.com" ngModel>
+                      <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" name="contraseña" placeholder="********" ngModel>
                   </div>
                   <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4">
                       <div class="flex items-center mr-auto">
@@ -52,4 +54,13 @@
           <!-- END: Login Form -->
       </div>
     </div>
+    </div>
+    <div class="modal" id="success-modal-preview">
+        <div class="modal__content">
+            <div class="p-5 text-center"> <i data-feather="alert-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                <div class="text-3xl mt-5">Algo salio mal!</div>
+                <div class="text-gray-600 mt-2">{{mensaje}}</div>
+            </div>
+            <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+        </div>
     </div>

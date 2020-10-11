@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { Empresa } from "../models/empresa"
 import { OrganizationService } from '../services/organization.service';
@@ -10,9 +10,11 @@ declare var $: any;
   styleUrls: ['./empresas-home.component.scss']
 })
 export class EmpresashomeComponent implements OnInit {
-  public empresa: Empresa[] = [
+  public empresa: Empresa[] = [  ];
+  @ViewChild('dataTable', {static: false}) table;
 
-  ];
+  dataTable: any;
+
   constructor(private organizacionService: OrganizationService) { }
 
  
@@ -20,6 +22,8 @@ export class EmpresashomeComponent implements OnInit {
   ngOnInit() {
 
     this.obtenerorganizaciones();
+    this.dataTable = $(this.table.nativeElement);
+    this.dataTable.DataTable();
   }
 
   obtenerorganizaciones() {
@@ -35,3 +39,4 @@ export class EmpresashomeComponent implements OnInit {
     Feather.replace();
   }
 }
+ 

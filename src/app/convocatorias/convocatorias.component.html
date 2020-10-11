@@ -40,14 +40,16 @@
         
     </div>
 
-
+    <button id="empresa" (click)="recargar()" class="button text-white bg-theme-1 shadow-md mr-2">Empresas</button>
+    <button   id="escuela" class="button text-white bg-theme-8 shadow-md mr-2">Escuelas</button>
+<br>
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table datatable  class="table table-report table-report--bordered display datatable w-full">
+
+        <table datatable #dataTable1 class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
                     <th class="border-b-2 whitespace-no-wrap">CONVOCATORIA</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">TIPO</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">UNIVERSIDAD</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">PERIODO</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">FECHA INICIO</th>
@@ -62,11 +64,7 @@
                     <td class="border-b">
                         <div class="font-medium flex sm:justify-center items-center">{{convocatoria.convocatoria}}</div>
                     </td>
-                    <td class="w-40  border-b">
-                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="convocatoria.tipo==1">Alumnos</div>
-                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="convocatoria.tipo==2">Empresas</div>
-
-                    </td>
+                
                
                     <td class=" border-b">
                         <div class="font-medium flex sm:justify-center items-center"> {{convocatoria.universidad}}</div>

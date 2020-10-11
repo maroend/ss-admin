@@ -20,8 +20,8 @@ export class ConvocatoriaEditComponent implements OnInit {
 
   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
 
-  public convocatoria = new Convocatoria("",0,0,0,"",0,"",this.d,this.d,false,"");
-  
+  public convocatoria = new Convocatoria("",0,0,"",0,0,"",this.d,this.d,false,"");
+  validar=false;
 public fechaini="";
 public fechafin="";
   public periodos:Periodos[] = [];
@@ -70,13 +70,15 @@ model.fechaTermino=new Date(this.fechafin);
     console.log(model)
 
     this.convocatoriaservices.updateconvocatoria(this.idobtenido,model).subscribe((res: any)=>{
-      console.log(res.message)
-      this.router.navigate(['/convocatorias']);
-      $('#success-modal-preview').modal('show');
+      this.validar=true;
 
     }, error=>{
       alert(error.error)
     })
+if(this.validar){
+    this.router.navigate(['/convocatorias']);
+    $('#success-modal-preview').modal('show');
+}
   }
 
 
@@ -100,4 +102,8 @@ this.fechafin=tfin;
       
     })
   }
+
+
+
+
 }

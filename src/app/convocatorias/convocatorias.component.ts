@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ConvocatoriaServices } from '../services/convocatoria.service';
 import { Convocatoria } from "../models/convocatoria"
@@ -9,21 +9,36 @@ import { Convocatoria } from "../models/convocatoria"
   styleUrls: ['./convocatorias.component.css']
 })
 export class ConvocatoriasComponent implements OnInit {
-  public convocatorias:Convocatoria [] = [
+  @ViewChild('dataTable1', {static: false}) table;
 
-  ];
+  dataTable: any;
+  public convocatorias:Convocatoria [] = [ ];
   constructor(private convocatoriaService: ConvocatoriaServices) { }
 
   ngOnInit(): void {
     this.obtenerConvocatoria();
+    this.dataTable = $(this.table.nativeElement);
+
+    this.dataTable.DataTable();
   }
 
   ngAfterViewInit() {
+
     Feather.replace();
+
   }
   obtenerConvocatoria() {
     return this.convocatoriaService
       .getConvocatoria()
       .subscribe((convocatorias: Convocatoria[]) => this.convocatorias = convocatorias);
+  }
+
+  recargar()
+  {
+    this.convocatorias=[];
+
+    this.obtenerConvocatoria();
+    this.dataTable = $(this.table.nativeElement);
+    this.dataTable.DataTable();
   }
 }

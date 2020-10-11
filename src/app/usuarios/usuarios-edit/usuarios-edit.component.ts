@@ -20,7 +20,7 @@ export class UsuariosEditComponent implements OnInit {
 
   public usuarios = new Usuario("","","","","",1,1,false);
   
-
+validar=false;
 
   public universidades:Universidad[] = [];
 public idobtenido="";
@@ -56,12 +56,17 @@ this.obtenerUniversidad();
 
     this.usuarioservices.updateusuarios(this.idobtenido,model).subscribe((res: any)=>{
       console.log(res.message)
-      this.router.navigate(['/usuarios']);
-      $('#success-modal-preview').modal('show');
-
+  
+this.validar=true;
     }, error=>{
       alert(error.error)
     })
+  
+  if(this.validar){
+    this.router.navigate(['/usuarios']);
+      $('#success-modal-preview').modal('show');
+  }
+
   }
 
 

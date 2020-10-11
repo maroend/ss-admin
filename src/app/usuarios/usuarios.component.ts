@@ -1,4 +1,4 @@
-  import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { UsuarioServices } from '../services/usuario.service';
 import { Usuario } from "../models/usuario"
@@ -9,13 +9,17 @@ import { Usuario } from "../models/usuario"
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
-  public usuarios: Usuario[] = [
+  public usuarios: Usuario[] = [ ];
+  @ViewChild('dataTable', {static: false}) table;
 
-  ];
+  dataTable: any;
+
   constructor(private convocatoriaService:UsuarioServices ) { }
 
   ngOnInit(): void {
     this.obtenerConvocatoria();
+    this.dataTable = $(this.table.nativeElement);
+    this.dataTable.DataTable();
   }
 
   ngAfterViewInit() {
