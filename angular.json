@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ss-admin"
+    }
+  },
+  "defaultProject": "ss-admin",
+  "cli": {
+    "analytics": "2b53fbe3-dc42-4b58-8969-f4a4be9b9f87"
+  }
 }
