@@ -23,7 +23,10 @@ export class UsuarioServices {
     const uri = `${this.api}/Usuarios`
     return this.http.post(uri, model);
   }
-  
+  eliminar(id : string | number){
+    const uri = `${this.api}/Usuarios/${id}`;
+    return this.http.delete(uri);
+  }
   getUniversidad(){
     const uri = `${this.api}/Universidades`;
     console.log(uri);

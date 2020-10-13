@@ -20,7 +20,7 @@ export class UsuariosAddComponent implements OnInit {
 
   public universidades:Universidad[] = [];
 
-validar=false;
+validar=true;
 
   constructor(private convocatoriaservices: UsuarioServices,private router: Router) {}
 
@@ -46,7 +46,6 @@ this.obtenerUniversidad();
     console.log(model)
 
     this.convocatoriaservices.create(model).subscribe((res: any)=>{
-      console.log(res.message)
  
       this.validar=true;
 
@@ -58,7 +57,10 @@ this.obtenerUniversidad();
 if(this.validar){
   this.router.navigate(['/usuarios']);
   $('#success-modal-preview').modal('show');
-}}
+}
+
+
+}
 
 
 }

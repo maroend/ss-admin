@@ -124,19 +124,19 @@ console.log(this.responsablemodel);
     console.log(model)
 
     this.organizacionService.create(model).subscribe((res: any)=>{
-      console.log(res.message);
       this.validar=true;
 
+      $('#success-modal-preview').modal('show');
+      this.router.navigate(['/empresas']);
 
     }, error=>{
       alert(error.error)
+
     })
   
   if(this.validar){
-    $('#success-modal-preview').modal('show');
 
 
-    this.router.navigate(['/empresas']);
   }
   }
   

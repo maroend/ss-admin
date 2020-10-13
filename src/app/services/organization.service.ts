@@ -24,6 +24,10 @@ export class OrganizationService {
     const uri = `${this.api}/AreasAccion`;
     return this.http.get(uri);
   }
+  getdocumentos(){
+    const uri = `${this.api}/Documentos`;
+    return this.http.get(uri);
+  }
 
   getRubros(){
     const uri = `${this.api}/Rubros`;
@@ -51,7 +55,21 @@ export class OrganizationService {
     `;
     return this.http.get(uri);
   }
-  
+  eliminar(id : string | number){
+    const uri = `${this.api}/Organizaciones/${id}`;
+    return this.http.delete(uri);
+  }
+ 
+  subirdocumentos(model){
+    const uri = `${this.api}/DocumentosOrganizaciones/UploadFile`
+    return this.http.post(uri, model);
+  }
+  subirdocumentoscadena(model){
+    const uri = `${this.api}/DocumentosOrganizaciones/saveDocuments`
+    return this.http.post(uri, model);
+  }
+
+
   create(model){
     const uri = `${this.api}/Organizaciones`
     return this.http.post(uri, model);

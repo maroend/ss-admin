@@ -1,0 +1,530 @@
+<app-menu></app-menu>
+
+
+<div class="content">
+  <div class="modal" id="success-modal-preview">
+    <div class="modal__content">
+        <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+            <div class="text-3xl mt-5">Muy bien!</div>
+            <div class="text-gray-600 mt-2">Has editado una empresa!</div>
+        </div>
+        <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+    </div>
+</div>
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+             Empresa
+        </h2>
+
+    </div>
+
+    <form #formEmpresa="ngForm" >
+
+    <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
+   
+    <div class="intro-y box mt-5">
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Información General
+            </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+
+          
+          <!-- <div class="col-lg-12 col-md-12">
+            <div class="view_all_dt">
+               <div class="view_img_left">
+                  <div class="view__img">	
+                    <img id="blah" src="#" alt="your image" class="rounded-circle"  style="width: 192px; height: 192px;"/>
+                  </div>
+               </div>
+               <div class="view_img_right">
+                  <div class="upload__input">
+                     <div class="input-group">
+                        <div class="custom-file">
+                          <input type='file' class="custom-file-input" accept=".jpg, .jpeg, .gif, .png">
+                           <label class="custom-file-label" for="inputGroupFile04">Selecciona la imagen</label>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+            <div class="preview">
+              <table style="width: 100%; padding: 30px;">
+							  <tbody><tr>
+							  		<td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">INFORMACIÓN GENERAL</td>
+                  </tr>
+              
+              
+                  <tr>
+                    <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Organización:</td>
+                  
+                    <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.organizacion}} </td>
+                                    </tr>	  
+              
+						      <tr>
+                    
+                    <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                    
+                  
+                  </tr>
+
+							  	<tr>
+                  <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Misíon:</td>
+                  
+                    <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.mision}} </td>
+                    
+							  		<td style="padding: 5px; background: #cccccc; " align="right">Objetivo:</td>
+							  		<td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.objetivo}} </td>
+                  </tr>
+                
+						      <tr>
+                    
+                    <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                    
+                  
+                  </tr>
+
+                
+							  	<tr>
+                    <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Logros:</td>
+							  		<td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.logros}} </td>
+							  		<td style="padding: 5px; background: #cccccc; " align="right">¿Legionario:</td>
+                    <td colspan="2" style="padding: 5px; background: #F3F3F3;">                                     
+                       <p  *ngIf="empresaModel.legionario==true" > Si</p>
+                       <p  *ngIf="empresaModel.legionario==false" > No</p>
+
+                    </td>
+                  </tr>
+           
+						      <tr>
+                    
+                    <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                    
+                  
+                  </tr>
+  
+              
+                  <tr>
+                    <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Descripción:</td>
+                  
+                    <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.descripcion}} </td>
+                                    </tr>	 
+                                    <tr>
+                      
+                                      <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                                      
+                                    
+                                    </tr>
+                                    <tr>
+                                      <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Giro:</td>
+                                      <td colspan="2" style="padding: 5px; background: #F3F3F3;">
+                                        <h1  *ngFor="let gi of giro"    > 
+                                          <p  *ngIf="gi.id==empresaModel.idGiroOrganizacion" > {{gi.giro}}</p>
+                                            </h1>
+                                          </td>
+                                      <td style="padding: 5px; background: #cccccc; " align="right">Clasificación:</td>
+                                      <td colspan="2" style="padding: 5px; background: #F3F3F3;">              
+                                        
+                                        
+                                        <h1  *ngFor="let gi of clasificacion"    > 
+                                      <p  *ngIf="gi.id==empresaModel.idGiroOrganizacion" > {{gi.clasificacion}}</p>
+                                        </h1>
+                                      </td>
+                                    </tr>
+                             
+                                    <tr>
+                                      
+                                      <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                                      
+                                    
+                                    </tr>
+                                    <tr>
+                                      <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Pagina Web:</td>
+                                    
+                                      <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.web}} </td>
+                                                      </tr>	  
+                                
+                                    <tr>
+                                      
+                                      <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                                      
+                                    
+                                    </tr>
+             
+							  </tbody></table>
+              
+          
+              
+
+                
+            
+                <table style="width: 100%; padding: 30px;">
+                  <tbody><tr>
+                      <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">DIRECCIÓN</td>
+                    </tr>
+                
+                
+                 
+  
+                    <tr>
+                    <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">País:</td>
+                    
+                      <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.pais}} </td>
+                      
+                      <td style="padding: 5px; background: #cccccc; " align="right">Ciudad:</td>
+                      <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.ciudad}} </td>
+                    </tr>
+                  
+                    <tr>
+                      
+                      <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                      
+                    
+                    </tr>
+  
+                  
+                    <tr>
+                      <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Estado:</td>
+                      <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.estado}} </td>
+                      <td style="padding: 5px; background: #cccccc; " align="right">Municipio/Delegación:</td>
+                        <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.municipio}} </td>
+
+                
+                    </tr>
+             
+                    <tr>
+                      
+                      <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                      
+                    
+                    </tr>
+    
+                    <tr>
+                      <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Colonia:</td>
+                      <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.colonia}} </td>
+                      <td style="padding: 5px; background: #cccccc; " align="right">Calle:</td>
+                        <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.calle}} </td>
+
+                
+                    </tr>
+                    <tr>
+                      
+                      <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                      
+                    
+                    </tr>
+    
+                    <tr>
+                      <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Num. Ext.:</td>
+                      <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.noExt}} </td>
+                      <td style="padding: 5px; background: #cccccc; " align="right">Num. Int.:</td>
+                        <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{empresaModel.noInt}} </td>
+
+                
+                    </tr>
+                                  
+                                      <tr>
+                                        
+                                        <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                                        
+                                      
+                                      </tr>
+               
+                  </tbody></table>
+         <br>
+
+
+              
+          
+              
+
+                
+            
+        <table style="width: 100%; padding: 30px;">
+          <tbody>
+            <tr>
+              <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Área de Acción</td>
+            </tr>
+            <tr  *ngFor="let a of areas"  >              
+
+              <td colspan="6" style="padding: 5px; background: #F3F3F3; " class="text-center"  *ngIf="idAreaAccion.indexOf(a.id) >=0"  >{{a.areaAccion}}}</td>
+
+
+          
+              </tr>
+
+       
+          </tbody></table>
+         
+          <br>
+
+          <table style="width: 100%; padding: 30px;">
+            <tbody>
+              <tr>
+                <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Número de personas que atienden</td>
+              </tr>
+              <tr >              
+  
+                <td  style="padding: 5px; background: #cccccc;" align="right">Ancianos:</td>
+                <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.ancianos}} </td>
+
+              </tr>
+              <tr>
+                <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Discapacitados:</td>
+                <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.discapacitados}} </td>
+              </tr>
+              <tr>
+                <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Jóvenes:</td>
+                <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.jovenes}} </td>
+              </tr>
+              <tr>
+                <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Mujeres:</td>
+                <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.mujeres}} </td>
+              </tr>
+              <tr>
+                <td  style="padding: 5px; background: #cccccc; width: 200px;" align="right">Niños:</td>
+                <td colspan="4" style="padding: 5px; background: #F3F3F3;">{{empresaModel.ninos}} </td>
+
+   
+                </tr>
+  
+         
+            </tbody></table>
+
+  
+ <br>
+
+
+    <table style="width: 100%; padding: 30px;">
+          <tbody>
+            <tr>
+              <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Rubro</td>
+            </tr>
+            <tr  *ngFor="let a of rubros"  >              
+
+              <td colspan="6" style="padding: 5px; background: #F3F3F3; " class="text-center"  *ngIf="idRubro.indexOf(a.id) >=0"  >{{a.rubro}}}</td>
+
+
+          
+              </tr>
+
+       
+          </tbody></table>
+
+          <br>
+
+
+          <table style="width: 100%; padding: 30px;">
+            <tbody><tr>
+                <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Contactos</td>
+              </tr>
+          
+          
+           
+
+              <tr>
+              <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Nombre:</td>
+              
+                <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{responsablemodel.nombre}} </td>
+                
+                <td style="padding: 5px; background: #cccccc; " align="right">Apellidos:</td>
+                <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{responsablemodel.apellidos}} </td>
+              </tr>
+            
+              <tr>
+                
+                <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                
+              
+              </tr>
+
+            
+              <tr>
+                <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Departamento:</td>
+                <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{responsablemodel.departamento}} </td>
+                <td style="padding: 5px; background: #cccccc; " align="right">Puesto:</td>
+                  <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{responsablemodel.puesto}} </td>
+
+          
+              </tr>
+       
+              <tr>
+                
+                <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                
+              
+              </tr>
+
+              <tr>
+                <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Correo electronico:</td>
+                <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{responsablemodel.correo}} </td>
+                <td style="padding: 5px; background: #cccccc; " align="right">Telefono:</td>
+                  <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{responsablemodel.telefono}} </td>
+
+          
+              </tr>
+              <tr>
+                
+                <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                
+              
+              </tr>
+
+              <tr>
+                <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Usuario:</td>
+                <td colspan="2" style="padding: 5px; background: #F3F3F3;">{{responsablemodel.usuario}} </td>
+                <td style="padding: 5px; background: #cccccc; " align="right">Contraseña:</td>
+                  <td colspan="2" style="padding: 5px; background: #F3F3F3;"> 
+                    <input type="password" style="padding: 5px; background: #F3F3F3;" disabled name="" id="" value="  {{responsablemodel.contrasena}} " >
+                  
+                  
+                  
+                  </td>
+
+          
+              </tr>
+                            
+                                <tr>
+                                  
+                                  <td colspan="6" style="padding: 5px; background: #ffffff;"></td>
+                                  
+                                
+                                </tr>
+         
+            </tbody></table>
+   <br>
+
+
+
+  <table style="width: 100%; padding: 30px;">
+    <tbody>
+      <tr>
+        <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Disponible</td>
+      </tr>
+      <tr  >              
+
+        <td colspan="6" style="padding: 5px; background: #F3F3F3; " class="text-center"  *ngIf="empresaModel.id==1"  >Si</td>
+
+
+        <td colspan="6" style="padding: 5px; background: #F3F3F3; " class="text-center"  *ngIf="empresaModel.id==0"  >No</td>
+
+        </tr>
+
+ 
+    </tbody></table>
+
+    <br>
+
+
+
+   <table style="width: 100%; padding: 30px;">
+    <tbody>
+      <tr>
+        <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Nodos de jerarquía institucional</td>
+      </tr>
+      <tr  *ngFor="let a of universidades"  >              
+
+        <td colspan="6" style="padding: 5px; background: #F3F3F3; " class="text-center"  *ngIf="a.id==empresaModel.id"  >{{a.universidad}}}</td>
+
+
+    
+        </tr>
+
+ 
+    </tbody></table>
+
+    <br>
+
+    <table style="width: 100%; padding: 30px;">
+							  
+      <tbody><tr>
+          <td colspan="8" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">DOCUMENTOS ENTREGADOS</td>
+          
+          
+        </tr>
+        
+        <tr >
+<td style="padding: 5px; background: #fff; width: 400px;" align="center">DOCUMENTO</td>
+<td style="padding: 5px; background: #cccccc; " align="center">ADJUNTO</td>
+<td style="padding: 5px; background: #cccccc; " align="center">FECHA ENTREGA</td>
+<td style="padding: 5px; background: #cccccc; " align="center">ENTREGADO</td>
+
+        </tr>
+        <tr  *ngFor="let d of documentos"  >              
+          
+          <td style="padding: 5px; background: #cccccc; width: 400px;" align="center">{{d.documento}}</td>
+          <td style="padding: 5px; background: #F3F3F3; " class="text-center" > <a (click)="abrirsubir(d.id)"   ><i data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo</a></td>
+          <td style="padding: 5px; background: #F3F3F3; " align="center"></td>
+<td style="padding: 5px; background: #F3F3F3; " align="center"></td>
+<div class="modal" id="abrirsubir-{{d.id}}">
+  <div class="modal__content">
+    <form #form="ngForm" (ngSubmit)="subeArchivo()" >      <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+          <div class="text-3xl mt-5">Subir Archivo</div>
+          <br>
+            <input type="file" id="Imagen" name="Imagen" >
+     
+      </div>
+      
+      <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button>
+         <button type="submit"   data-dismiss="modal"  class="button w-24 bg-theme-1 text-white">Subir</button> </div>
+        </form>
+
+        </div>
+</div>
+
+</tr>
+
+
+</tbody></table>
+
+<br>
+
+<table style="width: 100%; padding: 30px;">
+  <tbody>
+    <tr>
+      <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Sucesos en el sistema</td>
+    </tr>
+    <tr>
+      <td style="padding: 5px; background: #cccccc; width: 200px;" align="right">Estado:</td>
+    
+      <td colspan="4" style="padding: 5px; background: #F3F3F3;">   <h1  *ngFor="let gi of estado"    > 
+        <p  *ngIf="gi.id==empresaModel.idEstadoOrganizacion" > {{gi.estado}}</p>
+          </h1>
+        </td>
+                      </tr>	  
+
+
+  </tbody></table>
+
+  <br>
+
+
+<br>
+<table style="width: 100%; padding: 30px;">
+  <tbody>
+    <tr>
+      <td colspan="6" style="padding: 5px; background: #01426A; width: 200px; color: #fff;" align="center">Observaciones</td>
+    </tr>
+    <tr  >              
+
+      <td colspan="6" style="padding: 5px; background: #F3F3F3; " class="text-center"   >{{empresaModel.observaciones}}</td>
+
+
+
+      </tr>
+
+
+  </tbody></table>
+
+  <br>
+
+            </div>
+          
+        </div>
+    </div>
+  </form>
+    <!-- END: FORM -->
+</div>
+<!-- END: Content -->

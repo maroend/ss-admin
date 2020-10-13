@@ -2,6 +2,8 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { Empresa } from "../models/empresa"
 import { OrganizationService } from '../services/organization.service';
+import { Router } from '@angular/router';
+
 declare var $: any;
 
 @Component({ 
@@ -13,16 +15,16 @@ export class EmpresashomeComponent implements OnInit {
   public empresa: Empresa[] = [  ];
   @ViewChild('dataTable', {static: false}) table;
 
-  dataTable: any;
+  dataTable:any;
+  public validar=true;
 
-  constructor(private organizacionService: OrganizationService) { }
+  constructor(private organizacionService: OrganizationService,private router: Router) { }
 
  
   
   ngOnInit() {
-
+    
     this.obtenerorganizaciones();
-    this.dataTable = $(this.table.nativeElement);
     this.dataTable.DataTable();
   }
 
@@ -31,11 +33,33 @@ export class EmpresashomeComponent implements OnInit {
       .getAll()
       .subscribe((empresa: Empresa[]) => this.empresa = empresa);
   }
+  eliminar(id) {
+       this.organizacionService.eliminar(id).subscribe((res: any)=>{
+        this.validar=true;
+        location.reload();
+  
+      }, error=>{
+        alert(error.error)
+      })
 
+   
+
+    
+    }
+
+    modaleliminar(id) {
+      console.log("dfdsfdsfds"+ id);
+      $('#delete-modal-preview-'+id).modal('show');
+
+     }
+
+
+
+    
   ngAfterViewInit() {
 
-   // $('#tablaempresa').DataTable().destroy();
-    //$('#tablaempresa').DataTable();
+ 
+
     Feather.replace();
   }
 }

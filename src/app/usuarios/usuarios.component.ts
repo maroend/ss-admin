@@ -2,6 +2,7 @@
 import * as Feather from 'feather-icons';
 import { UsuarioServices } from '../services/usuario.service';
 import { Usuario } from "../models/usuario"
+declare var $: any;
 
 @Component({
   selector: 'app-convocatorias',
@@ -30,4 +31,24 @@ export class UsuariosComponent implements OnInit {
       .getUsuarios()
       .subscribe((usuarios: Usuario[]) => this.usuarios = usuarios);
   }
+
+  eliminar(id) {
+    this.convocatoriaService.eliminar(id).subscribe((res: any)=>{
+     location.reload();
+
+   }, error=>{
+     alert(error.error)
+   })
+
+
+
+ 
+ }
+
+ modaleliminar(id) {
+   console.log("dfdsfdsfds"+ id);
+   $('#delete-modal-preview-'+id).modal('show');
+
+  }
+
 }
