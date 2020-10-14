@@ -39,9 +39,7 @@ export class AlumnosverComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(this.session.getToken()==""){
-      this.router.navigate(['/login'])    
-    }
+    
     
     this.idAlumno = this.route.snapshot.paramMap.get("id");
     this.alumnoService.getAlumno(this.idAlumno).subscribe((alumno: Alumno) => this.alumno = alumno);
