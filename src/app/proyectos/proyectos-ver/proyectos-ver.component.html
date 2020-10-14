@@ -139,9 +139,10 @@
                 <tr *ngFor="let apoyo of apoyos">
 
                   <td style="padding:5px;">
-                    <label>
-                      {{apoyo.apoyo}}
-                    </label>
+                    <div class="flex items-center">
+                      <div class="w-3 h-2 bg-theme-9 rounded-full mr-3"></div>
+                      <span>{{apoyo.apoyo}}</span>
+                    </div>
                   </td>
 
                 </tr>
@@ -159,10 +160,11 @@
             <table style="padding: 15px; margin-left: 25px;">
               <tbody>
                 <tr *ngFor="let lineaTrabajo of lineasTrabajo">
-                  <td style="padding:5px;">
-                    <label>
-                      {{lineaTrabajo.lineaTrabajo}}
-                    </label>
+                  <td style="padding:5px;">                      
+                      <div class="flex items-center">
+                        <div class="w-3 h-2 bg-theme-9 rounded-full mr-3"></div>
+                        <span>{{lineaTrabajo.lineaTrabajo}}</span>
+                      </div>
                   </td>
 
                 </tr>
