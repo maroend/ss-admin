@@ -371,7 +371,7 @@
   <div class="flex flex-col sm:flex-row items-center mt-3">
     <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
     <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.idEstadoOrganizacion" name="estado" >
-      <option [value]="gi.id" *ngFor="let gi of estado">{{gi.estado}}</option>
+      <option [ngValue]="gi.id" *ngFor="let gi of estado">{{gi.estado}}</option>
 
     </select>
 </div>

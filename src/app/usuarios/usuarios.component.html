@@ -40,10 +40,11 @@
         <table datatable #dataTable  class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
-                    <th class="border-b-2 whitespace-no-wrap">ID</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">NOMBRE</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">APELLIDOS</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">CORREO</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">ACTIVO</th>
+
                     <th class="border-b-2 text-center whitespace-no-wrap">ACCIÓN</th>
 
                 </tr>
@@ -51,9 +52,7 @@
             <tbody *ngIf="usuarios?.length != 0">
              
                 <tr *ngFor="let usario of usuarios">
-                    <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">{{usario.id}}</div>
-                    </td>
+                  
         
                     <td class=" border-b">
                         <div class="font-medium flex sm:justify-center items-center"> {{usario.nombre}}</div>
@@ -64,7 +63,11 @@
                     <td class="border-b">
                         <div class="font-medium flex sm:justify-center items-center">{{usario.email}}</div>
                     </td>
-               
+                    <td class=" border-b">
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="usario.activo==true"> SI  </div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="usario.activo==false"> NO  </div>
+
+                    </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">
                             <a class="flex items-center mr-3" [routerLink]="['/usuarios/edit', usario.id  ]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>

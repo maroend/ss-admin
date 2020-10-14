@@ -53,11 +53,9 @@ public validar=false;
   empresaModel = new Empresa("","","","","","","","","","","","","","","","","","","",true,0,"",null,false,true,1,1,1,1,1,0,0,0,0,0,0,this.listaAreasAccion,this.listaRubros,this.responsablemodel)
 
 
-  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) {
-
-    
+  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) { 
+  
   }
-
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
     this.organizacionService.getOrganizacion(this.idobtenido).subscribe((empresaModel: Empresa) => this.empresaModel = empresaModel);

@@ -37,8 +37,9 @@ public validar=false;
   checkmodel = new check("false","false")
 
 
-  constructor(private organizacionService: OrganizationService,private router: Router,private _location: Location) {}
-
+  constructor(private organizacionService: OrganizationService,private router: Router,private _location: Location) { 
+  
+  }
   ngOnInit(): void {
     this.obtenerAreas();
     this.obtenerRubros();

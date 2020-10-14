@@ -34,10 +34,10 @@
         <table datatable #dataTable id="tablaempresa"  class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
-                    <th class="border-b-2 whitespace-no-wrap">CLAVE</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">EMPRESAS</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">ESTADO</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">UNIVERSIDAD</th>
+
+                    <th class="border-b-2 text-center whitespace-no-wrap">ESTADO</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACCIONES</th>
 
                 </tr>
@@ -45,18 +45,18 @@
             <tbody *ngIf="empresa?.length != 0">
              
                 <tr *ngFor="let empresa of empresa">
-                    <td class="border-b">
-               <div class="font-medium flex sm:justify-center items-center">{{empresa.id}}</div>
-                    </td>
+      
                     <td class="border-b">
                         <a [routerLink]="['/empresas/ver', empresa.id]" >    <div class="rounded-lg text-center px-1 py-1 mb-2  text-black"> {{empresa.organizacion}}</div></a>
                     </td>
                
-                    <td class="w-40 border-b">
-                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white">{{empresa.estadoOrganizacion}}</div>
-                    </td>
+             
                     <td class="border-b">
                         <div class="font-medium flex sm:justify-center items-center">{{empresa.universidad}}</div>
+                    </td>
+
+                    <td class="w-40 border-b">
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white">{{empresa.estadoOrganizacion}}</div>
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">

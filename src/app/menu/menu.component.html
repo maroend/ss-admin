@@ -1,7 +1,7 @@
 <!-- BEGIN: Mobile Menu -->
 <div class="mobile-menu md:hidden">
     <div class="mobile-menu-bar">
-        <a href="" class="flex mr-auto">
+        <a [routerLink]="['/dashboard']" class="flex mr-auto">
             <img alt="Servicio Social" class="w-6" src="assets/images/logo.png">
         </a>
         <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
@@ -45,13 +45,13 @@
 <div class="border-b border-theme-white -mt-10 md:-mt-5 -mx-3 sm:-mx-8 px-3 sm:px-8 pt-3 md:pt-0 mb-10">
     <div class="top-bar-boxed flex items-center">
         <!-- BEGIN: Logo -->
-        <a href="" class="-intro-x hidden md:flex">
+        <a [routerLink]="['/dashboard']"  class="-intro-x hidden md:flex">
             <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="assets/images/logo.png">
             <span class="text-white text-lg ml-3"> Universidad<span class="font-medium"> Anáhuac</span> </span>
         </a>
         <!-- END: Logo -->
         <!-- BEGIN: Breadcrumb -->
-        <div class="-intro-x breadcrumb breadcrumb--light mr-auto border-theme-white"> <a href="" class="">Application</a> <i data-feather="chevron-right" class="breadcrumb__icon"></i> <a href="" class="breadcrumb--active">Servicio Social</a> </div>
+        <div class="-intro-x breadcrumb breadcrumb--light mr-auto border-theme-white"> <a [routerLink]="['/dashboard']" class="">Application</a> <i data-feather="chevron-right" class="breadcrumb__icon"></i> <a [routerLink]="['/dashboard']" class="breadcrumb--active">Servicio Social</a> </div>
         <!-- END: Breadcrumb -->
         <!-- BEGIN: Search -->
         
@@ -65,13 +65,12 @@
             <div class="dropdown-box mt-10 absolute w-56 top-0 right-0 z-20">
                 <div class="dropdown-box__content box bg-theme-38 dark:bg-dark-6 text-white">
                     <div class="p-4 border-b border-theme-40 dark:border-dark-3">
-                        <div class="font-medium">Al Pacino</div>
+                        <div class="font-medium">{{nombre}} {{apellidos}}</div>
                         <div class="text-xs text-theme-41 dark:text-gray-600">Administrador</div>
                     </div>
                     <div class="p-2">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Perfil </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Cambiar Password </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Ayuda </a>
+                        <a [routerLink]="['/perfil']" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Perfil </a>
+                        <a [routerLink]="['/dashboard']" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Ayuda </a>
                     </div>
                     <div class="p-2 border-t border-theme-40 dark:border-dark-3">
                         <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
