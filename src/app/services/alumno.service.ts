@@ -3,33 +3,50 @@ import { HttpClient } from '@angular/common/http';
 import { Alumno } from '../models/alumno';
 import { environment } from "../../environments/environment";
 
+
+class DataTablesResponse {
+  data: any[];
+  draw: number;
+  recordsFiltered: number;
+  recordsTotal: number;
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class AlumnoService {
 
-  baseUrl = environment.baseUrl
+  baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
 
-  getMascotas() {
-    return this.http.get(`${this.baseUrl}/getAll.php`);
+  getAlumnos(dataTablesParameters: any) {
+    
+     return this.http
+          .get<DataTablesResponse>(
+            `${this.baseUrl}/Alumnos/getAllTabla`,
+            dataTablesParameters
+          );
+
   }
 
-  getMascota(id: string | number) {
-    return this.http.get(`${this.baseUrl}/get.php?idAlumno=${id}`);
+  getAlumno(id: string | number) {
+    return this.http.get(`${this.baseUrl}/Alumnos/${id}`);
   }
 
-  addMascota(alumno: Alumno) {
-    return this.http.post(`${this.baseUrl}/post.php`, alumno);
+  addAlumno(alumno: Alumno) {
+    return this.http.post(`${this.baseUrl}/Alumnos`, alumno);
   }
 
-  deleteMascota(alumno: Alumno) {
+  deleteAlumno(alumno: Alumno) {
     return this.http.delete(`${this.baseUrl}/delete.php?idAlumno=${alumno.id}`);
   }
 
-  updateMascota(alumno: Alumno) {
-    return this.http.put(`${this.baseUrl}/update.php`, alumno);
+  updateAlumno(id: string | number,alumno: Alumno) {
+    alumno.id = Number(id);
+    alumno.activo = true;
+    return this.http.put(`${this.baseUrl}/Alumnos/${id}`, alumno);
   }
 
 

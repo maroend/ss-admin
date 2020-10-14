@@ -1,103 +1,74 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
-import { ConvocatoriaServices } from '../../services/convocatoria.service';
-import { Convocatoria } from "../../models/convocatoria"
+import { UsuarioServices } from '../../services/usuario.service';
+import { Usuario } from "../../models/usuario"
 
 import { Periodos } from "../../models/periodo"
 import { Universidad } from "../../models/universidad"
 
 import { Router,ActivatedRoute } from '@angular/router';
-import { ThrowStmt } from '@angular/compiler';
-import { data } from 'jquery';
+
 
 declare var $: any;
 @Component({
   selector: 'app-organization-add',
-  templateUrl: './convocatoria-edit.component.html',
-  styleUrls: ['./convocatoria-edit.component.scss']
+  templateUrl: './usuarios-edit.component.html',
+  styleUrls: ['./usuarios-edit.component.scss']
 })
-export class ConvocatoriaEditComponent implements OnInit {
+export class UsuariosEditComponent implements OnInit {
 
-  public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
 
-  public convocatoria = new Convocatoria("",0,0,0,"",0,"",this.d,this.d,true,"");
+  public usuarios = new Usuario("","","","","",1,1,false);
   
-public fechaini="";
-public fechafin="";
-  public periodos:Periodos[] = [];
+validar=false;
 
   public universidades:Universidad[] = [];
 public idobtenido="";
 
 
-  constructor(private convocatoriaservices: ConvocatoriaServices,private router: Router,private activatedRoute: ActivatedRoute){}
+  constructor(private usuarioservices: UsuarioServices,private router: Router,private activatedRoute: ActivatedRoute){}
 
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
-    this.convocatoriaservices.getConvocatoriaid(this.idobtenido).subscribe((convocatoria: Convocatoria) => this.convocatoria = convocatoria);
-  this.getconvocatoriafecha(this.idobtenido);
-this.obtenerperiodo();
+    this.usuarioservices.getUsuarioid(this.idobtenido).subscribe((usuarios: Usuario) => this.usuarios = usuarios);
+console.log(this.usuarios);
 this.obtenerUniversidad();
 
   }
   obtenerUniversidad(){
 
-    return this.convocatoriaservices
+    return this.usuarioservices
       .getUniversidad()
       .subscribe((universidades: Universidad[]) => this.universidades = universidades);
 
   }
-  obtenerperiodo(){
-
-    return this.convocatoriaservices
-      .getPeriodo()
-      .subscribe((periodos: Periodos[]) => this.periodos = periodos);
-
-  }
+ 
   ngAfterViewInit() {
     Feather.replace();
   }
 
   update(){
-    let model = this.convocatoria;
-
-model.fechaInicio=new Date(this.fechaini);
-model.fechaTermino=new Date(this.fechafin);
-
+    let model = this.usuarios;
 
 
 
     console.log(model)
 
-    this.convocatoriaservices.updateconvocatoria(this.idobtenido,model).subscribe((res: any)=>{
+    this.usuarioservices.updateusuarios(this.idobtenido,model).subscribe((res: any)=>{
       console.log(res.message)
-      this.router.navigate(['/convocatorias']);
-      $('#success-modal-preview').modal('show');
-
+  
+this.validar=true;
     }, error=>{
       alert(error.error)
     })
+  
+  if(this.validar){
+    this.router.navigate(['/usuarios']);
+      $('#success-modal-preview').modal('show');
+  }
+
   }
 
 
-  getconvocatoriafecha(id){
-    this.convocatoriaservices.getConvocatoriaid(id).subscribe((res: any[])=>{
-      console.log(res);
-
-    var i=res['fechaInicio'];
-    let ini=i.toLocaleString();
-    console.log(ini); 
-      var f =res['fechaTermino'];
-      var fin=f.toLocaleString();
-
-      var ini1 = ini.split("T",6);  
-      var iini= ini1[0];
-this.fechaini=iini;
-
-var fin2 = fin.split("T",6);  
-var tfin= fin2[0];
-this.fechafin=tfin;
-      
-    })
-  }
+ 
 }

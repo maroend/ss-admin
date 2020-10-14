@@ -1,0 +1,176 @@
+
+<app-menu></app-menu>
+
+<!-- BEGIN: Content -->
+<div class="content">
+
+
+    <div class="modal" id="success-modal-preview">
+        <div class="modal__content">
+            <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                <div class="text-3xl mt-5">Muy bien!</div>
+                <div class="text-gray-600 mt-2">Has agregado un alumno!</div>
+            </div>
+            <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+        </div>
+    </div>
+
+
+    <form  #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
+
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            Editar Alumno
+        </h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <a  routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
+            <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+        </div>
+    </div>
+
+
+    <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
+   
+    <div class="intro-y box mt-5">
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                Información Personal
+            </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+            <div class="preview">
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Activo:</label>
+                    <input type="radio" ng-value="true" name="activo" [ngModel]="alumno.activo"  /> 
+                </div>
+              
+               
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Universidad:</label>
+                    <select *ngFor="let universidad of universidades"  class="input input--sm border mr-2 sm:w-64" name="idUniversidad" [(ngModel)]="alumno.idUniversidad">
+                        <option  [ngValue]="universidad.id">{{ universidad.universidad }}</option>
+
+                    </select>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">ID Matricula:</label>
+                    <input type="text" class="input border mt-2" name="matricula" [(ngModel)]="alumno.matricula" placeholder="">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Nombre</label>
+                    <input type="text" class="input border sm:w-64" name="nombre" [(ngModel)]="alumno.nombre" placeholder="">
+                </div>
+   
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Paterno</label>
+                    <input type="text" class="input border sm:w-64" name="paterno" [(ngModel)]="alumno.paterno" placeholder="">
+                </div>
+                
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Apellido Materno</label>
+                    <input type="text" class="input border sm:w-64" name="materno" [(ngModel)]="alumno.materno" placeholder="">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Facultad:</label>
+                    <select *ngFor="let facultad of facultades" class="input input--sm border mr-2 sm:w-64" name="idFacultad" [(ngModel)]="alumno.idCarrera">
+                        <option [ngValue]="facultad.id">{{ facultad.facultad }}</option>
+                    </select>
+                </div>
+
+                
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Carrera:</label>
+                    <select *ngFor="let carrera of carreras" class="input input--sm border mr-2 sm:w-64" name="idCarrera" [(ngModel)]="alumno.idCarrera">
+                        <option [ngValue]="carrera.id">{{ carrera.carrera }}</option>
+                    </select>
+                </div>
+
+                
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Periodo:</label>
+                    <select class="input input--sm border mr-2 sm:w-64" name="periodo" ngModel>
+                        <option value="201860">201860</option>
+                        <option value="201861">201930</option>
+                        <option value="201862">203220</option>
+                    </select>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Porcentaje Academico</label>
+                    <input type="number" class="input border" placeholder="0%" name="porcentaje" [(ngModel)]="alumno.porcentaje">
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                    <h2 class="font-medium text-base mr-auto">
+                        Medios de Contacto
+                    </h2>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Correo:</label>
+                    <input type="text" class="input border" placeholder="" name="correo" [(ngModel)]="alumno.correo">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Celular:</label>
+                    <input type="text" class="input border" placeholder="" name="celular" [(ngModel)]="alumno.celular">
+                </div>
+
+
+
+                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                    <h2 class="font-medium text-base mr-auto">
+                        Dirección
+                    </h2>
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Pais:</label>
+                    <input type="text" class="input border" value="México" placeholder="" name="pais" [(ngModel)]="alumno.pais">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">CP:</label>
+                    <input type="text" class="input border"  placeholder="" name="cp" [(ngModel)]="alumno.cp">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="estado" [(ngModel)]="alumno.estado">
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Municipio:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="municipio" [(ngModel)]="alumno.municipio">
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Colonia:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="colonia" [(ngModel)]="alumno.colonia">
+                </div>
+
+
+                <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Calle:</label>
+                    <input type="text" class="input border sm:w-64"  placeholder="" name="calle" [(ngModel)]="alumno.calle">
+                </div>
+
+            </div>
+          
+        </div>
+    </div>
+    </form>
+    <!-- END: FORM -->
+</div>
+<!-- END: Content -->

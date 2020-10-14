@@ -1,142 +1,26 @@
-<div class="app">
-<!-- BEGIN: Mobile Menu -->
-<div class="mobile-menu md:hidden">
-    <div class="mobile-menu-bar">
-        <a href="" class="flex mr-auto">
-            <img alt="Servicio Social" class="w-6" src="assets/images/logo.png">
-        </a>
-        <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
-    </div>
-    <ul class="border-t border-theme-24 py-5 hidden">
-        <li>
-            <a href="index.html" class="menu">
-                <div class="menu__icon"> <i data-feather="home"></i> </div>
-                <div class="menu__title"> Dashboard s</div>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;" class="menu">
-                <div class="menu__icon"> <i data-feather="box"></i> </div>
-                <div class="menu__title"> Estudiantes <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
-            </a>
-            
-        </li>
-        
-        <li class="menu__devider my-6"></li>
-        
-        <li>
-            <a href="javascript:;" class="menu">
-                <div class="menu__icon"> <i data-feather="sidebar"></i> </div>
-                <div class="menu__title"> Forms <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
-            </a>
-            
-        </li>
-        <li>
-            <a href="javascript:;" class="menu">
-                <div class="menu__icon"> <i data-feather="hard-drive"></i> </div>
-                <div class="menu__title"> Widgets <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
-            </a>
-            
-        </li>
-    </ul>
-</div>
-<!-- END: Mobile Menu -->
 
-<!-- BEGIN: Top Bar -->
-<div class="border-b border-theme-white -mt-10 md:-mt-5 -mx-3 sm:-mx-8 px-3 sm:px-8 pt-3 md:pt-0 mb-10">
-    <div class="top-bar-boxed flex items-center">
-        <!-- BEGIN: Logo -->
-        <a href="" class="-intro-x hidden md:flex">
-            <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="assets/images/logo.png">
-            <span class="text-white text-lg ml-3"> Universidad<span class="font-medium"> Anáhuac</span> </span>
-        </a>
-        <!-- END: Logo -->
-        <!-- BEGIN: Breadcrumb -->
-        <div class="-intro-x breadcrumb breadcrumb--light mr-auto border-theme-white"> <a href="" class="">Application</a> <i data-feather="chevron-right" class="breadcrumb__icon"></i> <a href="" class="breadcrumb--active">Servicio Social</a> </div>
-        <!-- END: Breadcrumb -->
-        <!-- BEGIN: Search -->
-        
-        <!-- BEGIN: Notifications -->
-        
-        <!-- BEGIN: Account Menu -->
-        <div class="intro-x dropdown w-8 h-8 relative">
-            <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in scale-110">
-                <img alt="Servicio Social" src="assets/images/profile-1.jpg">
-            </div>
-            <div class="dropdown-box mt-10 absolute w-56 top-0 right-0 z-20">
-                <div class="dropdown-box__content box bg-theme-38 dark:bg-dark-6 text-white">
-                    <div class="p-4 border-b border-theme-40 dark:border-dark-3">
-                        <div class="font-medium">Al Pacino</div>
-                        <div class="text-xs text-theme-41 dark:text-gray-600">Administrador</div>
-                    </div>
-                    <div class="p-2">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Perfil </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="lock" class="w-4 h-4 mr-2"></i> Cambiar Password </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="help-circle" class="w-4 h-4 mr-2"></i> Ayuda </a>
-                    </div>
-                    <div class="p-2 border-t border-theme-40 dark:border-dark-3">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 dark:hover:bg-dark-3 rounded-md"> <i data-feather="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END: Account Menu -->
-    </div>
-</div>
-<!-- END: Top Bar -->
+<app-menu></app-menu>
 
-
-<!-- BEGIN: Top Menu -->
-<nav class="top-nav">
-    <ul>
-        <li>
-            <a href="#" class="top-menu">
-                <div class="top-menu__icon"> <i data-feather="home"></i> </div>
-                <div class="top-menu__title"> Dashboard </div>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;" class="top-menu top-menu--active">
-                <div class="top-menu__icon"> <i data-feather="box"></i> </div>
-                <div class="top-menu__title"> Estudiantes <i data-feather="chevron-down" class="top-menu__sub-icon"></i> </div>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;" class="top-menu">
-                <div class="top-menu__icon"> <i data-feather="activity"></i> </div>
-                <div class="top-menu__title"> Empresas <i data-feather="chevron-down" class="top-menu__sub-icon"></i> </div>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;" class="top-menu">
-                <div class="top-menu__icon"> <i data-feather="layout"></i> </div>
-                <div class="top-menu__title"> Proyectos <i data-feather="chevron-down" class="top-menu__sub-icon"></i> </div>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;.html" class="top-menu">
-                <div class="top-menu__icon"> <i data-feather="inbox"></i> </div>
-                <div class="top-menu__title"> Convocatorías <i data-feather="chevron-down" class="top-menu__sub-icon"></i> </div>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;" class="top-menu">
-                <div class="top-menu__icon"> <i data-feather="sidebar"></i> </div>
-                <div class="top-menu__title"> Administración <i data-feather="chevron-down" class="top-menu__sub-icon"></i> </div>
-            </a>
-        </li>
-    
-    </ul>
-</nav>
-<!-- END: Top Menu -->
 <!-- BEGIN: Content -->
 <div class="content">
+
+    <div class="modal" id="delete-modal-preview">
+        <div class="modal__content">
+            <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                <div class="text-3xl mt-5">¿Estas seguro de eliminar al alumno?</div>
+                <div class="text-gray-600 mt-2">Eliminar al alumno es irreversible y no se puede deshacer.</div>
+            </div>
+            <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button> <button type="button" class="button w-24 bg-theme-6 text-white">Eliminar</button> </div>
+        </div>
+    </div>
+
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Alumnos
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button class="button text-white bg-theme-1 shadow-md mr-2">Agregar Alumno</button>
+            <a routerLink="/alumnos/add" class="button text-white bg-theme-1 shadow-md mr-2">Agregar Alumno</a>
             <div class="dropdown relative ml-auto sm:ml-0">
                 <button class="dropdown-toggle button px-2 box text-gray-700 dark:text-gray-300">
                     <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
@@ -154,7 +38,7 @@
 
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table datatable  class="table table-report table-report--bordered display datatable w-full">
+        <table datatable [dtOptions]="dtOptions"   class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
                     <th class="border-b-2 whitespace-no-wrap">NOMBRE COMPLETO</th>
@@ -165,35 +49,40 @@
                     <th class="border-b-2 text-center whitespace-no-wrap">ACCIONES</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    
+            <tbody *ngIf="alumnos?.length != 0">
+                <tr *ngFor="let alumno of alumnos">
                     <td class="border-b">
                         <a href="#">
-                        <div class="font-medium whitespace-no-wrap">Jose Carlos Ruiz García</div>
-                        <div class="text-gray-600 text-xs whitespace-no-wrap">Admón. Turística 1995 UAX</div>
+                        <div class="font-medium whitespace-no-wrap">{{ alumno.nombre }}</div>
+                        <div class="text-gray-600 text-xs whitespace-no-wrap">{{ alumno.carrera }}</div>
                         </a>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">00263783</div>
+                        <div class="font-medium flex sm:justify-center items-center">{{ alumno.matricula }}</div>
                     </td>
-                    <td class="text-center border-b">UAMN</td>
-                    <td class="text-center border-b">Ingeniería</td>
+                    <td class="text-center border-b">
+                        <div class="font-medium flex sm:justify-center items-center">{{ alumno.universidad }}</div>
+                    </td>
+                    <td class="text-center border-b">{{ alumno.facultad }}</td>
                     <td class="w-40 border-b">
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> INCONCLUSO </div>
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">
-                            <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
-                            <a class="flex items-center text-theme-6" href=""> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
+                            <a class="flex items-center mr-3" [routerLink]="['/alumnos/edit', alumno.id]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                            <a class="flex items-center text-theme-6" href="javascript:;" data-toggle="modal" data-target="#delete-modal-preview"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
                         </div>
                     </td>
                 </tr>
                 
             </tbody>
+            <tbody *ngIf="alumnos?.length == 0">
+                <tr>
+                  <td colspan="3" class="no-data-available">No data!</td>
+                </tr>
+              <tbody>
         </table>
     </div>
     <!-- END: Datatable -->
 </div>
 <!-- END: Content -->
-</div>

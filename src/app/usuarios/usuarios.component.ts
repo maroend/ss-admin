@@ -1,21 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+  import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
-import { ConvocatoriaServices } from '../services/convocatoria.service';
-import { Convocatoria } from "../models/convocatoria"
+import { UsuarioServices } from '../services/usuario.service';
+import { Usuario } from "../models/usuario"
+declare var $: any;
 
 @Component({
   selector: 'app-convocatorias',
-  templateUrl: './convocatorias.component.html',
-  styleUrls: ['./convocatorias.component.css']
+  templateUrl: './usuarios.component.html',
+  styleUrls: ['./usuarios.component.css']
 })
-export class ConvocatoriasComponent implements OnInit {
-  public convocatorias:Convocatoria [] = [
+export class UsuariosComponent implements OnInit {
+  public usuarios: Usuario[] = [ ];
+  @ViewChild('dataTable', {static: false}) table;
 
-  ];
-  constructor(private convocatoriaService: ConvocatoriaServices) { }
+  dataTable: any;
+
+  constructor(private convocatoriaService:UsuarioServices ) { }
 
   ngOnInit(): void {
     this.obtenerConvocatoria();
+    this.dataTable = $(this.table.nativeElement);
+    this.dataTable.DataTable();
   }
 
   ngAfterViewInit() {
@@ -23,7 +28,27 @@ export class ConvocatoriasComponent implements OnInit {
   }
   obtenerConvocatoria() {
     return this.convocatoriaService
-      .getConvocatoria()
-      .subscribe((convocatorias: Convocatoria[]) => this.convocatorias = convocatorias);
+      .getUsuarios()
+      .subscribe((usuarios: Usuario[]) => this.usuarios = usuarios);
   }
+
+  eliminar(id) {
+    this.convocatoriaService.eliminar(id).subscribe((res: any)=>{
+     location.reload();
+
+   }, error=>{
+     alert(error.error)
+   })
+
+
+
+ 
+ }
+
+ modaleliminar(id) {
+   console.log("dfdsfdsfds"+ id);
+   $('#delete-modal-preview-'+id).modal('show');
+
+  }
+
 }
