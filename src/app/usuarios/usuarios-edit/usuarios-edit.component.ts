@@ -5,6 +5,7 @@ import { Usuario } from "../../models/usuario"
 
 import { Periodos } from "../../models/periodo"
 import { Universidad } from "../../models/universidad"
+import {Location} from '@angular/common';
 
 import { Router,ActivatedRoute } from '@angular/router';
 
@@ -26,7 +27,7 @@ validar=false;
 public idobtenido="";
 
 
-  constructor(private usuarioservices: UsuarioServices,private router: Router,private activatedRoute: ActivatedRoute){}
+  constructor(private usuarioservices: UsuarioServices,private router: Router,private activatedRoute: ActivatedRoute,private _location: Location){}
 
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
@@ -57,15 +58,14 @@ this.obtenerUniversidad();
     this.usuarioservices.updateusuarios(this.idobtenido,model).subscribe((res: any)=>{
       console.log(res.message)
   
-this.validar=true;
-    }, error=>{
+            $('#success-modal-preview').modal('show');
+
+    this._location.back();
+        }, error=>{
       alert(error.error)
     })
   
-  if(this.validar){
-    this.router.navigate(['/usuarios']);
-      $('#success-modal-preview').modal('show');
-  }
+
 
   }
 

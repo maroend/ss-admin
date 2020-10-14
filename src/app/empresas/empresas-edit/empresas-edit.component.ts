@@ -10,6 +10,7 @@ import { TipoEmpresa } from "../../models/tipoempresa"
 import { GiroEmpresa } from "../../models/giroempresa"
 import { ClasificacionEmpresa } from "../../models/clasificacionempresa"
 import { EstadoEmpresa } from "../../models/estadoempresa"
+import {Location} from '@angular/common';
 
 
 
@@ -44,7 +45,7 @@ public validar=false;
   empresaModel = new Empresa("","","","","","","","","","","","","","","","","","","",true,0,"",null,false,true,1,1,1,1,1,0,0,0,0,0,0,this.listaAreasAccion,this.listaRubros,this.responsablemodel)
 
 
-  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) {
+  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute,private _location: Location) {
 
     
   }
@@ -153,16 +154,13 @@ var valor= { "idRubro": id ,"activo": true};
     console.log(model);
 
     this.organizacionService.updateempresa(this.idobtenido,model).subscribe(() => {
-      
-      this.validar=true;
+          $('#success-modal-preview').modal('show');
+
+    this._location.back();
 
      
     })
 
-if(this.validar){
-    this.router.navigate(['/empresas']);
-    $('#success-modal-preview').modal('show');
 
-}
   }
 }

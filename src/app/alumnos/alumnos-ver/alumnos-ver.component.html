@@ -1,0 +1,295 @@
+<app-menu></app-menu>
+
+
+<div class="content">
+    <div class="grid grid-cols-12 gap-6">
+        <div class="col-span-12 xxl:col-span-12 grid grid-cols-12 gap-12">
+            <!-- BEGIN: General Report -->
+            <div class="col-span-12 mt-8">
+
+
+         
+              <div class="intro-y flex items-center h-10">
+                <h2 class="text-lg font-medium truncate mr-5">
+                  Información General
+                </h2>
+              </div>
+    
+              <div class="grid grid-cols-12 gap-6 mt-5">
+          
+                <div routerLink="/empresas"  class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">  Nombre
+
+                            <div class="text-base font-bold leading-8 mt-6"> {{alumno.nombre}} </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+           
+                <div  routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Apellido Paterno</div>
+
+                            <div class="text-base font-bold leading-8 mt-6">{{alumno.paterno}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Apellido Materno</div>
+
+                            <div class="text-base font-bold leading-8 mt-6">{{alumno.materno}}</div>
+                        </div>
+                    </div>
+                </div>
+         
+         
+   
+
+     
+    
+
+            </div>
+               <div class="grid grid-cols-12 gap-6 mt-5">
+          
+                <div routerLink="/empresas"  class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">  Universidad
+
+                            <div class="text-base font-bold leading-8 mt-6">     <h1  *ngFor="let a of universidades"    > 
+            <p    *ngIf="a.id==alumno.idUniversidad"  >{{a.universidad}}</p>
+              </h1> </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+           
+                <div  routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Facultad</div>
+
+                            <div class="text-base font-bold leading-8 mt-6"> <h1  *ngFor="let a of facultades"    > 
+            <p    *ngIf="a.id==alumno.idFacultad"  >{{a.facultad}}</p>
+              </h1></div>
+                        </div>
+                    </div>
+                </div>
+                <div routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Carrera</div>
+
+                            <div class="text-base font-bold leading-8 mt-6"><h1  *ngFor="let a of carreras"    > 
+            <p    *ngIf="a.id==alumno.idCarrera"  >{{a.carrera}}</p>
+              </h1></div>
+                        </div>
+                    </div>
+                </div>
+                         </div>
+
+
+
+
+
+               <div class="grid grid-cols-12 gap-6 mt-5">
+          
+                <div routerLink="/empresas"  class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                                      <div class="text-base text-gray-600 mt-1">  ID. Matricula
+
+                            <div class="text-base font-bold leading-8 mt-6">  {{alumno.matricula}}
+               </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+           
+                <div  routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                    <div class="text-base text-gray-600 mt-1">Porcentaje</div>
+
+                                              <div class="text-base font-bold leading-8 mt-6">  {{alumno.porcentaje}} %</div>
+                        </div>
+                    </div>
+                </div>
+        
+     
+
+            </div>
+               
+         
+
+            <br>
+
+
+              <div class="intro-y flex items-center h-10">
+                <h2 class="text-lg font-medium truncate mr-5">
+Medios de Contacto
+                </h2>
+              </div>
+    
+              <div class="grid grid-cols-12 gap-6 mt-5">
+          
+                <div routerLink="/empresas"  class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">  Correo
+
+                            <div class="text-base font-bold leading-8 mt-6"> {{alumno.correo}} </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+           
+                <div  routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Celular</div>
+
+                            <div class="text-base font-bold leading-8 mt-6">{{alumno.celular}}</div>
+                        </div>
+                    </div>
+                </div>
+            
+         
+
+            </div>
+     <br>
+         <div class="intro-y flex items-center h-10">
+                <h2 class="text-lg font-medium truncate mr-5">
+Dirección
+                </h2>
+              </div>
+    
+              <div class="grid grid-cols-12 gap-6 mt-5">
+          
+                <div routerLink="/empresas"  class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">  Pais
+
+                            <div class="text-base font-bold leading-8 mt-6"> {{alumno.pais}} </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+           
+                <div  routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">CP</div>
+
+                            <div class="text-base font-bold leading-8 mt-6">{{alumno.cp}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Estado</div>
+
+                            <div class="text-base font-bold leading-8 mt-6">{{alumno.estado}}</div>
+                        </div>
+                    </div>
+                </div>
+         
+         
+   
+
+     
+    
+
+            </div>
+
+    <div class="grid grid-cols-12 gap-6 mt-5">
+          
+                <div routerLink="/empresas"  class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">  Municipio
+
+                            <div class="text-base font-bold leading-8 mt-6"> {{alumno.municipio}} </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+           
+                <div  routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Colonia</div>
+
+                            <div class="text-base font-bold leading-8 mt-6">{{alumno.colonia}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                    <div class="report-box zoom-in">
+                        <div class="box p-5">
+                          <div class="text-base text-gray-600 mt-1">Calle</div>
+
+                            <div class="text-base font-bold leading-8 mt-6">{{alumno.calle}}</div>
+                        </div>
+                    </div>
+                </div>
+         
+    
+            </div>
+
+
+<br>
+         <div class="intro-y flex items-center h-10">
+                <h2 class="text-lg font-medium truncate mr-5">
+Sucesos en el sistema                </h2>
+              </div>
+
+  <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+      <table class="table table-report sm:mt-2" >
+          <thead>
+              <tr>
+                  
+                  <th class="whitespace-no-wrap">FECHA DE REGISTRO</th>
+                  <th class="whitespace-no-wrap">SUCESO</th>
+                  <th class="whitespace-no-wrap">  OBSERVACIONES</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="intro-x">
+
+                  <td>
+                      <div class="ext-base text-xs whitespace-no-wrap">   </div>
+                  </td>
+                  <td>
+                    <div class="ext-base text-xs whitespace-no-wrap"> </div>
+                </td>
+
+           
+
+                <td>
+                  <div class="text-base whitespace-no-wrap"> </div>
+              </td>
+           
+
+              </tr>
+       
+              
+              
+          </tbody>
+      </table>
+  </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- END: FORM -->
+<!-- END: Content -->
