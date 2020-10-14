@@ -38,6 +38,8 @@ export class ProyectosEditComponent implements OnInit {
   public estadosProyectos: EstadosProyectosModel[] = [];
   public apoyos: ApoyosModel[] = [];
   public lineasTrabajo: LineasTrabajoModel[] = [];
+  public idApoyo: any;
+  public idLineasTrabajo: any;
 
   constructor(private proyectoService: ProyectoService, private organizacionService: OrganizationService,
     private universidadService: UniversidadService, private router: Router,private activatedRoute: ActivatedRoute) {
@@ -48,6 +50,8 @@ export class ProyectosEditComponent implements OnInit {
   ngOnInit(): void {
 
     this.idobtenido = <number><any>(this.activatedRoute.snapshot.paramMap.get("id"));
+    //this.proyectoService.getProyecto(this.idobtenido).subscribe((proyectoModel: Proyecto) => this.proyectoModel = proyectoModel);
+    this.getProyecto(this.idobtenido);
     this.obtenerOrganizaciones();
     this.obtenerProyectosAreas();
     this.obtenerProyectosRangos();
@@ -57,7 +61,7 @@ export class ProyectosEditComponent implements OnInit {
     this.obtenerEstadosProyectos();
     this.obtenerApoyos();
     this.obtenerLineasTrabajo();
-    this.proyectoService.getProyecto(this.idobtenido).subscribe((proyectoModel: Proyecto) => this.proyectoModel = proyectoModel);
+    
 
   }
   
@@ -66,20 +70,22 @@ export class ProyectosEditComponent implements OnInit {
   }
   
   getProyecto(id) {
-    this.organizacionService.getOrganizacion(id).subscribe((res: any[]) => {
-      this.proyectoModel.proyecto = res["proyecto"];
-      /*
-      this.horasAlumno = res;
-      console.log(this.horasAlumno);
-      this.responsablemodel=res['responsable'];
-      this.listaAreasAccion=res['listaAreasAccion'];
-      this.listaRubros=res['listaRubros'];
 
-      console.log(this.listaAreasAccion);
-      this.idRubro =  this.listaRubros.map(({ idRubro }) => idRubro);
-      this.idAreaAccion =  this.listaAreasAccion.map(({ idAreaAccion }) => idAreaAccion);
-      */
+    
+    this.proyectoService.getProyecto(id).subscribe((res: any[]) => {
+      
+      this.proyectoModel = <Proyecto><any>res;
+      this.listaApoyos = res['listaApoyos'];
+      this.listaLineasTrabajo = res['listaLineasTrabajo'];
 
+      //console.log(this.apoyos);
+      //console.log(this.listaLineasTrabajo);
+      
+      this.idApoyo = this.listaApoyos.map(({ idApoyo }) => idApoyo);
+      this.idLineasTrabajo = this.listaLineasTrabajo.map(({ idLineaTrabajo }) => idLineaTrabajo);
+      //console.log(this.idApoyo);
+      //console.log(this.idLineasTrabajo);
+      
       
     })
   }
@@ -149,46 +155,6 @@ export class ProyectosEditComponent implements OnInit {
     console.log(this.listaApoyos);
   }
 
-  /*
-  obtenerAreas() {
-    return this.organizacionService
-      .getAreas()
-      .subscribe((areas: AreaAccion[]) => this.areas = areas );
-  }
-  obtenerRubros() {
-    return this.organizacionService
-      .getRubros()
-      .subscribe((rubros: RubroEmpresa[]) => this.rubros = rubros );
-  }
-  obtenerUniversidades() {
-    return this.organizacionService
-      .getUniversidades()
-      .subscribe((universidades: Universidad[]) => this.universidades = universidades );
-  }
-  obtenerTipo() {
-    return this.organizacionService
-      .getTipo()
-      .subscribe((tipo: TipoEmpresa[]) => this.tipo = tipo );
-  }
- 
-  obtenerEstado() {
-    return this.organizacionService
-      .getEstado()
-      .subscribe((estado: EstadoEmpresa[]) => this.estado = estado );
-  }
-  obtenerGiro() {
-    return this.organizacionService
-      .getGiro()
-      .subscribe((giro: GiroEmpresa[]) => this.giro = giro );
-  }
-  obtenerClasificacion() {
-    return this.organizacionService
-      .getClasificacion()
-      .subscribe((clasificacion: ClasificacionEmpresa[]) => this.clasificacion = clasificacion );
-  }
-
-
-*/
   onSubmit() {
     let model = this.proyectoModel;
    
@@ -200,18 +166,19 @@ export class ProyectosEditComponent implements OnInit {
     console.log(this.listaApoyos);
     console.log(this.listaLineasTrabajo);
     console.log(model)
-    /*
-    this.proyectoService.updateproyecto(this.idobtenido, model).subscribe(() => {
-      
-      this.validar=true;
-
+    
+    this.proyectoService.updateproyecto(this.idobtenido, model).subscribe((res: any) => {
+      if (res) {
+        this.validar = true;
+      }
+    }, error => {
+      alert(error.error)
     })
 
+    if(this.validar){
+        this.router.navigate(['/proyectos']);
+        $('#success-modal-preview').modal('show');
 
-if(this.validar){
-    this.router.navigate(['/empresas']);
-    $('#success-modal-preview').modal('show');
-
-}*/
+    }
   }
 }

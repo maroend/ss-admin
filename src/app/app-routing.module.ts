@@ -33,7 +33,7 @@ const routes: Routes = [
   {path:'alumnos/edit/:id', component: AlumnosEditComponent },
   { path: 'proyectos', component: ProyectosComponent },
   { path: 'proyectos/add', component: ProyectosAddComponent },
-  { path: 'proyectos/edit', component: ProyectosEditComponent },
+  { path: 'proyectos/edit/:id', component: ProyectosEditComponent },
   {path:'convocatorias',component:ConvocatoriasComponent},
   {path:'convocatorias/add',component:ConvocatoriaAddComponent},
   {path:'convocatorias/edit/:id',component:ConvocatoriaEditComponent},
