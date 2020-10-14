@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { DataTablesModule } from 'angular-datatables';
@@ -14,6 +15,8 @@ import { AlumnosAddComponent } from './alumnos/alumnos-add/alumnos-add.component
 import { AlumnosEditComponent } from './alumnos/alumnos-edit/alumnos-edit.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
+import { ProyectosAddComponent } from './proyectos/proyectos-add/proyectos-add.component';
+import { ProyectosEditComponent } from './proyectos/proyectos-edit/proyectos-edit.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
 import { ConvocatoriaEditComponent } from './convocatorias/convocatoria-edit/convocatoria-edit.component';
 import { ConvocatoriaAddComponent } from './convocatorias/convocatoria-add/convocatoria-add.component';
@@ -38,6 +41,8 @@ import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.co
     AlumnosEditComponent,
     MenuComponent,
     ProyectosComponent,
+    ProyectosAddComponent,
+    ProyectosEditComponent,
     ConvocatoriasComponent,
     AdministracionComponent,
     DashboardComponent,
@@ -57,7 +62,8 @@ import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.co
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    DataTablesModule
+    DataTablesModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
