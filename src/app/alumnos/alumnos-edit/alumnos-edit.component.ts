@@ -11,6 +11,7 @@ import { Alumno } from '../../models/alumno';
 
 import { Router, ActivatedRoute  } from '@angular/router';
 import { AlumnosComponent } from '../alumnos.component';
+import {Location} from '@angular/common';
 
 
 declare var $: any;
@@ -33,7 +34,7 @@ export class AlumnosEditComponent implements OnInit {
 
   public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "", true, 0,);
 
-  constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService) { }
+  constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService,private _location: Location) { }
 
 
 
@@ -78,10 +79,9 @@ export class AlumnosEditComponent implements OnInit {
 
     this.alumnoService.updateAlumno(this.idAlumno,data.value).subscribe(() => {
       
-  
-      $('#success-modal-preview').modal('show');
+           $('#success-modal-preview').modal('show');
 
-      this.router.navigate(['/alumnos']);
+    this._location.back();
     })
 
   }

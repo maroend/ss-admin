@@ -9,6 +9,7 @@ import { Universidad } from "../../models/universidad"
 import { Router,ActivatedRoute } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 import { data } from 'jquery';
+import {Location} from '@angular/common';
 
 declare var $: any;
 @Component({
@@ -30,7 +31,7 @@ public fechafin="";
 public idobtenido="";
 
 
-  constructor(private convocatoriaservices: ConvocatoriaServices,private router: Router,private activatedRoute: ActivatedRoute){}
+  constructor(private convocatoriaservices: ConvocatoriaServices,private router: Router,private activatedRoute: ActivatedRoute,private _location: Location){}
 
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
@@ -70,15 +71,13 @@ model.fechaTermino=new Date(this.fechafin);
     console.log(model)
 
     this.convocatoriaservices.updateconvocatoria(this.idobtenido,model).subscribe((res: any)=>{
-      this.validar=true;
+               $('#success-modal-preview').modal('show');
 
+    this._location.back();
     }, error=>{
       alert(error.error)
     })
-if(this.validar){
-    this.router.navigate(['/convocatorias']);
-    $('#success-modal-preview').modal('show');
-}
+
   }
 
 

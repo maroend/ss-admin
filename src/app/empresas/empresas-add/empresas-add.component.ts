@@ -12,6 +12,7 @@ import { ClasificacionEmpresa } from "../../models/clasificacionempresa"
 import { EstadoEmpresa } from "../../models/estadoempresa"
 import { Router } from '@angular/router';
 declare var $: any;
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-organization-add',
@@ -36,7 +37,7 @@ public validar=false;
   checkmodel = new check("false","false")
 
 
-  constructor(private organizacionService: OrganizationService,private router: Router) {}
+  constructor(private organizacionService: OrganizationService,private router: Router,private _location: Location) {}
 
   ngOnInit(): void {
     this.obtenerAreas();
@@ -126,18 +127,18 @@ console.log(this.responsablemodel);
     this.organizacionService.create(model).subscribe((res: any)=>{
       this.validar=true;
 
-      $('#success-modal-preview').modal('show');
-      this.router.navigate(['/empresas']);
+               $('#success-modal-preview').modal('show');
+
+    this._location.back();
+
 
     }, error=>{
       alert(error.error)
 
     })
   
-  if(this.validar){
-
-
-  }
+ 
+  
   }
   
 }

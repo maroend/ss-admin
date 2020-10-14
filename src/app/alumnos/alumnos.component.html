@@ -38,7 +38,7 @@
 
     <!-- BEGIN: Datatable -->
     <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table datatable [dtOptions]="dtOptions"   class="table table-report table-report--bordered display datatable w-full">
+        <table datatable #dataTable  [dtOptions]="dtOptions"   class="table table-report table-report--bordered display datatable w-full">
             <thead>
                 <tr>
                     <th class="border-b-2 whitespace-no-wrap">NOMBRE COMPLETO</th>
@@ -52,7 +52,7 @@
             <tbody *ngIf="alumnos?.length != 0">
                 <tr *ngFor="let alumno of alumnos">
                     <td class="border-b">
-                        <a href="#">
+                        <a [routerLink]="['/alumnos/ver', alumno.id]" >
                         <div class="font-medium whitespace-no-wrap">{{ alumno.nombre }}</div>
                         <div class="text-gray-600 text-xs whitespace-no-wrap">{{ alumno.carrera }}</div>
                         </a>
