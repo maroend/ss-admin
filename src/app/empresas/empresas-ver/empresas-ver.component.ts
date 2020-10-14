@@ -3,6 +3,7 @@ import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
 import { Empresa,Responsablemodel,check } from "../../models/empresa"
 import { AreaAccion } from "../../models/areaaccion"
+import { Documentos,DocumentosCadena,Documentosfile   } from "../../models/documentos"
 
 import { RubroEmpresa } from "../../models/rubrosempresa"
 import { Universidad } from "../../models/universidad"
@@ -14,14 +15,16 @@ import { EstadoEmpresa } from "../../models/estadoempresa"
 
 
 import { Router,ActivatedRoute } from '@angular/router';
+import { Binary } from '@angular/compiler';
+import { NgModel } from '@angular/forms';
 declare var $: any;
 
 @Component({
-  selector: 'app-organization-add',
-  templateUrl: './empresas-edit.component.html',
-  styleUrls: ['./empresas-edit.component.scss']
+  selector: 'app-organization-ver',
+  templateUrl: './empresas-ver.component.html',
+  styleUrls: ['./empresas-ver.component.scss']
 })
-export class EmpresasEditComponent implements OnInit {
+export class EmpresasverComponent implements OnInit {
   public areas: AreaAccion[] = [];
   public responsable: Responsablemodel[] = [];
   public rubros: RubroEmpresa[] = [];
@@ -29,6 +32,8 @@ export class EmpresasEditComponent implements OnInit {
   public tipo: TipoEmpresa[] = [];
 public idobtenido:string;
   public giro: GiroEmpresa[] = [];
+  public documentos: Documentos[] = [];
+
   public estado: EstadoEmpresa[] = [];
   public listaAreasAccion = [];
   public listaRubros = [];
@@ -38,8 +43,12 @@ public validar=false;
   public contactos = [];
   public clasificacion: ClasificacionEmpresa[] = [];
   horasAlumno = [];
-
   public responsablemodel = new Responsablemodel("","","","","","","","","",true,true)
+  public documentoscadena = new DocumentosCadena(1,1,1,"","",undefined)
+  public  binary: number = 0b1010;
+
+  public documentosfile = new Documentosfile("")
+
   checkmodel = new check("false","false")
   empresaModel = new Empresa("","","","","","","","","","","","","","","","","","","",true,0,"",null,false,true,1,1,1,1,1,0,0,0,0,0,0,this.listaAreasAccion,this.listaRubros,this.responsablemodel)
 
@@ -60,6 +69,7 @@ public validar=false;
     this.obtenerGiro();
     this.obtenerClasificacion();
     this.obtenerEstado();
+    this.obtenerdocumentos();
 
   }
   toggleArea(checked, id){
@@ -138,7 +148,11 @@ var valor= { "idRubro": id ,"activo": true};
       .getClasificacion()
       .subscribe((clasificacion: ClasificacionEmpresa[]) => this.clasificacion = clasificacion );
   }
-
+  obtenerdocumentos() {
+    return this.organizacionService
+      .getdocumentos()
+      .subscribe((documentos: Documentos[]) => this.documentos = documentos );
+  }
 
 
   onSubmit() {
@@ -165,4 +179,79 @@ if(this.validar){
 
 }
   }
+
+
+  abrirsubir(id){
+
+    console.log("dfdsfdsfds"+ id);
+    $('#abrirsubir-'+id).modal('show');
+
+  }
+
+
+  subirarchivo(){
+    console.log("subir");
+
+    this.documentosfile.file=this.documentoscadena.file;
+    console.log(this.documentosfile);
+  
+    this.organizacionService.subirdocumentos(this.documentosfile).subscribe((res: any)=>{
+      console.log(res);
+
+      this.documentoscadena.ruta=res.ruta;
+
+this.subirarchivoconcadena(); 
+
+    }, error=>{
+      alert(error.error)
+    })
+
+
+  }
+
+  subirarchivoconcadena(){
+    
+    this.organizacionService.subirdocumentoscadena(this.documentoscadena).subscribe((res: any)=>{
+      console.log(res);
+
+
+    }, error=>{
+      alert(error.error)
+    })
+
+    
+  }
+   subeArchivo() {
+
+    var selecttedFile = ($("#Imagen"))[0].files[0];
+    var dataString = new FormData();
+    dataString.append("file", selecttedFile);
+    
+    $.ajax({  
+       headers: { 
+         "Access-Control-Allow-Origin":"http://localhost:4200,https://serviciosocial.gesdesapplication.com/api/DocumentosOrganizaciones/UploadFile',https://localhost:4200", 
+         "Access-Control-Allow-Headers":"X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method",
+         "Access-Control-Allow-Methods":" POST", 
+        "Allow":" POST"
+        },
+        url: "https://serviciosocial.gesdesapplication.com/api/DocumentosOrganizaciones/UploadFile",
+        type: "POST",
+        data: dataString,
+        contentType: false,
+        processData: false,
+        async: true,
+        
+        success: function (data) {
+            if (parseInt(data.resultado)) {
+            
+                alert("archivo agregado " + data);
+            }
+        },
+        error: function (data) {
+            alert("Error al agregado archivo" + data);
+        }
+   
+    });
+    }
+
 }

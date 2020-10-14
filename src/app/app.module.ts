@@ -26,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
 import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.component';
+import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.component';
 
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
@@ -50,6 +51,7 @@ import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.co
     EmpresasEditComponent,
     ConvocatoriaAddComponent,
     ConvocatoriaEditComponent,
+    EmpresasverComponent,
     UsuariosComponent,
     UsuariosAddComponent,
     UsuariosEditComponent

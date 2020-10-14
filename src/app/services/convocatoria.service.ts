@@ -19,6 +19,10 @@ export class ConvocatoriaServices {
     return this.http.get(uri);
  
   } 
+  eliminar(id : string | number){
+    const uri = `${this.api}/Convocatorias/${id}`;
+    return this.http.delete(uri);
+  }
    create(model){
     const uri = `${this.api}/Convocatorias`
     return this.http.post(uri, model);
@@ -38,6 +42,12 @@ export class ConvocatoriaServices {
          console.log(uri);
     return this.http.get(uri);
   }
+  getConvocatoriatipo(model){
+    const uri = `${this.api}/Convocatorias/getConvocatoriaByTipo?tipo=${model.tipo}`;
+         console.log(uri);
+    return this.http.post(uri,model);
+  }
+
   updateconvocatoria(id: string | number,convocatoria: Convocatoria) {
     convocatoria.id = Number(id);
     return this.http.put(`${this.api}/Convocatorias/${id}`, convocatoria);

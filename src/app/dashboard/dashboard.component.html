@@ -21,10 +21,10 @@
                                 <div class="flex">
                                     <i data-feather="shopping-cart" class="report-box__icon text-theme-10"></i> 
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="33% Higher than last month"> 33% <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
+                                        <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="33% Higher than last month">  {{ (empresaactiva.length * 100 )/empresa.length}} %< <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold leading-8 mt-6">120</div>
+                                <div class="text-3xl font-bold leading-8 mt-6">{{empresaactiva.length}}</div>
                                 <div class="text-base text-gray-600 mt-1">Empresas Activas</div>
                             </div>
                         </div>
@@ -35,10 +35,10 @@
                                 <div class="flex">
                                     <i data-feather="credit-card" class="report-box__icon text-theme-11"></i> 
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="2% Lower than last month"> 2% <i data-feather="chevron-down" class="w-4 h-4"></i> </div>
+                                        <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="2% Lower than last month"> {{ (empresadesaciva.length * 100 )/empresa.length}} %<i data-feather="chevron-down" class="w-4 h-4"></i> </div>
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold leading-8 mt-6">30</div>
+                                <div class="text-3xl font-bold leading-8 mt-6">{{empresadesaciva.length}}</div>
                                 <div class="text-base text-gray-600 mt-1">Empresas Pendientes</div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                         <thead>
                             <tr>
                                 
-                                <th class="whitespace-no-wrap">CONVOCATORIAS ABIERTAS</th>
+                                <th class="whitespace-no-wrap">CONVOCATORIAS EMPRESAS</th>
                                 <th class="text-center whitespace-no-wrap">INICIA</th>
                                 <th class="text-center whitespace-no-wrap">TERMINA</th>
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
@@ -98,67 +98,87 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="intro-x">
+                            <tr class="intro-x" *ngFor="let convocatoria of convocatorias" >
                                 <td>
-                                    <a href="" class="font-medium whitespace-no-wrap">Convocatoria para Dependencias</a> 
-                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Inscripción de Instituciones agosto - diciembre 2020</div>
+                                    <a href="" class="font-medium whitespace-no-wrap">{{convocatoria.convocatoria}}</a> 
+                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Descripción {{convocatoria.descripcion}}</div>
                                 </td>
                                 <td class="W-56">
                                     <div class="flex items-center justify-center text-theme-6">
-                                    08-JUNIO-2020
+                                 {{convocatoria.fechaInicio}}
                                     </div>
                                 </td>
                                 <td class="W-56">
                                     <div class="flex items-center justify-center text-theme-6">
-                                    13-JULIO-2020
+                                        {{convocatoria.fechaTermino}}
                                     </div>
                                 </td>
                                 <td class="w-40">
                                    
-                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium">ACTIVA</div>
+                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium">{{convocatoria.activo}}</div>
                                     
                                 </td>
                                 <td class="table-report__action w-56">
                                     <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                                        <a class="flex items-center mr-3" [routerLink]="['/convocatorias/edit', convocatoria.id  ]" > <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
                                         
                                     </div>
                                 </td>
                             </tr>
-
-                            <tr class="intro-x">
+                     
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+                    <table class="table table-report sm:mt-2">
+                        <thead>
+                            <tr>
+                                
+                                <th class="whitespace-no-wrap">CONVOCATORIAS ALUMNOS</th>
+                                <th class="text-center whitespace-no-wrap">INICIA</th>
+                                <th class="text-center whitespace-no-wrap">TERMINA</th>
+                                <th class="text-center whitespace-no-wrap">STATUS</th>
+                                <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    
+                            <tr class="intro-x" *ngFor="let convocatoria of convocatoriasalumnos" >
                                 <td>
-                                    <a href="" class="font-medium whitespace-no-wrap">INSCRIPCIÓN DE INSTITUCIONES (PERIODO 201660)</a> 
-                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Le damos la más cordial Bienvenida a la inscripción de Instituciones para formar parte del catálogo de Servicio Social de la Universidad Anáhuac Xalapa.</div>
+                                    <a href="" class="font-medium whitespace-no-wrap">{{convocatoria.convocatoria}}</a> 
+                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Descripción {{convocatoria.descripcion}}</div>
                                 </td>
                                 <td class="W-56">
-                                    <div class="flex items-center justify-center">
-                                    08-JUNIO-2020
+                                    <div class="flex items-center justify-center text-theme-6">
+                                 {{convocatoria.fechaInicio}}
                                     </div>
                                 </td>
-
                                 <td class="W-56">
-                                    <div class="flex items-center justify-center">
-                                    13-JULIO-2020
+                                    <div class="flex items-center justify-center text-theme-6">
+                                        {{convocatoria.fechaTermino}}
                                     </div>
                                 </td>
                                 <td class="w-40">
-                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium">ACTIVA</div>
+                                   
+                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium">{{convocatoria.activo}}</div>
+                                    
                                 </td>
                                 <td class="table-report__action w-56">
                                     <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                                        <a class="flex items-center mr-3" [routerLink]="['/convocatorias/edit', convocatoria.id  ]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
                                         
                                     </div>
                                 </td>
                             </tr>
+              
                             
                             
                             
                         </tbody>
                     </table>
                 </div>
-                
             </div>
             <!-- END: Convocatorias Abiertas -->
 

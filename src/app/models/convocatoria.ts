@@ -17,3 +17,11 @@ export class Convocatoria {
     ) { }
 
 } 
+export class Tipo {
+    constructor(
+        public tipo: number
+
+        
+    ) { }
+
+} 
