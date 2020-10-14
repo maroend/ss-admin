@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ProyectosAddComponent } from './proyectos/proyectos-add/proyectos-add.component';
 import { ProyectosEditComponent } from './proyectos/proyectos-edit/proyectos-edit.component';
+import { ProyectosVerComponent } from './proyectos/proyectos-ver/proyectos-ver.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
 import { ConvocatoriaEditComponent } from './convocatorias/convocatoria-edit/convocatoria-edit.component';
 import { ConvocatoriaAddComponent } from './convocatorias/convocatoria-add/convocatoria-add.component';
@@ -43,6 +44,7 @@ import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.co
     ProyectosComponent,
     ProyectosAddComponent,
     ProyectosEditComponent,
+    ProyectosVerComponent,
     ConvocatoriasComponent,
     AdministracionComponent,
     DashboardComponent,

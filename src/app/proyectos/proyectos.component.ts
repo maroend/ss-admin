@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
-import { Proyecto } from "../models/Proyectos"
+import { Proyecto } from "../models/proyectos"
 import { ProyectoService } from '../services/proyecto.service';
 declare var $: any;
 

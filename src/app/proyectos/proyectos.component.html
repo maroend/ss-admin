@@ -38,18 +38,18 @@
             </thead>
             <tbody *ngIf="proyectos?.length != 0">
                 <tr *ngFor="let proyecto of proyectos">
-                    <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">{{proyecto.proyecto}}</div>
-                    </td>
+                  <td class="border-b">
+                    <a [routerLink]="['/proyectos/ver', proyecto.id]">    <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-1 text-white"> {{proyecto.proyecto}}</div></a>
+                  </td>
                     <td class="border-b">
                         <div class="font-medium flex sm:justify-center items-center">{{proyecto.organizacion}}</div>
                     </td>
                
                     <td class="w-40 border-b">
-                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> {{proyecto.universidad}}</div>
+                      <div class="font-medium flex sm:justify-center items-center"> {{proyecto.universidad}}</div>
                     </td>
                     <td class="w-40 border-b">
-                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> {{proyecto.periodo}}</div>
+                      <div class="font-medium flex sm:justify-center items-center"> {{proyecto.periodo}}</div>
                     </td>
                     <td class="border-b">
                       <div class="font-medium flex sm:justify-center items-center">{{proyecto.estadoProyecto}}</div>
