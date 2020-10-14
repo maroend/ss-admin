@@ -5,6 +5,7 @@ import { Convocatoria } from "../../models/convocatoria"
 
 import { Periodos } from "../../models/periodo"
 import { Universidad } from "../../models/universidad"
+import {Location} from '@angular/common';
 
 import { Router } from '@angular/router';
 declare var $: any;
@@ -24,7 +25,7 @@ export class ConvocatoriaAddComponent implements OnInit {
 
 
 
-  constructor(private convocatoriaservices: ConvocatoriaServices,private router: Router) {}
+  constructor(private convocatoriaservices: ConvocatoriaServices,private router: Router,private _location: Location) {}
 
   ngOnInit(): void {
 this.obtenerUniversidad();
@@ -56,9 +57,9 @@ this.obtenerperiodo();
 
     this.convocatoriaservices.create(model).subscribe((res: any)=>{
       console.log(res.message)
-      this.router.navigate(['/convocatorias']);
-      $('#success-modal-preview').modal('show');
+           $('#success-modal-preview').modal('show');
 
+    this._location.back();
     }, error=>{
       alert(error.error)
     })

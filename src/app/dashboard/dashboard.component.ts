@@ -28,6 +28,14 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+     this.empresa=[];
+     this.empresacantidad=0;
+     this.empresaactiva = [  ];
+     this.empresadesaciva = [  ];
+  
+     this.tipoModel = new Tipo(1);
+     this.convocatorias = [ ];
+     this.convocatoriasalumnos = [ ];
     this.obtenerempresa();
     this.obtenerConvocatoria1();
     this.obtenerConvocatoria2();
@@ -90,4 +98,7 @@ this.convocatoriasalumnos=res;
 })
   }
 
+
+
+  
 }

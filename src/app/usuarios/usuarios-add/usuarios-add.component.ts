@@ -4,6 +4,7 @@ import { UsuarioServices } from '../../services/usuario.service';
 import { Usuario } from "../../models/usuario"
 
 import { Universidad } from "../../models/universidad"
+import {Location} from '@angular/common';
 
 import { Router } from '@angular/router';
 declare var $: any;
@@ -22,7 +23,7 @@ export class UsuariosAddComponent implements OnInit {
 
 validar=true;
 
-  constructor(private convocatoriaservices: UsuarioServices,private router: Router) {}
+  constructor(private convocatoriaservices: UsuarioServices,private router: Router,private _location: Location) {}
 
   ngOnInit(): void {
 this.obtenerUniversidad();
@@ -47,17 +48,15 @@ this.obtenerUniversidad();
 
     this.convocatoriaservices.create(model).subscribe((res: any)=>{
  
-      this.validar=true;
+            $('#success-modal-preview').modal('show');
 
+    this._location.back();
     }, error=>{
       alert(error.error)
     })
   
 
-if(this.validar){
-  this.router.navigate(['/usuarios']);
-  $('#success-modal-preview').modal('show');
-}
+
 
 
 }

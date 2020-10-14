@@ -20,12 +20,13 @@ export class EmpresashomeComponent implements OnInit {
 
   constructor(private organizacionService: OrganizationService,private router: Router) { }
 
- 
-  
-  ngOnInit() {
     
+  ngOnInit() {
+
     this.obtenerorganizaciones();
-    this.dataTable.DataTable();
+
+            this.dataTable.DataTable();
+
   }
 
   obtenerorganizaciones() {

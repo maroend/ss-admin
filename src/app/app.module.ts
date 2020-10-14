@@ -32,11 +32,13 @@ import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.compo
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
+import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlumnosComponent,
+    AlumnosverComponent,
     LoginComponent,
     AlumnosAddComponent,
     AlumnosEditComponent,

@@ -20,14 +20,16 @@ export class AlumnoService {
   baseUrl = environment.baseUrl;
 
   constructor(private http: HttpClient) { }
+  getAlumnos() {
 
-  getAlumnos(dataTablesParameters: any) {
-    
-     return this.http
-          .get<DataTablesResponse>(
-            `${this.baseUrl}/Alumnos/getAllTabla`,
-            dataTablesParameters
-          );
+  // getAlumnos(dataTablesParameters: any) {
+    return this.http.get(`${this.baseUrl}/Alumnos`);
+
+    //  return this.http
+    //       .get<DataTablesResponse>(
+    //         `${this.baseUrl}/Alumnos/getAllTabla`,
+    //         dataTablesParameters
+    //       );
 
   }
 

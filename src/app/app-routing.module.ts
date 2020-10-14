@@ -22,6 +22,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
 import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.component';
+import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
 
 EmpresasverComponent
 const routes: Routes = [
@@ -49,7 +50,10 @@ const routes: Routes = [
   {path:'empresas/Edit/:id',component:EmpresasEditComponent},
   {path:'usuarios',component:UsuariosComponent},
   {path:'usuarios/add',component:UsuariosAddComponent},
-  {path:'usuarios/edit/:id',component:UsuariosEditComponent}
+  {path:'usuarios/edit/:id',component:UsuariosEditComponent},
+  {path:'alumnos/ver/:id',component:AlumnosverComponent},
+
+
 ];
 
 @NgModule({

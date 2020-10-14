@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { Alumno } from '../models/alumno';
 import { AlumnoService } from '../services/alumno.service';
@@ -13,42 +13,51 @@ export class AlumnosComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
   alumnos: Alumno[];
+  @ViewChild('dataTable', {static: false}) table;
 
+  dataTable:any;  
   constructor(private alumnosService: AlumnoService,private http: HttpClient) { }
 
   ngOnInit(): void {
 
    this.obtenerAlumnos();
-    
-  }
+   this.dataTable.DataTable();
 
+  }
 
   obtenerAlumnos() {
 
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      serverSide: true,
-      processing: true,
-      ajax: (dataTablesParameters: any, callback) => {
+    return this.alumnosService
+    .getAlumnos()
+    .subscribe((alumnos: Alumno[]) => this.alumnos = alumnos);
+   }
 
-        this.alumnosService
-        .getAlumnos(dataTablesParameters)
-        .subscribe((resp:any) => {
+  // obtenerAlumnos() {
+
+  //   this.dtOptions = {
+  //     pagingType: 'full_numbers',
+  //     pageLength: 10,
+  //     serverSide: true,
+  //     processing: true,
+  //     ajax: (dataTablesParameters: any, callback) => {
+
+  //       this.alumnosService
+  //       .getAlumnos(dataTablesParameters)
+  //       .subscribe((resp:any) => {
             
-            this.alumnos = resp.data;
+  //           this.alumnos = resp.data;
 
-            callback({
-              recordsTotal: resp.recordsTotal,
-              recordsFiltered: resp.recordsFiltered,
-              data: []
-            });
-          });
-      },
-      columns: [{ data: 'nombre' }, { data: 'matricula' }, { data: 'universidad' },{ data: 'facultad' }]
-    };
+  //           callback({
+  //             recordsTotal: resp.recordsTotal,
+  //             recordsFiltered: resp.recordsFiltered,
+  //             data: []
+  //           });
+  //         });
+  //     },
+  //     columns: [{ data: 'nombre' }, { data: 'matricula' }, { data: 'universidad' },{ data: 'facultad' }]
+  //   };
 
-  }
+  // }
 
   ngAfterViewInit() {
     Feather.replace();
