@@ -29,8 +29,146 @@
             </h2>
         </div>
         <div class="p-5" id="horizontal-form">
-         
-          
+
+          <div class="row">
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Proyecto:</b> {{proyectoModel.proyecto}}</label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Organización:</b> {{proyectoModel.organizacion}}</label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Organización:</b> {{proyectoModel.organizacion}}</label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Periodo:</b> {{proyectoModel.periodo}}</label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Duración:</b>Fecha inicio: {{proyectoModel.fechaInicio}} Fecha termino: {{proyectoModel.fechaTermino}}</label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Descripciòn:</b>{{proyectoModel.descripcion}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Objetivo:</b>{{proyectoModel.objetivo}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Area:</b>{{proyectoModel.area}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Area:</b>{{proyectoModel.area}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Rango:</b>{{proyectoModel.rango}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Poblaciòn:</b>{{proyectoModel.poblacion}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Beneficios institucionales:</b>{{proyectoModel.beneficioInstitucional}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Comentarios:</b>{{proyectoModel.comentarios}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Horas proyectos:</b>{{proyectoModel.horasProyecto}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Nùmero de vacantes:</b>{{proyectoModel.noVacantes}} </label>
+            </div>
+            <div class="col-6">
+              <label *ngIf="proyectoModel.recursosEconomicos; else elseBlock" ><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Recursos econòmicos:</b> Si </label>
+              <ng-template #elseBlock><label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Recursos econòmicos:</b> No </label></ng-template>
+            </div>
+          </div>
+
+        </div>
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+          <h2 class="font-medium text-base mr-auto">
+            Formación/Capacitación para el Alumno:
+          </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+          <div class="row">
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Formaciòn:</b>{{proyectoModel.descripcionFormacion}} </label>
+            </div>
+            <div class="col-6">
+              <label *ngIf="proyectoModel.constanciaParticipacion; else elseBlock" ><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Constancia:</b> Si </label>
+              <ng-template #elseBlock><label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Constancia:</b> No </label></ng-template>
+            </div>
+          </div>
+
+        </div>
+      <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+        <h2 class="font-medium text-base mr-auto">
+          Beneficios para el Alumno
+        </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+          <div class="row">
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Beneficios alumno:</b>{{proyectoModel.descripcionBeneficiosAlumno}} </label>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+          <h2 class="font-medium text-base mr-auto">
+            Impacto social del proyecto
+          </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+          <div class="row">
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Impacto social:</b>{{proyectoModel.descripcionImpactoSocial}} </label>
+            </div>
+            <div class="col-6">
+              <label><b class="rounded-md text-center px-1 py-1 mb-2 bg-orange-600 text-white">Indicadores:</b>{{proyectoModel.indicadoresImpactoSocial}} </label>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+          <h2 class="font-medium text-base mr-auto">
+            Apoyos a los Prestadores
+          </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+          <div class="well">
+            <table style="padding: 15px; margin-left: 25px;">
+              <tbody>
+                <tr *ngFor="let apoyo of apoyos">
+
+                  <td style="padding:5px;">
+                    <label>
+                      {{apoyo.apoyo}}
+                    </label>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+          <h2 class="font-medium text-base mr-auto">
+            Línea de Trabajo
+          </h2>
+        </div>
+        <div class="p-5" id="horizontal-form">
+          <div class="well">
+            <table style="padding: 15px; margin-left: 25px;">
+              <tbody>
+                <tr *ngFor="let lineaTrabajo of lineasTrabajo">
+                  <td style="padding:5px;">
+                    <label>
+                      {{lineaTrabajo.lineaTrabajo}}
+                    </label>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
     </div>
   </form>
