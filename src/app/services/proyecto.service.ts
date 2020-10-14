@@ -68,33 +68,8 @@ export class ProyectoService {
     proyecto.activo = true;
     return this.http.put(`${this.api}/Proyectos/${id}`, proyecto);
   }
-
-/*
-getAreas() {
-  const uri = `${this.api}/AreasAccion`;
-  return this.http.get(uri);
-}
-
-getRubros() {
-  const uri = `${this.api}/Rubros`;
-  return this.http.get(uri);
-}
-  getTipo() {
-    const uri = `${this.api}/TiposOrganizaciones`;
-    return this.http.get(uri);
+  eliminar(id: string | number) {
+    const uri = `${this.api}/Proyectos/${id}`;
+    return this.http.delete(uri);
   }
-
-  getGiro() {
-    const uri = `${this.api}/GirosOrganizaciones`;
-    return this.http.get(uri);
-  }
-  getClasificacion() {
-    const uri = `${this.api}/ClasificacionesOrganizaciones`;
-    return this.http.get(uri);
-  }
-  createWithDetails(model) {
-    const uri = `${this.api}/CreateWithDetails`
-    return this.http.post(uri, model);
-  }
-*/
 }
