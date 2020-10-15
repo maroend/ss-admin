@@ -81,10 +81,10 @@ this.empresa= res;
 
 for(var i=0;i<this.empresacantidad;i++){
 
- if(this.empresa[i].idEstadoOrganizacion==3){
+ if(this.empresa[i].idEstadoOrganizacion==2){
 this.empresaactiva.push(this.empresa[i]);
  }
- if(this.empresa[i].idEstadoOrganizacion<3){
+ if(this.empresa[i].idEstadoOrganizacion<2){
    this.empresadesaciva.push(this.empresa[i]);
 
 
