@@ -86,10 +86,11 @@ export class OrganizationService {
     empresa.activo = true;
     return this.http.put(`${this.api}/Organizaciones/${id}`, empresa);
   }
-  updateestado(estadoAct) {
+  updateestado(estadoAct: estadoActualizar) {
     let estado=estadoAct;
 console.log(estado);
 
-    return this.http.put(`${this.api}/Organizaciones/actualizaEstado`, estado);
+
+    return this.http.put(`${this.api}/Organizaciones/actualizaEstado?idOrganizacion=${estado.idOrganizacion}&idEstado=${estado.idEstado}&observaciones=${estado.observaciones}`, estado);
   }
 }
