@@ -48,6 +48,7 @@ export class AlumnosverComponent implements OnInit {
     this.obtenerCarreras();
     this.obtenerFacultades();
     this.obtenerproyectoalumno();
+    console.log(this.alumno);
   }
 
   obtenerUniversidades(){

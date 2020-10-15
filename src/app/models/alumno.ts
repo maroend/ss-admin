@@ -9,6 +9,7 @@ export class Alumno {
         public idCarrera: number,
         public celular: string,
         public correo: string,
+        public password: string,
         public cp: string,
         public pais: string,
         public estado: string,

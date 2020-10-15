@@ -334,7 +334,7 @@
                   <!-- BEGIN: Datatable -->
                   
   <div class="intro-y datatable-wrapper box p-5 mt-5">
-    <table datatable #dataTable1 id="tablaActividades" class="table table-report table-report--bordered display datatable w-full">
+    <table id="tablaActividades" class="table table-report table-report--bordered display datatable w-full">
       <thead>
         <tr>
           <th class="border-b-2 whitespace-no-wrap">Actividad</th>
@@ -343,7 +343,7 @@
           <th class="border-b-2 text-center whitespace-no-wrap">No. prestadores</th>
         </tr>
       </thead>
-      <tbody *ngIf="sucesos?.length != 0">
+      <tbody *ngIf="proyectosActividades?.length != 0">
 
         <tr *ngFor="let actividad of proyectosActividades">
           <td class="border-b">
@@ -392,18 +392,43 @@
                   <!-- BEGIN: Datatable -->
                   
   <div class="intro-y datatable-wrapper box p-5 mt-5">
-    <table datatable #dataTable2 id="tablaAlumnos" class="table table-report table-report--bordered display datatable w-full">
+    <table  id="tablaAlumnos" class="table table-report table-report--bordered display datatable w-full">
       <thead>
         <tr>
-          <th class="border-b-2 text-center whitespace-no-wrap">Alumnos</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Nombre</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Matrícula</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Correo</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Celular</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Carrera</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Facultad</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Universidad</th>
         </tr>
       </thead>
-      <tbody *ngIf="sucesos?.length != 0">
+      <tbody *ngIf="alumnos?.length != 0">
 
         <tr *ngFor="let alumno of alumnos">
           <td class="border-b">
             <div class="font-medium flex sm:justify-center items-center">{{alumno.alumno}}</div>
           </td>
+          <td class="border-b">
+            <div class="font-medium flex sm:justify-center items-center">{{alumno.matricula}}</div>
+          </td>
+          <td class="border-b">
+            <div class="font-medium flex sm:justify-center items-center">{{alumno.correo}}</div>
+          </td>
+          <td class="border-b">
+            <div class="font-medium flex sm:justify-center items-center">{{alumno.celular}}</div>
+          </td>
+          <td class="border-b">
+            <div class="font-medium flex sm:justify-center items-center">{{alumno.carrera}}</div>
+          </td>
+          <td class="border-b">
+            <div class="font-medium flex sm:justify-center items-center">{{alumno.facultad}}</div>
+          </td>
+          <td class="border-b">
+            <div class="font-medium flex sm:justify-center items-center">{{alumno.universidad}}</div>
+          </td>
+
         </tr>
 
       </tbody>
@@ -468,7 +493,7 @@
                     </h2>
                   </div>
   <div class="intro-y datatable-wrapper box p-5 mt-5">
-    <table datatable #dataTable id="tablaSucesos" class="table table-report table-report--bordered display datatable w-full">
+    <table  id="tablaSucesos" class="table table-report table-report--bordered display datatable w-full">
       <thead>
         <tr>
           <th class="border-b-2 whitespace-no-wrap">suceso</th>
