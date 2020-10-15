@@ -18,6 +18,8 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ProyectosAddComponent } from './proyectos/proyectos-add/proyectos-add.component';
 import { ProyectosEditComponent } from './proyectos/proyectos-edit/proyectos-edit.component';
 import { ProyectosVerComponent } from './proyectos/proyectos-ver/proyectos-ver.component';
+import { ProyectosActividadesAddComponent } from './proyectos/proyectos-actividades-add/proyectos-actividades-add.component';
+import { ProyectosAlumnosAddComponent  } from './proyectos/proyectos-alumnos-add/proyectos-alumnos-add.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
 import { ConvocatoriaEditComponent } from './convocatorias/convocatoria-edit/convocatoria-edit.component';
 import { ConvocatoriaAddComponent } from './convocatorias/convocatoria-add/convocatoria-add.component';
@@ -36,6 +38,8 @@ import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.co
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
 import { CookieService } from 'ngx-cookie-service';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +54,8 @@ import { CookieService } from 'ngx-cookie-service';
     ProyectosAddComponent,
     ProyectosEditComponent,
     ProyectosVerComponent,
+    ProyectosActividadesAddComponent,
+    ProyectosAlumnosAddComponent,
     ConvocatoriasComponent,
     AdministracionComponent,
     DashboardComponent,
@@ -61,7 +67,7 @@ import { CookieService } from 'ngx-cookie-service';
     EmpresasverComponent,
     UsuariosComponent,
     UsuariosAddComponent,
-    UsuariosEditComponent
+    UsuariosEditComponent,
 
   ],
   imports: [

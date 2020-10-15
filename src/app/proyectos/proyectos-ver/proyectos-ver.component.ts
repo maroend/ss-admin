@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, listaApoyosModel, listaLineasTrabajoModel, ApoyosModel, LineasTrabajoModel, ProyectosAreasModel, ProyectosRangosModel, ProyectosPoblacionesModel, PeriodosModel, EstadosProyectosModel } from "../../models/proyectos";
+import { Proyecto, listaApoyosModel, listaLineasTrabajoModel, ApoyosModel, LineasTrabajoModel, ProyectosAreasModel, ProyectosRangosModel, ProyectosPoblacionesModel, PeriodosModel, EstadosProyectosModel, estadoProyectoActualizar, ProyectosSucesosModel, ProyectosActividadesModel, AlumnosProyectosAsignadosModel } from "../../models/proyectos";
 import { Empresa } from "../../models/empresa";
 import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
 import { UniversidadService } from '../../services/universidad.service';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 declare var $: any;
 
 @Component({
@@ -31,6 +32,19 @@ export class ProyectosVerComponent implements OnInit {
   public lineasTrabajo: LineasTrabajoModel[] = [];
   public idApoyo: any;
   public idLineasTrabajo: any;
+  public estadoact = new estadoProyectoActualizar();
+  public sucesos: ProyectosSucesosModel[] = [];
+  public proyectosActividades: ProyectosActividadesModel[] = [];
+  public alumnos: AlumnosProyectosAsignadosModel[] = [];
+
+  @ViewChild('dataTable', { static: false }) table;
+  @ViewChild('dataTable1', { static: false }) table1;
+  @ViewChild('dataTable2', { static: false }) table2;
+  public dataTable: any;
+  public dataTable1: any;
+  public dataTable2: any;
+
+
   //public alumno: Alumnos[] = [];
 
 
@@ -51,6 +65,17 @@ export class ProyectosVerComponent implements OnInit {
     this.obtenerEstadosProyectos();
     this.obtenerApoyos();
     this.obtenerLineasTrabajo();
+    this.obtenerSucesos();
+    this.getActividadesByIdProyecto();
+    this.obtenerAlumnosInscritos();
+
+    this.dataTable = $(this.table.nativeElement);
+    this.dataTable.DataTable();
+    this.dataTable1 = $(this.table1.nativeElement);
+    this.dataTable1.DataTable();
+    this.dataTable2 = $(this.table2.nativeElement);
+    this.dataTable2.DataTable();
+
   }
  
   ngAfterViewInit() {
@@ -115,6 +140,21 @@ export class ProyectosVerComponent implements OnInit {
       .getApoyos()
       .subscribe((apoyos: ApoyosModel[]) => this.apoyos = apoyos);
   }
+  obtenerSucesos() {
+    return this.proyectoService
+      .getSucesosByIdProyecto(this.idobtenido)
+      .subscribe((sucesos: ProyectosSucesosModel[]) => this.sucesos = sucesos);
+  }
+  getActividadesByIdProyecto() {
+    return this.proyectoService
+      .getActividadesByIdProyecto(this.idobtenido)
+      .subscribe((proyectosActividades: ProyectosActividadesModel[]) => this.proyectosActividades = proyectosActividades);
+  }
+  obtenerAlumnosInscritos() {
+    return this.proyectoService
+      .getAlumnosInscritosByIdProyecto(this.idobtenido)
+      .subscribe((alumnos: AlumnosProyectosAsignadosModel[]) => this.alumnos = alumnos);
+  }
   toggleApoyos(checked, id) {
     //console.log(checked);
     var valor = { "idApoyo": id, "activo": true };
@@ -171,5 +211,22 @@ export class ProyectosVerComponent implements OnInit {
 
   }
 
+  actualizarestado() {
+
+    this.estadoact.idProyecto = Number(this.proyectoModel.id);
+    this.estadoact.observaciones = this.proyectoModel.observaciones;
+    this.estadoact.idEstado = Number(this.proyectoModel.idEstadoProyecto);
+    let model = this.estadoact;
+    console.log(model);
+    this.proyectoService.updateestado(model).subscribe(() => {
+
+      $('#success-modal-preview').modal('show');
+
+    }, error => {
+      alert(error.error)
+    })
+
+
+  }
 
 }

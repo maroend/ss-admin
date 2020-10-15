@@ -8,6 +8,8 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ProyectosAddComponent } from './proyectos/proyectos-add/proyectos-add.component';
 import { ProyectosEditComponent } from './proyectos/proyectos-edit/proyectos-edit.component';
 import { ProyectosVerComponent } from './proyectos/proyectos-ver/proyectos-ver.component';
+import { ProyectosActividadesAddComponent } from './proyectos/proyectos-actividades-add/proyectos-actividades-add.component';
+import { ProyectosAlumnosAddComponent } from './proyectos/proyectos-alumnos-add/proyectos-alumnos-add.component';
 import { AdministracionComponent } from './administracion/administracion.component';
 import { ConvocatoriasComponent } from './convocatorias/convocatorias.component';
 import { ConvocatoriaAddComponent } from './convocatorias/convocatoria-add/convocatoria-add.component';
@@ -40,6 +42,8 @@ const routes: Routes = [
   { path: 'proyectos/add', component: ProyectosAddComponent },
   { path: 'proyectos/edit/:id', component: ProyectosEditComponent },
   { path: 'proyectos/ver/:id', component: ProyectosVerComponent },
+  { path: 'proyectos/actividades/:id', component: ProyectosActividadesAddComponent },
+  { path: 'proyectos/alumnos/:id', component: ProyectosAlumnosAddComponent },
   { path:'convocatorias',component:ConvocatoriasComponent},
   {path:'convocatorias/add',component:ConvocatoriaAddComponent},
   {path:'convocatorias/edit/:id',component:ConvocatoriaEditComponent},
