@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Proyecto } from '../models/proyectos';
+import { Proyecto, estadoProyectoActualizar } from '../models/proyectos';
 
 @Injectable({
   providedIn: 'root'
@@ -71,5 +71,37 @@ export class ProyectoService {
   eliminar(id: string | number) {
     const uri = `${this.api}/Proyectos/${id}`;
     return this.http.delete(uri);
+  }
+  updateestado(estadoAct: estadoProyectoActualizar) {
+    let estado = estadoAct;
+    console.log(estado);
+    return this.http.put(`${this.api}/Proyectos/actualizaEstado?idProyecto=${estado.idProyecto}&idEstado=${estado.idEstado}&observaciones=${estado.observaciones}`, estado);
+  }
+  getSucesosByIdProyecto(idProyecto: string | number) {
+    return this.http.get(`${this.api}/ProyectosSucesos/getByIdProyecto?idProyecto=${idProyecto}`);
+  }
+  getActividadesByIdProyecto(idProyecto: string | number) {
+    return this.http.get(`${this.api}/ProyectosActividades/getByIdProyecto?idProyecto=${idProyecto}`);
+  }
+  getAlumnosInscritosByIdProyecto(idProyecto: string | number) {
+    return this.http.get(`${this.api}/AlumnosProyectosAsignados/getByIdProyecto?idProyecto=${idProyecto}`);
+  }
+
+  getPerfilesActividades() {
+    const uri = `${this.api}/PerfilesActividades
+    `;
+    return this.http.get(uri);
+  }
+  createProyectosActividades(model) {
+    const uri = `${this.api}/ProyectosActividades`
+    return this.http.post(uri, model);
+  }
+  obtenerAlumnos() {
+    const uri = `${this.api}/Alumnos`
+    return this.http.get(uri);
+  }
+  asignarAlumnosProyectos(model) {
+    const uri = `${this.api}/AlumnosProyectosAsignados`
+    return this.http.post(uri, model);
   }
 }
