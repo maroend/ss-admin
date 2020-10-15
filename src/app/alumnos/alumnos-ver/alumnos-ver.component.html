@@ -245,10 +245,11 @@ Dirección
             </div>
 
 
-<br>
+<!-- <br>
          <div class="intro-y flex items-center h-10">
                 <h2 class="text-lg font-medium truncate mr-5">
-Sucesos en el sistema                </h2>
+Sucesos en el sistema   
+             </h2>
               </div>
 
   <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
@@ -285,8 +286,41 @@ Sucesos en el sistema                </h2>
               
           </tbody>
       </table>
+  </div> -->
+
+  <br>
+  <br>
+
+
+  <div class="intro-y flex items-center h-10">
+    <h2 class="text-lg font-medium truncate mr-5">
+Proyecto Asignado    </h2>
   </div>
 
+  <div class="grid grid-cols-12 gap-6 mt-5">
+
+    <div routerLink="/empresas"  class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
+        <div class="report-box zoom-in">
+            <div class="box p-5">
+              <div class="text-base text-gray-600 mt-1" *ngIf="alumnoproyecto.id>0 else templateName">  Proyecto
+
+                <div class="text-base font-bold leading-8 mt-6"> {{alumnoproyecto.proyectoNombre}} </div>
+                <div class="text-base font-bold leading-8 mt-6">Inscrito:  {{alumnoproyecto.fechaCreacion.substr(0,10)}} </div>
+
+              </div>
+              <div class="text-base text-gray-600 mt-1" #templateName>  Sin proyecto asignado
+
+                
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+<br>
             </div>
         </div>
 

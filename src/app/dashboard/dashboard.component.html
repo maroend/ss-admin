@@ -20,9 +20,9 @@
                         <div class="report-box zoom-in">
                             <div class="box p-5">
                                 <div class="flex">
-                                    <i data-feather="shopping-cart" class="report-box__icon text-theme-10" ></i> 
+                                    <i data-feather="briefcase" class="report-box__icon text-theme-10" ></i> 
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="33% Higher than last month">  {{ (empresaactiva.length * 100 )/empresa.length}} % <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
+                                        <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="33% Higher than last month">  {{ ((empresaactiva.length * 100 )/empresa.length).toFixed(2)}} % <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresaactiva.length}}</div>
@@ -34,9 +34,9 @@
                         <div class="report-box zoom-in">
                             <div class="box p-5">
                                 <div class="flex">
-                                    <i data-feather="credit-card" class="report-box__icon text-theme-11"></i> 
+                                    <i data-feather="briefcase" class="report-box__icon text-theme-11"></i> 
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="2% Lower than last month"> {{ (empresadesaciva.length * 100 )/empresa.length}} %<i data-feather="chevron-down" class="w-4 h-4"></i> </div>
+                                        <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="2% Lower than last month"> {{ ((empresadesaciva.length * 100 )/empresa.length).toFixed(2) }} %<i data-feather="chevron-down" class="w-4 h-4"></i> </div>
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresadesaciva.length}}</div>
@@ -48,12 +48,12 @@
                         <div class="report-box zoom-in">
                             <div class="box p-5">
                                 <div class="flex">
-                                    <i data-feather="monitor" class="report-box__icon text-theme-12"></i> 
+                                    <i data-feather="layout" class="report-box__icon text-theme-12"></i> 
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="12% Higher than last month"> 12% <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
+                                        <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="12% Higher than last month">  {{ ((proyectosactivos.length * 100 )/proyectos.length).toFixed(2)}} % <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold leading-8 mt-6">700</div>
+                                <div class="text-3xl font-bold leading-8 mt-6">{{proyectosactivos.length}}   </div>
                                 <div class="text-base text-gray-600 mt-1">Proyectos Activos</div>
                             </div>
                         </div>
@@ -62,12 +62,12 @@
                         <div class="report-box zoom-in">
                             <div class="box p-5">
                                 <div class="flex">
-                                    <i data-feather="user" class="report-box__icon text-theme-9"></i> 
+                                    <i data-feather="layout" class="report-box__icon text-theme-9"></i> 
                                     <div class="ml-auto">
-                                        <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="22% Higher than last month"> 22% <i data-feather="chevron-up" class="w-4 h-4"></i> </div>
+                                        <div class="report-box__indicator bg-theme-6 tooltip cursor-pointer" title="22% Higher than last month">  {{ ((proyectosrechazados.length * 100 )/proyectos.length).toFixed(2)}} % <i data-feather="chevron-down" class="w-4 h-4"></i> </div>
                                     </div>
                                 </div>
-                                <div class="text-3xl font-bold leading-8 mt-6">152</div>
+                                <div class="text-3xl font-bold leading-8 mt-6">{{proyectosrechazados.length}}</div>
                                 <div class="text-base text-gray-600 mt-1">Proyectos Pendientes</div>
                             </div>
                         </div>
@@ -95,28 +95,29 @@
                                 <th class="text-center whitespace-no-wrap">INICIA</th>
                                 <th class="text-center whitespace-no-wrap">TERMINA</th>
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
-                                <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                                <th class="text-center whitespace-no-wrap">ACCIÓN</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="intro-x" *ngFor="let convocatoria of convocatorias" >
-                                <td>
-                                    <a href="" class="font-medium whitespace-no-wrap">{{convocatoria.convocatoria}}</a> 
+                        <tbody *ngFor="let convocatoria of convocatoriasf">
+                            <tr class="intro-x"   *ngIf="convocatoria.activo==true || (convocatoria.fechaTermino) <  (d)">
+                                <td >
+                                    <a  class="font-medium whitespace-no-wrap">{{  convocatoria.convocatoria}} </a> 
                                     <div class="text-gray-600 text-xs whitespace-no-wrap">Descripción {{convocatoria.descripcion}}</div>
                                 </td>
                                 <td class="W-56">
-                                    <div class="flex items-center justify-center text-theme-6">
-                                 {{convocatoria.fechaInicio}}
+                                    <div class="flex items-center justify-center text-theme-6"  >
+                                 {{convocatoria.fechaInicio.substr(0,10) }}
                                     </div>
                                 </td>
                                 <td class="W-56">
                                     <div class="flex items-center justify-center text-theme-6">
-                                        {{convocatoria.fechaTermino}}
+                                        {{convocatoria.fechaTermino.substr(0,10)}}
                                     </div>
                                 </td>
                                 <td class="w-40">
                                    
-                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium">{{convocatoria.activo}}</div>
+                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium" *ngIf="convocatoria.activo==true" >ACTIVA</div>
+                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white cursor-pointer font-medium" *ngIf="convocatoria.activo==false" >DESACTIVA</div>
                                     
                                 </td>
                                 <td class="table-report__action w-56">
@@ -125,6 +126,7 @@
                                         
                                     </div>
                                 </td>
+                           
                             </tr>
                      
                             
@@ -141,30 +143,31 @@
                                 <th class="text-center whitespace-no-wrap">INICIA</th>
                                 <th class="text-center whitespace-no-wrap">TERMINA</th>
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
-                                <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                                <th class="text-center whitespace-no-wrap">ACCIÓN</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody *ngFor="let convocatoria of convocatoriasalumnosf">
                     
-                            <tr class="intro-x" *ngFor="let convocatoria of convocatoriasalumnos" >
+                            <tr class="intro-x"  *ngIf="convocatoria.activo==true || (convocatoria.fechaTermino) <  (d)">
                                 <td>
-                                    <a href="" class="font-medium whitespace-no-wrap">{{convocatoria.convocatoria}}</a> 
+                                    <a  class="font-medium whitespace-no-wrap">{{convocatoria.convocatoria}}</a> 
                                     <div class="text-gray-600 text-xs whitespace-no-wrap">Descripción {{convocatoria.descripcion}}</div>
                                 </td>
                                 <td class="W-56">
                                     <div class="flex items-center justify-center text-theme-6">
-                                 {{convocatoria.fechaInicio}}
+                                 {{convocatoria.fechaInicio.substr(0,10)}}
                                     </div>
                                 </td>
                                 <td class="W-56">
                                     <div class="flex items-center justify-center text-theme-6">
-                                        {{convocatoria.fechaTermino}}
+                                        {{convocatoria.fechaTermino.substr(0,10)}}
                                     </div>
                                 </td>
                                 <td class="w-40">
                                    
-                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium">{{convocatoria.activo}}</div>
-                                    
+                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white cursor-pointer font-medium" *ngIf="convocatoria.activo==true" >ACTIVA</div>
+                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white cursor-pointer font-medium" *ngIf="convocatoria.activo==false" >DESACTIVA</div>
+                              
                                 </td>
                                 <td class="table-report__action w-56">
                                     <div class="flex justify-center items-center">
@@ -205,46 +208,29 @@
                                 <th class="text-center whitespace-no-wrap">VACANTES</th>
                                 <th class="text-center whitespace-no-wrap">OCUPADAS</th>
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
-                                <th class="text-center whitespace-no-wrap">ACTIONS</th>
+                                <th class="text-center whitespace-no-wrap">ACCIÓN</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="intro-x">
+                            <tr class="intro-x" *ngFor="let proyect of proyectospendientes">
                                 <td>
-                                    <a href="" class="font-medium whitespace-no-wrap">Proyecto de asistencia financiera</a> 
-                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Secretaría de Hacienda y Credito Publico</div>
+                                    <a  class="font-medium whitespace-no-wrap">{{proyect.proyecto}}</a> 
+                                    <div class="text-gray-600 text-xs whitespace-no-wrap">{{proyect.descripcion}}</div>
                                 </td>
-                                <td class="text-center">50</td>
+                                <td class="text-center">{{proyect.noVacantes}}</td>
                                 <td class="text-center">10</td>
                                 <td class="w-40">
                                     <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white cursor-pointer font-medium">PENDIENTE</div>
                                 </td>
                                 <td class="table-report__action w-56">
                                     <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                                        <a class="flex items-center mr-3" [routerLink]="['/proyectos/edit', proyect.id  ]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
                                         
                                     </div>
                                 </td>
                             </tr>
 
-                            <tr class="intro-x">
-                                <td>
-                                    <a href="" class="font-medium whitespace-no-wrap">Proyecto de asistencia financiera</a> 
-                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Secretaría de Hacienda y Credito Publico</div>
-                                </td>
-                                <td class="text-center">50</td>
-                                <td class="text-center">10</td>
-                                <td class="w-40">
-                                    <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white cursor-pointer font-medium">PENDIENTE</div>
-                                </td>
-                                <td class="table-report__action w-56">
-                                    <div class="flex justify-center items-center">
-                                        <a class="flex items-center mr-3" href=""> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
-                                        
-                                    </div>
-                                </td>
-                            </tr>
-                            
+                       
                             
                             
                         </tbody>
@@ -324,7 +310,7 @@
                                 <div class="text-theme-9">UAMN</div>
                             </div>
                         </div>
-                        <a href="" class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">Ver Más</a> 
+                        <a  class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">Ver Más</a> 
                     </div>
                 </div>
                 <!-- END: Transactions -->

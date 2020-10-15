@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServices } from '../services/login.service';
+import { SessionService } from '../services/session.service';
+
 declare var $: any;
 
 @Component({
@@ -10,18 +12,24 @@ declare var $: any;
 })
 export class LoginComponent implements OnInit {
 public mensaje="";
-  constructor(private router: Router,private loginservice: LoginServices){ }
+  constructor(public session: SessionService,private router: Router,private loginservice: LoginServices){ }
 
   ngOnInit(): void {
+    this.session.Signoff();
+
   }
 
   onSubmit(data) {
 
-    console.log("adentro");
-    console.log(data.value);
+    
     this.loginservice.login(data.value).subscribe((res: any)=>{
 if(res['resultado']==1){
-  console.log(JSON.stringify(data.value));
+  var datosvalue=res['datos'];
+  this.session.setToken(datosvalue['id']);
+ 
+  this.session.setnombre(datosvalue['nombre']);
+  this.session.setapellidos(datosvalue['apellidos']);
+
     this.router.navigate(['/dashboard']);
 
 }else{

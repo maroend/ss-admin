@@ -7,7 +7,7 @@ import { FacultadService } from '../../services/facultad.service';
 import { Universidad } from "../../models/universidad";
 import { Carrera } from "../../models/carrera";
 import { Facultad } from "../../models/facultad";
-import { Alumno } from '../../models/alumno';
+import { Alumno,AlumnoProyecto } from '../../models/alumno';
 
 import { AlumnosComponent } from '../alumnos.component';
 import {Location} from '@angular/common';
@@ -31,6 +31,7 @@ export class AlumnosverComponent implements OnInit {
   public facultades: Facultad[] = [];
 
   public idAlumno : string;
+  public alumnoproyecto: AlumnoProyecto = new AlumnoProyecto("","", "",0, 0, 0);
 
   public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "", true, 0,);
 
@@ -39,11 +40,14 @@ export class AlumnosverComponent implements OnInit {
 
 
   ngOnInit(): void {
+    
+    
     this.idAlumno = this.route.snapshot.paramMap.get("id");
     this.alumnoService.getAlumno(this.idAlumno).subscribe((alumno: Alumno) => this.alumno = alumno);
     this.obtenerUniversidades();
     this.obtenerCarreras();
     this.obtenerFacultades();
+    this.obtenerproyectoalumno();
   }
 
   obtenerUniversidades(){
@@ -53,7 +57,11 @@ export class AlumnosverComponent implements OnInit {
       .subscribe((universidades: Universidad[]) => this.universidades = universidades);
 
   }
+  obtenerproyectoalumno(){
 
+    return     this.alumnoService.getProyectoAlumno( this.idAlumno ).subscribe((alumnoproyecto: AlumnoProyecto) => this.alumnoproyecto = alumnoproyecto);
+
+  }
 
   obtenerCarreras(){
 

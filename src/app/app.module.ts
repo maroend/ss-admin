@@ -28,11 +28,13 @@ import { EmpresashomeComponent } from './empresas/empresas-home.component';
 import { EmpresasAddComponent } from './empresas/empresas-add/empresas-add.component';
 import { EmpresasEditComponent } from './empresas/empresas-edit/empresas-edit.component';
 import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component
     AlumnosAddComponent,
     AlumnosEditComponent,
     MenuComponent,
+    PerfilComponent,
     ProyectosComponent,
     ProyectosAddComponent,
     ProyectosEditComponent,
@@ -69,7 +72,7 @@ import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component
     DataTablesModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

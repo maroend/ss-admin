@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
-import { Empresa,Responsablemodel,check } from "../../models/empresa"
+import { Empresa,Responsablemodel,check,estadoActualizar } from "../../models/empresa"
 import { AreaAccion } from "../../models/areaaccion"
 import { Documentos,DocumentosCadena,Documentosfile   } from "../../models/documentos"
 
@@ -26,6 +26,8 @@ declare var $: any;
 })
 export class EmpresasverComponent implements OnInit {
   public areas: AreaAccion[] = [];
+  public estadoact = new estadoActualizar(0,"",0)
+
   public responsable: Responsablemodel[] = [];
   public rubros: RubroEmpresa[] = [];
   public universidades: Universidad[] = [];
@@ -53,11 +55,9 @@ public validar=false;
   empresaModel = new Empresa("","","","","","","","","","","","","","","","","","","",true,0,"",null,false,true,1,1,1,1,1,0,0,0,0,0,0,this.listaAreasAccion,this.listaRubros,this.responsablemodel)
 
 
-  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) {
-
-    
+  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) { 
+  
   }
-
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");
     this.organizacionService.getOrganizacion(this.idobtenido).subscribe((empresaModel: Empresa) => this.empresaModel = empresaModel);
@@ -221,6 +221,9 @@ this.subirarchivoconcadena();
 
     
   }
+
+
+
    subeArchivo() {
 
     var selecttedFile = ($("#Imagen"))[0].files[0];
@@ -253,5 +256,25 @@ this.subirarchivoconcadena();
    
     });
     }
+
+
+
+  actualizarestado(){
+    
+    this.estadoact.idOrganizacion=Number(this.empresaModel.id);
+    this.estadoact.observaciones=this.empresaModel.observaciones;
+    this.estadoact.idEstado=Number(this.empresaModel.idEstadoOrganizacion);
+let model=this.estadoact;
+console.log(model);
+    this.organizacionService.updateestado(model).subscribe(() => {
+      
+      $('#success-modal-preview').modal('show');
+
+    }, error=>{
+      alert(error.error)
+    })
+
+    
+  }
 
 }

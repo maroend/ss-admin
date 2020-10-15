@@ -24,3 +24,20 @@ export class Alumno {
     ) { }
 
 }
+
+export class AlumnoProyecto {
+    constructor(
+        public fechaCreacion:string,
+        public alumno: string,
+        public proyectoNombre: string,
+        public idProyecto: number,
+        public idAlumno: number,
+        public id: number,
+      
+        
+    ) { }
+
+}
+
+
+

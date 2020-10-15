@@ -36,7 +36,11 @@ export class AlumnoService {
   getAlumno(id: string | number) {
     return this.http.get(`${this.baseUrl}/Alumnos/${id}`);
   }
-
+  getProyectoAlumno(id: string | number) {
+    let idalumno=Number(id);
+    console.log(idalumno);
+    return this.http.get(`${this.baseUrl}/AlumnosProyectosAsignados/getByIdAlumno?idAlumno=${idalumno}`);
+  }
   addAlumno(alumno: Alumno) {
     return this.http.post(`${this.baseUrl}/Alumnos`, alumno);
   }

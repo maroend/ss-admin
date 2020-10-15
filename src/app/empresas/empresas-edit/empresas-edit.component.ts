@@ -45,10 +45,10 @@ public validar=false;
   empresaModel = new Empresa("","","","","","","","","","","","","","","","","","","",true,0,"",null,false,true,1,1,1,1,1,0,0,0,0,0,0,this.listaAreasAccion,this.listaRubros,this.responsablemodel)
 
 
-  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute,private _location: Location) {
-
-    
+  constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute,private _location: Location) { 
+  
   }
+  
 
   ngOnInit(): void {
     this.idobtenido=this.activatedRoute.snapshot.paramMap.get("id");

@@ -73,10 +73,10 @@
                         <div class="font-medium flex sm:justify-center items-center">{{convocatoria.periodo}}</div>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">{{convocatoria.fechaInicio}}</div>
+                        <div class="font-medium flex sm:justify-center items-center">{{convocatoria.fechaInicio.substr(0,10)}}</div>
                     </td>
                     <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">{{convocatoria.fechaTermino}}</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> {{convocatoria.fechaTermino.substr(0,10)   }}</div>
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">

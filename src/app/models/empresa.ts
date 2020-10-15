@@ -56,7 +56,16 @@ export class Empresa {
     
 
 }
+export class estadoActualizar {
+    constructor(
+        public idEstado: number,
+        public observaciones: string,
+        public idOrganizacion: number
 
+        
+    ) { }    
+
+}
 
 export class listaRubrosModel {
     constructor(

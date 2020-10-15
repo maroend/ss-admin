@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Empresa } from '../models/empresa';
+import { Empresa,estadoActualizar } from '../models/empresa';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,9 @@ export class OrganizationService {
          console.log(uri);
     return this.http.get(uri);
   }
+
+
+
   getAreas(){
     const uri = `${this.api}/AreasAccion`;
     return this.http.get(uri);
@@ -83,5 +86,11 @@ export class OrganizationService {
     empresa.activo = true;
     return this.http.put(`${this.api}/Organizaciones/${id}`, empresa);
   }
+  updateestado(estadoAct: estadoActualizar) {
+    let estado=estadoAct;
+console.log(estado);
 
+
+    return this.http.put(`${this.api}/Organizaciones/actualizaEstado?idOrganizacion=${estado.idOrganizacion}&idEstado=${estado.idEstado}&observaciones=${estado.observaciones}`, estado);
+  }
 }

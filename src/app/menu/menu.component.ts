@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -6,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+public nombre="";
+public apellidos="";
+  constructor(private router: Router,public session: SessionService) { 
+    if(this.session.getToken()==""){
+      this.router.navigate(['/'])    
+    }
+    this.nombre=this.session.getnombre();
+    this.apellidos=this.session.getapellidos();
 
-  constructor() { }
-
+  }
   ngOnInit(): void {
   }
 
