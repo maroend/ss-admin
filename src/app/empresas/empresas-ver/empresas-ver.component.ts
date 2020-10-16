@@ -209,7 +209,7 @@ if(this.validar){
 
       this.documentoscadena.ruta=res.ruta;
 
-this.subirarchivoconcadena(); 
+      this.subirarchivoconcadena(); 
 
     }, error=>{
       alert(error.error)
