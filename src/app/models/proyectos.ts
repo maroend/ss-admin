@@ -193,9 +193,12 @@ export class AlumnosModel{
   public materno: number;
   public matricula: string;
   public idUniversidad: number;
+  public Universidad: number;
   public idFacultad: number;
+  public Facultad: number;
   public idCarrera: number;
-  public idCelular: string;
+  public Carrera: number;
+  public Celular: string;
   public correo: string;
   public cp: string;
   public pais: string;
