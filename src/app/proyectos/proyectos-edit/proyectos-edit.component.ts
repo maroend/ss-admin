@@ -14,7 +14,9 @@ import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
 import { UniversidadService } from '../../services/universidad.service';
 
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 declare var $: any;
 
 @Component({
@@ -42,7 +44,8 @@ export class ProyectosEditComponent implements OnInit {
   public idLineasTrabajo: any;
 
   constructor(private proyectoService: ProyectoService, private organizacionService: OrganizationService,
-    private universidadService: UniversidadService, private router: Router,private activatedRoute: ActivatedRoute) {
+    private universidadService: UniversidadService, private router: Router, private activatedRoute: ActivatedRoute,
+    private _location: Location) {
 
     
   }
@@ -170,6 +173,11 @@ export class ProyectosEditComponent implements OnInit {
     this.proyectoService.updateproyecto(this.idobtenido, model).subscribe((res: any) => {
       if (res) {
         this.validar = true;
+        //this._location.back();
+
+        this.router.navigate(['/proyectos']).then(() => { window.location.reload();});
+        $('#success-modal-preview').modal('show');
+
       }
     }, error => {
       alert(error.error)

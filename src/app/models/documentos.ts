@@ -38,13 +38,6 @@ export class DocumentosCadena {
 }
 export class Documentosfile {
     constructor(
-        public file:  any
-
-
-  
+        public file:  any  
     ) { }
-
-
-    
-
 }

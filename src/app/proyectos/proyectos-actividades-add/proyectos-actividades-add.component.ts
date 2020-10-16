@@ -51,6 +51,8 @@ export class ProyectosActividadesAddComponent implements OnInit {
       //console.log(res.message);
       if (res) {
         this.validar = true;
+        this.router.navigate(['/proyectos/ver/' + this.idobtenido]).then(() => { window.location.reload(); });
+
       }
 
     }, error => {

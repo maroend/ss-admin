@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
-import { Empresa,Responsablemodel,check,estadoActualizar } from "../../models/empresa"
+import { Empresa, Responsablemodel, check, estadoActualizar, OrganizacionesSucesosModel } from "../../models/empresa"
 import { AreaAccion } from "../../models/areaaccion"
 import { Documentos,DocumentosCadena,Documentosfile   } from "../../models/documentos"
 
@@ -47,7 +47,9 @@ public validar=false;
   horasAlumno = [];
   public responsablemodel = new Responsablemodel("","","","","","","","","",true,true)
   public documentoscadena = new DocumentosCadena(1,1,1,"","",undefined)
-  public  binary: number = 0b1010;
+  public binary: number = 0b1010;
+  public sucesos: OrganizacionesSucesosModel[] = [];
+
 
   public documentosfile = new Documentosfile("")
 
@@ -70,6 +72,8 @@ public validar=false;
     this.obtenerClasificacion();
     this.obtenerEstado();
     this.obtenerdocumentos();
+    this.obtenerSucesos();
+
 
   }
   toggleArea(checked, id){
@@ -153,6 +157,11 @@ var valor= { "idRubro": id ,"activo": true};
       .getdocumentos()
       .subscribe((documentos: Documentos[]) => this.documentos = documentos );
   }
+  obtenerSucesos() {
+    return this.organizacionService
+      .getSucesosByIdOrganizacion(this.idobtenido)
+      .subscribe((sucesos: OrganizacionesSucesosModel[]) => this.sucesos = sucesos);
+  }
 
 
   onSubmit() {
@@ -200,7 +209,7 @@ if(this.validar){
 
       this.documentoscadena.ruta=res.ruta;
 
-this.subirarchivoconcadena(); 
+      this.subirarchivoconcadena(); 
 
     }, error=>{
       alert(error.error)

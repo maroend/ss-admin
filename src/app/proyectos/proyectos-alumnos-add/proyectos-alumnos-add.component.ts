@@ -71,7 +71,7 @@ export class ProyectosAlumnosAddComponent implements OnInit {
       //console.log(res.message);
       if (res) {
         this.validar = true;
-        this.router.navigate(['/proyectos/ver/' + this.idobtenido]).then({ reload();});
+        this.router.navigate(['/proyectos/ver/' + this.idobtenido]).then(()=>{ window.location.reload();});
 
       }
 

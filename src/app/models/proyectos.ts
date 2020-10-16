@@ -166,6 +166,12 @@ export class AlumnosProyectosAsignadosModel{
   public alumno: string;
   public idProyecto: number;
   public proyectoNombre: string;
+  public matricula: string;
+  public correo: string;
+  public celular: string;
+  public carrera: string;
+  public facultad: string;
+  public universidad: string;
   public fechaCreacion: string;
   public activo: boolean;
   constructor(
@@ -187,9 +193,12 @@ export class AlumnosModel{
   public materno: number;
   public matricula: string;
   public idUniversidad: number;
+  public Universidad: number;
   public idFacultad: number;
+  public Facultad: number;
   public idCarrera: number;
-  public idCelular: string;
+  public Carrera: number;
+  public Celular: string;
   public correo: string;
   public cp: string;
   public pais: string;

@@ -13,6 +13,8 @@ import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
 import { UniversidadService } from '../../services/universidad.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 declare var $: any;
 
 @Component({
@@ -58,7 +60,7 @@ export class ProyectosAddComponent implements OnInit {
 
 
   constructor(private proyectoService: ProyectoService, private organizacionService: OrganizationService,
-    private universidadService: UniversidadService, private router: Router) {
+    private universidadService: UniversidadService, private router: Router, private _location: Location) {
   }
 
 
@@ -216,19 +218,23 @@ var valor= { "idRubro": id ,"activo": true};
     
     this.proyectoService.create(model).subscribe((res: any) => {
       //console.log(res.message);
-      if (res) {
+      /*if (res) {
         this.validar = true;
-      }
+      }*/
+      $('#success-modal-preview').modal('show');
+      this._location.back();
+
 
     }, error => {
       alert(error.error)
     })
-
+    /*
     if (this.validar) {
       $('#success-modal-preview').modal('show');
 
 
       this.router.navigate(['/proyectos']);
     }
+    */
   }
 }
