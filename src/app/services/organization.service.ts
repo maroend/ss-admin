@@ -65,8 +65,9 @@ export class OrganizationService {
  
   subirdocumentos(model){
     const uri = `${this.api}/DocumentosOrganizaciones/UploadFile`
-    return this.http.post(uri, model);
+    return this.http.post(uri, model,{ withCredentials: false});
   }
+
   subirdocumentoscadena(model){
     const uri = `${this.api}/DocumentosOrganizaciones/saveDocuments`
     return this.http.post(uri, model);
@@ -97,3 +98,19 @@ console.log(estado);
     return this.http.get(`${this.api}/OrganizacionesSucesos/getByIdOrganizacion?idOrganizacion=${idOrganizacion}`);
   }
 }
+
+
+// subeArchivo() {
+
+//   var selecttedFile = ($("#Imagen"))[0].files[0];
+//   var dataString = new FormData();
+//   dataString.append("file", selecttedFile);
+  
+//   this.organizacionService.subirdocumentos(dataString).subscribe((res: any)=>{
+//     console.log(res);
+
+
+//   }, error=>{
+//     alert(error.error)
+//   })
+//   }
