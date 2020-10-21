@@ -314,7 +314,8 @@ subeArchivo() {
 let model=this.estadoact;
 console.log(model);
     this.organizacionService.updateestado(model).subscribe(() => {
-      
+      window.location.reload();
+
       $('#success-modal-preview').modal('show');
 
     }, error=>{

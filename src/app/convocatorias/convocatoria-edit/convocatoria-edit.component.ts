@@ -20,6 +20,7 @@ declare var $: any;
 export class ConvocatoriaEditComponent implements OnInit {
 
   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
+  public mensajevalidacion="";
 
   public convocatoria = new Convocatoria("",0,0,"",0,0,"",this.d,this.d,false,"");
   validar=false;
@@ -69,7 +70,24 @@ model.fechaTermino=new Date(this.fechafin);
 
 
     console.log(model)
-
+    if(model.convocatoria==""){
+      this.mensajevalidacion="No puedes dejar el campo de empresa vacío"
+            $('#validacion').modal('show');
+      
+          }
+          else if(model.descripcion==""){
+            this.mensajevalidacion="No puedes dejar el campo de mision vacío"
+            $('#validacion').modal('show');
+          }
+          else if(model.fechaTermino==this.d){
+            this.mensajevalidacion="No puedes dejar el campo de fecha Termino vacío"
+            $('#validacion').modal('show');
+          }
+          else if(model.fechaInicio==this.d){
+            this.mensajevalidacion="No puedes dejar el campo de fecha Inicio vacío"
+            $('#validacion').modal('show');
+          }
+        else{
     this.convocatoriaservices.updateconvocatoria(this.idobtenido,model).subscribe((res: any)=>{
                $('#success-modal-preview').modal('show');
 
@@ -77,6 +95,7 @@ model.fechaTermino=new Date(this.fechafin);
     }, error=>{
       alert(error.error)
     })
+  }
 
   }
 

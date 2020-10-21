@@ -14,7 +14,7 @@ import {Location} from '@angular/common';
 export class ProyectosAlumnosAddComponent implements OnInit {
   public idobtenido: number;
   public validar= false;
-  public proyectoModel = new Proyecto();
+  public proyectoModel = new Proyecto("","","",0,"",0,"",0,"",0,"","","",false,0,"",false,"","","",0,"","",0,"",false,0,"",0,"","",false,undefined,undefined,0);
   public alumnosAsignar : any;
   public alumnos = new Array<AlumnosModel>();
   @ViewChild('dataTable', { static: false }) table;

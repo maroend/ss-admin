@@ -52,11 +52,15 @@
                       <div class="font-medium flex sm:justify-center items-center"> {{proyecto.periodo}}</div>
                     </td>
                     <td class="border-b">
-                      <div class="font-medium flex sm:justify-center items-center">{{proyecto.estadoProyecto}}</div>
+                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="proyecto.idEstadoProyecto<3">{{proyecto.estadoProyecto}}</div>
+                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" *ngIf="proyecto.idEstadoProyecto==3">{{proyecto.estadoProyecto}}</div>
+
+                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-6 text-white" *ngIf="proyecto.idEstadoProyecto==4">{{proyecto.estadoProyecto}}</div>
+
                     </td>
                     <td class="border-b w-5">
                       <div class="flex sm:justify-center items-center">
-                        <a class="flex items-center mr-3" href="/proyectos/edit/{{proyecto.id}}"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                        <a class="flex items-center mr-3" [routerLink]="['/proyectos/edit', proyecto.id]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
                         <a class="flex items-center text-theme-6" href="javascript:void(0)" (click)="modaleliminar(proyecto.id)"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
                       </div>
                       <div class="modal" id="delete-modal-preview-{{proyecto.id}}">

@@ -56,7 +56,10 @@
                     </td>
 
                     <td class="w-40 border-b">
-                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white">{{empresa.estadoOrganizacion}}</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" *ngIf="empresa.idEstadoOrganizacion==2">{{empresa.estadoOrganizacion}}</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="empresa.idEstadoOrganizacion==1">{{empresa.estadoOrganizacion}}</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-6 text-white"*ngIf="empresa.idEstadoOrganizacion==3">{{empresa.estadoOrganizacion}}</div>
+
                     </td>
                     <td class="border-b w-5">
                         <div class="flex sm:justify-center items-center">

@@ -17,8 +17,8 @@ declare var $: any;
 export class UsuariosAddComponent implements OnInit {
   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
 
-  public usuarios = new Usuario("","","","","",1,1,true);
-
+  public usuarios = new Usuario("","","","","",1,1,true,true);
+  public mensajevalidacion="";
   public universidades:Universidad[] = [];
 
 validar=true;
@@ -27,6 +27,7 @@ validar=true;
 
   ngOnInit(): void {
 this.obtenerUniversidad();
+this.usuarios.disponible=true;
 
   }
   obtenerUniversidad(){
@@ -46,6 +47,29 @@ this.obtenerUniversidad();
 
     console.log(model)
 
+    if(model.nombre==""){
+      this.mensajevalidacion="No puedes dejar el campo de nombre vacío"
+            $('#validacion').modal('show');
+      
+          }
+          else   if(model.apellidos==""){
+            this.mensajevalidacion="No puedes dejar el campo de apellidos vacío"
+                  $('#validacion').modal('show');
+            
+                }
+                else     if(model.email==""){
+                  this.mensajevalidacion="No puedes dejar el campo de email vacío"
+                        $('#validacion').modal('show');
+                  
+                      }
+                      else     if(model.password==""){
+                        this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
+                              $('#validacion').modal('show');
+                        
+                            }
+                     else{
+
+
     this.convocatoriaservices.create(model).subscribe((res: any)=>{
  
             $('#success-modal-preview').modal('show');
@@ -54,7 +78,7 @@ this.obtenerUniversidad();
     }, error=>{
       alert(error.error)
     })
-  
+                     }
 
 
 

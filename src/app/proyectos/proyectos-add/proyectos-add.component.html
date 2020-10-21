@@ -20,7 +20,14 @@
       <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
     </div>
   </div>
-
+  <div class="modal" id="validacion">
+    <div class="modal__content">
+        <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+            <div class="text-gray-600 mt-2">{{mensajevalidacion}}</div>
+        </div>
+        <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+    </div>
+  </div>
   <form (ngSubmit)="create()" #form="ngForm">
     <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
     <div class="intro-y box mt-5">

@@ -15,7 +15,14 @@
         </div>
     </div>
 
-
+    <div class="modal" id="validacion">
+        <div class="modal__content">
+            <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                <div class="text-gray-600 mt-2">{{mensajevalidacion}}</div>
+            </div>
+            <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+        </div>
+      </div>
 
     <form  #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
 
@@ -42,7 +49,7 @@
             <div class="preview">
 
 
-                <div class="flex flex-col sm:flex-row items-center mt-3">
+                <div class="flex flex-col sm:flex-row items-center mt-3" style="display: none" >
                     <label class="sm:w-32 sm:text-right sm:mr-5">Activo:</label>
                     <input type="radio" ng-value="true" name="activo" [(ngModel)]="activo" [checked]="true" /> 
                 </div>
@@ -51,8 +58,8 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Universidad:</label>
-                    <select *ngFor="let universidad of universidades" class="input input--sm border mr-2 sm:w-64" name="idUniversidad" ngModel>
-                        <option [ngValue]="universidad.id">{{ universidad.universidad }}</option>
+                    <select *ngFor="let universidad of universidades" class="input input--sm border mr-2 sm:w-64" name="idUniversidad" [(ngModel)]="uno" [ngModelOptions]="{standalone: true}"  >
+                        <option  [ngValue]="universidad.id">{{ universidad.universidad }}</option>
 
                     </select>
                 </div>
@@ -79,7 +86,7 @@
 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Facultad:</label>
-                    <select *ngFor="let facultad of facultades" class="input input--sm border mr-2 sm:w-64" name="idFacultad" ngModel>
+                    <select *ngFor="let facultad of facultades" class="input input--sm border mr-2 sm:w-64" name="idFacultad" [(ngModel)]="uno" [ngModelOptions]="{standalone: true}" >
                         <option [ngValue]="facultad.id">{{ facultad.facultad }}</option>
                     </select>
                 </div>
@@ -87,16 +94,16 @@
                 
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Carrera:</label>
-                    <select *ngFor="let carrera of carreras" class="input input--sm border mr-2 sm:w-64" name="idCarrera" ngModel>
+                    <select *ngFor="let carrera of carreras" class="input input--sm border mr-2 sm:w-64" name="idCarrera" [(ngModel)]="uno" [ngModelOptions]="{standalone: true}" >
                         <option [ngValue]="carrera.id">{{ carrera.carrera }}</option>
                     </select>
                 </div>
 
                 
-                <div class="flex flex-col sm:flex-row items-center mt-3">
+                <div class="flex flex-col sm:flex-row items-center mt-3" style="display: none;">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Periodo:</label>
-                    <select class="input input--sm border mr-2 sm:w-64" name="periodo" ngModel>
-                        <option value="201860">201860</option>
+                    <select class="input input--sm border mr-2 sm:w-64" name="periodo" [(ngModel)]="peri" [ngModelOptions]="{standalone: true}" >
+                        <option value="201860" >201860</option>
                         <option value="201861">201930</option>
                         <option value="201862">203220</option>
                     </select>

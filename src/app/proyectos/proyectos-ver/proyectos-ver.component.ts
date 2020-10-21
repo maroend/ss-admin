@@ -17,7 +17,7 @@ declare var $: any;
 })
 export class ProyectosVerComponent implements OnInit {
   public idobtenido: number;
-  public proyectoModel = new Proyecto();
+  public proyectoModel = new Proyecto("","","",0,"",0,"",0,"",0,"","","",false,0,"",false,"","","",0,"","",0,"",false,0,"",0,"","",false,undefined,undefined,0);
   public listaApoyos = new Array<listaApoyosModel>();
   public listaLineasTrabajo = new Array<listaLineasTrabajoModel>();
   public validar = false;
@@ -69,11 +69,8 @@ export class ProyectosVerComponent implements OnInit {
     this.getActividadesByIdProyecto();
     this.obtenerAlumnosInscritos();
 
-    this.dataTable = $(this.table.nativeElement);
     this.dataTable.DataTable();
-    this.dataTable1 = $(this.table1.nativeElement);
     this.dataTable1.DataTable();
-    this.dataTable2 = $(this.table2.nativeElement);
     this.dataTable2.DataTable();
 
   }
