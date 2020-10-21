@@ -4,6 +4,7 @@ import { ProyectoService } from '../../services/proyecto.service';
 import { Proyecto, PerfilesActividadesModel, ProyectosActividadesModel } from "../../models/proyectos";
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $: any;
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-proyectos-actividades-add',
@@ -21,7 +22,7 @@ export class ProyectosActividadesAddComponent implements OnInit {
   
 
   constructor(private proyectoService: ProyectoService, private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,private _location: Location) {
   }
 
 
@@ -50,8 +51,9 @@ export class ProyectosActividadesAddComponent implements OnInit {
     this.proyectoService.createProyectosActividades(model).subscribe((res: any) => {
       //console.log(res.message);
       if (res) {
-        this.validar = true;
-        this.router.navigate(['/proyectos/ver/' + this.idobtenido]).then(() => { window.location.reload(); });
+        $('#success-modal-preview').modal('show');
+
+        this._location.back();
 
       }
 
@@ -59,11 +61,6 @@ export class ProyectosActividadesAddComponent implements OnInit {
       alert(error.error)
     })
 
-    if (this.validar) {
-      $('#success-modal-preview').modal('show');
 
-
-      this.router.navigate(['/proyectos/ver/' + this.idobtenido]);
-    }
   }
 }
