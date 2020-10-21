@@ -21,7 +21,7 @@ public mensaje="";
 
   onSubmit(data) {
 
-    
+    console.log(data);
     this.loginservice.login(data.value).subscribe((res: any)=>{
 if(res['resultado']==1){
   var datosvalue=res['datos'];
