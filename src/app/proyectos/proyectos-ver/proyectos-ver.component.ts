@@ -7,6 +7,9 @@ import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
 import { UniversidadService } from '../../services/universidad.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Estadosalumnos,Estadosalumnoscambio } from "../../models/estadosalumnos";
+
+
 
 declare var $: any;
 
@@ -36,6 +39,8 @@ export class ProyectosVerComponent implements OnInit {
   public sucesos: ProyectosSucesosModel[] = [];
   public proyectosActividades: ProyectosActividadesModel[] = [];
   public alumnos: AlumnosProyectosAsignadosModel[] = [];
+  public estadosalumnos: Estadosalumnos[] = [];
+  public estadoalumnocambio: Estadosalumnoscambio = new Estadosalumnoscambio();
 
   @ViewChild('dataTable', { static: false }) table;
   @ViewChild('dataTable1', { static: false }) table1;
@@ -44,6 +49,7 @@ export class ProyectosVerComponent implements OnInit {
   public dataTable1: any;
   public dataTable2: any;
 
+  public idalum: number;
 
   //public alumno: Alumnos[] = [];
 
@@ -68,7 +74,7 @@ export class ProyectosVerComponent implements OnInit {
     this.obtenerSucesos();
     this.getActividadesByIdProyecto();
     this.obtenerAlumnosInscritos();
-
+this.obtenerestadoalumnos();
     this.dataTable.DataTable();
     this.dataTable1.DataTable();
     this.dataTable2.DataTable();
@@ -91,6 +97,11 @@ export class ProyectosVerComponent implements OnInit {
     //console.log(this.idApoyo);
     //console.log(this.idLineasTrabajo);
     })
+  }
+  obtenerestadoalumnos() {
+    return this.organizacionService
+      .getestadosalumnos()
+      .subscribe((estadosalumnos: Estadosalumnos[]) => this.estadosalumnos = estadosalumnos);
   }
   obtenerOrganizaciones() {
     return this.organizacionService
@@ -203,10 +214,19 @@ export class ProyectosVerComponent implements OnInit {
 
   abrirsubir(id){
 
-    //console.log("dfdsfdsfds"+ id);
+    console.log("dfdsfdsfds"+ id);
     $('#abrirsubir-'+id).modal('show');
 
   }
+
+  mostraractualizarestado(id){
+    this.idalum=Number(id);
+    console.log("dfdsfdsfds"+ id);
+
+        $('#mostareditaralumno-'+this.idalum).modal('show');
+    
+    
+      }
 
   actualizarestado() {
 
@@ -226,5 +246,25 @@ export class ProyectosVerComponent implements OnInit {
 
 
   }
+  cambiarestatusalumno(){
 
+
+    this.estadoalumnocambio.idProyecto = Number(this.idobtenido);
+    this.estadoalumnocambio.idAlumno = Number(this.idalum);
+    var idf=  $('#estadofinal').val();
+
+    this.estadoalumnocambio.idEstado = Number(idf.length-1);
+console.log(idf.length-1);
+    this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
+      $('#success-modal-preview').modal('show');
+      location.reload();
+
+
+    }, error => {
+      alert(error.error)
+    })
+
+
+
+  }
 }

@@ -231,20 +231,20 @@ if(this.validar){
     
   }
 
-subeArchivo() {
+// subeArchivo() {
 
-  var selecttedFile = ($("#Imagen"))[0].files[0];
-  var dataString = new FormData();
-  dataString.append("file", selecttedFile);
+//   var selecttedFile = ($("#Imagen"))[0].files[0];
+//   var dataString = new FormData();
+//   dataString.append("file", selecttedFile);
   
-  this.organizacionService.subirdocumentos(dataString).subscribe((res: any)=>{
-    console.log(res);
+//   this.organizacionService.subirdocumentos(dataString).subscribe((res: any)=>{
+//     console.log(res);
 
 
-  }, error=>{
-    alert(error.error)
-  })
-  }
+//   }, error=>{
+//     alert(error.error)
+//   })
+//   }
 
 
   //  subeArchivo() {
@@ -281,28 +281,28 @@ subeArchivo() {
   //   });
   //   }
 
-  //  subeArchivo() {
-
-  //   var selecttedFile = ($("#Imagen"))[0].files[0];
-  //   var dataString = new FormData();
-  //   dataString.append("file", selecttedFile);
-  //   var request = new XMLHttpRequest();
-  //       var url ="https://serviciosocial.gesdesapplication.com/api/DocumentosOrganizaciones/UploadFile";
-  //       request.open('POST', url, false);
-  //       request.onreadystatechange = function() {
+   subeArchivo() {
+console.log("charly");
+    var selecttedFile = ($("#Imagen"))[0].files[0];
+    var dataString = new FormData();
+    dataString.append("file", selecttedFile);
+    var request = new XMLHttpRequest();
+        var url ="https://serviciosocial.gesdesapplication.com/api/DocumentosOrganizaciones/UploadFile";
+        request.open('POST', url, false);
+        request.onreadystatechange = function() {
             
         
-  //       }
-  //       request.setRequestHeader("Content-Type", "multipart/form-data");
-  //       //request.setRequestHeader( 'Access-Control-Allow-Origin', '*');
+        }
+        request.setRequestHeader("Content-Type", "multipart/form-data");
+        request.setRequestHeader( 'Access-Control-Allow-Origin', '*');
 
-  //       request.withCredentials = false;
-  //       request.send(dataString);
+        request.withCredentials = false;
+        request.send(dataString);
 
 
 
         
-  //   }
+    }
 
 
 
@@ -314,7 +314,7 @@ subeArchivo() {
 let model=this.estadoact;
 console.log(model);
     this.organizacionService.updateestado(model).subscribe(() => {
-      window.location.reload();
+          window.location.reload();
 
       $('#success-modal-preview').modal('show');
 

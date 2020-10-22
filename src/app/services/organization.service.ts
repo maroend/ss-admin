@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Empresa,estadoActualizar } from '../models/empresa';
+import { Estadosalumnoscambio } from '../models/estadosalumnos';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,13 @@ export class OrganizationService {
          console.log(uri);
     return this.http.get(uri);
   }
+  getestadosalumnos(){
+    const uri = `${this.api}/EstadosAlumnosProyectos`;
+         console.log(uri);
+    return this.http.get(uri);
+  }
 
-
+  
 
   getAreas(){
     const uri = `${this.api}/AreasAccion`;
@@ -94,6 +100,21 @@ console.log(estado);
 
     return this.http.put(`${this.api}/Organizaciones/actualizaEstado?idOrganizacion=${estado.idOrganizacion}&idEstado=${estado.idEstado}&observaciones=${estado.observaciones}`, estado);
   }
+
+  updateestadoalumno(estadoAct: Estadosalumnoscambio) {
+    let estado=estadoAct;
+console.log(estado);
+
+
+    return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observacions}`, estado);
+  }
+
+
+
+
+
+
+
   getSucesosByIdOrganizacion(idOrganizacion: string | number) {
     return this.http.get(`${this.api}/OrganizacionesSucesos/getByIdOrganizacion?idOrganizacion=${idOrganizacion}`);
   }

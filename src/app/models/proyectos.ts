@@ -155,6 +155,8 @@ export class PeriodosModel {
 export class EstadosProyectosModel {
   constructor(
     public id: number,
+    public suceso: string,
+
     public EstadoProyecto: string,
     public FechaCracion: string,
     public activo: boolean,
@@ -207,6 +209,7 @@ export class PerfilesActividadesModel{
 export class AlumnosProyectosAsignadosModel{
   public id: number;
   public idAlumno: number;
+  public idEstado: number;
   public alumno: string;
   public idProyecto: number;
   public proyectoNombre: string;
@@ -214,6 +217,7 @@ export class AlumnosProyectosAsignadosModel{
   public correo: string;
   public celular: string;
   public carrera: string;
+  public estado: string;
   public facultad: string;
   public universidad: string;
   public fechaCreacion: string;
