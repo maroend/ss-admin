@@ -69,8 +69,13 @@ public peri=201860;
 
   onSubmit(data) {
     var temporal=(data.value);
-console.log(temporal);
-    if(temporal['nombre']==""){
+    data.value.idFacultad= document.getElementById("idFacultad"); 
+    data.value.idUniversidad= document.getElementById("idUniversidad");
+    data.value.idCarrera=document.getElementById("idCarrera"); 
+    
+  console.log(data.value);
+  
+  if(temporal['nombre']==""){
       this.mensajevalidacion="No puedes dejar el campo de nombre vacío"
       $('#validacion').modal('show');
       
@@ -139,13 +144,15 @@ console.log(temporal);
     }
 else{
 
-    this.alumnoService.addAlumno(data.value).subscribe(() => {
+
+
+    // this.alumnoService.addAlumno(data.value).subscribe(() => {
       
   
-           $('#success-modal-preview').modal('show');
+    //        $('#success-modal-preview').modal('show');
 
-    this._location.back();
-    })
+    // this._location.back();
+    // })
 
   }
   }

@@ -42,6 +42,7 @@ export class AlumnoService {
     return this.http.get(`${this.baseUrl}/AlumnosProyectosAsignados/getByIdAlumno?idAlumno=${idalumno}`);
   }
   addAlumno(alumno: Alumno) {
+    alumno.porcentaje=Number(alumno.porcentaje);
     return this.http.post(`${this.baseUrl}/Alumnos`, alumno);
   }
 
