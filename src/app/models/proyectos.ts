@@ -183,16 +183,16 @@ export class ProyectosSucesosModel{
 }
 
 export class ProyectosActividadesModel{
-
+  public id: number;
+  public idProyecto: number;
+  public actividad: string;
+  public descripcion: string;
+  public noPrestadores: number;
+  public idPerfil: number;
+  public perfil: string;
+  public fechaCreacion: string;
+  public activo: boolean;
   constructor(
-    public idProyecto: number,
-    public actividad: string,
-    public descripcion: string,
-    public noPrestadores: number,
-    public idPerfil: number,
-    public perfil: string,
-    public fechaCreacion: string,
-    public activo: boolean
   ) { }
 }
 export class PerfilesActividadesModel{
@@ -257,4 +257,15 @@ export class AlumnosModel{
   public activo: boolean;
   constructor(
   ) { }
+}
+export class Proyectoactividad {
+  public idProyecto: number;
+  public Actividad: string;
+  public Descripcion: string;
+  public NoPrestadores: string;
+  public idPerfil: number;
+
+  constructor(
+  ) { }
+
 }

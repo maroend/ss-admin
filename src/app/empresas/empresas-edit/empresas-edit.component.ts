@@ -159,99 +159,99 @@ var valor= { "idRubro": id ,"activo": true};
 
 
     if(model.organizacion==""){
-      this.mensajevalidacion="No puedes dejar el campo de empresa vacío"
+      this.mensajevalidacion="No puedes dejar el campo de empresa vacío";
             $('#validacion').modal('show');
       
           }
           else if(model.mision==""){
-            this.mensajevalidacion="No puedes dejar el campo de mision vacío"
+            this.mensajevalidacion="No puedes dejar el campo de mision vacío";
             $('#validacion').modal('show');
           }
           else  if(model.objetivo==""){
-            this.mensajevalidacion="No puedes dejar el campo de objetivo vacío"
+            this.mensajevalidacion="No puedes dejar el campo de objetivo vacío";
             $('#validacion').modal('show');
           }
           else if(model.logros==""){
-            this.mensajevalidacion="No puedes dejar el campo de logros vacío"
+            this.mensajevalidacion="No puedes dejar el campo de logros vacío";
             $('#validacion').modal('show');
           }
           else if(model.web==""){
-            this.mensajevalidacion="No puedes dejar el campo de web vacío"
+            this.mensajevalidacion="No puedes dejar el campo de web vacío";
             $('#validacion').modal('show');
           }
           else if(model.cp==""){
-            this.mensajevalidacion="No puedes dejar el campo de cp vacío"
+            this.mensajevalidacion="No puedes dejar el campo de cp vacío";
             $('#validacion').modal('show');
           }
           else if(model.estado==""){
-            this.mensajevalidacion="No puedes dejar el campo de estado vacío"
+            this.mensajevalidacion="No puedes dejar el campo de estado vacío";
             $('#validacion').modal('show');
           }
           else if(model.ciudad==""){
-            this.mensajevalidacion="No puedes dejar el campo de ciudad vacío"
+            this.mensajevalidacion="No puedes dejar el campo de ciudad vacío";
             $('#validacion').modal('show');
           }
           else if(model.colonia==""){
-            this.mensajevalidacion="No puedes dejar el campo de colonia vacío"
+            this.mensajevalidacion="No puedes dejar el campo de colonia vacío";
             $('#validacion').modal('show');
           }
           else if(model.calle==""){
-            this.mensajevalidacion="No puedes dejar el campo de calle vacío"
+            this.mensajevalidacion="No puedes dejar el campo de calle vacío";
             $('#validacion').modal('show');
           }
       
           else if(model.noExt==""){
-            this.mensajevalidacion="No puedes dejar el campo de noExt vacío"
+            this.mensajevalidacion="No puedes dejar el campo de noExt vacío";
             $('#validacion').modal('show');
           }
       
           else if(model.responsable['nombre']==""){
       
-            this.mensajevalidacion="No puedes dejar el campo de nombre vacío"
+            this.mensajevalidacion="No puedes dejar el campo de nombre vacío";
             $('#validacion').modal('show');
           }  
           else if(model.responsable['apellidos']==""){
-            this.mensajevalidacion="No puedes dejar el campo de apellidos vacío"
+            this.mensajevalidacion="No puedes dejar el campo de apellidos vacío";
             $('#validacion').modal('show');
       
           }  else if(model.responsable['correo']==""){
-              this.mensajevalidacion="No puedes dejar el campo de correo vacío"
+              this.mensajevalidacion="No puedes dejar el campo de correo vacío";
             $('#validacion').modal('show');
       
           }  
           else if(model.responsable['telefono']==""){
-            this.mensajevalidacion="No puedes dejar el campo de telefono vacío"
+            this.mensajevalidacion="No puedes dejar el campo de telefono vacío";
             $('#validacion').modal('show');
       
           }  
           else if(model.responsable['departamento']==""){
-            this.mensajevalidacion="No puedes dejar el campo de departamento vacío"
+            this.mensajevalidacion="No puedes dejar el campo de departamento vacío";
             $('#validacion').modal('show');
       
           }  
           else if(model.responsable['puesto']==""){
-            this.mensajevalidacion="No puedes dejar el campo de puesto vacío"
+            this.mensajevalidacion="No puedes dejar el campo de puesto vacío";
             $('#validacion').modal('show');
       
           }  
           else if(model.responsable['usuario']==""){
-            this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
+            this.mensajevalidacion="No puedes dejar el campo de usuario vacío";
             $('#validacion').modal('show');
       
           } 
           else if(model.responsable['contraseña']==""){
-            this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
+            this.mensajevalidacion="No puedes dejar el campo de contraseña vacío";
             $('#validacion').modal('show');
       
           } 
           else if(this.listaRubros.length==0){
-            this.mensajevalidacion="Debes selecciónar al menos un rubro"
+            this.mensajevalidacion="Debes selecciónar al menos un rubro";
             $('#validacion').modal('show');
       
           } 
           
           else if(this.listaAreasAccion.length==0){
-            this.mensajevalidacion="Debes selecciónar al menos una Area"
+            this.mensajevalidacion="Debes selecciónar al menos una Area";
             $('#validacion').modal('show');
       
           } 

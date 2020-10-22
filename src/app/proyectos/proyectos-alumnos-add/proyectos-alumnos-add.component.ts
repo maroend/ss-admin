@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, AlumnosProyectosAsignadosAddModel, AlumnosModel} from "../../models/proyectos";
+import { Proyecto2, AlumnosProyectosAsignadosAddModel, AlumnosModel} from "../../models/proyectos";
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $: any;
 import {Location} from '@angular/common';
@@ -14,7 +14,7 @@ import {Location} from '@angular/common';
 export class ProyectosAlumnosAddComponent implements OnInit {
   public idobtenido: number;
   public validar= false;
-  public proyectoModel = new Proyecto("","","",0,"",0,"",0,"",0,"","","",false,0,"",false,"","","",0,"","",0,"",false,0,"",0,"","",false,undefined,undefined,0);
+  public proyectoModel =  new Proyecto2();
   public alumnosAsignar : any;
   public alumnos = new Array<AlumnosModel>();
   @ViewChild('dataTable', { static: false }) table;
@@ -43,7 +43,7 @@ export class ProyectosAlumnosAddComponent implements OnInit {
   }
   toggleAlumnos(checked, id: number) {
     console.log(checked);
-    var valor = { "idAlumno": id, "idProyecto": Number(this.idobtenido), "activo": true };
+    var valor = { "idAlumno": id, "idProyecto": Number(this.idobtenido), "activo": true, "idEstado": 1 };
 
     this.alumnos.find(x => x.id === id);
     if (checked) this.alumnosAsignar = valor;
@@ -69,7 +69,7 @@ export class ProyectosAlumnosAddComponent implements OnInit {
     console.log(this.alumnosAsignar);
 
     this.proyectoService.asignarAlumnosProyectos(this.alumnosAsignar).subscribe((res: any) => {
-      //console.log(res.message);
+      console.log(res.message);
       if (res) {
         $('#success-modal-preview').modal('show');
 

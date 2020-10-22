@@ -216,8 +216,9 @@ export class ProyectosVerComponent implements OnInit {
     let model = this.estadoact;
     console.log(model);
     this.proyectoService.updateestado(model).subscribe(() => {
-
       $('#success-modal-preview').modal('show');
+      location.reload();
+
 
     }, error => {
       alert(error.error)
