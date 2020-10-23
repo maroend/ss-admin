@@ -6,6 +6,11 @@ import { Estadosalumnoscambio } from '../models/Estadosalumnos';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 
+import { Empresa,estadoActualizar } from '../models/empresa';
+import { Estadosalumnoscambio } from '../models/estadosalumnos';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/share';
+
 @Injectable({
   providedIn: 'root'
 })
