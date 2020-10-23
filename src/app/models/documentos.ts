@@ -10,34 +10,49 @@ export class Documentos {
 
 
   
+    ) { }  
+
+}
+
+export class DocumentosSubidos {
+    constructor(
+        public idEstado:  number,
+        public idOrganizacion: number,
+        public idDocumento:  number,
+        public ruta: string,
+        public Estado:  string,
+      public file: any
     ) { }
+}
 
+export class DocumentosSubidosRequeridos {
+    constructor(
+        public idEstado:  number,
+        public idOrganizacion: number,
+        public idDocumento:  number,
+        public ruta: string,
+      public Estado: string,
+      public idDocumentoRequerido :number,
+      public documento :string,
+      public configuracion :number,
 
-    
-
+      public file: any
+    ) { }
 }
 
 export class DocumentosCadena {
     constructor(
         public idEstado:  number,
-
         public idOrganizacion: number,
         public iddocumento:  number,
         public ruta: string,
         public Estado:  string,
-        public file:  any
-
-
-
-  
+      public file: any
     ) { }
-
-
-    
-
 }
+
 export class Documentosfile {
-    constructor(
-        public file:  any  
+  public file: File;
+  constructor(
     ) { }
 }
