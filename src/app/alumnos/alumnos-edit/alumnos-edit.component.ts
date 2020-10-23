@@ -25,6 +25,7 @@ export class AlumnosEditComponent implements OnInit {
 
 
   activo = true;
+  public mensajevalidacion="";
 
   public universidades: Universidad[] = [];
   public carreras: Carrera[] = [];
@@ -34,7 +35,8 @@ export class AlumnosEditComponent implements OnInit {
 
   public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "","", true, 0);
 
-  constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService,private _location: Location) { }
+  constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,
+    private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService,private _location: Location) { }
 
 
 
@@ -44,6 +46,8 @@ export class AlumnosEditComponent implements OnInit {
     this.obtenerUniversidades();
     this.obtenerCarreras();
     this.obtenerFacultades();
+    console.log(this.alumno);
+
   }
 
   obtenerUniversidades(){
@@ -74,16 +78,89 @@ export class AlumnosEditComponent implements OnInit {
 
 
   onSubmit(data) {
-          
-    console.log(JSON.stringify(data.value));
+ 
+  var temporal=(data.value);
 
+  console.log(temporal);
+
+    console.log(temporal['universidad']);
+
+        if(temporal['nombre']==""){
+          this.mensajevalidacion="No puedes dejar el campo de nombre vacío"
+          $('#validacion').modal('show');
+          
+        }
+        else if(temporal['matricula']==""){
+          this.mensajevalidacion="No puedes dejar el campo de matricula vacío"
+          $('#validacion').modal('show');
+    
+        }
+         
+        else if(temporal['paterno']==""){
+          this.mensajevalidacion="No puedes dejar el campo de paterno vacío"
+          $('#validacion').modal('show');
+          
+        }
+        else if(temporal['materno']==""){
+          this.mensajevalidacion="No puedes dejar el campo de materno vacío"
+          $('#validacion').modal('show');
+          
+        }
+      
+        else if(temporal['porcentaje']==""){
+    
+          this.mensajevalidacion="No puedes dejar el campo de porcentaje vacío"
+          $('#validacion').modal('show');
+        }
+        else if(temporal['correo']==""){
+          this.mensajevalidacion="No puedes dejar el campo de correo vacío"
+          $('#validacion').modal('show');
+          
+        }
+        else if(temporal['celular']==""){
+          this.mensajevalidacion="No puedes dejar el campo de celular vacío"
+          $('#validacion').modal('show');
+          
+        }
+        else if(temporal['pais']==""){
+          this.mensajevalidacion="No puedes dejar el campo de pais vacío"
+          $('#validacion').modal('show');
+          
+        }
+        else if(temporal['cp']==""){
+    
+          this.mensajevalidacion="No puedes dejar el campo de cp vacío"
+          $('#validacion').modal('show');
+        } 
+        else if(temporal['estado']==""){
+          this.mensajevalidacion="No puedes dejar el campo de estado vacío"
+          $('#validacion').modal('show');
+          
+        }
+        else if(temporal['municipio']==""){
+          this.mensajevalidacion="No puedes dejar el campo de municipio vacío"
+          $('#validacion').modal('show');
+          
+        }
+        else if(temporal['colonia']==""){
+    
+          this.mensajevalidacion="No puedes dejar el campo de colonia vacío"
+          $('#validacion').modal('show');
+        } 
+        else if(temporal['calle']==""){
+          this.mensajevalidacion="No puedes dejar el campo de calle vacío"
+          $('#validacion').modal('show');
+          
+        }
+    else{   
+    console.log(JSON.stringify(data.value));
     this.alumnoService.updateAlumno(this.idAlumno,data.value).subscribe(() => {
       
            $('#success-modal-preview').modal('show');
 
     this._location.back();
     })
-
+  }
   }
 
 

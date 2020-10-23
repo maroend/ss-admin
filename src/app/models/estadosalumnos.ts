@@ -1,9 +1,12 @@
 export class Estadosalumnos {
-  constructor(
-    public estado: string,
-    public fechaCreacion: string,
-    public activo: boolean,
-    public id?: number
+
+    constructor(
+        public estado: string,
+        public fechaCreacion: string,
+        public activo: boolean,
+        public id?: number
+
+
 
 
 
@@ -13,16 +16,17 @@ export class Estadosalumnos {
 }
 
 export class Estadosalumnoscambio {
-  public idAlumno: number;
-  public idProyecto: number;
-  public idEstado: number;
+    public idAlumno: number;
+    public idProyecto: number;
+    public idEstado: number;
 
-  public observacions: boolean
+    public observacions: boolean
 
-  constructor(
+    constructor(
+     
 
 
-
-
-  ) { }
+        
+    ) { }
 }
+

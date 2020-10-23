@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, AlumnosProyectosAsignadosAddModel, AlumnosModel} from "../../models/proyectos";
+import { Proyecto2, AlumnosProyectosAsignadosAddModel, AlumnosModel} from "../../models/proyectos";
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $: any;
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-proyectos-alumnos-add',
@@ -13,14 +14,14 @@ declare var $: any;
 export class ProyectosAlumnosAddComponent implements OnInit {
   public idobtenido: number;
   public validar= false;
-  public proyectoModel = new Proyecto();
+  public proyectoModel =  new Proyecto2();
   public alumnosAsignar : any;
   public alumnos = new Array<AlumnosModel>();
   @ViewChild('dataTable', { static: false }) table;
   dataTable: any;
 
   constructor(private proyectoService: ProyectoService, private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,private _location: Location) {
   }
 
 
@@ -42,7 +43,7 @@ export class ProyectosAlumnosAddComponent implements OnInit {
   }
   toggleAlumnos(checked, id: number) {
     console.log(checked);
-    var valor = { "idAlumno": id, "idProyecto": Number(this.idobtenido), "activo": true };
+    var valor = { "idAlumno": id, "idProyecto": Number(this.idobtenido), "activo": true, "idEstado": 1 };
 
     this.alumnos.find(x => x.id === id);
     if (checked) this.alumnosAsignar = valor;
@@ -68,21 +69,17 @@ export class ProyectosAlumnosAddComponent implements OnInit {
     console.log(this.alumnosAsignar);
 
     this.proyectoService.asignarAlumnosProyectos(this.alumnosAsignar).subscribe((res: any) => {
-      //console.log(res.message);
+      console.log(res.message);
       if (res) {
-        this.validar = true;
-        this.router.navigate(['/proyectos/ver/' + this.idobtenido]).then(()=>{ window.location.reload();});
+        $('#success-modal-preview').modal('show');
 
+        this._location.back();
       }
 
     }, error => {
       alert(error.error)
     })
 
-    if (this.validar) {
-      $('#success-modal-preview').modal('show');
-
-      this.router.navigate(['/proyectos/ver/' + this.idobtenido]);
-    }
+ 
   }
 }

@@ -41,6 +41,10 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
 
 
+    this.proyectos=[];
+    this.proyectosactivos=[];
+    this.proyectosrechazados=[];
+    this.proyectospendientes=[];
 
      this.empresa=[];
      this.empresacantidad=0;

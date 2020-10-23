@@ -1,45 +1,89 @@
 
 export class Proyecto {
-  public proyecto: string;
-  public descripcion: string;
-  public objetivo: string;
-  public idOrganizacion: number;
-  public organizacion: string;
-  public idArea: number;
-  public area: string;
-  public idRango: number;
-  public rango: string;
-  public idPoblacion: number;
-  public poblacion: string;
-  public beneficioInstitucional: string;
-  public comentarios: string;
-  public recursosEconomicos: boolean;
-  public horasProyecto: number;
-  public descripcionFormacion: string;
-  public constanciaParticipacion: boolean;
-  public descripcionBeneficiosAlumno: string;
-  public descripcionImpactoSocial: string;
-  public indicadoresImpactoSocial: string;
-  public noVacantes: number;
-  public fechaInicio: string;
-  public fechaTermino: string;
-  public idPeriodo: number;
-  public periodo: string;
-  public disponible: boolean;
-  public idUniversidad: number;
-  public universidad: string;
-  public idEstadoProyecto: number;
-  public estadoProyecto: string;
-  public observaciones: string;
-  public activo: boolean;
-  public listaApoyos: Array<listaApoyosModel>;
-  public listaLineasTrabajo: Array<listaLineasTrabajoModel>;
-  public id: number
+
   constructor(
+    public proyecto: string,
+    public descripcion: string,
+    public objetivo: string,
+    public idOrganizacion: number,
+    public organizacion: string,
+    public idArea: number,
+    public area: string,
+    public idRango: number,
+    public rango: string,
+    public idPoblacion: number,
+    public poblacion: string,
+    public beneficioInstitucional: string,
+    public comentarios: string,
+    public recursosEconomicos: boolean,
+    public horasProyecto: number,
+    public descripcionFormacion: string,
+    public constanciaParticipacion: boolean,
+    public descripcionBeneficiosAlumno: string,
+    public descripcionImpactoSocial: string,
+    public indicadoresImpactoSocial: string,
+    public noVacantes: number,
+    public fechaInicio: string,
+    public fechaTermino: string,
+    public idPeriodo: number,
+    public periodo: string,
+    public disponible: boolean,
+    public idUniversidad: number,
+    public universidad: string,
+    public idEstadoProyecto: number,
+    public estadoProyecto: string,
+    public observaciones: string,
+    public activo: boolean,
+    public listaApoyos: Array<listaApoyosModel>,
+    public listaLineasTrabajo: Array<listaLineasTrabajoModel>,
+    public id: number
+
   ) { }
 
 }
 
+export class Proyecto2 {
+  public proyecto: string;
+    public descripcion: string;
+    public objetivo: string;
+    public idOrganizacion: number;
+    public organizacion: string;
+    public idArea: number;
+    public area: string;
+    public idRango: number;
+    public rango: string;
+    public idPoblacion: number;
+    public poblacion: string;
+    public beneficioInstitucional: string;
+    public comentarios: string;
+    public recursosEconomicos: boolean;
+    public horasProyecto: number;
+    public descripcionFormacion: string;
+    public constanciaParticipacion: boolean;
+    public descripcionBeneficiosAlumno: string;
+    public descripcionImpactoSocial: string;
+    public indicadoresImpactoSocial: string;
+    public noVacantes: number;
+    public fechaInicio: string;
+    public fechaTermino: string;
+    public idPeriodo: number;
+    public periodo: string;
+    public disponible: boolean;
+    public idUniversidad: number;
+    public universidad: string;
+    public idEstadoProyecto: number;
+    public estadoProyecto: string;
+    public observaciones: string;
+    public activo: boolean;
+    public listaApoyos: Array<listaApoyosModel>;
+    public listaLineasTrabajo: Array<listaLineasTrabajoModel>;
+    public id: number
+  constructor(
+  
+
+  ) { }
+
+}
 export class listaApoyosModel {
   constructor(
     public idApoyo: number,
@@ -111,6 +155,8 @@ export class PeriodosModel {
 export class EstadosProyectosModel {
   constructor(
     public id: number,
+    public suceso: string,
+
     public EstadoProyecto: string,
     public FechaCracion: string,
     public activo: boolean,
@@ -163,6 +209,7 @@ export class PerfilesActividadesModel{
 export class AlumnosProyectosAsignadosModel{
   public id: number;
   public idAlumno: number;
+  public idEstado: number;
   public alumno: string;
   public idProyecto: number;
   public proyectoNombre: string;
@@ -170,6 +217,7 @@ export class AlumnosProyectosAsignadosModel{
   public correo: string;
   public celular: string;
   public carrera: string;
+  public estado: string;
   public facultad: string;
   public universidad: string;
   public fechaCreacion: string;
@@ -213,4 +261,15 @@ export class AlumnosModel{
   public activo: boolean;
   constructor(
   ) { }
+}
+export class Proyectoactividad {
+  public idProyecto: number;
+  public Actividad: string;
+  public Descripcion: string;
+  public NoPrestadores: string;
+  public idPerfil: number;
+
+  constructor(
+  ) { }
+
 }

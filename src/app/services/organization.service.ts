@@ -28,8 +28,13 @@ export class OrganizationService {
          console.log(uri);
     return this.http.get(uri);
   }
+  getestadosalumnos(){
+    const uri = `${this.api}/EstadosAlumnosProyectos`;
+         console.log(uri);
+    return this.http.get(uri);
+  }
 
-
+  
 
   getAreas(){
     const uri = `${this.api}/AreasAccion`;

@@ -16,7 +16,7 @@ declare var $: any;
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-  public usuarios = new Usuario("","","","","",1,1,false);
+  public usuarios = new Usuario("","","","","",1,1,false,true);
 
   constructor( private usuarioservices: UsuarioServices,public session: SessionService) { 
   

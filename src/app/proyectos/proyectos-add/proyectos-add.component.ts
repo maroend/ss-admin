@@ -24,8 +24,10 @@ declare var $: any;
 })
 export class ProyectosAddComponent implements OnInit {
    public form: FormGroup;
-  
-  public proyectoModel = new Proyecto();
+   public mensajevalidacion="";
+   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
+
+  public proyectoModel = new Proyecto("","","",0,"",0,"",0,"",0,"","","",false,0,"",false,"","","",0,"","",0,"",false,0,"",0,"","",false,undefined,undefined,0);
   public listaApoyos = new Array<listaApoyosModel>();
   public listaLineasTrabajo = new Array<listaLineasTrabajoModel>();
   public validar = false;
@@ -74,6 +76,16 @@ export class ProyectosAddComponent implements OnInit {
     this.obtenerEstadosProyectos();
     this.obtenerApoyos();
     this.obtenerLineasTrabajo();
+    this.proyectoModel.idArea=1;
+    this.proyectoModel.idUniversidad=1;
+    this.proyectoModel.idEstadoProyecto=1;
+    this.proyectoModel.idOrganizacion=1;
+    this.proyectoModel.idRango=1;
+    this.proyectoModel.idPeriodo=1;
+    this.proyectoModel.idPoblacion=1;
+    this.proyectoModel.horasProyecto=240;
+
+    this.proyectoModel.idPeriodo=1;
   }
   ngAfterViewInit() {
     Feather.replace();
@@ -214,7 +226,63 @@ var valor= { "idRubro": id ,"activo": true};
     console.log(this.listaApoyos);
     console.log(this.listaLineasTrabajo);
     console.log(model)
-    
+    if(model.proyecto==""){
+      this.mensajevalidacion="No puedes dejar el campo de nombre de proyecto vacío"
+            $('#validacion').modal('show');
+      
+          }
+          else if(model.descripcion==""){
+            this.mensajevalidacion="No puedes dejar el campo de descripción vacío"
+            $('#validacion').modal('show');
+          }
+          else if(model.objetivo==""){
+            this.mensajevalidacion="No puedes dejar el campo de objetivo vacío"
+            $('#validacion').modal('show');
+          }    
+             else if(model.beneficioInstitucional==""){
+            this.mensajevalidacion="No puedes dejar el campo de beneficioInstitucional vacío"
+            $('#validacion').modal('show');
+          } 
+                else if(model.descripcion==""){
+            this.mensajevalidacion="No puedes dejar el campo de descripción vacío"
+            $('#validacion').modal('show');
+          }
+                 else if(model.descripcionFormacion==""){
+            this.mensajevalidacion="No puedes dejar el campo de descripción de Formacion vacío"
+            $('#validacion').modal('show');
+          }   
+              else if(model.descripcionImpactoSocial==""){
+            this.mensajevalidacion="No puedes dejar el campo de descripción de Impacto Social vacío"
+            $('#validacion').modal('show');
+          }  
+               else if(model.descripcionBeneficiosAlumno==""){
+            this.mensajevalidacion="No puedes dejar el campo de descripción Beneficios Alumno vacío"
+            $('#validacion').modal('show');
+          }  
+               else if(model.noVacantes==0){
+            this.mensajevalidacion="No puedes dejar el campo de vacantes o en 0 vacío"
+            $('#validacion').modal('show');
+          }  
+               else if(model.listaApoyos.length==0){
+            this.mensajevalidacion="Selecciona al menos un apoyo"
+            $('#validacion').modal('show');
+          }
+
+          else if(model.listaLineasTrabajo.length==0){
+            this.mensajevalidacion="Selecciona al menos una linea de trabajo"
+            $('#validacion').modal('show');
+          }
+          else if(model.fechaTermino==""){
+            this.mensajevalidacion="No puedes dejar el campo de fecha Termino vacío"
+            $('#validacion').modal('show');
+          }
+          else if(model.fechaInicio==""){
+            this.mensajevalidacion="No puedes dejar el campo de fecha Inicio vacío"
+            $('#validacion').modal('show');
+          }
+else{
+
+
     
     this.proyectoService.create(model).subscribe((res: any) => {
       //console.log(res.message);
@@ -228,7 +296,9 @@ var valor= { "idRubro": id ,"activo": true};
     }, error => {
       alert(error.error)
     })
+  }
     /*
+
     if (this.validar) {
       $('#success-modal-preview').modal('show');
 

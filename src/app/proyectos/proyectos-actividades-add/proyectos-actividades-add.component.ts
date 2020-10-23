@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, PerfilesActividadesModel, ProyectosActividadesModel } from "../../models/proyectos";
+import { Proyectoactividad, PerfilesActividadesModel, ProyectosActividadesModel } from "../../models/proyectos";
 import { Router, ActivatedRoute } from '@angular/router';
 declare var $: any;
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-proyectos-actividades-add',
@@ -11,9 +12,10 @@ declare var $: any;
   styleUrls: ['./proyectos-actividades-add.component.scss']
 })
 export class ProyectosActividadesAddComponent implements OnInit {
+  public mensajevalidacion="";
 
   public proyectoActividadesModel = new ProyectosActividadesModel();
-  public proyectoModel = new Proyecto();
+  public proyectoModel = new Proyectoactividad();
   public perfiles: PerfilesActividadesModel[] = [];
   public validar = false;
   public idobtenido: number;
@@ -21,13 +23,17 @@ export class ProyectosActividadesAddComponent implements OnInit {
   
 
   constructor(private proyectoService: ProyectoService, private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,private _location: Location) {
   }
 
 
   ngOnInit(): void {
     this.idobtenido = <number><any>(this.activatedRoute.snapshot.paramMap.get("id"));
+    console.log(this.idobtenido);
     this.obtenerPerfilesActividades();
+    this.proyectoActividadesModel.noPrestadores=0;
+    this.proyectoActividadesModel.idPerfil=1;
+
   }
   ngAfterViewInit() {
     Feather.replace();
@@ -39,10 +45,35 @@ export class ProyectosActividadesAddComponent implements OnInit {
       .subscribe((perfiles: PerfilesActividadesModel[]) => this.perfiles = perfiles);
   }
   create() {
+    console.log("2");
 
-    let model = this.proyectoModel;
+    let model = this.proyectoActividadesModel;
+var actividad=$('#actividad').val();
+var descripcion=$('#descripcion').val();
+var cantidad=Number($('#cantidad').val());
+console.log(actividad);
+console.log(cantidad);
 
-    
+if(actividad==""){
+
+  this.mensajevalidacion="No puedes dejar el campo de actividad vacío";
+  $('#validacion').modal('show');
+}
+else if(descripcion==""){
+  this.mensajevalidacion="No puedes dejar el campo de descripcion vacío";
+  $('#validacion').modal('show');
+
+}
+else if(cantidad==0){
+  this.mensajevalidacion="No puedes dejar el campo de cantidad vacío o en 0";
+  $('#validacion').modal('show');
+  
+}
+else{
+
+console.log(actividad+descripcion+cantidad);
+
+    model.idProyecto=Number(this.idobtenido);
     model.activo = true;
     console.log(model)
     
@@ -50,8 +81,7 @@ export class ProyectosActividadesAddComponent implements OnInit {
     this.proyectoService.createProyectosActividades(model).subscribe((res: any) => {
       //console.log(res.message);
       if (res) {
-        this.validar = true;
-        this.router.navigate(['/proyectos/ver/' + this.idobtenido]).then(() => { window.location.reload(); });
+        this._location.back();
 
       }
 
@@ -59,11 +89,6 @@ export class ProyectosActividadesAddComponent implements OnInit {
       alert(error.error)
     })
 
-    if (this.validar) {
-      $('#success-modal-preview').modal('show');
-
-
-      this.router.navigate(['/proyectos/ver/' + this.idobtenido]);
-    }
+  }
   }
 }

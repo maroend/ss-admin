@@ -19,7 +19,7 @@ declare var $: any;
 export class UsuariosEditComponent implements OnInit {
 
 
-  public usuarios = new Usuario("","","","","",1,1,false);
+  public usuarios = new Usuario("","","","","",1,1,true,true);
   
 validar=false;
 

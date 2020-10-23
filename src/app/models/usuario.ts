@@ -8,7 +8,8 @@ export class Usuario {
 
         public idUniversidad: number,
         public id: number,
-    
+        public disponible: boolean,
+
         public activo: boolean,
 
         
