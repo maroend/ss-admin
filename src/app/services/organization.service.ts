@@ -1,16 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Empresa,estadoActualizar } from '../models/empresa';
-<<<<<<< Updated upstream
-=======
-import { Estadosalumnoscambio } from '../models/estadosalumnos';
+import { Empresa, estadoActualizar } from '../models/empresa';
+import { Estadosalumnoscambio } from '../models/Estadosalumnos';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
-
-
-
->>>>>>> Stashed changes
 
 @Injectable({
   providedIn: 'root'
@@ -111,18 +105,13 @@ console.log(estado);
 
     return this.http.put(`${this.api}/Organizaciones/actualizaEstado?idOrganizacion=${estado.idOrganizacion}&idEstado=${estado.idEstado}&observaciones=${estado.observaciones}`, estado);
   }
-<<<<<<< Updated upstream
-=======
 
   updateestadoalumno(estadoAct: Estadosalumnoscambio) {
     let estado=estadoAct;
-console.log(estado);
-
-
+    console.log(estado);
     return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observacions}`, estado);
   }
 
->>>>>>> Stashed changes
   getSucesosByIdOrganizacion(idOrganizacion: string | number) {
     return this.http.get(`${this.api}/OrganizacionesSucesos/getByIdOrganizacion?idOrganizacion=${idOrganizacion}`);
   }

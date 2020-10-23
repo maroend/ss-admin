@@ -212,85 +212,10 @@ if(this.validar){
   uploadFile(files: FileList) {
     this.fileToUpload = files.item(0);
   }
-<<<<<<< Updated upstream
-
-subeArchivo() {
-
-  var selecttedFile = ($("#Imagen"))[0].files[0];
-  var dataString = new FormData();
-  dataString.append("file", selecttedFile);
-  
-  this.organizacionService.subirdocumentos(dataString).subscribe((res: any)=>{
-    console.log(res);
-
-
-  }, error=>{
-    alert(error.error)
-  })
-  }
-
-
-  //  subeArchivo() {
-
-  //   var selecttedFile = ($("#Imagen"))[0].files[0];
-  //   var dataString = new FormData();
-  //   dataString.append("file", selecttedFile);
-    
-  //   $.ajax({  
-  //      headers: { 
-  //        "Access-Control-Allow-Origin":"http://localhost:4200,https://serviciosocial.gesdesapplication.com/api/DocumentosOrganizaciones/UploadFile',https://localhost:4200", 
-  //        "Access-Control-Allow-Headers":"X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method",
-  //        "Access-Control-Allow-Methods":" POST", 
-  //       "Allow":" POST"
-  //       },
-  //       url: "https://serviciosocial.gesdesapplication.com/api/DocumentosOrganizaciones/UploadFile",
-  //       type: "POST",
-  //       data: dataString,
-  //       contentType: false,
-  //       processData: false,
-  //       async: true,
-  //       withCredentials:false,
-        
-  //       success: function (data) {
-  //           if (parseInt(data.resultado)) {
-            
-  //               alert("archivo agregado " + data);
-  //           }
-  //       },
-  //       error: function (data) {
-  //           alert("Error al agregado archivo" + data);
-  //       }
-   
-  //   });
-  //   }
-
-  //  subeArchivo() {
-
-  //   var selecttedFile = ($("#Imagen"))[0].files[0];
-  //   var dataString = new FormData();
-  //   dataString.append("file", selecttedFile);
-  //   var request = new XMLHttpRequest();
-  //       var url ="https://serviciosocial.gesdesapplication.com/api/DocumentosOrganizaciones/UploadFile";
-  //       request.open('POST', url, false);
-  //       request.onreadystatechange = function() {
-            
-        
-  //       }
-  //       request.setRequestHeader("Content-Type", "multipart/form-data");
-  //       //request.setRequestHeader( 'Access-Control-Allow-Origin', '*');
-
-  //       request.withCredentials = false;
-  //       request.send(dataString);
-
-=======
   
   subeArchivo() {
-    //console.log("archivo "+this.fileToUpload);
-    //this.organizacionService.upload(this.fileToUpload);
-
+    
     this.organizacionService.postFile(this.fileToUpload, this.idDocumento, this.idobtenido).subscribe(data => {
-      // do something, if upload success
-      //console.log(data);
       if (data.resultado == 1) {
         $('#abrirsubir-' + this.idDocumento).modal('hide');
         $('#success-modal-preview-file').modal('show');
@@ -300,17 +225,7 @@ subeArchivo() {
       console.log(error);
     });
   }
->>>>>>> Stashed changes
-
   //TODO SERGIO
-
-<<<<<<< Updated upstream
-        
-  //   }
-=======
->>>>>>> Stashed changes
-
-
 
   actualizarestado(){
     
@@ -327,7 +242,6 @@ let model=this.estadoact;
       alert(error.error)
     })
 
-    
   }
 
 }
