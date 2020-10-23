@@ -219,7 +219,7 @@ if(this.validar){
       if (data.resultado == 1) {
         $('#abrirsubir-' + this.idDocumento).modal('hide');
         $('#success-modal-preview-file').modal('show');
-
+        location.reload();
       }
     }, error => {
       console.log(error);
