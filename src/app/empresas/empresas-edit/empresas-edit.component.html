@@ -284,7 +284,7 @@
                                         <tbody>
                                             <tr *ngFor="let area of areas">
 
-                                                <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)"></td>
+                                                <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)" [checked]="idAreaAccion.indexOf(area.id) >=0" ></td>
                                                 <td>{{area.areaAccion}}</td>
 
                                             </tr>
@@ -349,7 +349,7 @@
                                         <tbody>
                                             <tr *ngFor="let rubro of rubros">
 
-                                                <td style="padding:5px;"> <input type="checkbox" id="{{rubro.id}}" (change)="togleRubros($event.target.checked, rubro.id)"></td>
+                                                <td style="padding:5px;"> <input type="checkbox" id="{{rubro.id}}" (change)="togleRubros($event.target.checked, rubro.id)"  [checked]="idRubro.indexOf(rubro.id) >=0" ></td>
                                                 <td>{{rubro.rubro}}</td>
 
                                             </tr>

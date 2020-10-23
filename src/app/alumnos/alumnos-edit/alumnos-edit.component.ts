@@ -78,13 +78,7 @@ export class AlumnosEditComponent implements OnInit {
 
 
   onSubmit(data) {
-  var idu=  $('#iduniversidad').val();
-data.value['iduniversidad']=Number(idu);
-var idf=  $('#idFacul').val();
-data.value['idFacultad']=Number(idf);
-var idc=  $('#idCarre').val();
-data.value['idCarrera']=Number(idc);
-  console.log(idu);
+ 
   var temporal=(data.value);
 
   console.log(temporal);

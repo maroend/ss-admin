@@ -23,7 +23,10 @@ export class AlumnosAddComponent implements OnInit {
 
   activo = true;
   public mensajevalidacion="";
-public uno=1;
+public facu=1;
+public uni=1;
+public carre=1;
+
 public peri=201860;
   public universidades: Universidad[] = [];
   public carreras: Carrera[] = [];
@@ -68,14 +71,17 @@ public peri=201860;
 
 
   onSubmit(data) {
+    data.idFacultad=this.facu;
+    data.idCarrera=this.facu;
+    data.idUniversidad=this.uni;
+console.log(data);
+
     var temporal=(data.value);
-    data.value.idFacultad= document.getElementById("idFacultad"); 
-    data.value.idUniversidad= document.getElementById("idUniversidad");
-    data.value.idCarrera=document.getElementById("idCarrera"); 
-    
-  console.log(data.value);
-  
-  if(temporal['nombre']==""){
+console.log(temporal);
+
+
+
+    if(temporal['nombre']==""){
       this.mensajevalidacion="No puedes dejar el campo de nombre vacío"
       $('#validacion').modal('show');
       
@@ -144,15 +150,13 @@ public peri=201860;
     }
 else{
 
-
-
-    // this.alumnoService.addAlumno(data.value).subscribe(() => {
+    this.alumnoService.addAlumno(data.value).subscribe(() => {
       
   
-    //        $('#success-modal-preview').modal('show');
+           $('#success-modal-preview').modal('show');
 
-    // this._location.back();
-    // })
+    this._location.back();
+    })
 
   }
   }
