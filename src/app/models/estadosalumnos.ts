@@ -1,4 +1,5 @@
 export class Estadosalumnos {
+
     constructor(
         public estado: string,
         public fechaCreacion: string,
@@ -8,8 +9,10 @@ export class Estadosalumnos {
 
 
 
-        
-    ) { }
+
+
+
+  ) { }
 }
 
 export class Estadosalumnoscambio {
@@ -26,3 +29,4 @@ export class Estadosalumnoscambio {
         
     ) { }
 }
+

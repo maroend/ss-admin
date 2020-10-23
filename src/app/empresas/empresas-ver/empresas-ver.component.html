@@ -2,17 +2,26 @@
 
 <div class="content">
 
-
-  <div class="modal" id="success-modal-preview">
-    <div class="modal__content">
-      <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
-        <div class="text-base mt-5">Muy bien!</div>
-        <div class="text-basemt-2">Has editado una empresa!</div>
-      </div>
-      <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal"
-          class="button w-24 bg-theme-1 text-white">Ok</button> </div>
-    </div>
-  </div>
+   <div class="modal" id="success-modal-preview">
+              <div class="modal__content">
+                <div class="p-5 text-center">
+                  <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                  <div class="text-base mt-5">Muy bien!</div>
+                  <div class="text-basemt-2">Has editado una empresa!</div>
+                </div>
+                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+              </div>
+            </div>
+            <div class="modal" id="success-modal-preview-file">
+              <div class="modal__content">
+                <div class="p-5 text-center">
+                  <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                  <div class="text-base mt-5">Muy bien!</div>
+                  <div class="text-basemt-2">¡Se subió el archivo de la empresa!</div>
+                </div>
+                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+              </div>
+            </div>
   <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
     <h2 class="text-lg font-medium mr-auto">
       Empresa
@@ -62,6 +71,7 @@
         <div class=" p-5">
           <div class="text-base text-gray-600 mt-1">Logros</div>
 
+
           <div class="text-base font-bold leading-8 mt-6">{{empresaModel.logros}}</div>
         </div>
       </div>
@@ -70,7 +80,6 @@
     <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
         <div class=" p-5">
           <div class="text-base text-gray-600 mt-1">Legionario</div>
-
           <div class="text-base font-bold leading-8 mt-6">
             <p *ngIf="empresaModel.legionario==true"> Si</p>
             <p *ngIf="empresaModel.legionario==false"> No</p>
@@ -109,6 +118,7 @@
     <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
         <div class=" p-5">
           <div class="text-base text-gray-600 mt-1"> Pagina Web
+
 
             <div class="text-base font-bold leading-8 mt-6">{{empresaModel.web}} </div>
           </div>
@@ -364,6 +374,10 @@
     </div>
 
 
+                        </div>
+                      </div>
+                      <div class="text-base text-gray-600 mt-1">Telefono</div>
+
     <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
       <div class="report-box ">
         <div class="box p-5">
@@ -450,6 +464,11 @@
   </div>
 
 
+                      </div>
+                      <div class="text-base font-bold leading-8 mt-6" *ngIf="empresaModel.id==0">
+                        No
+
+
   <br><br>
 
 
@@ -475,6 +494,7 @@
     </div>
 
   </div>
+
 
 
   <br><br>
@@ -528,33 +548,30 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="intro-x" *ngFor="let d of documentos">
+        <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
 
           <td>
             <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
           </td>
           <td>
-            <div class="ext-base text-xs whitespace-no-wrap"> <a (click)="abrirsubir(d.id)"><i
+            <div class="ext-base text-xs whitespace-no-wrap"> <a (click)="abrirsubir(d.idDocumentoRequerido)"><i
                   data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo</a></div>
           </td>
 
-
-
           <td>
-            <div class="text-base whitespace-no-wrap"> {{d.fecha}} </div>
+            <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}}</div>
           </td>
           <td style="padding: 5px; background: #ffffff; " align="center"><input type="checkbox" id="1"
-              onclick="entregadoDocumento(this.id,137994,35);"></td>
+              onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true"></td>
 
-          <div class="modal" id="abrirsubir-{{d.id}}">
+          <div class="modal" id="abrirsubir-{{d.idDocumentoRequerido}}">
             <div class="modal__content">
               <form #form="ngForm" (ngSubmit)="subeArchivo()">
                 <div class="p-5 text-center"> <i data-feather="x-circle"
                     class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                   <div class="text-base mt-5">Subir Archivo</div>
                   <br>
-                  <input type="file" id="Imagen" name="Imagen">
-
+                  <input type="file" id="file" name="file" (change)="uploadFile($event.target.files)">
                 </div>
 
                 <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal"
@@ -562,6 +579,7 @@
                   <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Subir</button>
                 </div>
               </form>
+
 
             </div>
           </div>
@@ -649,6 +667,7 @@
       </div>
 
     </div>
+
 
 
   </div>

@@ -1,8 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Empresa, estadoActualizar } from '../models/empresa';
+import { Estadosalumnoscambio } from '../models/Estadosalumnos';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/share';
+
 import { Empresa,estadoActualizar } from '../models/empresa';
 import { Estadosalumnoscambio } from '../models/estadosalumnos';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/share';
 
 @Injectable({
   providedIn: 'root'
@@ -68,7 +75,15 @@ export class OrganizationService {
     const uri = `${this.api}/Organizaciones/${id}`;
     return this.http.delete(uri);
   }
- 
+
+  obtenerDocumentosSubidos(id: string | number) {
+    const uri = `${this.api}/DocumentosOrganizaciones/getDocumentoByIdOrganizacion?idOrganizacion=${id}`
+    return this.http.get(uri);
+  }
+  obtenerDocumentosSubidosConRequeridos(id: string | number) {
+    const uri = `${this.api}/DocumentosOrganizaciones/getDocumentoByIdOrganizacionWithRequeridos?idOrganizacion=${id}`
+    return this.http.get(uri);
+  }
   subirdocumentos(model){
     const uri = `${this.api}/DocumentosOrganizaciones/UploadFile`
     return this.http.post(uri, model,{ withCredentials: false});
@@ -103,35 +118,24 @@ console.log(estado);
 
   updateestadoalumno(estadoAct: Estadosalumnoscambio) {
     let estado=estadoAct;
-console.log(estado);
-
-
+    console.log(estado);
     return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observacions}`, estado);
   }
-
-
-
-
-
-
 
   getSucesosByIdOrganizacion(idOrganizacion: string | number) {
     return this.http.get(`${this.api}/OrganizacionesSucesos/getByIdOrganizacion?idOrganizacion=${idOrganizacion}`);
   }
+
+  postFile(fileToUpload: File,idDocumento:string,idOrganizacion:string): Observable<boolean> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
+    const endpoint = `${this.api}/DocumentosOrganizaciones/UploadFile2`;
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    formData.append('idDocumento', idDocumento);
+    formData.append('idOrganizacion', idOrganizacion);
+    return this.http
+      .post(endpoint, formData /*,{ headers: headers }*/);
+  }
+
 }
-
-
-// subeArchivo() {
-
-//   var selecttedFile = ($("#Imagen"))[0].files[0];
-//   var dataString = new FormData();
-//   dataString.append("file", selecttedFile);
-  
-//   this.organizacionService.subirdocumentos(dataString).subscribe((res: any)=>{
-//     console.log(res);
-
-
-//   }, error=>{
-//     alert(error.error)
-//   })
-//   }
