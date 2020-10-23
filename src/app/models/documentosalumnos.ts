@@ -7,6 +7,19 @@ export class DocumentosRequeridosAlumnos {
   ) { }
 }
 
+export class DocumentosSubidosRequeridos {
+  public idEstado: number;
+  public idAlumno: number;
+  public idDocumento: number;
+  public ruta: string;
+  public estado: string;
+  public idDocumentoRequerido: number;
+  public documento: string;
+  public file: any;
+  constructor(
+  ) { }
+}
+
 export class DocumentosAlumno {
   public idEstado: number;
   public idAlumno: number;
@@ -23,3 +36,4 @@ export class Documentosfile {
   constructor(
   ) { }
 }
+

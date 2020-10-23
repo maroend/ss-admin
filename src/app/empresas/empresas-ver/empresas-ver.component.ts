@@ -4,7 +4,6 @@ import { OrganizationService } from '../../services/organization.service';
 import { Empresa, Responsablemodel, check, estadoActualizar, OrganizacionesSucesosModel } from "../../models/empresa"
 import { AreaAccion } from "../../models/areaaccion"
 import { Documentos, DocumentosCadena, Documentosfile, DocumentosSubidos, DocumentosSubidosRequeridos } from "../../models/documentos"
-
 import { RubroEmpresa } from "../../models/rubrosempresa"
 import { Universidad } from "../../models/universidad"
 import { TipoEmpresa } from "../../models/tipoempresa"
