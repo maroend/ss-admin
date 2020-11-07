@@ -251,18 +251,16 @@ this.obtenerestadoalumnos();
 
     this.estadoalumnocambio.idProyecto = Number(this.idobtenido);
     this.estadoalumnocambio.idAlumno = Number(this.idalum);
-    var idf=  $('#estadofinal').val();
 
-    this.estadoalumnocambio.idEstado = Number(idf.length-1);
-console.log(idf.length-1);
-    this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
-      $('#success-modal-preview').modal('show');
-      location.reload();
+console.log(this.estadoalumnocambio);
+    // this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
+    //   $('#success-modal-preview').modal('show');
+    //   location.reload();
 
 
-    }, error => {
-      alert(error.error)
-    })
+    // }, error => {
+    //   alert(error.error)
+    // })
 
 
 

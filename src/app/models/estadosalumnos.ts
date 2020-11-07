@@ -20,7 +20,7 @@ export class Estadosalumnoscambio {
     public idProyecto: number;
     public idEstado: number;
 
-    public observacions: boolean
+    public observaciones: string
 
     constructor(
      
