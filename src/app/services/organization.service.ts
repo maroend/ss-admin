@@ -7,8 +7,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 
 
-import 'rxjs/add/operator/share';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -124,7 +122,7 @@ console.log(estado);
     return this.http.get(`${this.api}/OrganizacionesSucesos/getByIdOrganizacion?idOrganizacion=${idOrganizacion}`);
   }
 
-  postFile(fileToUpload: File,idDocumento:string,idOrganizacion:string): Observable<boolean> {
+  postFile(fileToUpload: File,idDocumento:string,idOrganizacion:string): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
     const endpoint = `${this.api}/DocumentosOrganizaciones/UploadFile2`;
@@ -132,8 +130,7 @@ console.log(estado);
     formData.append('file', fileToUpload, fileToUpload.name);
     formData.append('idDocumento', idDocumento);
     formData.append('idOrganizacion', idOrganizacion);
-    return this.http
-      .post(endpoint, formData /*,{ headers: headers }*/);
+    return this.http.post(endpoint, formData);
   }
 
 }

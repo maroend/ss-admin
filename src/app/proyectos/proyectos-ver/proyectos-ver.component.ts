@@ -252,11 +252,21 @@ this.obtenerestadoalumnos();
     this.estadoalumnocambio.idProyecto = Number(this.idobtenido);
     this.estadoalumnocambio.idAlumno = Number(this.idalum);
 
+
 console.log(this.estadoalumnocambio);
     // this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
     //   $('#success-modal-preview').modal('show');
     //   location.reload();
+    var idf=  $('#estadofinal').val();
+    var lastFive = idf.substr(idf.length - 1); // => "Tabs1" 
 
+//camibo
+    this.estadoalumnocambio.idEstado = Number(lastFive);
+console.log(this.estadoalumnocambio);
+    this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
+      $('#success-modal-preview').modal('show');
+      location.reload();
+//fincambio
 
     // }, error => {
     //   alert(error.error)
