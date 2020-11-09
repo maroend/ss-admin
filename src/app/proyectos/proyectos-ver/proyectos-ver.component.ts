@@ -270,7 +270,7 @@ console.log(this.estadoalumnocambio);
 
     // }, error => {
     //   alert(error.error)
-    // })
+    })
 
 
 
