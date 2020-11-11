@@ -14,6 +14,7 @@ declare var $: any;
 export class EmpresashomeComponent implements OnInit {
   public empresa: Empresa[] = [  ];
   @ViewChild('dataTable', {static: false}) table;
+  public  logo="https://img.icons8.com/ios/452/company.png";
 
   dataTable:any;
   public validar=true;
@@ -24,11 +25,10 @@ export class EmpresashomeComponent implements OnInit {
   ngOnInit() {
 
     this.obtenerorganizaciones();
-
             this.dataTable.DataTable();
 
   }
-
+  
   obtenerorganizaciones() {
     return this.organizacionService
       .getAll()
