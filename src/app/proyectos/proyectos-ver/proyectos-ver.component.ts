@@ -7,7 +7,7 @@ import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
 import { UniversidadService } from '../../services/universidad.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Estadosalumnos,Estadosalumnoscambio } from "../../models/estadosalumnos";
+import { Estadosalumnos,Estadosalumnoscambio } from "../../models/estadosalumnoss";
 
 
 

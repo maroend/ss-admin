@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Empresa, estadoActualizar,createwhitimage } from '../models/empresa';
-import { Estadosalumnoscambio } from '../models/Estadosalumnos';
+import { Estadosalumnoscambio } from '../models/estadosalumnoss';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
 
