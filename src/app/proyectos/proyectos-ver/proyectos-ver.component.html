@@ -374,7 +374,7 @@
                     </h2>
                     <br>
 
-                    <div class="w-full sm:w-auto flex mt-4 sm:mt-0" *ngIf="alumnos?.length < proyectoModel.noVacantes">
+                    <div class="w-full sm:w-auto flex mt-4 sm:mt-0" <!--*ngIf="alumnos?.length <proyectoModel.plazas"-->>
                       <button [routerLink]="['/proyectos/alumnos/',proyectoModel.id]" class="button text-white bg-theme-1 shadow-md mr-2">Asignar alumno</button>
                     </div>
                   </div>
