@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Empresa,estadoActualizar } from '../models/empresa';
-import { Estadosalumnoscambio } from '../models/estadosalumnos';
+import { Empresa, estadoActualizar,createwhitimage } from '../models/empresa';
+import { Estadosalumnoscambio } from '../models/Estadosalumnos';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/share';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,22 @@ export class OrganizationService {
     return this.http.get(uri);
   }
 
-  
+  obtenerdirecciones(cp){
+    const uri = `${this.api}/VSepomex/GetFromCp?cp=${cp}`
+    return this.http.post(uri, cp,{ withCredentials: false});
+  }
+  getcordinaciones(){
+    const uri = `${this.api}/Cordinaciones`;
+    return this.http.get(uri);
+  }
+  getescueladireccion(){
+    const uri = `${this.api}/Direcciones`;
+    return this.http.get(uri);
+  }
+  getvice(){
+    const uri = `${this.api}/Vicerrectorias`;
+    return this.http.get(uri);
+  }
 
   getAreas(){
     const uri = `${this.api}/AreasAccion`;
@@ -91,7 +107,7 @@ export class OrganizationService {
 
 
   create(model){
-    const uri = `${this.api}/Organizaciones`
+    const uri = `${this.api}/Organizaciones/CreateWithImage`
     return this.http.post(uri, model);
   }
   createWithDetails(model){
@@ -101,7 +117,7 @@ export class OrganizationService {
   updateempresa(id: string | number,empresa: Empresa) {
     empresa.id = Number(id);
     empresa.activo = true;
-    return this.http.put(`${this.api}/Organizaciones/${id}`, empresa);
+    return this.http.post(`${this.api}/Organizaciones/UpdateWithImage`, empresa);
   }
   updateestado(estadoAct: estadoActualizar) {
     let estado=estadoAct;
@@ -129,6 +145,14 @@ console.log(estado);
     formData.append('file', fileToUpload, fileToUpload.name);
     formData.append('idDocumento', idDocumento);
     formData.append('idOrganizacion', idOrganizacion);
+    return this.http.post(endpoint, formData);
+  }
+  postFileImage(fileToUpload: File,idOrganizacion:string): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
+    const endpoint = `${this.api}/DocumentosOrganizaciones/UploadImagen`;
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
     return this.http.post(endpoint, formData);
   }
 

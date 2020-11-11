@@ -34,8 +34,11 @@
         <table datatable #dataTable 
             class="table table-report -mt-2">  <thead>
                 <tr>
+                    <!-- <th class="border-b-2 text-center whitespace-no-wrap">LOGO</th> -->
+
                     <th class="border-b-2 text-center whitespace-no-wrap">EMPRESAS</th>
-                    <th class="border-b-2 text-center whitespace-no-wrap">UNIVERSIDAD</th>
+
+                    <th class="border-b-2 text-center whitespace-no-wrap">EXTERNO</th>
 
                     <th class="border-b-2 text-center whitespace-no-wrap">ESTADO</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACCIONES</th>
@@ -45,16 +48,38 @@
             <tbody *ngIf="empresa?.length != 0">
              
                 <tr *ngFor="let empresa of empresa">
-      
+         
+                    <!-- <td class="border-b">
+                        <div class="flex flex-1 px-5 items-center justify-center " align="center" *ngIf="empresa.Imagen==null   ;else no" >
+
+                        <div class="text-center w-0 h-20 sm:w-24 sm:h-24 flex-none lg:w-12 lg:h-12 image-fit relative" align="center">
+                            <img  alt="Midone Tailwind HTML Admin Template" id="blah" class="rounded-full" src="https://img.icons8.com/ios/452/company.png">
+
+                        </div>
+                    </div>
+                    <ng-template #no>
+                    <div class="w-0 h-20 sm:w-24 sm:h-24 flex-none lg:w-12 lg:h-12 image-fit relative" >
+
+                        <img #no alt="Midone Tailwind HTML Admin Template" id="blah" class="rounded-full" src="data:image/jpeg;base64,{{empresa.Imagen}}">
+                        </div>
+                    </ng-template>
+
+                    </td> -->
+                
                     <td class="border-b">
                         <a [routerLink]="['/empresas/ver', empresa.id]" >    <div class="rounded-lg text-center px-1 py-1 mb-2  text-black"> {{empresa.organizacion}}</div></a>
                     </td>
-               
              
-                    <td class="border-b">
-                        <div class="font-medium flex sm:justify-center items-center">{{empresa.universidad}}</div>
-                    </td>
+                    <td class="border-b "*ngIf="empresa.externa==true   ;else template">
 
+                        <div class="font-medium flex sm:justify-center items-center">Empresa externa</div>
+                    </td>
+                    <ng-template #template >
+                    <td class="border-b ">
+
+                        <div class="font-medium flex sm:justify-center items-center">Empresa Interna</div>
+                    </td>
+                </ng-template>
                     <td class="w-40 border-b">
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" *ngIf="empresa.idEstadoOrganizacion==2">{{empresa.estadoOrganizacion}}</div>
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="empresa.idEstadoOrganizacion==1">{{empresa.estadoOrganizacion}}</div>
