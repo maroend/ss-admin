@@ -92,18 +92,18 @@ export class Proyecto2 {
 }
 export class ProyectosCompetencias {
   constructor(
-    public idProyecto: number,
     public idCompetencia: number,
     public activo: boolean,
+    public idProyecto?: number,
     public proyecto?: string,
     public competencia ?: string,
   ) { }
 }
 export class ProyectosCarreras{
   constructor(
-    public idProyecto: number,
     public idCarrera: number,
     public activo: boolean,
+    public idProyecto?: number,
     public proyecto?: string,
     public carrera ?: string,
   ) { }
