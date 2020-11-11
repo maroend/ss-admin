@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Alumno } from '../models/alumno';
 import { environment } from "../../environments/environment";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/share';
 
 
 class DataTablesResponse {
@@ -69,5 +71,20 @@ export class AlumnoService {
     return this.http.post(uri, model);
   }
 
+  postFileAlumno(fileToUpload: File, idDocumento: string, idAlumno: string): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
+    const endpoint = `${this.baseUrl}/DocumentosAlumnos/UploadFileAlumno`;
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    formData.append('idDocumento', idDocumento);
+    formData.append('idAlumno', idAlumno);
+    return this.http.post(endpoint, formData);
+  }
+
+  obtenerDocumentosSubidosConRequeridos(id: string | number) {
+    const uri = `${this.baseUrl}/DocumentosAlumnos/getDocumentoByIdAlumnoWithRequeridos?idAlumno=${id}`
+    return this.http.get(uri);
+  }
 
 }
