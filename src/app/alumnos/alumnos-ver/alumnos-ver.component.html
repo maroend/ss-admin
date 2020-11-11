@@ -291,7 +291,7 @@
     <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
       <div class="report-box zoom-in">
         <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1" *ngIf="alumnoproyecto.id>0; else templateName">
+          <div class="text-base text-gray-600 mt-1" *ngIf="alumnoproyecto!=undefined && alumnoproyecto.id>0; else templateName">
             Proyecto
 
             <div class="text-base font-bold leading-8 mt-6"> {{alumnoproyecto.proyectoNombre}} </div>
@@ -339,42 +339,60 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="intro-x" *ngFor="let d of documentos">
+          <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
 
             <td>
               <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
             </td>
             <td>
-              <div class="ext-base text-xs whitespace-no-wrap"> <a (click)="abrirsubir(d.id)"><i
-                    data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo</a></div>
+              <div class="ext-base text-xs whitespace-no-wrap">
+                <a (click)="abrirsubir(d.idDocumentoRequerido)">
+                  <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo
+                </a>
+              </div>
             </td>
 
 
 
             <td>
-              <div class="text-base whitespace-no-wrap"> {{d.fecha}} </div>
+              <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}} </div>
             </td>
-            <td style="padding: 5px; background: #ffffff; " align="center"><input type="checkbox" id="1"
-                onclick="entregadoDocumento(this.id,137994,35);"></td>
+            <td style="padding: 5px; background: #ffffff; " align="center">
+              <input type="checkbox" id="1" 
+                     onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true">
+            </td>
 
-            <div class="modal" id="abrirsubir-{{d.id}}">
+            <div class="modal" id="abrirsubir-{{d.idDocumentoRequerido}}">
               <div class="modal__content">
                 <form #form="ngForm" (ngSubmit)="subeArchivo()">
                   <div class="p-5 text-center">
                     <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                     <div class="text-base mt-5">Subir Archivo</div>
                     <br>
-                    <input type="file" id="Imagen" name="Imagen">
+                    <input type="file" id="file" name="file" (change)="uploadFile($event.target.files)" >
 
                   </div>
 
                   <div class="px-5 pb-8 text-center">
                     <button type="button" data-dismiss="modal"
-                      class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button>
+                            class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
+                      Cancelar
+                    </button>
                     <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Subir</button>
                   </div>
                 </form>
 
+              </div>
+            </div>
+
+            <div class="modal" id="success-modal-preview-file">
+              <div class="modal__content">
+                <div class="p-5 text-center">
+                  <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                  <div class="text-base mt-5">Muy bien!</div>
+                  <div class="text-basemt-2">¡Se subió el archivo correctamente!</div>
+                </div>
+                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
               </div>
             </div>
 

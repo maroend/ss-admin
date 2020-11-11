@@ -59,6 +59,21 @@ export class ProyectoService {
     return this.http.get(uri);
   }
 
+  getCompetencias() {
+    const uri = `${this.api}/Competencias`;
+    return this.http.get(uri);
+  }
+
+  getCarreras() {
+    const uri = `${this.api}/Carreras`;
+    return this.http.get(uri);
+  }
+
+  getODS() {
+    const uri = `${this.api}/ODS`;
+    return this.http.get(uri);
+  }
+
   create(model) {
     const uri = `${this.api}/Proyectos`
     return this.http.post(uri, model);
