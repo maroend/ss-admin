@@ -10,8 +10,7 @@
       Información General
     </h2>
   </div>
-  <div class="box zoom-in">
-
+  <div class="box">
     <div class="grid grid-cols-12 gap-6 mt-5">
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
@@ -34,252 +33,221 @@
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class=" p-5">
           <div class="text-base text-gray-600 mt-1">Apellido Materno</div>
-
           <div class="text-base font-bold leading-8 mt-6">{{alumno.materno}}</div>
         </div>
       </div>
-
-
-    </div>
-
-    <div class="grid grid-cols-12 gap-6 mt-5">
-
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">
-            Universidad
-
-            <div class="text-base font-bold leading-8 mt-6">
-              <h1 *ngFor="let a of universidades">
-                <p *ngIf="a.id==alumno.idUniversidad">{{a.universidad}}</p>
-              </h1>
-            </div>
-          </div>
+        <div class="p-5">
+          <label>ID Matricula</label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.matricula}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">Facultad</div>
+        <div class="p-5">
+          <label>Universidad:</label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.universidad}}</div>
+        </div>
+      </div>
 
-          <div class="text-base font-bold leading-8 mt-6">
-            <h1 *ngFor="let a of facultades">
-              <p *ngIf="a.id==alumno.idFacultad">{{a.facultad}}</p>
-            </h1>
-          </div>
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>Facultad:</label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.facultad}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>Carrera:</label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.carrera}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>Porcentaje Academico:</label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.porcentaje}} %</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Avance en créditos de la carrera:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.avanceCreditos}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Número de Semestre / Cuatrimestre:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.noCuatrimestreSemestre}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            ¿Tu carrera es semestral o cuatrimestral?
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.esquemaPeriodo}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Generación:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.generacion}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Fecha estimada de graduación:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.fechaEstimadaGraduacionString}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Correo Institucional:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.correoInstitucional}}</div>
         </div>
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">Carrera</div>
-
-          <div class="text-base font-bold leading-8 mt-6">
-            <h1 *ngFor="let a of carreras">
-              <p *ngIf="a.id==alumno.idCarrera">{{a.carrera}}</p>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="grid grid-cols-12 gap-6 mt-5">
-
-      <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-        <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">
-            ID. Matricula
-
-            <div class="text-base font-bold leading-8 mt-6">
-              {{alumno.matricula}}
-            </div>
-          </div>
+        <div class="p-5">
+          <label>
+            Correo Personal:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.correoPersonal}}</div>
         </div>
       </div>
 
-      <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-        <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">Porcentaje</div>
-
-          <div class="text-base font-bold leading-8 mt-6"> {{alumno.porcentaje}} %</div>
-        </div>
-      </div>
-
-
-
-    </div>
-
-  </div>
-
-
-  <br>
-
-
-  <div class="intro-y flex items-center h-10">
-    <h2 class="text-lg font-medium truncate mr-5">
-      Medios de Contacto
-    </h2>
-  </div>
-
-  <div class="grid grid-cols-12 gap-6 mt-5">
-
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">
-            Correo
-
-            <div class="text-base font-bold leading-8 mt-6"> {{alumno.correo}} </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">Celular</div>
-
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Teléfono de Contacto:
+          </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.celular}}</div>
         </div>
       </div>
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Fecha de Nacimiento:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.fechaNacimientoString}}</div>
+        </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5">
+          <label>
+            Sexo:
+          </label>
+          <div class="text-base font-bold leading-8 mt-6">{{alumno.sexo}}</div>
+        </div>
+      </div>
+
     </div>
-
-
-
   </div>
+
   <br>
+
   <div class="intro-y flex items-center h-10">
     <h2 class="text-lg font-medium truncate mr-5">
-      Dirección
+      Información Complementaria
     </h2>
   </div>
+  <div class="box">
+    <div class="grid grid-cols-12 gap-6 mt-5">
 
-  <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+          <div class="p-5">
+            <label>
+              ¿Has participado en ASUA?:
+            </label>
+            <div class="text-base font-bold leading-8 mt-6">{{alumno.participacionAsua}}</div>
+          </div>
+        </div>
+      
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+          <div class="p-5">
+            <label>
+              ¿Actualmente trabajas?:
+            </label>
+            <div class="text-base font-bold leading-8 mt-6">{{alumno.trabajas}}</div>
+          </div>
+        </div>
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">
-            Pais
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+          <div class="p-5">
+            <label>
+              ¿Bajo qué modalidad trabajas?
+            </label>
+            <div class="text-base font-bold leading-8 mt-6">{{ alumno.modalidadTrabajo}}</div>
+          </div>
+        </div>
 
-            <div class="text-base font-bold leading-8 mt-6"> {{alumno.pais}} </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+          <div class="p-5">
+            <label>
+              ¿A partir de qué semestre / cuatrimestre comenzaste a trabajar?
+            </label>
+            <div class="text-base font-bold leading-8 mt-6">{{alumno.cuatrimestreComienzoTrabajo}}</div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="sm:grid grid-cols-1 gap-2">
+      <div class="relative mt-8">
+        <div class="p-5">
+          <label>
+            Indica en cuál(es) área(s) de Vida Universitaria has participado
+          </label>
+        </div>
+        <div class="sm:grid grid-cols-3 gap-2">
+          <div *ngFor="let area of alumno.listaAreaVidaUniversitariaParticipado" class="text-base text-gray-600 mt-1">
+            <div class="flex items-center p-5">
+              <div class="w-3 h-2 bg-theme-9 rounded-full mr-3"></div>
+              <span>{{area.areaVidaUniversitaria}}</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">CP</div>
-
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.cp}}</div>
+      <div class="relative mt-8">
+        <div class="p-5">
+          <label>
+            ¿Actualmente formas parte de alguna área de Vida Universitaria?
+          </label>
         </div>
-      </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">Estado</div>
-
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.estado}}</div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-  </div>
-
-  <div class="grid grid-cols-12 gap-6 mt-5">
-
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">
-            Municipio
-
-            <div class="text-base font-bold leading-8 mt-6"> {{alumno.municipio}} </div>
+        <div class="sm:grid grid-cols-3 gap-2">
+          <div *ngFor="let area of alumno.listaAreaVidaUniversitariaActuales" class="text-base text-gray-600 mt-1">
+            <div class="flex items-center p-5">
+              <div class="w-3 h-2 bg-theme-9 rounded-full mr-3"></div>
+              <span>{{area.areaVidaUniversitaria}}</span>
+            </div>
           </div>
+          
         </div>
       </div>
-    </div>
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">Colonia</div>
-
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.colonia}}</div>
-        </div>
-      </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-      <div class="report-box zoom-in">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1">Calle</div>
-
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.calle}}</div>
-        </div>
-      </div>
-    </div>
-
-
+    </div> 
   </div>
-
-
-  <!-- <br>
-           <div class="intro-y flex items-center h-10">
-                  <h2 class="text-lg font-medium truncate mr-5">
-  Sucesos en el sistema
-               </h2>
-                </div>
-
-    <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-        <table class="table table-report sm:mt-2" >
-            <thead>
-                <tr>
-
-                    <th class="whitespace-no-wrap">FECHA DE REGISTRO</th>
-                    <th class="whitespace-no-wrap">SUCESO</th>
-                    <th class="whitespace-no-wrap">  OBSERVACIONES</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="intro-x">
-
-                    <td>
-                        <div class="ext-base text-xs whitespace-no-wrap">   </div>
-                    </td>
-                    <td>
-                      <div class="ext-base text-xs whitespace-no-wrap"> </div>
-                  </td>
-
-
-
-                  <td>
-                    <div class="text-base whitespace-no-wrap"> </div>
-                </td>
-
-
-                </tr>
-
-
-
-            </tbody>
-        </table>
-    </div> -->
-
   <br>
-  <br>
-
-
+  
   <div class="intro-y flex items-center h-10">
     <h2 class="text-lg font-medium truncate mr-5">
       Proyecto Asignado
@@ -287,9 +255,8 @@
   </div>
 
   <div class="grid grid-cols-12 gap-6 mt-5">
-
     <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
-      <div class="report-box zoom-in">
+      <div class="report-box">
         <div class="box p-5">
           <div class="text-base text-gray-600 mt-1" *ngIf="alumnoproyecto!=undefined && alumnoproyecto.id>0; else templateName">
             Proyecto
@@ -309,10 +276,6 @@
         </div>
       </div>
     </div>
-
-
-
-
   </div>
   <br>
 
@@ -351,8 +314,6 @@
                 </a>
               </div>
             </td>
-
-
 
             <td>
               <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}} </div>
@@ -397,8 +358,6 @@
             </div>
 
           </tr>
-
-
 
         </tbody>
       </table>

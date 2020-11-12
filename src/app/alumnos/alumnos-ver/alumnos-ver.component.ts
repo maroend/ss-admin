@@ -7,7 +7,7 @@ import { FacultadService } from '../../services/facultad.service';
 import { Universidad } from "../../models/universidad";
 import { Carrera } from "../../models/carrera";
 import { Facultad } from "../../models/facultad";
-import { Alumno,AlumnoProyecto } from '../../models/alumno';
+import { Alumno,AlumnoProyecto, AlumnosAreasVidaUniversitariaParticipado, AlumnosAreasVidaUniversitariaActuales } from '../../models/alumno';
 import { DocumentosRequeridosAlumnos, DocumentosAlumno, Documentosfile, DocumentosSubidosRequeridos } from "../../models/documentosalumnos"
 
 import { AlumnosComponent } from '../alumnos.component';
@@ -34,8 +34,11 @@ export class AlumnosverComponent implements OnInit {
   public documentoscadena = new DocumentosAlumno();
   public documentosfile = new Documentosfile()
   public idAlumno: string;
+
+  public listaAreasUniversidadParticipadoNew: AlumnosAreasVidaUniversitariaParticipado[] = [];
+  public listaAreasUniversidadActualesNew: AlumnosAreasVidaUniversitariaActuales[] = [];
   public alumnoproyecto: AlumnoProyecto = new AlumnoProyecto("", "", "", 0, 0, 0);
-  public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "", "", true, 0);
+  public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", 0, 0, "", "", 0, "", "", "", "", "", "", "", "", "", 0, "", true, true, this.listaAreasUniversidadParticipadoNew, this.listaAreasUniversidadActualesNew, 0, "", "");
   public DocumentosSubidos: DocumentosSubidosRequeridos[];
   public idDocumento: string = "";
   public fileToUpload: File = null;

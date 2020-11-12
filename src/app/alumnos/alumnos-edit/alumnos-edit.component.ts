@@ -7,11 +7,13 @@ import { FacultadService } from '../../services/facultad.service';
 import { Universidad } from "../../models/universidad";
 import { Carrera } from "../../models/carrera";
 import { Facultad } from "../../models/facultad";
-import { Alumno } from '../../models/alumno';
+import { Alumno, AreasVidaUniversitaria, AlumnosAreasVidaUniversitariaParticipado, AlumnosAreasVidaUniversitariaActuales, ModalidadesTrabajo } from '../../models/alumno';
 
 import { Router, ActivatedRoute  } from '@angular/router';
 import { AlumnosComponent } from '../alumnos.component';
 import {Location} from '@angular/common';
+import { ModalidadesTrabajoService } from '../../services/modalidadestrabajo.service';
+import { AreasVidaUniversitariaService } from '../../services/areasvidauniversitaria.service';
 
 
 declare var $: any;
@@ -30,22 +32,41 @@ export class AlumnosEditComponent implements OnInit {
   public universidades: Universidad[] = [];
   public carreras: Carrera[] = [];
   public facultades: Facultad[] = [];
+  public listaAreasUniversidad: AreasVidaUniversitaria[] = [];
+  public listaAreasUniversidadParticipado: AlumnosAreasVidaUniversitariaParticipado[] = [];
+  public listaAreasUniversidadActuales: AlumnosAreasVidaUniversitariaActuales[] = [];
+  public listaAreasUniversidadParticipadoNew: AlumnosAreasVidaUniversitariaParticipado[] = [];
+  public listaAreasUniversidadActualesNew: AlumnosAreasVidaUniversitariaActuales[] = [];
+  public listaModalidadesTrabajo: ModalidadesTrabajo[] = [];
+  public idsPasados: any;
+  public idsActuales: any;
 
   public idAlumno : string;
 
-  public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", "", "", "", "", "", "", "","", true, 0);
+  public alumno: Alumno = new Alumno("", "", "", "", 0, 0, 0, "", "", "", 0, 0, "", "", 0, "", "", "", "", "", "", "", "", "", 0, "", true,true, this.listaAreasUniversidadParticipadoNew, this.listaAreasUniversidadActualesNew,0,"","");
 
   constructor(private route: ActivatedRoute, private router: Router,private facultadService: FacultadService,
-    private carreraService: CarreraService,private universidadService: UniversidadService, private alumnoService: AlumnoService,private _location: Location) { }
-
+    private carreraService: CarreraService, private universidadService: UniversidadService, private alumnoService: AlumnoService, private areasVidaUniversitaria: AreasVidaUniversitariaService, private modalidadesTrabajoService: ModalidadesTrabajoService,private _location: Location) { }
 
 
   ngOnInit(): void {
     this.idAlumno = this.route.snapshot.paramMap.get("id");
-    this.alumnoService.getAlumno(this.idAlumno).subscribe((alumno: Alumno) => this.alumno = alumno);
+    this.alumnoService.getAlumno(this.idAlumno).subscribe((alumno: Alumno) => {
+      this.alumno = alumno;
+      this.alumno.fechaEstimadaGraduacion = alumno.fechaEstimadaGraduacionString;
+      this.alumno.fechaNacimiento = alumno.fechaNacimientoString;
+      this.alumno.fechaInicioServicioSocial = alumno.fechaInicioServicioSocialString;
+      
+      this.idsPasados = this.alumno.listaAreaVidaUniversitariaParticipado.map(({ idAreaVidaUniversitaria }) => idAreaVidaUniversitaria);
+      this.idsActuales = this.alumno.listaAreaVidaUniversitariaActuales.map(({ idAreaVidaUniversitaria }) => idAreaVidaUniversitaria);
+
+      console.log(this.alumno);
+    });
     this.obtenerUniversidades();
     this.obtenerCarreras();
     this.obtenerFacultades();
+    this.obtenerAreasVidaUniversitaria();
+    this.obtenerModalidadesTrabajo()
     console.log(this.alumno);
 
   }
@@ -76,6 +97,44 @@ export class AlumnosEditComponent implements OnInit {
   }
 
 
+  obtenerModalidadesTrabajo() {
+
+    return this.modalidadesTrabajoService
+      .getModalidadesTrabajo()
+      .subscribe((listaModalidadesTrabajo: ModalidadesTrabajo[]) => this.listaModalidadesTrabajo = listaModalidadesTrabajo);
+
+  }
+
+  obtenerAreasVidaUniversitaria() {
+
+    return this.areasVidaUniversitaria
+      .getAreasVidaUniversitaria()
+      .subscribe((listaAreasUniversidad: AreasVidaUniversitaria[]) => this.listaAreasUniversidad = listaAreasUniversidad);
+
+  }
+
+  toggleAreasVidaUniversitariaParticipado(checked, id) {
+    console.log(checked);
+    id = Number(id)
+    var valor = { "idAreaVidaUniversitaria": id, "activo": true };
+
+    var competencia = this.listaAreasUniversidad.find(x => x.id === id);
+    if (checked) this.alumno.listaAreaVidaUniversitariaParticipado.push(valor);
+    else this.alumno.listaAreaVidaUniversitariaParticipado = this.alumno.listaAreaVidaUniversitariaParticipado.filter(item => item.idAreaVidaUniversitaria !== id);
+
+    console.log(this.alumno.listaAreaVidaUniversitariaParticipado);
+  }
+
+  toggleAreasVidaUniversitariaActuales(checked, id) {
+    console.log(checked);
+    var valor = { "idAreaVidaUniversitaria": id, "activo": true };
+
+    var area = this.listaAreasUniversidad.find(x => x.id === id);
+    if (checked) this.alumno.listaAreaVidaUniversitariaActuales.push(valor);
+    else this.alumno.listaAreaVidaUniversitariaActuales = this.alumno.listaAreaVidaUniversitariaActuales.filter(item => item.idAreaVidaUniversitaria !== id);
+
+    console.log(this.alumno.listaAreaVidaUniversitariaActuales);
+  }
 
   onSubmit(data) {
  
@@ -153,8 +212,8 @@ export class AlumnosEditComponent implements OnInit {
           
         }
     else{   
-    console.log(JSON.stringify(data.value));
-    this.alumnoService.updateAlumno(this.idAlumno,data.value).subscribe(() => {
+          console.log(JSON.stringify(data.value));
+          this.alumnoService.updateAlumno(this.idAlumno, this.alumno).subscribe(() => {
       
            $('#success-modal-preview').modal('show');
 
