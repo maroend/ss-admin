@@ -3,6 +3,7 @@ import * as Feather from 'feather-icons';
 import { Alumno } from '../models/alumno';
 import { AlumnoService } from '../services/alumno.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+declare var $: any;
 
 @Component({
   selector: 'app-alumnos',
@@ -14,6 +15,7 @@ export class AlumnosComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
   alumnos: Alumno[];
   @ViewChild('dataTable', {static: false}) table;
+  public validar = false;
 
   dataTable:any;  
   constructor(private alumnosService: AlumnoService,private http: HttpClient) { }
@@ -30,7 +32,27 @@ export class AlumnosComponent implements OnInit {
     return this.alumnosService
     .getAlumnos()
     .subscribe((alumnos: Alumno[]) => this.alumnos = alumnos);
-   }
+  }
+
+
+  eliminar(id) {
+    this.alumnosService.deleteAlumno(id).subscribe((res: any) => {
+
+      if (res) {
+        this.validar = true;
+        location.reload();
+      } else {
+        alert("¡Algo salio mal!");
+      }
+    }, error => {
+      alert(error.error)
+    })
+  }
+
+  modaleliminar(id) {
+    console.log("dfdsfdsfds" + id);
+    $('#delete-modal-preview-' + id).modal('show');
+  }
 
   // obtenerAlumnos() {
 

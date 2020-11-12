@@ -48,8 +48,8 @@ export class AlumnoService {
     return this.http.post(`${this.baseUrl}/Alumnos`, alumno);
   }
 
-  deleteAlumno(alumno: Alumno) {
-    return this.http.delete(`${this.baseUrl}/delete.php?idAlumno=${alumno.id}`);
+  deleteAlumno(id) {
+    return this.http.delete(`${this.baseUrl}/Alumnos/${id}`);
   }
 
   updateAlumno(id: string | number,alumno: Alumno) {
