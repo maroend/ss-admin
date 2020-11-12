@@ -90,7 +90,6 @@
             </div>
 
         </div>
-
         <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
             <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                 <div class="p-5">
@@ -134,16 +133,9 @@
         </div>
 
         <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                <div class=" p-5">
-                    <div class="text-base text-gray-600 mt-1">Correo del Responsable de Servicio Social:</div>
+     
 
-                    <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.correo}} </div>
-                </div>
-            </div>
-
-
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">
                         <div class="col-xs-1-12">
@@ -155,15 +147,22 @@
                     <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.telefono}} </div>
                 </div>
             </div>
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <!-- <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Usuario del Responsable de Servicio Social:</div>
 
                     <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.usuario}}</div>
                 </div>
+            </div> -->
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">Correo del Responsable de Servicio Social:</div>
+
+                    <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.correo}} </div>
+                </div>
             </div>
 
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">
                         Contraseña del Responsable de Servicio Social:
@@ -175,7 +174,6 @@
                 </div>
             </div>
         </div>
-
         
 
 
@@ -718,9 +716,9 @@
                             <form #form="ngForm" (ngSubmit)="subeArchivo()">
                                 <div class="p-5 text-center">
                                     <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                                    <div class="text-base mt-5">Subir Archivo</div>
+                                    <div class="text-base mt-5">Subir Archivo del documento: {{d.documento}}</div>
                                     <br>
-                                    <input type="file" id="file" name="file" (change)="uploadFile($event.target.files)">
+                                    <input type="file" id="file" name="file" accept="application/pdf" (change)="uploadFile($event.target.files)">
                                 </div>
 
                                 <div class="px-5 pb-8 text-center">
@@ -981,16 +979,9 @@
         </div>
 
         <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                <div class=" p-5">
-                    <div class="text-base text-gray-600 mt-1">Correo del Responsable de Servicio Social:</div>
+     
 
-                    <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.correo}} </div>
-                </div>
-            </div>
-
-
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">
                         <div class="col-xs-1-12">
@@ -1002,15 +993,22 @@
                     <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.telefono}} </div>
                 </div>
             </div>
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <!-- <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Usuario del Responsable de Servicio Social:</div>
 
                     <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.usuario}}</div>
                 </div>
+            </div> -->
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">Correo del Responsable de Servicio Social:</div>
+
+                    <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.correo}} </div>
+                </div>
             </div>
 
-            <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">
                         Contraseña del Responsable de Servicio Social:
@@ -1174,7 +1172,7 @@
                             <form #form="ngForm" (ngSubmit)="subeArchivo()">
                                 <div class="p-5 text-center">
                                     <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                                    <div class="text-base mt-5">Subir Archivo</div>
+                                    <div class="text-base mt-5">Subir Archivo del documento: {{d.documento}}</div>
                                     <br>
                                     <input type="file" id="file" name="file" (change)="uploadFile($event.target.files)">
                                 </div>

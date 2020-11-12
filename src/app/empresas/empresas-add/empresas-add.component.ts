@@ -257,6 +257,8 @@ listapaist.forEach(el => {
 
 
   create(){
+    this.responsablemodel.usuario=this.responsablemodel.correo;
+
     let model = this.empresaModel;
     model.Imagen="";
 model.Responsable = this.responsablemodel;
@@ -369,11 +371,11 @@ this.mensajevalidacion="No puedes dejar el campo de Nombre Oficial de la Institu
       $('#validacion').modal('show');
 
     }  
-    else if(model.Responsable['usuario']==""){
-      this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
-      $('#validacion').modal('show');
+    // else if(model.Responsable['usuario']==""){
+    //   this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
+    //   $('#validacion').modal('show');
 
-    } 
+    // } 
     else if(model.Responsable['contraseña']==""){
       this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
       $('#validacion').modal('show');
@@ -449,11 +451,11 @@ console.log(model);
           $('#validacion').modal('show');
     
         }  
-        else if(model.Responsable['usuario']==""){
-          this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
-          $('#validacion').modal('show');
+        // else if(model.Responsable['usuario']==""){
+        //   this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
+        //   $('#validacion').modal('show');
     
-        } 
+        // } 
         else if(model.Responsable['contraseña']==""){
           this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
           $('#validacion').modal('show');
