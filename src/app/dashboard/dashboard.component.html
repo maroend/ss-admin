@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresaactiva.length}}</div>
-                                <div class="text-base text-gray-600 mt-1">Empresas Activas</div>
+                                <div class="text-base text-gray-600 mt-1">Intituciones Activas</div>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresadesaciva.length}}</div>
-                                <div class="text-base text-gray-600 mt-1">Empresas Pendientes</div>
+                                <div class="text-base text-gray-600 mt-1">Intituciones Pendientes</div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                         <thead>
                             <tr>
                                 
-                                <th class="whitespace-no-wrap">CONVOCATORIAS EMPRESAS</th>
+                                <th class="whitespace-no-wrap">CONVOCATORIAS DE INSTITUCIONES / ÁREAS {{d}} </th>
                                 <th class="text-center whitespace-no-wrap">INICIA</th>
                                 <th class="text-center whitespace-no-wrap">TERMINA</th>
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
@@ -186,7 +186,7 @@
 
 
                <!-- BEGIN: Weekly Top Products -->
-               <div class="col-span-12 mt-6">
+               <div class="col-span-8 mt-6">
                 <div class="intro-y block sm:flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
                        Proyectos Pendientes
@@ -199,8 +199,7 @@
                             <tr>
                                 
                                 <th class="whitespace-no-wrap">PROYECTOS PENDIENTES</th>
-                                <th class="text-center whitespace-no-wrap">VACANTES</th>
-                                <th class="text-center whitespace-no-wrap">OCUPADAS</th>
+                          
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
                                 <th class="text-center whitespace-no-wrap">ACCIÓN</th>
                             </tr>
@@ -209,10 +208,9 @@
                             <tr class="intro-x" *ngFor="let proyect of proyectospendientes">
                                 <td>
                                     <a  class="font-medium whitespace-no-wrap">{{proyect.proyecto}}</a> 
-                                    <div class="text-gray-600 text-xs whitespace-no-wrap">{{proyect.descripcion}}</div>
+                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Responsable: {{proyect.nombreResponsable}}</div>
                                 </td>
-                                <td class="text-center">{{proyect.noVacantes}}</td>
-                                <td class="text-center">10</td>
+                    
                                 <td class="w-40">
                                     <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white cursor-pointer font-medium">PENDIENTE</div>
                                 </td>

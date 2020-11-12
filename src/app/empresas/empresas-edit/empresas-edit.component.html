@@ -57,12 +57,12 @@
                      <div class="relative mt-2">
                         <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                             <h2 class="font-medium text-base mr-auto">
-                                 Empresa Externa
+                                Institución Externa
                             </h2>
                         </div>
 
                         <div class="flex flex-col sm:flex-row items-center mt-3">
-                            <label class="sm:w-32 sm:text-right sm:mr-5">¿Empresa externa? </label>
+                            <label class="sm:w-32 sm:text-right sm:mr-5">¿Institución externa? </label>
                             <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="responsablemodel.externa" [ngModelOptions]="{standalone: true}" (ngModelChange)="externa()">
 <option [ngValue]="true">Si </option>
 
@@ -117,7 +117,7 @@
                         <div class="sm:grid grid-cols-2 gap-2">
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Nombre Oficial de la Institución:</label>
+                                    <label>Nombre Oficial de la Institución / Área:</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Como aparece en el Acta Constitutiva" [(ngModel)]="empresaModel.organizacion" [ngModelOptions]="{standalone: true}" required>
 
                                 </div>
@@ -125,7 +125,7 @@
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Nombre Común de la Institución:</label>
+                                    <label>Nombre Común de la Institución / Área:</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Escribir el nombre con el que es comúnmente conocida la Institución" [(ngModel)]="empresaModel.nombreComun" [ngModelOptions]="{standalone: true}" required>
                                 </div>
                             </div>
@@ -137,7 +137,7 @@
                             <div class="sm:grid grid-cols-1 gap-2">
                                 <div class="relative mt-2">
                                     <div>
-                                        <label>Descripción introductoria de la Institución:</label>
+                                        <label>Descripción introductoria de la Institución / Área:</label>
                                         <textarea type="text" class="input  w-full border mt-2 " rows="3" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.descripcion" [ngModelOptions]="{standalone: true}" required></textarea>
                                     </div>
     
@@ -150,7 +150,7 @@
                             <div class="sm:grid grid-cols-1 gap-2">
                                 <div class="relative mt-2">
                                     <div>
-                                        <label>Años de Antigüedad de la Institución:</label>
+                                        <label>Años de Antigüedad de la Institución / Área:</label>
                                         <input type="number" ng-value="0" class="input  w-full border mt-2 " rows="3" placeholder="¿Cuántos años lleva en pie la organización desde su fundación?" [(ngModel)]="empresaModel.antiguedad" [ngModelOptions]="{standalone: true}" required>
                                     </div>
     
@@ -163,7 +163,7 @@
                         <div class="sm:grid grid-cols-3 gap-2">
                             <div class="relative mt-2">
                                 <div>
-                                    <label>¿Cuál es la razón de ser de la Institución?</label>
+                                    <label>¿Cuál es la razón de ser de la Institución / Área?</label>
                                     <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Responda en función al principal propósito de la Institución | Máximo 500 caracteres" [(ngModel)]="empresaModel.razon" [ngModelOptions]="{standalone: true}" required></textarea>
 
                                 </div>
@@ -194,7 +194,7 @@
                                 <div>
 
                                     <div>
-                                        <label>Enumere los Principales Logros de la Institución </label>
+                                        <label>Enumere los Principales Logros de la Institución / Área </label>
                                         <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.logros" [ngModelOptions]="{standalone: true}" required></textarea>
 
                                     </div>
@@ -204,7 +204,7 @@
 
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Enumere los Reconocimientos y Certificaciones con los que cuenta la Institución:</label>
+                                    <label>Enumere los Reconocimientos y Certificaciones con los que cuenta la Institución / Área:</label>
                                     <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.reconocimiento" [ngModelOptions]="{standalone: true}" required></textarea>
 
                                 </div>

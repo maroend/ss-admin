@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../services/organization.service';
 import { Empresa } from "../models/empresa"
@@ -64,7 +64,6 @@ this.obtenerProyectos();
 
 
 
-
   }
 
   ngAfterViewInit() {
@@ -106,13 +105,16 @@ console.log(this.empresa);
     let model = this.tipoModel;
     model.tipo=1;
     this.convocatoriaService.getConvocatoriatipo(model).subscribe((res: any[])=>{        
-                   
+      var Fecha = new Date((this.d.toString()));
+           
 this.convocatorias=res;
 for(var i=0;i<this.convocatorias.length;i++){
 
-  var fech= Date.parse(this.convocatorias[i].fechaTermino.toString());
 
-if(fech < Date.now() ){
+  var Fecha1 = new Date((this.convocatorias[i].fechaTermino.toString()));
+
+if(Fecha1> Fecha ){
+  console.log(Fecha1);
 this.convocatoriasf.push(this.convocatorias[i]);
 
 }
@@ -125,14 +127,17 @@ this.convocatoriasf.push(this.convocatorias[i]);
   obtenerConvocatoria2() {
     let model = this.tipoModel;
     model.tipo=2;
+
+    var Fecha = new Date((this.d.toString()));
+
     this.convocatoriaService.getConvocatoriatipo(model).subscribe((res: any[])=>{
 this.convocatoriasalumnos=res;
 for(var i=0;i<this.convocatorias.length;i++){
-  var fech= Date.parse(this.convocatorias[i].fechaTermino.toString());
+  var Fecha1 = new Date((this.convocatorias[i].fechaTermino.toString()));
 
 
-if(fech < Date.now() ){
-this.convocatoriasalumnosf.push(this.convocatorias[i]);
+  if(Fecha1> Fecha ){
+    this.convocatoriasalumnosf.push(this.convocatorias[i]);
 
 }
 }
