@@ -322,16 +322,14 @@
                         <br>
                     </div>
 
-               
-
                     <div class="mt-3">
-                        <div class="sm:grid grid-cols-3 gap-2">
+                        <div class="sm:grid grid-cols-2 gap-2">
                             <div class="relative mt-2">
                                 <div>
                                     <label>Nombre del Director de la Institución:</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.nombreCompletoDirector" [ngModelOptions]="{standalone: true}">
                                 </div>
-
+    
                             </div>
                             <div class="relative mt-2">
                                 <div>
@@ -339,29 +337,25 @@
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.nombreCompletoResponsable" [ngModelOptions]="{standalone: true}">
                                 </div>
                             </div>
+    
+                        </div>
+                    </div>
+    
+                    <div class="mt-3">
+                        <div class="sm:grid grid-cols-3 gap-2">
+                        
                             <div class="relative mt-2">
                                 <div>
                                     <label>Departamento o Área:</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.departamento" [ngModelOptions]="{standalone: true}">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <br>
-                    <div class="mt-3">
-                        <div class="sm:grid grid-cols-3 gap-2">
                             <div class="relative mt-2">
                                 <div>
                                     <label>Puesto del Responsable de Servicio Social:</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.puesto" [ngModelOptions]="{standalone: true}">
                                 </div>
-
-                            </div>
-                            <div class="relative mt-2">
-                                <div>
-                                    <label>Correo del Responsable de Servicio Social:</label>
-                                    <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.correo" [ngModelOptions]="{standalone: true}">
-                                </div>
+    
                             </div>
                             <div class="relative mt-2">
                                 <div>
@@ -372,15 +366,14 @@
                         </div>
                     </div>
                     <br>
-
                     <div class="mt-3">
                         <div class="sm:grid grid-cols-2 gap-2">
+                      
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Usuario del Responsable de Servicio Social:</label>
-                                    <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.usuario" [ngModelOptions]="{standalone: true}">
+                                    <label>Correo del Responsable de Servicio Social:</label>
+                                    <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.correo" [ngModelOptions]="{standalone: true}">
                                 </div>
-
                             </div>
                             <div class="relative mt-2">
                                 <div>
@@ -388,7 +381,6 @@
                                     <input type="password" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.contrasena" [ngModelOptions]="{standalone: true}">
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <br>
@@ -702,7 +694,7 @@
            
 
                 <div class="mt-3">
-                    <div class="sm:grid grid-cols-3 gap-2">
+                    <div class="sm:grid grid-cols-2 gap-2">
                         <div class="relative mt-2">
                             <div>
                                 <label>Nombre del Director de la Institución:</label>
@@ -716,29 +708,25 @@
                                 <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.nombreCompletoResponsable" [ngModelOptions]="{standalone: true}">
                             </div>
                         </div>
+
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <div class="sm:grid grid-cols-3 gap-2">
+                    
                         <div class="relative mt-2">
                             <div>
                                 <label>Departamento o Área:</label>
                                 <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.departamento" [ngModelOptions]="{standalone: true}">
                             </div>
                         </div>
-                    </div>
-                </div>
-                <br>
-                <div class="mt-3">
-                    <div class="sm:grid grid-cols-3 gap-2">
                         <div class="relative mt-2">
                             <div>
                                 <label>Puesto del Responsable de Servicio Social:</label>
                                 <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.puesto" [ngModelOptions]="{standalone: true}">
                             </div>
 
-                        </div>
-                        <div class="relative mt-2">
-                            <div>
-                                <label>Correo del Responsable de Servicio Social:</label>
-                                <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.correo" [ngModelOptions]="{standalone: true}">
-                            </div>
                         </div>
                         <div class="relative mt-2">
                             <div>
@@ -749,8 +737,25 @@
                     </div>
                 </div>
                 <br>
-
                 <div class="mt-3">
+                    <div class="sm:grid grid-cols-2 gap-2">
+                  
+                        <div class="relative mt-2">
+                            <div>
+                                <label>Correo del Responsable de Servicio Social:</label>
+                                <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.correo" [ngModelOptions]="{standalone: true}">
+                            </div>
+                        </div>
+                        <div class="relative mt-2">
+                            <div>
+                                <label>Contraseña del Responsable de Servicio Social:</label>
+                                <input type="password" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.contrasena" [ngModelOptions]="{standalone: true}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="mt-3" style="display: none;">
                     <div class="sm:grid grid-cols-2 gap-2">
                         <div class="relative mt-2">
                             <div>
@@ -759,15 +764,11 @@
                             </div>
 
                         </div>
-                        <div class="relative mt-2">
-                            <div>
-                                <label>Contraseña del Responsable de Servicio Social:</label>
-                                <input type="password" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.contrasena" [ngModelOptions]="{standalone: true}">
-                            </div>
-                        </div>
+                   
 
                     </div>
                 </div>
+                <br>
                 <br>
 
                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
