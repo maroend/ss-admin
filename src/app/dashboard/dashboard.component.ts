@@ -19,6 +19,8 @@ declare var $: any;
 export class DashboardComponent implements OnInit {
   public empresa: Empresa[] = [  ];
   public empresacantidad: number;
+  public empresapermisos: Empresa[] = [  ];
+
   public empresaactiva: Empresa[] = [  ];
   public empresadesaciva: Empresa[] = [  ];
   public d: Date = new Date(); 
@@ -56,7 +58,7 @@ export class DashboardComponent implements OnInit {
      this.convocatoriasalumnos = [ ];
      this.convocatoriasf = [ ];
      this.convocatoriasalumnosf = [ ];
-
+this.obtenerpermisos();
     this.obtenerempresa();
     this.obtenerConvocatoria1();
     this.obtenerConvocatoria2();
@@ -180,7 +182,27 @@ for(var i=0;i<this.convocatorias.length;i++){
   });
 }
 
+obtenerpermisos() {
+  return this.organizacionService
+    .getempresapermiso()
+    .subscribe((empresapermisos: Empresa[]) => this.empresapermisos = empresapermisos );
+}
   
+subeArchivo(id) {
+    
+  this.organizacionService.cambiarestado(id).subscribe(data => {
+      $('#abrirsubir-' + id).modal('hide');
+      $('#success-modal-preview-file').modal('show');
+    console.log(data);
+  }, error => {
+    console.log(error);
+  });
+}
+abrirsubir(id){
 
+  //console.log("dfdsfdsfds" + id);
+  $('#abrirsubir-'+id).modal('show');
+
+}
 
 }

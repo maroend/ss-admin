@@ -155,5 +155,13 @@ console.log(estado);
     formData.append('file', fileToUpload, fileToUpload.name);
     return this.http.post(endpoint, formData);
   }
-
+  getempresapermiso(){
+    const uri = `${this.api}/Organizaciones/getOrganizacionesWithPermisoEditar`;
+    return this.http.get(uri);
+  }
+  cambiarestado(id: string) {
+  var idd = Number(id);
+  const uri =(`${this.api}/Organizaciones/concederPermisoEditar?idOrganizacion=${idd}`);
+    return this.http.post(uri, idd);
+  }
 }
