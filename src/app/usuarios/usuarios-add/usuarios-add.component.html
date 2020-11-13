@@ -52,20 +52,20 @@
                 <div class="sm:grid grid-cols-3 gap-2">
                     <div class="relative mt-2">
                         <div>
-                            <label>Nombre</label>
+                            <label>Nombre*</label>
                             <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="usuarios.nombre" [ngModelOptions]="{standalone: true}" required>
                         </div>
 
                     </div>
                     <div class="relative mt-2">
                         <div>
-                            <label>Apellidos:</label>
+                            <label>Apellidos*</label>
                             <input type="text" class="input  w-full border mt-2 " [(ngModel)]="usuarios.apellidos" [ngModelOptions]="{standalone: true}" required>
                         </div>
                     </div>
                     <div class="relative mt-2">
                         <div>
-                            <label>Email:</label>
+                            <label>Email*</label>
                             <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="usuarios.email" [ngModelOptions]="{standalone: true}" required>
                         </div>
                     </div>
@@ -76,14 +76,14 @@
                 <div class="sm:grid grid-cols-3 gap-2">
                     <div class="relative mt-2">
                         <div>
-                            <label>Password</label>
+                            <label>Password*</label>
                             <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="usuarios.password" [ngModelOptions]="{standalone: true}" required>
                         </div>
 
                     </div>
                     <div class="relative mt-2">
                         <div>
-                            <label>Universidad:</label>
+                            <label>Universidad*</label>
                             <select  class="input  w-full border mt-2 " [(ngModel)]="usuarios.idUniversidad" name="idUniversidad">
                                 <option [ngValue]="universidad.id" *ngFor="let universidad of universidades">{{ universidad.universidad }}</option>
           
@@ -91,10 +91,10 @@
                     </div>
                     <div class="relative mt-2">
                         <div>
-                            <label>¿Disponible?:</label>
+                            <label>¿Disponible?*</label>
                             <select class="input  w-full border mt-2 " [(ngModel)]="usuarios.disponible" [ngModelOptions]="{standalone: true}" >
                                 <option [ngValue]="true"  >Si </option>
-                          
+                            
                               <option [ngValue]="false" >No </option>
                           
                             </select>

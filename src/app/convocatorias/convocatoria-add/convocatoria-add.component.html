@@ -50,7 +50,7 @@
             <div class="sm:grid grid-cols-3 gap-2">
               <div class="relative mt-2">
                 <div>
-                  <label>Convocatoria:</label>
+                  <label>Convocatoria*</label>
                   <input type="text" class="input  w-full border mt-2 " placeholder=""
                     [(ngModel)]="convocatoria.convocatoria" [ngModelOptions]="{standalone: true}" required>
                 </div>
@@ -58,14 +58,14 @@
               </div>
               <div class="relative mt-2">
                 <div>
-                  <label>Descripción:</label>
+                  <label>Descripción*</label>
                   <input type="text" class="input  w-full border mt-2 " placeholder=""
                     [(ngModel)]="convocatoria.descripcion" [ngModelOptions]="{standalone: true}" required>
                 </div>
               </div>
               <div class="relative mt-2">
                 <div>
-                  <label>Universidad:</label>
+                  <label>Universidad*</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.idUniversidad"
                     name="idUniversidad">
                     <option [ngValue]="universidad.id" *ngFor="let universidad of universidades">
@@ -80,7 +80,7 @@
             <div class="sm:grid grid-cols-3 gap-2">
               <div class="relative mt-2">
                 <div>
-                  <label>Periodo:</label>
+                  <label>Periodo*</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.idPeriodo"
                     [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="periodo.id" *ngFor="let periodo of periodos">{{periodo.periodo}} </option>
@@ -90,7 +90,7 @@
               </div>
               <div class="relative mt-2">
                 <div>
-                  <label>Tipo:</label>
+                  <label>Tipo*</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.tipo"
                     [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="1">Alumnos </option>
@@ -100,7 +100,7 @@
               </div>
               <div class="relative mt-2">
                 <div>
-                  <label>¿Activo?:</label>
+                  <label>¿Activo?*</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.activo"
                     [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="true">Si </option>
@@ -116,7 +116,7 @@
             <div class="sm:grid grid-cols-2 gap-2">
               <div class="relative mt-2">
                 <div>
-                  <label>Fecha Inicio:</label>
+                  <label>Fecha Inicio*</label>
                   <input type="date" ng-model="date" class="input  w-full border mt-2 " placeholder=""
                     [(ngModel)]="convocatoria.fechaInicio" [ngModelOptions]="{standalone: true}" required>
                 </div>
@@ -124,7 +124,7 @@
               </div>
               <div class="relative mt-2">
                 <div>
-                  <label>Fecha Termino:</label>
+                  <label>Fecha Termino*</label>
                   <input type="date" ng-model="date" class="input  w-full border mt-2 " placeholder=""
                     [(ngModel)]="convocatoria.fechaTermino" [ngModelOptions]="{standalone: true}" required>
                 </div>
