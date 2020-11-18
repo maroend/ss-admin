@@ -46,7 +46,7 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>Empresa:</label>
+                  <label>Institución / Área:</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idOrganizacion" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="organizacion.id" *ngFor="let organizacion of organizaciones">{{organizacion.organizacion}} </option>
                   </select>

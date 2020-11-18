@@ -68,8 +68,9 @@ public validar=false;
   }
   ngOnInit(): void {
     this.idobtenido = this.activatedRoute.snapshot.paramMap.get("id");
+    this.getempresa(this.idobtenido);
+
     this.obtenerAreas();
-    this.obtenerlogo();
     this.obtenerRubros();
     this.obtenerUniversidades();
     this.obtenerTipo();
@@ -78,20 +79,11 @@ public validar=false;
     this.obtenerEstado();
     this.obtenerdocumentosSubidosConRequeridos();
     this.obtenerSucesos();
-    this.organizacionService.getOrganizacion(this.idobtenido).subscribe((empresaModel: Empresa) => this.empresaModel = empresaModel);
-    this.getempresa(this.idobtenido);
 
     this.externa();
 
   }
-  obtenerlogo(){
-    this.organizacionService.getOrganizacion(this.idobtenido).subscribe((res: any[])=>{
-      console.log(res);
-  
-      this.logo ="data:image/jpeg;base64,"+ res['imagenArchivo'];
-  
-    })
-        }
+ 
   toggleArea(checked, id){
 var valor= { "idAreaAccion": id ,"activo": true};
 
@@ -119,10 +111,13 @@ var valor= { "idRubro": id ,"activo": true};
   getempresa(id){
     this.organizacionService.getOrganizacion(id).subscribe((res: any[])=>{
       this.horasAlumno = res;
+      this.empresaModel = <Empresa><any>res;
+
       //console.log(this.horasAlumno);
       this.responsablemodel=res['responsable'];
       this.listaAreasAccion=res['listaAreasAccion'];
       this.listaRubros=res['listaRubros'];
+      this.logo ="data:image/jpeg;base64,"+ res['imagenArchivo'];
 
       //console.log(this.listaAreasAccion);
       this.idRubro =  this.listaRubros.map(({ idRubro }) => idRubro);
@@ -218,6 +213,15 @@ if(this.validar){
     //console.log("dfdsfdsfds" + id);
     this.idDocumento = id;
     $('#abrirsubir-'+id).modal('show');
+
+  }
+  descargar(id){
+
+    let pdfWindow = window.open("")
+    pdfWindow.document.write(
+        "<iframe width='100%' height='100%' src='data:application/pdf;base64, " +
+        encodeURI(id) + "'></iframe>"
+    )
 
   }
 

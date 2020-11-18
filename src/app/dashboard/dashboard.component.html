@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresaactiva.length}}</div>
-                                <div class="text-base text-gray-600 mt-1">Empresas Activas</div>
+                                <div class="text-base text-gray-600 mt-1">Intituciones Activas</div>
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresadesaciva.length}}</div>
-                                <div class="text-base text-gray-600 mt-1">Empresas Pendientes</div>
+                                <div class="text-base text-gray-600 mt-1">Intituciones Pendientes</div>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                         <thead>
                             <tr>
                                 
-                                <th class="whitespace-no-wrap">CONVOCATORIAS EMPRESAS</th>
+                                <th class="whitespace-no-wrap">CONVOCATORIAS DE INSTITUCIONES / ÁREAS </th>
                                 <th class="text-center whitespace-no-wrap">INICIA</th>
                                 <th class="text-center whitespace-no-wrap">TERMINA</th>
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
@@ -186,7 +186,7 @@
 
 
                <!-- BEGIN: Weekly Top Products -->
-               <div class="col-span-12 mt-6">
+               <div class="col-span-8 mt-6">
                 <div class="intro-y block sm:flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
                        Proyectos Pendientes
@@ -199,8 +199,7 @@
                             <tr>
                                 
                                 <th class="whitespace-no-wrap">PROYECTOS PENDIENTES</th>
-                                <th class="text-center whitespace-no-wrap">VACANTES</th>
-                                <th class="text-center whitespace-no-wrap">OCUPADAS</th>
+                          
                                 <th class="text-center whitespace-no-wrap">STATUS</th>
                                 <th class="text-center whitespace-no-wrap">ACCIÓN</th>
                             </tr>
@@ -209,10 +208,9 @@
                             <tr class="intro-x" *ngFor="let proyect of proyectospendientes">
                                 <td>
                                     <a  class="font-medium whitespace-no-wrap">{{proyect.proyecto}}</a> 
-                                    <div class="text-gray-600 text-xs whitespace-no-wrap">{{proyect.descripcion}}</div>
+                                    <div class="text-gray-600 text-xs whitespace-no-wrap">Responsable: {{proyect.nombreResponsable}}</div>
                                 </td>
-                                <td class="text-center">{{proyect.noVacantes}}</td>
-                                <td class="text-center">10</td>
+                    
                                 <td class="w-40">
                                     <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white cursor-pointer font-medium">PENDIENTE</div>
                                 </td>
@@ -252,60 +250,46 @@
                 <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 mt-3 xxl:mt-8">
                     <div class="intro-x flex items-center h-10">
                         <h2 class="text-lg font-medium truncate mr-5">
-                               Solicitudes Alumnos
+                               Solicitudes para editar Instituciones
                         </h2>
                     </div>
-                    <div class="mt-5">
+
+                    <div class="mt-5" *ngFor="let empresasp of empresapermisos" >
                         <div class="intro-x">
                             <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
                                 <div class="ml-4 mr-auto">
-                                    <div class="font-medium">Luisa Hernandez</div>
-                                    <div class="text-gray-600 text-xs">21 Septiembre 2020</div>
+                                    <div class="font-medium">{{empresasp.organizacion}}</div>
+                                    <div class="text-gray-600 text-xs">{{empresasp.estado}}</div>
                                 </div>
-                                <div class="text-theme-6">UAMN</div>
+                                <a (click)="abrirsubir(empresasp.id)" >
+                                    <div class="text-theme-6">cambiar a revisión</div>
+                            </a>
                             </div>
                         </div>
-                        <div class="intro-x">
-                            <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
-                                
-                                <div class="ml-4 mr-auto">
-                                    <div class="font-medium">David Lopez</div>
-                                    <div class="text-gray-600 text-xs">18 Septiembre 2020</div>
-                                </div>
-                                <div class="text-theme-9">UAMN</div>
+                        <div class="modal" id="abrirsubir-{{empresasp.id}}">
+                            <div class="modal__content">
+                                <form #form="ngForm" (ngSubmit)="subeArchivo(empresasp.id)">
+                                    <div class="p-5 text-center">
+                                        <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                                        <div class="text-base mt-5">Concederle permisos a la institución {{empresasp.organizacion}}</div>
+                                        <br>
+                                    </div>
+    
+                                    <div class="px-5 pb-8 text-center">
+                                        <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
+                        Cancelar
+                      </button>
+                                        <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Cambiar</button>
+                                    </div>
+                                </form>
+    
+    
                             </div>
                         </div>
-                        <div class="intro-x">
-                            <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
-                             
-                                <div class="ml-4 mr-auto">
-                                    <div class="font-medium">Juan Manuel</div>
-                                    <div class="text-gray-600 text-xs">15 Septiembre 2020</div>
-                                </div>
-                                <div class="text-theme-6">UAMN</div>
-                            </div>
-                        </div>
-                        <div class="intro-x">
-                            <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
-                                <div class="ml-4 mr-auto">
-                                    <div class="font-medium">Martha Jimenez</div>
-                                    <div class="text-gray-600 text-xs">07 Septiembre 2020</div>
-                                </div>
-                                <div class="text-theme-9">UAMN</div>
-                            </div>
-                        </div>
-                        <div class="intro-x">
-                            <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
-                                
-                                <div class="ml-4 mr-auto">
-                                    <div class="font-medium">Pablo Solorzano</div>
-                                    <div class="text-gray-600 text-xs">03 Septiembre 2020</div>
-                                </div>
-                                <div class="text-theme-9">UAMN</div>
-                            </div>
-                        </div>
-                        <a  class="intro-x w-full block text-center rounded-md py-3 border border-dotted border-theme-15 dark:border-dark-5 text-theme-16 dark:text-gray-600">Ver Más</a> 
-                    </div>
+                 </div>
+
+
+                  
                 </div>
                 <!-- END: Transactions -->
                 
@@ -313,7 +297,7 @@
                 <div class="col-span-12 md:col-span-6 xl:col-span-12 xxl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
                     <div class="intro-x flex items-center h-10">
                         <h2 class="text-lg font-medium truncate mr-auto">
-                            Testimonos
+                            Alumnos
                         </h2>
                         
                     </div>
@@ -323,30 +307,23 @@
                                 <div class="p-5">
                                     <div class="text-base font-medium truncate">María Fernanda García</div>
                                     <div class="text-gray-500 mt-1">22 Septiembre 2020</div>
-                                    <div class="text-gray-600 text-justify mt-1">Apoyo en el diseño de apps.</div>
                                     <div class="font-medium flex mt-5">
-                                        <button type="button" class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300">Testimonio</button>
-                                        <button type="button" class="button button--sm border border-gray-300 dark:border-dark-5 text-gray-600 ml-auto">Eliminar</button>
+                                        <button type="button" class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300">Aceptar</button>
                                     </div>
                                 </div>
                                 <div class="p-5">
                                     <div class="font-medium truncate">Juan Carlos Martinez Sandoval</div>
                                     <div class="text-gray-500 mt-1">20 Septiembre 2020</div>
-                                    <div class="text-gray-600 text-justify mt-1">Secreatría de Hacienda y Credito Publico.</div>
                                     <div class="font-medium flex mt-5">
-                                        <button type="button" class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300">Testimonio</button>
-                                        <button type="button" class="button button--sm border border-gray-300 dark:border-dark-5 text-gray-600 ml-auto">Eliminar</button>
+                                        <button type="button" class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300">Aceptar</button>
                                     </div>
                                 </div>
                                 <div class="p-5">
                                     <div class="font-medium truncate">Luisa Sandoval Jimenez</div>
                                     <div class="text-gray-500 mt-1">12 Agosto 2020</div>
-                                    <div class="text-gray-600 text-justify mt-1">
-                                        Mercadotecnia Digital
-                                         Luisa Sandoval Jimene.</div>
+                       
                                     <div class="font-medium flex mt-5">
-                                        <button type="button" class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300">Testimonio</button>
-                                        <button type="button" class="button button--sm border border-gray-300 dark:border-dark-5 text-gray-600 ml-auto">Eliminar</button>
+                                        <button type="button" class="button button--sm bg-gray-200 dark:bg-dark-5 text-gray-600 dark:text-gray-300">Aceptar</button>
                                     </div>
                                 </div>
                             </div>
