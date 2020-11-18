@@ -38,7 +38,11 @@ public validar=false;
   public listaAreasAccion = [];
   public listaRubros = [];
   public clasificacion: ClasificacionEmpresa[] = [];
+<<<<<<< Updated upstream
   public empresaModel = new Empresa("","","","",1,1,1,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined)
+=======
+  public empresaModel = new Empresa("","","","",1,1,1,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,1,0,undefined,undefined,undefined,"")
+>>>>>>> Stashed changes
 public mensajevalidacion="";
   public contactos = [];
   checkmodel = new check("false","false")
@@ -469,6 +473,10 @@ console.log(model);
         }
         else if(model.objetivo==""){
           this.mensajevalidacion="No puedes dejar el campo de  los objetivos n vacío"
+          $('#validacion').modal('show');
+         }
+         else if (model.vision== "") {
+          this.mensajevalidacion="No puedes dejar el campo visión vacío"
           $('#validacion').modal('show');
         }
      
