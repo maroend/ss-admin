@@ -38,11 +38,7 @@ public validar=false;
   public listaAreasAccion = [];
   public listaRubros = [];
   public clasificacion: ClasificacionEmpresa[] = [];
-<<<<<<< Updated upstream
-  public empresaModel = new Empresa("","","","",1,1,1,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined)
-=======
   public empresaModel = new Empresa("","","","",1,1,1,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,1,0,undefined,undefined,undefined,"")
->>>>>>> Stashed changes
 public mensajevalidacion="";
   public contactos = [];
   checkmodel = new check("false","false")
@@ -280,11 +276,7 @@ this.mensajevalidacion="No puedes dejar el campo de Nombre Oficial de la Institu
 
     }
 
-    else if(this,this.fileToUpload==null){
-      this.mensajevalidacion="Falta el logo de la institución"
-      $('#validacion').modal('show');
-
-    } 
+    
     else if(model.nombreComun==""){
       this.mensajevalidacion="No puedes dejar el campo de Nombre Común de la Institución vacío"
       $('#validacion').modal('show');
@@ -379,7 +371,11 @@ this.mensajevalidacion="No puedes dejar el campo de Nombre Oficial de la Institu
       $('#validacion').modal('show');
 
     }  
-  
+    // else if(model.Responsable['usuario']==""){
+    //   this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
+    //   $('#validacion').modal('show');
+
+    // } 
     else if(model.Responsable['contraseña']==""){
       this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
       $('#validacion').modal('show');
@@ -459,7 +455,7 @@ console.log(model);
         //   this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
         //   $('#validacion').modal('show');
     
-        //} 
+        // } 
         else if(model.Responsable['contraseña']==""){
           this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
           $('#validacion').modal('show');
