@@ -7,10 +7,9 @@
     "\\src\\app\\alumnos\\alumnos-ver",
     "\\src\\app\\empresas",
     "\\src\\app\\empresas\\empresas-ver",
-    "\\src\\app\\proyectos\\proyectos-ver",
     "\\src\\app\\services",
     "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\services\\organization.service.ts",
+  "SelectedNode": "\\src\\app\\services\\alumno.service.ts",
   "PreviewInSolutionExplorer": false
 }
