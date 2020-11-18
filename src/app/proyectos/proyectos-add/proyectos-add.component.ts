@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 
 
 declare var $: any;
+let now = new Date();
 
 @Component({
   selector: 'app-proyectos-add',
@@ -20,8 +21,8 @@ declare var $: any;
 export class ProyectosAddComponent implements OnInit {
    
    public mensajevalidacion="";
-   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
-
+  public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
+  public fechaMinima: Date = new Date(now.getFullYear(), now.getMonth(), now.getDate()+90);
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
   public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 0, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
@@ -48,7 +49,8 @@ export class ProyectosAddComponent implements OnInit {
     this.obtenerEstadosProyectos();
     this.proyectoModel.idOrganizacion=1;
     this.proyectoModel.idPeriodo=1;
-    this.proyectoModel.idPeriodo=1;
+    this.proyectoModel.idPeriodo = 1;
+    this.proyectoModel.horas = 240;
   }
   ngAfterViewInit() {
     Feather.replace();
@@ -246,5 +248,16 @@ export class ProyectosAddComponent implements OnInit {
     
   }
 
+  onChangeHoras() {
+    //console.log(this.proyectoModel.fechaInicio);
+    this.proyectoModel.fechaTermino = "";
+    let dia: Date = new Date(this.proyectoModel.fechaInicio);
+    
+    if (this.proyectoModel.horas == 240) {
+      this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 90);
+    } else {
+      this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 190);
+    }
+  }
 
 }

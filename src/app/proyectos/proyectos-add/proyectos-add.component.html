@@ -199,23 +199,30 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Rol o función del prestador de servicio social (estudiante) dentro del proyecto:
+                ¿Cantidad de horas totales del proyecto?
               </label>
-              <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" required>
+              <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.horas" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()">
+                <option [ngValue]="240">240</option>
+                <option [ngValue]="480">480</option>
+              </select>
             </div>
           </div>
-
           <div class="relative mt-8">
             <div>
               <label>Fecha de inicio:</label>
-              <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" [ngModelOptions]="{standalone: true}" required>
+              <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()" required>
             </div>
           </div>
 
           <div class="relative mt-8">
             <div>
-              <label>Fecha de termino:</label>
-              <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaTermino" [ngModelOptions]="{standalone: true}" required>
+              <label>Fecha de termino: {{fechaMinima|date:'yyyy-MM-dd'}} </label>
+              <input type="date" class="input  w-full border mt-2 "
+                     [(ngModel)]="proyectoModel.fechaTermino"
+                     [ngModelOptions]="{standalone: true}"
+                     [disabled]="!fechaMinima"
+                     min="{{fechaMinima|date:'yyyy-MM-dd'}}"
+                     required>
             </div>
           </div>
 
@@ -311,20 +318,29 @@
                     <td style="padding:5px;">
                       <label>
                         Entrada:
-                        <input type="time" [(ngModel)]="proyectoModel.horaEntrada"  [ngModelOptions]="{standalone: true}"/>
+                        <input type="time" [(ngModel)]="proyectoModel.horaEntrada" [ngModelOptions]="{standalone: true}" />
                       </label>
                     </td>
 
                     <td style="padding:5px;">
                       <label>
                         Salida:
-                        <input type="time" [(ngModel)]="proyectoModel.horaSalida"  [ngModelOptions]="{standalone: true}"/>
+                        <input type="time" [(ngModel)]="proyectoModel.horaSalida" [ngModelOptions]="{standalone: true}" />
                       </label>
                     </td>
 
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+
+          <div class="relative mt-8">
+            <div>
+              <label>
+                Rol o función del prestador de servicio social (estudiante) dentro del proyecto:
+              </label>
+              <input type="text" class="input w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" maxlength="400" required>
             </div>
           </div>
 

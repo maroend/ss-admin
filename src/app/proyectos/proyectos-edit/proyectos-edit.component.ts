@@ -271,4 +271,19 @@ else{
   
   }
   }
+
+
+  onChangeHoras() {
+    //console.log(this.proyectoModel.fechaInicio);
+    this.proyectoModel.fechaTermino = "";
+    let dia: Date = new Date(this.proyectoModel.fechaInicio);
+
+    if (this.proyectoModel.horas == 240) {
+      this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 90);
+    } else {
+      this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 190);
+    }
+  }
+
+
 }
