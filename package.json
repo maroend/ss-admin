@@ -25,6 +25,7 @@
     "datatables.net-dt": "^1.10.22",
     "feather-icons": "^4.28.0",
     "jquery": "^3.5.1",
+    "mobiscroll-angular": "^4.0.0",
     "ngx-cookie-service": "^10.1.1",
     "rxjs": "^6.6.3",
     "rxjs-compat": "^6.6.3",

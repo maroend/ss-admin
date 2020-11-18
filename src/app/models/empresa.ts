@@ -83,8 +83,8 @@ export class Empresa {
         public discapacitados: number,
   public listaAreasAccion:any,
   public listaRubros: any,
-  public Responsable:any
-
+  public Responsable:any,
+  public vision:string
 //   { "nombre": "" ,"apellidos": "","genero": "",
 //   "puesto": "","departamento": "",  "disponible": false,"usuario": "","contrasena": true ,
 //   "telefono": "",  "correo": false,"id": 0,"activo": true,"fechaCreacion":"" }
