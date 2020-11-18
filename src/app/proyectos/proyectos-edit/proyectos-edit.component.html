@@ -200,9 +200,12 @@
               <div class="relative mt-8">
                 <div>
                   <label>
-                    Rol o función del prestador de servicio social (estudiante) dentro del proyecto:
+                    ¿Cantidad de horas totales del proyecto?
                   </label>
-                  <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" required>
+                  <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.horas" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()">
+                    <option [ngValue]="240">240</option>
+                    <option [ngValue]="480">480</option>
+                  </select>
                 </div>
               </div>
 
@@ -245,14 +248,14 @@
 
                         <td style="padding:5px;">
                           <label>
-                            <input type="checkbox" id="lunes" (change)="toggleDias($event.target.checked, 'lunes')"  [checked]="proyectoModel.lunes">
+                            <input type="checkbox" id="lunes" (change)="toggleDias($event.target.checked, 'lunes')" [checked]="proyectoModel.lunes">
                             Lunes
                           </label>
                         </td>
 
                         <td style="padding:5px;">
                           <label>
-                            <input type="checkbox" id="martes" (change)="toggleDias($event.target.checked, 'martes')"[checked]="proyectoModel.martes">
+                            <input type="checkbox" id="martes" (change)="toggleDias($event.target.checked, 'martes')" [checked]="proyectoModel.martes">
                             Martes
                           </label>
                         </td>
@@ -326,6 +329,15 @@
                       </tr>
                     </tbody>
                   </table>
+                </div>
+              </div>
+
+              <div class="relative mt-8">
+                <div>
+                  <label>
+                    Rol o función del prestador de servicio social (estudiante) dentro del proyecto:
+                  </label>
+                  <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" required>
                 </div>
               </div>
 
