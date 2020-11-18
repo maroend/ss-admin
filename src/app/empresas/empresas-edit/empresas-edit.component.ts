@@ -177,7 +177,6 @@ var valor= { "idRubro": id ,"activo": true};
 
       this.responsablemodel=res['responsable'];
       console.log(this.responsablemodel);
-      this.externa();
       this.listaAreasAccion=res['listaAreasAccion'];
       this.listaRubros=res['listaRubros'];
 
@@ -191,7 +190,8 @@ var valor= { "idRubro": id ,"activo": true};
       this.obtenerdirecciones(cp);
       console.log(this.cambio);
 
-      
+      this.externa();
+
     })
   }
   obtenerAreas() {
