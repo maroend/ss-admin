@@ -30,7 +30,7 @@
   </div>
 
   <div class="preview">
-    <div class="intro-y box mt-5">
+    <div class="intro-y mt-5">
   <form class="p-5"  (ngSubmit)="create()" #form="ngForm">
     <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
     <div class="intro-y box mt-5">
@@ -39,7 +39,7 @@
           Información General
         </h2>
       </div>
-      <div class="mt-3">
+      <div class="mt-3 p-5">
         <div class="sm:grid grid-cols-3 gap-2">
 
           <div class="relative mt-8">
@@ -135,9 +135,9 @@
           <div class="relative mt-8">
             <div>
               <label>
-                ¿Plazas de Servicio Social disponibles para el proyecto | Perfil de alumno de 480 hrs.?
+                ¿Plazas de Servicio Social disponibles para el proyecto?
               </label>
-              <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazas480" [ngModelOptions]="{standalone: true}">
+              <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazas" [ngModelOptions]="{standalone: true}">
                 <option [ngValue]="1">1</option>
                 <option [ngValue]="2">2</option>
                 <option [ngValue]="3">3</option>
@@ -152,7 +152,7 @@
             </div>
           </div>
 
-          <div class="relative mt-8">
+          <!--<div class="relative mt-8">
             <div>
               <label>
                 ¿Plazas de Servicio Social disponibles para el proyecto | Perfil de alumno de 240 hrs.?
@@ -170,7 +170,7 @@
                 <option [ngValue]="10">10</option>
               </select>
             </div>
-          </div>
+          </div>-->
 
           <div class="relative mt-8">
             <div>
@@ -193,7 +193,7 @@
         </h2>
       </div>
 
-      <div class="mt-8">
+      <div class="mt-8 p-5">
         <div class="sm:grid grid-cols-3 gap-2">
 
           <div class="relative mt-8">
@@ -215,7 +215,7 @@
           <div class="relative mt-8">
             <div>
               <label>Fecha de termino:</label>
-              <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaTermino" [ngModelOptions]="{standalone: true}" required>
+              <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaTermino" [ngModelOptions]="{standalone: true}" [options]="mindateSettings" required>
             </div>
           </div>
 
@@ -347,7 +347,7 @@
         </h2>
       </div>
 
-      <div class="mt-8">
+      <div class="mt-8 p-5">
         <div class="sm:grid grid-cols-1 gap-2">
 
           <div class="relative mt-2">
@@ -397,7 +397,7 @@
         </h2>
       </div>
 
-      <div class="mt-8">
+      <div class="mt-8 p-5">
         <div class="sm:grid grid-cols-3 gap-2">
 
           <div class="relative mt-2">
@@ -415,9 +415,9 @@
       </div>
       <br>
 
-      <div class="mt-8">
+      <div class="mt-1 p-5">
         <div class="sm:grid grid-cols-3 gap-2">
-          <div class="relative mt-8">
+          <div class="relative mt-3">
             <div>
               <label>Universidad:</label>
               <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idUniversidad" [ngModelOptions]="{standalone: true}">
@@ -426,7 +426,7 @@
             </div>
 
           </div>
-          <div class="relative mt-8">
+          <div class="relative mt-3">
             <div>
               <label>Estado:</label>
               <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idEstadoProyecto" [ngModelOptions]="{standalone: true}">
@@ -434,7 +434,7 @@
               </select>
             </div>
           </div>
-          <div class="relative mt-8">
+          <div class="relative mt-3">
             <div>
               <label>Observaciones:</label>
               <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.observaciones" [ngModelOptions]="{standalone: true}" required>

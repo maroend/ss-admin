@@ -9,6 +9,7 @@ import { UniversidadService } from '../../services/universidad.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
+
 declare var $: any;
 
 @Component({
@@ -23,7 +24,7 @@ export class ProyectosAddComponent implements OnInit {
 
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
-  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 0, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
+  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 0, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
 
   public validar = false;
   public organizaciones: Empresa[] = [];
@@ -32,7 +33,7 @@ export class ProyectosAddComponent implements OnInit {
   public ods: ODS[] = [];
   public universidades: Universidad[] = [];
   public estadosProyectos: EstadosProyectosModel[] = [];
-
+ 
   constructor(private proyectoService: ProyectoService,
     private organizacionService: OrganizationService,
     private universidadService: UniversidadService, private router: Router, private _location: Location) {
@@ -244,4 +245,6 @@ export class ProyectosAddComponent implements OnInit {
   }
     
   }
+
+
 }
