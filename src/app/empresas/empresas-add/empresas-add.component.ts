@@ -418,7 +418,7 @@ console.log(this.responsablemodel);
   }
 
 }else{
-  model.organizacion="Interna";
+  model.organizacion = model.vicerrectoria+"/"+ model.cordinacion;
   model.nombreComun="Interna";
 
 console.log(model);

@@ -386,7 +386,7 @@ if(this.responsablemodel.externa){
   }
 }
 else{
-  model.organizacion="Interna";
+  model.organizacion = model.vicerrectoria+"/"+ model.cordinacion;
   model.nombreComun="Interna";
 
 console.log(model);

@@ -66,13 +66,13 @@
 
                     </td> -->
                 
-                    <td class="border-b" *ngIf="empresa.organizacion!='Interna'" >
+                    <td class="border-b" *ngIf="empresa.nombreComun!='Interna'" >
                         <a [routerLink]="['/empresas/ver', empresa.id]" >    <div class="rounded-lg text-center px-1 py-1 mb-2  text-black"> {{empresa.organizacion}}</div></a>
                     </td>
-                    <td class="border-b" *ngIf="empresa.organizacion=='Interna'" >
-                        <a [routerLink]="['/empresas/ver', empresa.id]" >    <div class="rounded-lg text-center px-1 py-1 mb-2  text-black"> {{empresa.cordinacion}}</div></a>
+                    <td class="border-b" *ngIf="empresa.nombreComun=='Interna'" >
+                        <a [routerLink]="['/empresas/ver', empresa.id]" >    <div class="rounded-lg text-center px-1 py-1 mb-2  text-black">{{empresa.vicerrectoria}}/{{empresa.cordinacion}}</div></a>
                     </td>
-                    <td class="border-b " *ngIf="empresa.organizacion!='Interna'   ;else template">
+                    <td class="border-b " *ngIf="empresa.nombreComun!='Interna'   ;else template">
 
                         <div class="font-medium flex sm:justify-center items-center">Institución / Área externa</div>
                     </td>
