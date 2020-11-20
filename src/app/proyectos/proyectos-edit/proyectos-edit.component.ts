@@ -113,26 +113,41 @@ export class ProyectosEditComponent implements OnInit {
   }
 
   toggleCompetencias(checked, id) {
-    console.log(checked);
+    //console.log(checked);
     var valor = { "idProyecto": 0, "idCompetencia": id, "activo": true };
+    if (checked) {
+      if (this.proyectoModel.competenciasList.length < 5) {
+        this.proyectoModel.competenciasList.push(valor);
+      } else {
+        $("#co" + id).prop("checked", false);
+        this.mensajevalidacion = "solo permite seleccionar como máximo 5 competencias "
+        $('#validacion').modal('show');
+      }
+    }
+    else {
+      this.proyectoModel.competenciasList = this.proyectoModel.competenciasList.filter(item => item.idCompetencia !== id);
+    }
 
-    var competencia = this.listaProyectosCompetencias.find(x => x.idCompetencia === id);
-    if (checked) this.proyectoModel.competenciasList.push(valor);
-    else this.proyectoModel.competenciasList = this.proyectoModel.competenciasList.filter(item => item.idCompetencia !== id);
-
-    console.log(this.proyectoModel.competenciasList);
+    //console.log(this.proyectoModel.competenciasList);
   }
   toggleCarreras(checked, id) {
-    console.log(checked);
-    var valor = { "idProyecto": 0, "idCarrera": id, "activo": true };
-
-    var area = this.listaProyectosCarreras.find(x => x.idCarrera === id);
-    if (checked) this.proyectoModel.carrerasList.push(valor);
-    else this.proyectoModel.carrerasList = this.proyectoModel.carrerasList.filter(item => item.idCarrera !== id);
-
-    console.log(this.proyectoModel.carrerasList);
+    //console.log(checked);
+    var valor = { "idCarrera": id, "activo": true };
+    if (checked) {
+      if (checked && this.proyectoModel.carrerasList.length < 7) {
+        this.proyectoModel.carrerasList.push(valor);
+      } else {
+        $("#ca" + id).prop("checked", false);
+        this.mensajevalidacion = "solo permite seleccionar como máximo 7 carreras"
+        $('#validacion').modal('show');
+      }
+    }
+    else {
+      this.proyectoModel.carrerasList = this.proyectoModel.carrerasList.filter(item => item.idCarrera !== id);
+    }
+    
+    //console.log(this.proyectoModel.carrerasList);
   }
-
 
   toggleDias(checked, id) {
     console.log(checked);
@@ -188,8 +203,11 @@ export class ProyectosEditComponent implements OnInit {
     model.activo = true;
 
     console.log(model)
-    if (model.proyecto == "") {
-      this.mensajevalidacion = "No puedes dejar el campo de proyecto vacío"
+    if (model.idOrganizacion == 0) {
+      this.mensajevalidacion = "No puedes dejar el campo de institucion vacío"
+      $('#validacion').modal('show');
+    } else if (model.proyecto == "") {
+      this.mensajevalidacion = "No puedes dejar el campo de nombre de proyecto vacío"
       $('#validacion').modal('show');
     }
     else if (model.descripcion == "") {
@@ -224,20 +242,20 @@ export class ProyectosEditComponent implements OnInit {
       this.mensajevalidacion = "No puedes dejar el campo de modalidad a distancia vacío"
       $('#validacion').modal('show');
     }
+    else if (model.plazas == 0) {
+      this.mensajevalidacion = "No puedes dejar el campo de plazas en 0"
+      $('#validacion').modal('show');
+    }
     else if (model.objetivo == "") {
       this.mensajevalidacion = "No puedes dejar el campo de objetivo vacío"
       $('#validacion').modal('show');
     }
-    else if (model.rolPrestador == "") {
-      this.mensajevalidacion = "No puedes dejar el campo de rol del prestador vacío"
+    else if (model.fechaInicio == "") {
+      this.mensajevalidacion = "No puedes dejar el campo de fecha Inicio vacío"
       $('#validacion').modal('show');
     }
     else if (model.fechaTermino == "") {
       this.mensajevalidacion = "No puedes dejar el campo de fecha Termino vacío"
-      $('#validacion').modal('show');
-    }
-    else if (model.fechaInicio == "") {
-      this.mensajevalidacion = "No puedes dejar el campo de fecha Inicio vacío"
       $('#validacion').modal('show');
     }
     else if (model.capacitacion == "") {
@@ -252,13 +270,20 @@ export class ProyectosEditComponent implements OnInit {
       this.mensajevalidacion = "No puedes dejar el campo de hora de salida vacío"
       $('#validacion').modal('show');
     }
+    else if (model.rolPrestador == "") {
+      this.mensajevalidacion = "No puedes dejar el campo de rol del prestador vacío"
+      $('#validacion').modal('show');
+    }
     else if (model.carrerasList.length == 0 && model.carrerasList.length < 8) {
       this.mensajevalidacion = "debe seleccionar de 1 a  7 carreras"
       $('#validacion').modal('show');
     }
-
     else if (model.competenciasList.length == 0 && model.competenciasList.length < 6) {
       this.mensajevalidacion = "debe seleccionar de 1 a 5 competencias"
+      $('#validacion').modal('show');
+    }
+    else if (model.idObjetivoOnu == 0) {
+      this.mensajevalidacion = "debe seleccionar el objetivos de la ONU"
       $('#validacion').modal('show');
     }
 else{
