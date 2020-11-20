@@ -42,6 +42,25 @@ this.usuarios.disponible=true;
     Feather.replace();
   }
 
+  validarEmail(valor) {
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+    if (caract.test(valor) == false){
+     return false
+    } else {
+     return true;
+    }
+  }
+  mostrarpass(){
+    console.log("cambioar");
+    if ($('#mostrar_contrasena').is(':checked')) {
+      $('#password').attr('type', 'text');
+    } else {
+      $('#password').attr('type', 'password');
+    }
+  
+  }
+
   create(){
     let model = this.usuarios;
 
@@ -52,6 +71,11 @@ this.usuarios.disponible=true;
             $('#validacion').modal('show');
       
           }
+          else if(!this.validarEmail(model.email)){
+            this.mensajevalidacion="Ingrese un correo valido"
+            $('#validacion').modal('show');
+          } 
+
           else   if(model.apellidos==""){
             this.mensajevalidacion="No puedes dejar el campo de apellidos vacío"
                   $('#validacion').modal('show');

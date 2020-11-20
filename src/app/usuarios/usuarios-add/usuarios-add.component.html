@@ -23,10 +23,7 @@
         <h2 class="text-lg font-medium mr-auto">
             Agregar Usuario
         </h2>
-        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a  routerLink="/usuarios" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-            <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
-        </div>
+     
     </div>
 
     <form (ngSubmit)="create()" #form="ngForm">
@@ -65,7 +62,7 @@
                     </div>
                     <div class="relative mt-2">
                         <div>
-                            <label>Email*</label>
+                            <label>Correo*</label>
                             <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="usuarios.email" [ngModelOptions]="{standalone: true}" required>
                         </div>
                     </div>
@@ -76,8 +73,12 @@
                 <div class="sm:grid grid-cols-3 gap-2">
                     <div class="relative mt-2">
                         <div>
-                            <label>Password*</label>
-                            <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="usuarios.password" [ngModelOptions]="{standalone: true}" required>
+                            <label>Contraseña*</label>
+                            <input type="password" class="input  w-full border mt-2 " id="password" placeholder="" [(ngModel)]="usuarios.password" [ngModelOptions]="{standalone: true}" required>
+                            <div style="margin-top:3px;">
+                                <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña" (change)="mostrarpass()" />
+                                &nbsp;&nbsp;Mostrar Contraseña</div>
+                        
                         </div>
 
                     </div>
@@ -116,6 +117,14 @@
         </div>
     </div>
   </form>
+  <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+    <h2 class="text-lg font-medium mr-auto">
+    </h2>
+    <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+        <a  routerLink="/usuarios" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
+        <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+    </div>
+</div>
     <!-- END: FORM -->
 </div>
 <!-- END: Content -->
