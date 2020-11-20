@@ -57,14 +57,14 @@
               <div class="relative mt-8">
                 <div>
                   <label>Nombre del proyecto:</label>
-                  <input type="text" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.proyecto" [ngModelOptions]="{standalone: true}" ng-reflect-required="ejemplo nombre" required>
+                  <input type="text" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.proyecto" [ngModelOptions]="{standalone: true}" ng-reflect-required="ejemplo nombre" maxlength="70" required>
                 </div>
               </div>
 
               <div class="relative mt-8">
                 <div>
                   <label>Descripción:</label>
-                  <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.descripcion" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
+                  <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.descripcion" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" maxlength="500" required>
                 </div>
               </div>
 
@@ -118,7 +118,7 @@
                   <label>
                     Justifica el impacto social del proyecto:
                   </label>
-                  <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.justificacionImpactoSocial" [ngModelOptions]="{standalone: true}" required>
+                  <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.justificacionImpactoSocial" [ngModelOptions]="{standalone: true}" maxlength="500" required>
                 </div>
               </div>
 
@@ -314,15 +314,15 @@
 
                         <td style="padding:5px;">
                           <label>
-                            Entrada:
-                            <input type="time" [(ngModel)]="proyectoModel.horaEntrada" [ngModelOptions]="{standalone: true}" />
+                            Entrada 08:00 - 18:00
+                            <input type="time" [(ngModel)]="proyectoModel.horaEntrada" [ngModelOptions]="{standalone: true}" min="08:00" max="18:00" />
                           </label>
                         </td>
 
                         <td style="padding:5px;">
                           <label>
-                            Salida:
-                            <input type="time" [(ngModel)]="proyectoModel.horaSalida" [ngModelOptions]="{standalone: true}" />
+                            Salida 08:00 - 18:00
+                            <input type="time" [(ngModel)]="proyectoModel.horaSalida" [ngModelOptions]="{standalone: true}" min="08:00" max="18:00" />
                           </label>
                         </td>
 
@@ -337,7 +337,7 @@
                   <label>
                     Rol o función del prestador de servicio social (estudiante) dentro del proyecto:
                   </label>
-                  <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" required>
+                  <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" maxlength="400" required>
                 </div>
               </div>
 
@@ -373,7 +373,7 @@
                   <div *ngFor="let competencia of listaProyectosCompetencias">
 
                     <label>
-                      <input type="checkbox" id="{{competencia.id}}" (change)="toggleCompetencias($event.target.checked, competencia.id)" [checked]="idsCompetencias.indexOf(competencia.id) >=0">
+                      <input type="checkbox" id="co{{competencia.id}}" (change)="toggleCompetencias($event.target.checked, competencia.id)" [checked]="idsCompetencias.indexOf(competencia.id) >=0">
                       {{competencia.competencia}}
                     </label>
 
@@ -391,7 +391,7 @@
                   <div *ngFor="let carrera of listaProyectosCarreras">
 
                     <label>
-                      <input type="checkbox" id="{{carrera.id}}" (change)="toggleCarreras($event.target.checked, carrera.id)"  [checked]="idsCarreras.indexOf(carrera.id) >=0">
+                      <input type="checkbox" id="ca{{carrera.id}}" (change)="toggleCarreras($event.target.checked, carrera.id)"  [checked]="idsCarreras.indexOf(carrera.id) >=0">
                       {{carrera.carrera}}
                     </label>
 

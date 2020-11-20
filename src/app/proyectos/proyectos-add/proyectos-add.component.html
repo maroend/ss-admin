@@ -44,7 +44,7 @@
 
           <div class="relative mt-8">
             <div>
-              <label>Institución / Área:</label>
+              <label>Institución / Área*</label>
               <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idOrganizacion" [ngModelOptions]="{standalone: true}">
                 <option [ngValue]="organizacion.id" *ngFor="let organizacion of organizaciones">{{organizacion.organizacion}} </option>
               </select>
@@ -54,22 +54,22 @@
 
           <div class="relative mt-8">
             <div>
-              <label>Nombre del proyecto:</label>
-              <input type="text" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.proyecto" [ngModelOptions]="{standalone: true}" ng-reflect-required="ejemplo nombre" required>
+              <label>Nombre del proyecto*</label>
+              <input type="text" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.proyecto" [ngModelOptions]="{standalone: true}" ng-reflect-required="ejemplo nombre" maxlength="70" required>
             </div>
           </div>
 
           <div class="relative mt-8">
             <div>
-              <label>Descripción:</label>
-              <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.descripcion" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
+              <label>Descripción*</label>
+              <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.descripcion" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" maxlength="500" required>
             </div>
           </div>
 
           <div class="relative mt-8">
             <div>
               <label>
-                Nombre del Responsable del Proyecto:
+                Nombre del Responsable del Proyecto*
               </label>
               <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.nombreResponsable" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
             </div>
@@ -78,7 +78,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Puesto del Responsable del Proyecto:
+                Puesto del Responsable del Proyecto*
               </label>
               <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.puesto" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
             </div>
@@ -87,7 +87,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Área del Responsbale del Proyecto:
+                Área del Responsbale del Proyecto*
               </label>
               <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.area" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
             </div>
@@ -96,7 +96,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Correo electrónico del responsable del proyecto:
+                Correo electrónico del responsable del proyecto*
               </label>
               <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.correoResponsable" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
             </div>
@@ -105,7 +105,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Teléfono de responsable del proyecto:
+                Teléfono de responsable del proyecto
               </label>
               <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.telefono" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
             </div>
@@ -114,16 +114,16 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Justifica el impacto social del proyecto:
+                Justifica el impacto social del proyecto*
               </label>
-              <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.justificacionImpactoSocial" [ngModelOptions]="{standalone: true}" required>
+              <input type="text" class="input   w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.justificacionImpactoSocial" [ngModelOptions]="{standalone: true}" maxlength="500" required>
             </div>
           </div>
 
           <div class="relative mt-8">
             <div>
               <label>
-                ¿Se puede hacer el servicio social bajo la modalidad a distancia en este proyecto?
+                ¿Se puede hacer el servicio social bajo la modalidad a distancia en este proyecto?*
               </label>
               <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.modalidadDistancia" [ngModelOptions]="{standalone: true}">
                 <option [ngValue]="'si'">Si</option>
@@ -135,7 +135,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                ¿Plazas de Servicio Social disponibles para el proyecto?
+                ¿Plazas de Servicio Social disponibles para el proyecto?*
               </label>
               <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazas" [ngModelOptions]="{standalone: true}">
                 <option [ngValue]="1">1</option>
@@ -175,7 +175,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Enlista los objetivos del proyecto máximo(7):
+                Enlista los objetivos del proyecto máximo(7)*
               </label>
               <textarea type="text" rows="7" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.objetivo" [ngModelOptions]="{standalone: true}" value="objetivo ejemplo" required>
               </textarea>
@@ -199,7 +199,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                ¿Cantidad de horas totales del proyecto?
+                ¿Cantidad de horas totales del proyecto?*
               </label>
               <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.horas" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()">
                 <option [ngValue]="240">240</option>
@@ -209,14 +209,14 @@
           </div>
           <div class="relative mt-8">
             <div>
-              <label>Fecha de inicio:</label>
+              <label>Fecha de inicio*</label>
               <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()" required>
             </div>
           </div>
 
           <div class="relative mt-8">
             <div>
-              <label>Fecha de termino: {{fechaMinima|date:'yyyy-MM-dd'}} </label>
+              <label>Fecha de termino* </label>
               <input type="date" class="input  w-full border mt-2 "
                      [(ngModel)]="proyectoModel.fechaTermino"
                      [ngModelOptions]="{standalone: true}"
@@ -229,7 +229,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                ¿El alumno recibe capacitación/formación por parte de la Institución?
+                ¿El alumno recibe capacitación/formación por parte de la Institución?*
               </label>
               <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.capacitacion" [ngModelOptions]="{standalone: true}">
                 <option [ngValue]="'si'">Si</option>
@@ -241,7 +241,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Días hábiles para la prestación de servicio social:
+                Días hábiles para la prestación de servicio social*
               </label>
             </div>
             <div class="well">
@@ -307,7 +307,7 @@
           <div class="relative mt-8">
             <div>
               <label>
-                Horarios disponibles para la prestación de servicio social:
+                Horarios disponibles para la prestación de servicio social*
               </label>
             </div>
             <div class="well">
@@ -376,7 +376,7 @@
               <div *ngFor="let competencia of listaProyectosCompetencias">
 
                   <label>
-                    <input type="checkbox" id="{{competencia.id}}" (change)="toggleCompetencias($event.target.checked, competencia.id)">
+                    <input type="checkbox" id="co{{competencia.id}}" (change)="toggleCompetencias($event.target.checked, competencia.id)">
                     {{competencia.competencia}}
                   </label>
 
@@ -394,7 +394,7 @@
               <div *ngFor="let carrera of listaProyectosCarreras">
 
                 <label>
-                  <input type="checkbox" id="{{carrera.id}}" (change)="toggleCarreras($event.target.checked, carrera.id)">
+                  <input type="checkbox" id="ca{{carrera.id}}" (change)="toggleCarreras($event.target.checked, carrera.id)">
                   {{carrera.carrera}}
                 </label>
 
