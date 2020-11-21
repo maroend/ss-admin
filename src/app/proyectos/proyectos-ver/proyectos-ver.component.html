@@ -495,7 +495,7 @@
 
                   <div class="flex flex-col sm:flex-row items-center mt-3">
                     <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
-                    <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="alumno.idEstado" [ngModelOptions]="{standalone: true}" name="idEstado">
+                    <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="alumno.idEstado" [ngModelOptions]="{standalone: true}" name="idEstado" id="myselect">
                       <option [ngValue]="gi.id" *ngFor="let gi of estadosalumnos">{{gi.estado}} </option>
 
                 
@@ -503,7 +503,7 @@
                 </div>
                 <div class="flex flex-col sm:flex-row items-center mt-3">
                   <label class="sm:w-32 sm:text-right sm:mr-5">Observaciones:</label>
-                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="estadoalumnocambio.observaciones"   required>
+                  <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="estadoalumnocambio.observacions"   required>
 
                
               </div>

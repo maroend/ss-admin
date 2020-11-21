@@ -166,20 +166,23 @@ export class ProyectosVerComponent implements OnInit {
 
 
     this.estadoalumnocambio.idProyecto = Number(this.idobtenido);
-    this.estadoalumnocambio.idAlumno = Number(this.idalum);
+    this.estadoalumnocambio.idAlumno = Number(this.idalum);   
+     var idf=  $( "#myselect option:selected" ).val();
+
+     console.log(idf);
+     var ultimoCaracter = idf.charAt(idf.length - 1);
+
+
+    this.estadoalumnocambio.idEstado = Number(ultimoCaracter);
 
 
 console.log(this.estadoalumnocambio);
     // this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
     //   $('#success-modal-preview').modal('show');
     //   location.reload();
-    var idf=  $('#estadofinal').val();
-    var lastFive = idf.substr(idf.length - 1); // => "Tabs1" 
 
 //camibo
-    this.estadoalumnocambio.idEstado = Number(lastFive);
-console.log(this.estadoalumnocambio);
-    this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
+     this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
       $('#success-modal-preview').modal('show');
       location.reload();
 //fincambio

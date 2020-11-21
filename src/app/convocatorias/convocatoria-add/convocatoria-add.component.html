@@ -17,10 +17,7 @@
     <h2 class="text-lg font-medium mr-auto">
       Agregar Convocatoria
     </h2>
-    <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-      <a routerLink="/convocatorias" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-      <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
-    </div>
+    
   </div>
   <div class="modal" id="validacion">
     <div class="modal__content">
@@ -144,6 +141,14 @@
       </div>
     </div>
   </form>
+  <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+    <h2 class="text-lg font-medium mr-auto">
+    </h2>
+    <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+      <a routerLink="/convocatorias" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
+      <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+    </div>
+  </div>
   <!-- END: FORM -->
 </div>
 <!-- END: Content -->

@@ -82,9 +82,6 @@ public validar=false;
        this.imagensubidaurl= data.datos;
        console.log(this.imagensubidaurl);
 
-this.imagensubidaurl=this.imagensubidaurl;
-
-console.log(this.imagensubidaurl);
 this.getBase64(this.fileToUpload).then(
   data => 
   this.logo=data.toString()
@@ -92,7 +89,6 @@ this.getBase64(this.fileToUpload).then(
 
 
 $('#abrirsubir').modal('hide');
-        $('#success-modal-preview-file').modal('show');
       }
     }, error => {
       console.log(error);
@@ -177,7 +173,6 @@ var valor= { "idRubro": id ,"activo": true};
 
       this.responsablemodel=res['responsable'];
       console.log(this.responsablemodel);
-      this.externa();
       this.listaAreasAccion=res['listaAreasAccion'];
       this.listaRubros=res['listaRubros'];
 
@@ -191,7 +186,8 @@ var valor= { "idRubro": id ,"activo": true};
       this.obtenerdirecciones(cp);
       console.log(this.cambio);
 
-      
+      this.externa();
+
     })
   }
   obtenerAreas() {
@@ -231,7 +227,24 @@ var valor= { "idRubro": id ,"activo": true};
       .subscribe((clasificacion: ClasificacionEmpresa[]) => this.clasificacion = clasificacion );
   }
 
+  validarEmail(valor) {
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
 
+    if (caract.test(valor) == false){
+     return false
+    } else {
+     return true;
+    }
+  }
+  mostrarpass(){
+    console.log("cambioar");
+    if ($('#mostrar_contrasena').is(':checked')) {
+      $('#password').attr('type', 'text');
+    } else {
+      $('#password').attr('type', 'password');
+    }
+  
+  }
 
   onSubmit() {
     this.responsablemodel.usuario=this.responsablemodel.correo;
@@ -253,6 +266,40 @@ if(this.responsablemodel.externa){
             $('#validacion').modal('show');
       
           }
+
+//responsable
+else if(this.responsablemodel.telefono.length>9){
+  this.mensajevalidacion="Ingrese un telefono valido"
+  $('#validacion').modal('show');
+} 
+else if(!this.validarEmail(this.responsablemodel.correo)){
+  this.mensajevalidacion="Ingrese un correo valido"
+  $('#validacion').modal('show');
+} 
+
+
+//maximo
+    else if(model.descripcion.length<500){
+      this.mensajevalidacion="El campo de descripcion debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.razon.length<500){
+      this.mensajevalidacion="El campo de Razón de ser debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.mision.length<500){
+      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.vision.length<500){
+      this.mensajevalidacion="El campo de Visión debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.mision.length<500){
+      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+
           else if(model.nombreComun==""){
             this.mensajevalidacion="No puedes dejar el campo de Nombre Común de la Institución vacío"
             $('#validacion').modal('show');
@@ -386,7 +433,7 @@ if(this.responsablemodel.externa){
   }
 }
 else{
-  model.organizacion="Interna";
+  model.organizacion = model.vicerrectoria+"/"+ model.cordinacion;
   model.nombreComun="Interna";
 
 console.log(model);
@@ -395,6 +442,19 @@ console.log(model);
           $('#validacion').modal('show');
     
         }
+
+//responsable
+else if(this.responsablemodel.telefono.length>9){
+  this.mensajevalidacion="Ingrese un telefono valido"
+  $('#validacion').modal('show');
+} 
+else if(!this.validarEmail(this.responsablemodel.correo)){
+  this.mensajevalidacion="Ingrese un correo valido"
+  $('#validacion').modal('show');
+} 
+
+
+
         else if(model.Responsable['NombreCompletoresponsable']==""){
           this.mensajevalidacion="No puedes dejar el campo de Nombre Completo del responsable vacío"
           $('#validacion').modal('show');
@@ -570,6 +630,8 @@ listapaist.forEach(el => {
         this.listaestados=[];
         this.listaciudad=[];
         this.listapais=[];
+        this.mensajevalidacion="Ingresa un CP valido"
+        $('#validacion').modal('show');
       }
 
     })
@@ -578,9 +640,8 @@ listapaist.forEach(el => {
   obtenerdireccion(){
     var cp=this.empresaModel.cp;
     console.log(cp);
-    if(cp.length==5){
     this.obtenerdirecciones(cp);
-    }
+    
   }
  
 }

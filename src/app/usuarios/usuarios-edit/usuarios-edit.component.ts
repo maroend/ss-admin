@@ -18,6 +18,7 @@ declare var $: any;
 })
 export class UsuariosEditComponent implements OnInit {
 
+  public mensajevalidacion="";
 
   public usuarios = new Usuario("","","","","",1,1,true,true);
   
@@ -51,9 +52,34 @@ this.obtenerUniversidad();
   update(){
     let model = this.usuarios;
 
-
-
     console.log(model)
+
+    if(model.nombre==""){
+      this.mensajevalidacion="No puedes dejar el campo de nombre vacío"
+            $('#validacion').modal('show');
+      
+          }
+          else if(!this.validarEmail(model.email)){
+            this.mensajevalidacion="Ingrese un correo valido"
+            $('#validacion').modal('show');
+          } 
+
+          else   if(model.apellidos==""){
+            this.mensajevalidacion="No puedes dejar el campo de apellidos vacío"
+                  $('#validacion').modal('show');
+            
+                }
+                else     if(model.email==""){
+                  this.mensajevalidacion="No puedes dejar el campo de email vacío"
+                        $('#validacion').modal('show');
+                  
+                      }
+                      else     if(model.password==""){
+                        this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
+                              $('#validacion').modal('show');
+                        
+                            }
+                     else{
 
     this.usuarioservices.updateusuarios(this.idobtenido,model).subscribe((res: any)=>{
       console.log(res.message)
@@ -64,9 +90,30 @@ this.obtenerUniversidad();
         }, error=>{
       alert(error.error)
     })
+  }
   
 
 
+  }
+
+
+  validarEmail(valor) {
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+    if (caract.test(valor) == false){
+     return false
+    } else {
+     return true;
+    }
+  }
+  mostrarpass(){
+    console.log("cambioar");
+    if ($('#mostrar_contrasena').is(':checked')) {
+      $('#password').attr('type', 'text');
+    } else {
+      $('#password').attr('type', 'password');
+    }
+  
   }
 
 
