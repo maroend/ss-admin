@@ -268,7 +268,7 @@ if(this.responsablemodel.externa){
           }
 
 //responsable
-else if(this.responsablemodel.telefono.length>9){
+else if(this.responsablemodel.telefono.length<10){
   this.mensajevalidacion="Ingrese un telefono valido"
   $('#validacion').modal('show');
 } 
@@ -279,23 +279,23 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
 
 
 //maximo
-    else if(model.descripcion.length<500){
+    else if(model.descripcion.length>500){
       this.mensajevalidacion="El campo de descripcion debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.razon.length<500){
+    else if(model.razon.length>500){
       this.mensajevalidacion="El campo de Razón de ser debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.mision.length<500){
+    else if(model.mision.length>500){
       this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.vision.length<500){
+    else if(model.vision.length>500){
       this.mensajevalidacion="El campo de Visión debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.mision.length<500){
+    else if(model.mision.length>500){
       this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
@@ -444,7 +444,7 @@ console.log(model);
         }
 
 //responsable
-else if(this.responsablemodel.telefono.length>9){
+else if(this.responsablemodel.telefono.length<10){
   this.mensajevalidacion="Ingrese un telefono valido"
   $('#validacion').modal('show');
 } 
