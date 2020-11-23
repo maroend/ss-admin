@@ -61,8 +61,8 @@
             </div>
 
         </div>
-        <div class="grid grid-cols-12 gap-6 mt-5">
-            <div class="col-span-12 sm:col-span-8 xl:col-span-8 intro-y">
+        <div class="grid grid-cols-12 gap-12 mt-5">
+            <div class="col-span-12 sm:col-span-12 xl:col-span-8 intro-y">
                 <div class=" p-5">
                     <div class="text-base  text-gray-600 mt-1" >Descripción introductoria de la Institución:</div>
 
@@ -71,14 +71,7 @@
                 </div>
             </div>
 
-            <div class="col-span-12 sm:col-span-4 xl:col-span-4 intro-y">
-                <div class=" p-5">
-                    <div class="text-base text-gray-600 mt-1">
-
-                    Años de Antigüedad de la Institución:</div>
-
-                    <div class="text-base font-bold leading-12 mt-12" ></div> {{empresaModel.antiguedad}} </div>
-                </div>
+        
 
         </div>
 
@@ -184,7 +177,30 @@
 <br>
 <div class="grid grid-cols-12 gap-4 mt-5">
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+        <div class=" p-5">
+            <div class="text-base text-gray-600 mt-1">
+                Años de antiguedad
+
+                <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.antiguedad}} </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+
+        <div class=" p-5">
+            <div class="text-base text-gray-600 mt-1">¿Cuál es la razón de ser de la Institución?</div>
+
+            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.razon}}</div>
+        </div>
+    </div>
+
+</div>
+<br>
+
+<div class="grid grid-cols-12 gap-4 mt-5">
+
+    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
         <div class=" p-5">
             <div class="text-base text-gray-600 mt-1">
                 Misíon
@@ -193,7 +209,7 @@
             </div>
         </div>
     </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
         <div class=" p-5">
             <div class="text-base text-gray-600 mt-1">
                 Visión
@@ -203,47 +219,49 @@
         </div>
     </div>
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">Objetivo</div>
-
-            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.objetivo}}</div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">Logros</div>
-
-
-            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.logros}}</div>
-        </div>
-    </div>
 </div>
 <br>
 <div class="grid grid-cols-12 gap-4 mt-5">
                 <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
 
                 <div class=" p-5">
-                    <div class="text-base text-gray-600 mt-1">¿Cuál es la razón de ser de la Institución?</div>
+                    <div class="text-base text-gray-600 mt-1">Principales objetivos</div>
 
-                    <div class="text-base font-bold leading-8 mt-6">{{empresaModel.razon}}</div>
-                </div>
+                    <div class="text-base font-bold leading-8 mt-6">
+                        <h1 *ngFor="let a of obejtivost">
+                            <p>{{a}}</p>
+                        </h1>
+
+                    </div>                </div>
             </div>
 
             <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
-                    <div class="text-base text-gray-600 mt-1">Enumere los Reconocimientos y Certificaciones con los que cuenta la Institución: </div>
+                    <div class="text-base text-gray-600 mt-1">Reconocimientos y Certificaciones con los que cuenta la Institución: </div>
 
+                   
 
-                    <div class="text-base font-bold leading-8 mt-6">{{empresaModel.reconocimiento}}</div>
+                    <div class="text-base font-bold leading-8 mt-6">
+                        <h1 *ngFor="let a of reconocimientost">
+                            <p>{{a}}</p>
+                        </h1>
+
+                    </div>
                 </div>
             </div>
             <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
-                    <div class="text-base text-gray-600 mt-1">Enumere los Principales Logros de la Institución: </div>
+                    <div class="text-base text-gray-600 mt-1">Principales Logros de la Institución: </div>
 
 
-                    <div class="text-base font-bold leading-8 mt-6">{{empresaModel.logros}}</div>
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        <h1 *ngFor="let a of logrost">
+                            <p>{{a}}</p>
+                        </h1>
+
+                    </div>
+                
                 </div>
             </div>
         </div>
