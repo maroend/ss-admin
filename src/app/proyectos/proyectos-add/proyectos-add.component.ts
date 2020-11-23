@@ -200,8 +200,8 @@ export class ProyectosAddComponent implements OnInit {
       this.mensajevalidacion = "No puedes dejar el campo de area del responsable vacío"
       $('#validacion').modal('show');
     }
-    else if (model.correoResponsable == "") {
-      this.mensajevalidacion = "No puedes dejar el campo de correo del responsable vacío"
+    else if (!this.validarEmail(model.correoResponsable)) {
+      this.mensajevalidacion = "Ingrese un correo valido"
       $('#validacion').modal('show');
     }
     else if (model.telefono == "") {
@@ -280,6 +280,17 @@ export class ProyectosAddComponent implements OnInit {
       this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 90);
     } else {
       this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 190);
+    }
+  }
+
+
+  validarEmail(valor) {
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+    if (caract.test(valor) == false) {
+      return false
+    } else {
+      return true;
     }
   }
 
