@@ -77,10 +77,22 @@ this.externa();
     console.log(checked);
 var valor= { "idAreaAccion": id ,"activo": true};
 
-    var area = this.areas.find(x=>x.id===id);
-    if(checked) this.listaAreasAccion.push(valor);
-    else this.listaAreasAccion = this.listaAreasAccion.filter(item => item.idAreaAccion !== id);   
-    
+    if(checked) 
+    {
+      if (this.listaAreasAccion.length < 3) {
+
+    this.listaAreasAccion.push(valor);
+      }
+      else {
+        $("#area-" + id).prop("checked", false);
+        this.mensajevalidacion = "solo permite seleccionar como máximo 3 áreas de accion "
+        $('#validacion').modal('show');
+      }
+    }
+    else 
+    {
+      this.listaAreasAccion = this.listaAreasAccion.filter(item => item.idAreaAccion !== id);   
+    }
     console.log(this.listaAreasAccion);
     
   }
@@ -88,8 +100,8 @@ var valor= { "idAreaAccion": id ,"activo": true};
     console.log(checked);
 var valor= { "idRubro": id ,"activo": true};
 
-    var area = this.areas.find(x=>x.id===id);
-    if(checked) this.listaRubros.push(valor);
+
+if(checked) this.listaRubros.push(valor);
     else this.listaRubros = this.listaRubros.filter(item => item.idRubro !== id);   
     
     console.log(this.listaRubros);
@@ -297,7 +309,7 @@ this.mensajevalidacion="No puedes dejar el campo de Nombre Oficial de la Institu
     }
 
 //responsable
-else if(this.responsablemodel.telefono.length>9){
+else if(this.responsablemodel.telefono.length<10){
   this.mensajevalidacion="Ingrese un telefono valido"
   $('#validacion').modal('show');
 } 
@@ -308,23 +320,23 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
 
 
 //maximo
-    else if(model.descripcion.length<500){
+    else if(model.descripcion.length>500){
       this.mensajevalidacion="El campo de descripcion debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.razon.length<500){
+    else if(model.razon.length>500){
       this.mensajevalidacion="El campo de Razón de ser debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.mision.length<500){
+    else if(model.mision.length>500){
       this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.vision.length<500){
+    else if(model.vision.length>500){
       this.mensajevalidacion="El campo de Visión debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
-    else if(model.mision.length<500){
+    else if(model.mision.length>500){
       this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
       $('#validacion').modal('show');
     } 
@@ -440,8 +452,8 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
 
     } 
     
-    else if(this.listaAreasAccion.length==0){
-      this.mensajevalidacion="Debes selecciónar al menos una Area"
+    else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){
+      this.mensajevalidacion="Debes selecciónar al menos una Area y maximo 3"
       $('#validacion').modal('show');
 
     } 
@@ -483,7 +495,7 @@ console.log(model);
 
 
 //responsable
-else if(this.responsablemodel.telefono.length>9){
+else if(this.responsablemodel.telefono.length<10){
   this.mensajevalidacion="Ingrese un telefono valido"
   $('#validacion').modal('show');
 } 
@@ -544,8 +556,8 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
           $('#validacion').modal('show');
         }
      
-        else if(this.listaAreasAccion.length==0){
-          this.mensajevalidacion="Debes selecciónar al menos una Area"
+        else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){
+          this.mensajevalidacion="Debes selecciónar al menos una Area y maximo 3"
           $('#validacion').modal('show');
     
         }else{
@@ -633,6 +645,10 @@ this.getBase64(this.fileToUpload).then(
     console.log(cp);
     this.obtenerdirecciones(cp);
     
+  }
+  recargar(){
+    console.log("recargar");
+    location.reload();
   }
  
 }

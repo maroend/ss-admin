@@ -41,6 +41,10 @@ public idobtenido:string;
   public listaRubros = [];
   public idRubro:any;
   public idAreaAccion:any;
+  public reconocimientost:any;
+  public logrost:any;
+  public obejtivost:any;
+
 public validar=false;
   public contactos = [];
   public clasificacion: ClasificacionEmpresa[] = [];
@@ -118,6 +122,13 @@ var valor= { "idRubro": id ,"activo": true};
       this.listaAreasAccion=res['listaAreasAccion'];
       this.listaRubros=res['listaRubros'];
       this.logo ="data:image/jpeg;base64,"+ res['imagenArchivo'];
+      this.reconocimientost=this.empresaModel.reconocimiento.split('\n');
+      this.logrost=this.empresaModel.logros.split('\n');
+      this.obejtivost=this.empresaModel.objetivo.split('\n');
+
+
+
+
 
       //console.log(this.listaAreasAccion);
       this.idRubro =  this.listaRubros.map(({ idRubro }) => idRubro);
