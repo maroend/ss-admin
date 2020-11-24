@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS } from "../../models/proyectos";
+import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS, PeriodosModel } from "../../models/proyectos";
 import { Empresa } from "../../models/empresa";
 import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
 import { UniversidadService } from '../../services/universidad.service';
+import { ConvocatoriaServices } from '../../services/convocatoria.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -33,11 +34,15 @@ export class ProyectosAddComponent implements OnInit {
   public proyectosCarreras: ProyectosCarreras[] = [];
   public ods: ODS[] = [];
   public universidades: Universidad[] = [];
+  public periodos: PeriodosModel[] = [];
   public estadosProyectos: EstadosProyectosModel[] = [];
  
   constructor(private proyectoService: ProyectoService,
     private organizacionService: OrganizationService,
-    private universidadService: UniversidadService, private router: Router, private _location: Location) {
+    private universidadService: UniversidadService,
+    private convocatoriaService: ConvocatoriaServices,
+    private router: Router,
+    private _location: Location) {
   }
 
   ngOnInit(): void {
@@ -47,6 +52,7 @@ export class ProyectosAddComponent implements OnInit {
     this.obtenerODS();
     this.obtenerUniversidades();
     this.obtenerEstadosProyectos();
+    this.obtenerPeriodos();
     this.proyectoModel.horas = 240;
   }
   ngAfterViewInit() {
@@ -73,6 +79,10 @@ export class ProyectosAddComponent implements OnInit {
       .subscribe((odss: ODS[]) => { this.ods = odss; });
   }
 
+  obtenerPeriodos() {
+    return this.convocatoriaService.getPeriodo()
+      .subscribe((periodos: PeriodosModel[]) => this.periodos = periodos);
+  }
   obtenerUniversidades() {
     return this.universidadService
       .getUniversidades()
@@ -258,6 +268,10 @@ export class ProyectosAddComponent implements OnInit {
     }
     else if (model.idObjetivoOnu == 0) {
       this.mensajevalidacion = "debe seleccionar el objetivos de la ONU"
+      $('#validacion').modal('show');
+    } 
+    else if (model.idUniversidad == 0) {
+      this.mensajevalidacion = "debe seleccionar un campus"
       $('#validacion').modal('show');
     } else {
 

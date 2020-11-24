@@ -31,7 +31,7 @@
 
   <div class="preview">
     <div class="intro-y mt-5">
-      <form class="p-5" (ngSubmit)="create()" #form="ngForm">
+      <form class="p-5" #form="ngForm">
         <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
         <div class="intro-y box mt-5">
           <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
@@ -420,7 +420,7 @@
           </div>
 
           <div class="mt-8 p-5">
-            <div class="sm:grid grid-cols-3 gap-2">
+            <div class="sm:grid grid-cols-2 gap-2">
 
               <div class="relative mt-2">
                 <div>
@@ -433,6 +433,17 @@
                 </div>
               </div>
 
+              <div class="relative mt-2">
+                <div>
+                  <label>
+                    Periodo
+                  </label>
+                  <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idPeriodo" [ngModelOptions]="{standalone: true}">
+                    <option [ngValue]="periodo.id" *ngFor="let periodo of periodos">{{periodo.periodo}} </option>
+                  </select>
+                </div>
+              </div>
+
             </div>
           </div>
           <br>
@@ -441,7 +452,7 @@
             <div class="sm:grid grid-cols-3 gap-2">
               <div class="relative mt-3">
                 <div>
-                  <label>Universidad:</label>
+                  <label>Campus:</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idUniversidad" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="universidad.id" *ngFor="let universidad of universidades">{{universidad.universidad}}</option>
                   </select>
