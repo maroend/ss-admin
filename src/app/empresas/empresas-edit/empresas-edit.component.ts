@@ -143,14 +143,30 @@ $('#abrirsubir').modal('hide');
 
 
   toggleArea(checked, id){
+ 
+    console.log(checked);
 var valor= { "idAreaAccion": id ,"activo": true};
 
-    var area = this.areas.find(x=>x.id===id);
-    if(checked) this.listaAreasAccion.push(valor);
-    else this.listaAreasAccion = this.listaAreasAccion.filter(item => item.idAreaAccion !== id);   
-    
+    if(checked) 
+    {
+      if (this.listaAreasAccion.length < 3) {
+
+    this.listaAreasAccion.push(valor);
+      }
+      else {
+        $("#area-" + id).prop("checked", false);
+        this.mensajevalidacion = "solo permite seleccionar como máximo 3 áreas de accion "
+        $('#validacion').modal('show');
+      }
+    }
+    else 
+    {
+      this.listaAreasAccion = this.listaAreasAccion.filter(item => item.idAreaAccion !== id);   
+    }
     console.log(this.listaAreasAccion);
+    
   }
+
   togleRubros(checked, id){
     console.log(checked);
 var valor= { "idRubro": id ,"activo": true};
@@ -184,7 +200,7 @@ var valor= { "idRubro": id ,"activo": true};
       this.cambio=res['externa'];
       var cp=res['cp'];
       this.obtenerdirecciones(cp);
-      console.log(this.cambio);
+      console.log(this.listaAreasAccion);
 
       this.externa();
 
@@ -268,7 +284,7 @@ if(this.responsablemodel.externa){
           }
 
 //responsable
-else if(this.responsablemodel.telefono.length>9){
+else if(this.responsablemodel.telefono.length<10){
   this.mensajevalidacion="Ingrese un telefono valido"
   $('#validacion').modal('show');
 } 
@@ -278,27 +294,7 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
 } 
 
 
-//maximo
-    else if(model.descripcion.length<500){
-      this.mensajevalidacion="El campo de descripcion debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.razon.length<500){
-      this.mensajevalidacion="El campo de Razón de ser debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.mision.length<500){
-      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.vision.length<500){
-      this.mensajevalidacion="El campo de Visión debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.mision.length<500){
-      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
+
 
           else if(model.nombreComun==""){
             this.mensajevalidacion="No puedes dejar el campo de Nombre Común de la Institución vacío"
@@ -415,19 +411,38 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
       
           } 
           
-          else if(this.listaAreasAccion.length==0){
-            this.mensajevalidacion="Debes selecciónar al menos una Area";
+          else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){
+            this.mensajevalidacion="Debes selecciónar al menos una Area y maximo 3"
             $('#validacion').modal('show');
       
           } 
+          //maximo
+    else if(model.descripcion.length>500){
+      this.mensajevalidacion="El campo de descripcion debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.razon.length>500){
+      this.mensajevalidacion="El campo de Razón de ser debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.mision.length>500){
+      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.vision.length>500){
+      this.mensajevalidacion="El campo de Visión debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
+    else if(model.mision.length>500){
+      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
+      $('#validacion').modal('show');
+    } 
           else{
       
     
     this.organizacionService.updateempresa(this.idobtenido,model).subscribe(() => {
           $('#success-modal-preview').modal('show');
-
-    this._location.back();
-
+this._location.back();
      
     })
   }
@@ -444,7 +459,7 @@ console.log(model);
         }
 
 //responsable
-else if(this.responsablemodel.telefono.length>9){
+else if(this.responsablemodel.telefono.length<10){
   this.mensajevalidacion="Ingrese un telefono valido"
   $('#validacion').modal('show');
 } 
@@ -500,10 +515,9 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
           $('#validacion').modal('show');
         }
      
-        else if(this.listaAreasAccion.length==0){
-          this.mensajevalidacion="Debes selecciónar al menos una Area"
+        else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){
+          this.mensajevalidacion="Debes selecciónar al menos una Area y maximo 3"
           $('#validacion').modal('show');
-    
         }else{
 
           console.log(model);
