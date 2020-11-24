@@ -105,7 +105,16 @@
               </div>
             </div>
 
-            <div routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+              <div class=" p-5">
+                <div class="text-base text-gray-600 mt-1">
+                  Plazas de Servicio Social disponibles para el proyecto
+                </div>
+                <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.plazas}}</div>
+              </div>
+            </div>
+
+            <div routerLink="/proyectos" class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
               <div class=" p-5">
                 <div class="text-base text-gray-600 mt-1">Descripciòn del proyecto:</div>
 
@@ -113,42 +122,33 @@
               </div>
             </div>
 
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
               <div class=" p-5">
                 <div class="text-base text-gray-600 mt-1">
-                  Objetivo:
-                  <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.objetivo}}</div>
+                  Objetivo del proyecto:
                 </div>
+                <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.objetivo}}</div>
               </div>
             </div>
 
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
               <div class=" p-5">
                 <div class="text-base text-gray-600 mt-1">
-                  Justifica el impacto social del proyecto:
-                  <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.justificacionImpactoSocial}}</div>
+                  Justificaciòn del impacto social del proyecto:
                 </div>
-              </div>
-            </div>
-
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-              <div class=" p-5">
-                <div class="text-base text-gray-600 mt-1">
-                  Plazas de Servicio Social disponibles para el proyecto.
-                  <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.plazas}}</div>
-                </div>
+                <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.justificacionImpactoSocial}}</div>
               </div>
             </div>
             <!--
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-              <div class=" p-5">
-                <div class="text-base text-gray-600 mt-1">
-                  Plazas de Servicio Social disponibles para el proyecto | Perfil de alumno de 240 hrs.
-                  <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.plazas240}}</div>
-                </div>
-              </div>
-            </div>
-            -->
+  <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+    <div class=" p-5">
+      <div class="text-base text-gray-600 mt-1">
+        Plazas de Servicio Social disponibles para el proyecto | Perfil de alumno de 240 hrs.
+        <div class="text-base font-bold leading-8 mt-6"> {{proyectoModel.plazas240}}</div>
+      </div>
+    </div>
+  </div>
+  -->
           </div>
 
         </div>
