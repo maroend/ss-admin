@@ -25,7 +25,7 @@ export class ProyectosAddComponent implements OnInit {
   public fechaMinima: Date = new Date(now.getFullYear(), now.getMonth(), now.getDate()+90);
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
-  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 0, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
+  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 1, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
 
   public validar = false;
   public organizaciones: Empresa[] = [];
@@ -208,16 +208,16 @@ export class ProyectosAddComponent implements OnInit {
       this.mensajevalidacion = "No puedes dejar el campo de telefono del responsable vacío"
       $('#validacion').modal('show');
     }
-    else if (model.justificacionImpactoSocial == "") {
-      this.mensajevalidacion = "No puedes dejar el campo de justificaciòn del impacto del servicio social vacío"
+    else if (model.plazas == 0) {
+      this.mensajevalidacion = "No puedes dejar el campo de plazas en 0"
       $('#validacion').modal('show');
     }
     else if (model.modalidadDistancia == "") {
       this.mensajevalidacion = "No puedes dejar el campo de modalidad a distancia vacío"
       $('#validacion').modal('show');
     }
-    else if (model.plazas == 0) {
-      this.mensajevalidacion = "No puedes dejar el campo de plazas en 0"
+    else if (model.justificacionImpactoSocial == "") {
+      this.mensajevalidacion = "No puedes dejar el campo de justificaciòn del impacto del servicio social vacío"
       $('#validacion').modal('show');
     }
     else if (model.objetivo == "") {
@@ -227,11 +227,11 @@ export class ProyectosAddComponent implements OnInit {
     else if (model.fechaInicio == "") {
       this.mensajevalidacion = "No puedes dejar el campo de fecha Inicio vacío"
       $('#validacion').modal('show');
-    }
+    }/*
     else if (model.fechaTermino == "") {
       this.mensajevalidacion = "No puedes dejar el campo de fecha Termino vacío"
       $('#validacion').modal('show');
-    }
+    }*/
     else if (model.capacitacion == "") {
       this.mensajevalidacion = "No puedes dejar el campo de capacitaciòn vacío"
       $('#validacion').modal('show');
@@ -248,12 +248,12 @@ export class ProyectosAddComponent implements OnInit {
       this.mensajevalidacion = "No puedes dejar el campo de rol del prestador vacío"
       $('#validacion').modal('show');
     }
-    else if (model.carrerasList.length == 0 && model.carrerasList.length < 8) {
-      this.mensajevalidacion = "debe seleccionar de 1 a  7 carreras"
-      $('#validacion').modal('show');
-    }
     else if (model.competenciasList.length == 0 && model.competenciasList.length < 6) {
       this.mensajevalidacion = "debe seleccionar de 1 a 5 competencias"
+      $('#validacion').modal('show');
+    }
+    else if (model.carrerasList.length == 0 && model.carrerasList.length < 8) {
+      this.mensajevalidacion = "debe seleccionar de 1 a  7 carreras"
       $('#validacion').modal('show');
     }
     else if (model.idObjetivoOnu == 0) {
