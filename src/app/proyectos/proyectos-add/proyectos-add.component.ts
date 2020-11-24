@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS } from "../../models/proyectos";
+import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS, PeriodosModel } from "../../models/proyectos";
 import { Empresa } from "../../models/empresa";
 import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
 import { UniversidadService } from '../../services/universidad.service';
+import { ConvocatoriaServices } from '../../services/convocatoria.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -25,7 +26,7 @@ export class ProyectosAddComponent implements OnInit {
   public fechaMinima: Date = new Date(now.getFullYear(), now.getMonth(), now.getDate()+90);
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
-  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 0, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
+  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 1, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
 
   public validar = false;
   public organizaciones: Empresa[] = [];
@@ -33,11 +34,15 @@ export class ProyectosAddComponent implements OnInit {
   public proyectosCarreras: ProyectosCarreras[] = [];
   public ods: ODS[] = [];
   public universidades: Universidad[] = [];
+  public periodos: PeriodosModel[] = [];
   public estadosProyectos: EstadosProyectosModel[] = [];
  
   constructor(private proyectoService: ProyectoService,
     private organizacionService: OrganizationService,
-    private universidadService: UniversidadService, private router: Router, private _location: Location) {
+    private universidadService: UniversidadService,
+    private convocatoriaService: ConvocatoriaServices,
+    private router: Router,
+    private _location: Location) {
   }
 
   ngOnInit(): void {
@@ -47,6 +52,7 @@ export class ProyectosAddComponent implements OnInit {
     this.obtenerODS();
     this.obtenerUniversidades();
     this.obtenerEstadosProyectos();
+    this.obtenerPeriodos();
     this.proyectoModel.horas = 240;
   }
   ngAfterViewInit() {
@@ -73,6 +79,10 @@ export class ProyectosAddComponent implements OnInit {
       .subscribe((odss: ODS[]) => { this.ods = odss; });
   }
 
+  obtenerPeriodos() {
+    return this.convocatoriaService.getPeriodo()
+      .subscribe((periodos: PeriodosModel[]) => this.periodos = periodos);
+  }
   obtenerUniversidades() {
     return this.universidadService
       .getUniversidades()
@@ -200,24 +210,24 @@ export class ProyectosAddComponent implements OnInit {
       this.mensajevalidacion = "No puedes dejar el campo de area del responsable vacío"
       $('#validacion').modal('show');
     }
-    else if (model.correoResponsable == "") {
-      this.mensajevalidacion = "No puedes dejar el campo de correo del responsable vacío"
+    else if (!this.validarEmail(model.correoResponsable)) {
+      this.mensajevalidacion = "Ingrese un correo valido"
       $('#validacion').modal('show');
     }
     else if (model.telefono == "") {
       this.mensajevalidacion = "No puedes dejar el campo de telefono del responsable vacío"
       $('#validacion').modal('show');
     }
-    else if (model.justificacionImpactoSocial == "") {
-      this.mensajevalidacion = "No puedes dejar el campo de justificaciòn del impacto del servicio social vacío"
+    else if (model.plazas == 0) {
+      this.mensajevalidacion = "No puedes dejar el campo de plazas en 0"
       $('#validacion').modal('show');
     }
     else if (model.modalidadDistancia == "") {
       this.mensajevalidacion = "No puedes dejar el campo de modalidad a distancia vacío"
       $('#validacion').modal('show');
     }
-    else if (model.plazas == 0) {
-      this.mensajevalidacion = "No puedes dejar el campo de plazas en 0"
+    else if (model.justificacionImpactoSocial == "") {
+      this.mensajevalidacion = "No puedes dejar el campo de justificaciòn del impacto del servicio social vacío"
       $('#validacion').modal('show');
     }
     else if (model.objetivo == "") {
@@ -227,11 +237,11 @@ export class ProyectosAddComponent implements OnInit {
     else if (model.fechaInicio == "") {
       this.mensajevalidacion = "No puedes dejar el campo de fecha Inicio vacío"
       $('#validacion').modal('show');
-    }
+    }/*
     else if (model.fechaTermino == "") {
       this.mensajevalidacion = "No puedes dejar el campo de fecha Termino vacío"
       $('#validacion').modal('show');
-    }
+    }*/
     else if (model.capacitacion == "") {
       this.mensajevalidacion = "No puedes dejar el campo de capacitaciòn vacío"
       $('#validacion').modal('show');
@@ -248,16 +258,20 @@ export class ProyectosAddComponent implements OnInit {
       this.mensajevalidacion = "No puedes dejar el campo de rol del prestador vacío"
       $('#validacion').modal('show');
     }
-    else if (model.carrerasList.length == 0 && model.carrerasList.length < 8) {
-      this.mensajevalidacion = "debe seleccionar de 1 a  7 carreras"
-      $('#validacion').modal('show');
-    }
     else if (model.competenciasList.length == 0 && model.competenciasList.length < 6) {
       this.mensajevalidacion = "debe seleccionar de 1 a 5 competencias"
       $('#validacion').modal('show');
     }
+    else if (model.carrerasList.length == 0 && model.carrerasList.length < 8) {
+      this.mensajevalidacion = "debe seleccionar de 1 a  7 carreras"
+      $('#validacion').modal('show');
+    }
     else if (model.idObjetivoOnu == 0) {
       this.mensajevalidacion = "debe seleccionar el objetivos de la ONU"
+      $('#validacion').modal('show');
+    } 
+    else if (model.idUniversidad == 0) {
+      this.mensajevalidacion = "debe seleccionar un campus"
       $('#validacion').modal('show');
     } else {
 
@@ -280,6 +294,17 @@ export class ProyectosAddComponent implements OnInit {
       this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 90);
     } else {
       this.fechaMinima = new Date(dia.getFullYear(), dia.getMonth(), dia.getDate() + 190);
+    }
+  }
+
+
+  validarEmail(valor) {
+    var caract = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+
+    if (caract.test(valor) == false) {
+      return false
+    } else {
+      return true;
     }
   }
 
