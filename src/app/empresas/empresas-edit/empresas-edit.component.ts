@@ -587,6 +587,11 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
         const myObj3 = {}
         const myObj4 = {}
         const myObj5 = {}
+        this.empresaModel.colonia= listacoloniast[0];
+        this.empresaModel.municipio= listamunicipiost[0];
+        this.empresaModel.estado= listaestadost[0];
+        this.empresaModel.ciudad= listaciudadt[0];
+        this.empresaModel.pais= listapaist[0];
 
 listapaist.forEach(el => {
           // comprobamos si el valor existe en el objeto

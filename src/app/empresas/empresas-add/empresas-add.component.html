@@ -119,7 +119,7 @@
                         <div class="sm:grid grid-cols-2 gap-2">
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Nombre Oficial de la Institución:</label>
+                                    <label>Nombre Oficial de la Institución*</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Como aparece en el Acta Constitutiva" [(ngModel)]="empresaModel.organizacion" [ngModelOptions]="{standalone: true}" required>
 
                                 </div>
@@ -127,7 +127,7 @@
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Nombre Común de la Institución:</label>
+                                    <label>Nombre Común de la Institución*</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Escribir el nombre con el que es comúnmente conocida la Institución" [(ngModel)]="empresaModel.nombreComun" [ngModelOptions]="{standalone: true}" required>
                                 </div>
                             </div>
@@ -135,101 +135,107 @@
                         </div>
                     </div>
                     <br>
+                        <div class="mt-3">
+                            <div class="sm:grid grid-cols-1 gap-2">
+                                <div class="relative mt-2">
+                                    <div>
+                                        <label>Descripción introductoria de la Institución*</label>
+                                        <textarea type="text" class="input  w-full border mt-2 " rows="3" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.descripcion" [ngModelOptions]="{standalone: true}" required></textarea>
+                                    </div>
+    
+                                </div>
+                           
+                            </div>
+                        </div>
+                        <br>
+                      
                     <div class="mt-3">
-                        <div class="sm:grid grid-cols-1 gap-2">
-                            <div class="relative mt-2">
-                                <div>
-                                    <label>Descripción introductoria de la Institución*</label>
-                                    <textarea type="text" class="input  w-full border mt-2 " rows="3" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.descripcion" [ngModelOptions]="{standalone: true}" required></textarea>
+                        <div class="sm:grid grid-cols-2 gap-2">
+                          
+                                 <div class="relative mt-2">
+                                    <div>
+                                        <label>Años de Antigüedad de la Institución*</label>
+                                        <input type="number" ng-value="0" class="input  w-full border mt-2 " rows="3" placeholder="¿Cuántos años lleva en pie la organización desde su fundación?" [(ngModel)]="empresaModel.antiguedad" [ngModelOptions]="{standalone: true}" required>
+                                    </div>
+    
+                                </div>
+                                <div class="relative mt-2">
+                                    <div>
+                                        <label>¿Cuál es la razón de ser de la Institución?*</label>
+                                        <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Responda en función al principal propósito de la Institución | Máximo 500 caracteres" [(ngModel)]="empresaModel.razon" [ngModelOptions]="{standalone: true}" required></textarea>
+    
+                                    </div>
+    
                                 </div>
 
+                          
                             </div>
-                       
                         </div>
-                    </div>
+                        <br>
+                        <div class="mt-3">
+                            <div class="sm:grid grid-cols-2 gap-2">
+                                <div class="relative mt-2">
+                                    <div>
+                                        <label>Visión*</label>
+                                        <textarea type="text"  maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.vision" [ngModelOptions]="{standalone: true}" required></textarea>
+                               </div>
+                                </div>
+                                <div class="relative mt-2">
+                                    <div>
+                                        <label>Misión*</label>
+                                        <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.mision" [ngModelOptions]="{standalone: true}" required></textarea>
+                               </div>
+                                </div>
+                         
+                            </div>
+                        </div>
                     <br>
+                    <div class="mt-3">
+                        <div class="sm:grid grid-cols-3 gap-2">
+  
+  
+                          <div class="relative mt-2">
+                            <div>
+                              <label>Principales Objetivos*</label>
+                              <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlistarlos en orden de prioridad / Máximo 7" [(ngModel)]="empresaModel.objetivo" [ngModelOptions]="{standalone: true}" required></textarea>
+                            </div>
+                          </div>
+  
+                          <div class="relative mt-2">
+                            <div>
+  
+                              <div>
+                                <label>Enumere los Principales Logros de la Institución* </label>
+                                <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.logros" [ngModelOptions]="{standalone: true}" required></textarea>
+  
+                              </div>
+  
+                            </div>
+                          </div>
+     
+                          <div class="relative mt-2">
+                            <div>
+                              <label>Enumere los Reconocimientos y Certificaciones con los que cuenta la Institución*</label>
+                              <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.reconocimiento" [ngModelOptions]="{standalone: true}" required></textarea>
+  
+                            </div>
+  
+                          </div>
+  
+  
+                        </div>
+                      </div>
+
+
+
+                    <br>
+
+
                     <div class="mt-3">
                         <div class="sm:grid grid-cols-2 gap-2">
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Años de Antigüedad de la Institución*</label>
-                                    <input type="number" ng-value="0" class="input  w-full border mt-2 " rows="3" placeholder="¿Cuántos años lleva en pie la organización desde su fundación?" [(ngModel)]="empresaModel.antiguedad" [ngModelOptions]="{standalone: true}" required>
-                                </div>
-
-                            </div>
-                            <div class="relative mt-2">
-                                <div>
-                                    <label>¿Cuál es la razón de ser de la Institución?*</label>
-                                    <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Responda en función al principal propósito de la Institución | Máximo 500 caracteres" [(ngModel)]="empresaModel.razon" [ngModelOptions]="{standalone: true}" required></textarea>
-
-                                </div>
-
-                            </div>
-
-                      
-                        </div>
-                    </div>
-                    <br>
-                <div class="mt-3">
-                    <div class="sm:grid grid-cols-2 gap-2">
-                        <div class="relative mt-2">
-                            <div>
-                                <label>Visión:</label>
-                                <textarea type="text"  maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.vision" [ngModelOptions]="{standalone: true}" required></textarea>
-                       </div>
-                        </div>
-                        <div class="relative mt-2">
-                            <div>
-                                <label>Misión:</label>
-                                <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.mision" [ngModelOptions]="{standalone: true}" required></textarea>
-                       </div>
-                        </div>
-                 
-                    </div>
-                </div>
-                <br>
-
-                    <div class="mt-3">
-                      <div class="sm:grid grid-cols-3 gap-2">
-
-                        <div class="relative mt-2">
-                          <div>
-                            <label>Principales Objetivos:</label>
-                            <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlistarlos en orden de prioridad / Máximo 7" [(ngModel)]="empresaModel.objetivo" [ngModelOptions]="{standalone: true}" required></textarea>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-2">
-                            <div>
-                              <label>Enumere los Principales Logros de la Institución </label>
-                              <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.logros" [ngModelOptions]="{standalone: true}" required></textarea>
-
-                            </div>
-                        </div>
-
-                        <div class="relative mt-2">
-                          <div>
-                            <label>Enumere los Reconocimientos y Certificaciones con los que cuenta la Institución:</label>
-                            <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.reconocimiento" [ngModelOptions]="{standalone: true}" required></textarea>
-
-                          </div>
-
-                        </div>
-
-
-                      </div>
-                    </div>
-
-
-
-                    <br>
-
-
-                    <div class="mt-3">
-                        <div class="sm:grid grid-cols-3 gap-2">
-                            <div class="relative mt-2">
-                                <div>
-                                    <label>Tipo de Organización:</label>
+                                    <label>Tipo de Organización*</label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.idTipoOrganizacion" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="ti.id" *ngFor="let ti of tipo">{{ti.tipo}} </option>
 
@@ -237,10 +243,19 @@
                   </select>
                                 </div>
                             </div>
-
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Giro:</label>
+                                    <label>¿La Institución pertenece a la Legión de Cristo?*</label>
+                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.legionario" [ngModelOptions]="{standalone: true}"  >
+                                        <option [ngValue]="true">Si </option>
+
+                                        <option [ngValue]="false">No </option>
+                                                                        </select>                                </div>
+
+                            </div>
+                            <!-- <div class="relative mt-2">
+                                <div>
+                                    <label>Giro*</label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.idGiroOrganizacion" [ngModelOptions]="{standalone: true}">
             <option [ngValue]="gi.id" *ngFor="let gi of giro">{{gi.giro}} </option>
 
@@ -254,7 +269,7 @@
                                 <div>
 
                                     <div>
-                                        <label>Clacificación:</label>
+                                        <label>Clacificación*</label>
                                         <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.idClasificacionOrganizacion" [ngModelOptions]="{standalone: true}">
               <option [ngValue]="cl.id" *ngFor="let cl of clasificacion">{{cl.clasificacion}}</option>
 
@@ -264,7 +279,7 @@
 
                                 </div>
                             </div>
-                       
+                        -->
                         </div>
                     </div>
 
@@ -512,7 +527,7 @@
                     <br>
 
                     <div class="mt-3">
-                        <div class="sm:grid grid-cols-2 gap-2">
+                        <div class="sm:grid grid-cols-1 gap-2">
                             <div class="relative mt-2">
                                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                                     <h2 class="font-medium text-base mr-auto">
@@ -536,29 +551,7 @@
 
                             </div>
                      
-                            <div class="relative mt-2">
-
-                                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                                    <h2 class="font-medium text-base mr-auto">
-                                        5. Rubro
-                                    </h2>
-                                </div>
-
-
-                                <div class="well">
-                                    <table style="padding: 15px; margin-left: 25px;">
-                                        <tbody>
-                                            <tr *ngFor="let rubro of rubros">
-
-                                                <td style="padding:5px;"> <input type="checkbox" id="{{rubro.id}}" (change)="togleRubros($event.target.checked, rubro.id)"></td>
-                                                <td>{{rubro.rubro}}</td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                            </div>
+                 
                         </div>
                     </div>
 
@@ -596,11 +589,10 @@
                     </select>
                                 </div>
                             </div>
-
                             <div class="relative mt-2">
                                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                                     <h2 class="font-medium text-base mr-auto">
-                                        8. Número de personas que atienden
+                                        Número de personas que atienden
                                     </h2>
                                 </div>
 
@@ -609,12 +601,12 @@
                                 <div class="flex flex-col sm:flex-row items-center mt-3">
                                     <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.ancianos" [ngModelOptions]="{standalone: true}">
 
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Ancianos.</label>
+                                    <label class="sm:w-32 sm:text-right sm:mr-5">Personas de la tercera edad.</label>
                                 </div>
                                 <div class="flex flex-col sm:flex-row items-center mt-3">
                                     <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.discapacitados" [ngModelOptions]="{standalone: true}">
 
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Discapacitados. </label>
+                                    <label class="sm:w-32 sm:text-right sm:mr-5">Personas con discapacidad. </label>
                                 </div>
                                 <div class="flex flex-col sm:flex-row items-center mt-3">
                                     <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.indigenas" [ngModelOptions]="{standalone: true}">
