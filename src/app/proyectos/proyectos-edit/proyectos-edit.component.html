@@ -242,6 +242,10 @@
                     <option [ngValue]="'si'">Si</option>
                     <option [ngValue]="'no'">No</option>
                   </select>
+                  <label *ngIf="proyectoModel.capacitacion=='si'">¿Que tipo de capacitacòn se ofrece?</label>
+                  <label *ngIf="proyectoModel.capacitacion=='no'">¿Razòn por la que no ofrece capacitaciòn?</label>
+                  <textarea type="text" class="input   w-full border mt-2 " placeholder="Máximo 500 caracteres" [(ngModel)]="proyectoModel.razonCapacitacion" [ngModelOptions]="{standalone: true}" maxlength="500" rows="7" required>
+                  </textarea>
                 </div>
               </div>
 

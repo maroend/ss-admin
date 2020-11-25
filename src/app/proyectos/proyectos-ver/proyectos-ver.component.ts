@@ -37,6 +37,8 @@ export class ProyectosVerComponent implements OnInit {
   public estadoalumnocambio: Estadosalumnoscambio = new Estadosalumnoscambio();
 
   public idalum: number;
+  public noHorasCambiar: number=0;
+
 
   //public alumno: Alumnos[] = [];
 
@@ -144,6 +146,13 @@ export class ProyectosVerComponent implements OnInit {
     
       }
 
+  mostareditarlumnohoras(id,horas) {
+    this.idalum = Number(id);
+    this.noHorasCambiar = Number(horas);
+    console.log(horas);
+    $('#mostareditaralumnohoras-'+this.idalum).modal('show');
+  }
+
   actualizarestado() {
 
     this.estadoact.idProyecto = Number(this.proyectoModel.id);
@@ -192,4 +201,18 @@ console.log(this.estadoalumnocambio);
     })
 
   }
+
+  cambiarhorasalumno() {
+    
+    //console.log(this.noHorasCambiar);
+
+    this.proyectoService.updateHorasACuplirEnProyectoAlumno(this.idalum, this.proyectoModel.id, this.noHorasCambiar).subscribe((res) => {
+      if (res) {
+        $('#success-modal-Actualiza-Alumno').modal('show');
+        location.reload();
+      }
+    })
+
+  }
+
 }
