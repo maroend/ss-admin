@@ -38,7 +38,7 @@ public validar=false;
   public listaAreasAccion = [];
   public listaRubros = [];
   public clasificacion: ClasificacionEmpresa[] = [];
-  public empresaModel = new Empresa("","","","",1,1,1,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,1,0,undefined,undefined,undefined,"")
+  public empresaModel = new Empresa(0,"","","","","","","",1,1,1,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,0,0,undefined,undefined,undefined)
 public mensajevalidacion="";
   public contactos = [];
   checkmodel = new check("false","false")
@@ -72,6 +72,7 @@ public fileToUpload: File = null;
 this.externa();
 
   }
+
   toggleArea(checked, id){
  
     console.log(checked);
@@ -79,6 +80,10 @@ var valor= { "idAreaAccion": id ,"activo": true};
 
     if(checked) 
     {
+      if(id==13){
+
+        $("#areatext").prop("disabled", false);
+      }
       if (this.listaAreasAccion.length < 3) {
 
     this.listaAreasAccion.push(valor);
@@ -91,11 +96,20 @@ var valor= { "idAreaAccion": id ,"activo": true};
     }
     else 
     {
+      if(id==13){
+
+        $("#areatext").prop("disabled", true);
+        $("#areatext").val("");
+
+      }
+
       this.listaAreasAccion = this.listaAreasAccion.filter(item => item.idAreaAccion !== id);   
     }
     console.log(this.listaAreasAccion);
     
   }
+
+
   togleRubros(checked, id){
     console.log(checked);
 var valor= { "idRubro": id ,"activo": true};
@@ -152,6 +166,11 @@ if(checked) this.listaRubros.push(valor);
         const myObj3 = {}
         const myObj4 = {}
         const myObj5 = {}
+        this.empresaModel.colonia= listacoloniast[0];
+        this.empresaModel.municipio= listamunicipiost[0];
+        this.empresaModel.estado= listaestadost[0];
+        this.empresaModel.ciudad= listaciudadt[0];
+        this.empresaModel.pais= listapaist[0];
 
 listapaist.forEach(el => {
           // comprobamos si el valor existe en el objeto

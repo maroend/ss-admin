@@ -36,25 +36,36 @@
             Información General
         </h2>
     </div>
+ 
     <div class="box ">
+        <br>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <a *ngIf="empresaModel.idEstadoOrganizacion<3" style="margin-left: auto;" class="button text-white bg-theme-12 shadow-md mr-2">Estado: {{empresaModel.estadoOrganizacion}}</a>
+            <a *ngIf="empresaModel.idEstadoOrganizacion==3" style="margin-left: auto;" class="button text-white bg-theme-9 shadow-md mr-2">Estado: {{empresaModel.estadoOrganizacion}}</a>
+            <a *ngIf="empresaModel.idEstadoOrganizacion==4" style="margin-left: auto;" class="button text-white bg-theme-6 shadow-md mr-2">Estado: {{empresaModel.estadoOrganizacion}}</a>
+
+        </div>
         <br>
         <div class="flex flex-1 px-5 items-center justify-center " align="center">
             <div class="w-0 h-20 sm:w-24 sm:h-24 flex-none lg:w-48 lg:h-48 image-fit relative">
                 <img alt="Midone Tailwind HTML Admin Template" id="blah" class="rounded-full" src="{{logo}}">
             </div>
+           
+
         </div>
-        
+     
         <div class="grid grid-cols-12 gap-6 mt-5">
+            
             <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
                 <div class=" p-5">
-                    <div class="text-base text-center text-gray-600 mt-1" align="center">Nombre Oficial de la Institución:</div>
+                    <div class="text-base text-center text-gray-600 mt-1" align="center">Nombre Oficial de la Institución (denominación o razón social):</div>
 
                     <div class="text-base font-bold leading-8 mt-6" align="center"> {{empresaModel.organizacion}} </div>
                 </div>
             </div>
             <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
                 <div class=" p-5">
-                    <div class="text-base text-center text-gray-600 mt-1" align="center">Nombre Común de la Institución:</div>
+                    <div class="text-base text-center text-gray-600 mt-1" align="center">Nombre Común de la Institución (nombre comercial):</div>
 
                     <div class="text-base font-bold leading-8 mt-6" align="center"> {{empresaModel.nombreComun}} </div>
                 </div>
@@ -62,16 +73,16 @@
 
         </div>
         <div class="grid grid-cols-12 gap-12 mt-5">
-            <div class="col-span-12 sm:col-span-12 xl:col-span-8 intro-y">
+            <div class="col-span-12 sm:col-span-8 xl:col-span-12 intro-y">
                 <div class=" p-5">
-                    <div class="text-base  text-gray-600 mt-1" >Descripción introductoria de la Institución:</div>
+                    <div class="text-base  text-gray-600 mt-1" >Descripción introductoria de la Institución (Objeto o Finalidad de la Institución):</div>
 
                     <div class="text-base font-bold leading-8 mt-6" > {{empresaModel.descripcion}} </div>
                
                 </div>
             </div>
 
-        
+      
 
         </div>
 
@@ -86,7 +97,7 @@
         <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
             <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
                 <div class="p-5">
-                    <div class="text-base text-gray-600 mt-1">Nombre del Director de la Institución:</div>
+                    <div class="text-base text-gray-600 mt-1">Nombre del Titular o Director de la Institución:</div>
 
                     <div class="text-base font-bold leading-8 mt-6"> {{responsablemodel.nombreCompletoDirector}} </div>
                 </div>
@@ -177,7 +188,7 @@
 <br>
 <div class="grid grid-cols-12 gap-4 mt-5">
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+    <div class="col-span-12 sm:col-span-4 xl:col-span- intro-y">
         <div class=" p-5">
             <div class="text-base text-gray-600 mt-1">
                 Años de antiguedad
@@ -186,7 +197,7 @@
             </div>
         </div>
     </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+    <div class="col-span-12 sm:col-span-8 xl:col-span-8 intro-y">
 
         <div class=" p-5">
             <div class="text-base text-gray-600 mt-1">¿Cuál es la razón de ser de la Institución?</div>
@@ -221,8 +232,8 @@
 
 </div>
 <br>
-<div class="grid grid-cols-12 gap-4 mt-5">
-                <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+<div class="grid grid-cols-12 gap-12 mt-5">
+                <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
 
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Principales objetivos</div>
@@ -235,7 +246,7 @@
                     </div>                </div>
             </div>
 
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Reconocimientos y Certificaciones con los que cuenta la Institución: </div>
 
@@ -249,7 +260,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+ 
+        </div>
+
+   <br>
+
+   <br>
+        <div class="grid grid-cols-12 gap-12 mt-5">
+
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Principales Logros de la Institución: </div>
 
@@ -264,11 +283,7 @@
                 
                 </div>
             </div>
-        </div>
-
-   <br>
-        <div class="grid grid-cols-12 gap-6 mt-5">
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Legionario</div>
                     <div class="text-base font-bold leading-8 mt-6">
@@ -279,7 +294,7 @@
             </div>
 
 
-            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <!-- <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">
                         <div class="col-xs-1-12">
@@ -305,22 +320,25 @@
                         </h1>
                     </div>
                 </div>
-            </div>
+            </div> -->
  
         </div>
 
 <br>
 
-<br>
 
-<div class="grid grid-cols-12 gap-6 mt-5">
-    <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-center text-gray-600 mt-1" align="center">Redes Sociales</div>
-        </div>
-    </div>
+
 
 </div>
+
+<br>
+<br>
+<div class="intro-y flex items-center h-10">
+    <h2 class="text-lg font-medium truncate mr-5">
+        Redes Sociales
+    </h2>
+</div>
+<div class="box ">    
 <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
         <div class=" p-5">
@@ -513,7 +531,10 @@ Facebook
 
                     <div class="text-base font-bold leading-8 mt-6">
                         <h1 *ngFor="let a of areas">
-                            <p *ngIf="idAreaAccion!=undefined && idAreaAccion.indexOf(a.id) >=0">{{a.areaAccion}}</p>
+                            <p *ngIf="idAreaAccion!=undefined && idAreaAccion.indexOf(a.id) >=0 && a.id<13">{{a.areaAccion}}</p>
+                            
+                            <p *ngIf="idAreaAccion!=undefined && idAreaAccion.indexOf(a.id) >=0 && a.id==13">{{empresaModel.areaOtro}}</p>
+
                         </h1>
 
                     </div>
@@ -526,35 +547,6 @@ Facebook
     <br>
     <br>
  
-
-
-    <div class="intro-y flex items-center h-10">
-        <h2 class="text-lg font-medium truncate mr-5">
-            Rubro
-        </h2>
-    </div>
-    <div class="grid grid-cols-12 gap-6 mt-5">
-        <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
-            <div class="report-box ">
-                <div class="box p-5">
-
-                    <div class="text-base font-bold leading-8 mt-6">
-                        <h1 *ngFor="let a of rubros">
-                            <p *ngIf="idRubro!=undefined && idRubro.indexOf(a.id) >=0">{{a.rubro}}</p>
-                        </h1>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <br>
-    <br>
-
-
-
 
     <div class="intro-y flex items-center h-10">
         <h2 class="text-lg font-medium truncate mr-5">
@@ -832,70 +824,77 @@ Facebook
 </div>
 
 <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
-    <div class="col-span-12 sm:col-span-6 xl:col-span-2 intro-y">
+    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
         <div class="report-box ">
             <div class="box p-5">
 
-                <div class="text-base font-bold leading-8 mt-6"> Ancianos : {{empresaModel.ancianos}} </div>
+                <div class="text-base font-bold leading-8 mt-6"> Personas de la tercera edad : <br> {{empresaModel.ancianos}} </div>
             </div>
         </div>
     </div>
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-2 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
-
-                <div class="text-base font-bold leading-8 mt-6">
-                    Indígenas : {{empresaModel.indigenas}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-2 intro-y">
+    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
         <div class="report-box ">
             <div class="box p-5">
 
                 <div class="text-base font-bold leading-8 mt-6">
-                    Discapacitados : {{empresaModel.discapacitados}}
+                  Pueblos Indígenas : <br> {{empresaModel.indigenas}}
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-2 intro-y">
+    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
         <div class="report-box ">
             <div class="box p-5">
 
                 <div class="text-base font-bold leading-8 mt-6">
-                    Jóvenes : {{empresaModel.jovenes}}
+                    Personas con discapacidad : <br> {{empresaModel.discapacitados}}
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-2 intro-y">
+    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
         <div class="report-box ">
             <div class="box p-5">
 
                 <div class="text-base font-bold leading-8 mt-6">
-                    Mujeres : {{empresaModel.mujeres}}
+                    Jóvenes : <br> {{empresaModel.jovenes}}
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-2 intro-y">
+    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="report-box ">
             <div class="box p-5">
 
                 <div class="text-base font-bold leading-8 mt-6">
-                    Niños : {{empresaModel.ninos}}
+                    Mujeres : <br> {{empresaModel.mujeres}}
                 </div>
             </div>
         </div>
     </div>
+    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="report-box ">
+            <div class="box p-5">
 
+                <div class="text-base font-bold leading-8 mt-6">
+                    Niños : <br>{{empresaModel.ninos}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="report-box ">
+            <div class="box p-5">
+
+                <div class="text-base font-bold leading-8 mt-6">
+                    {{empresaModel.atiendeOtro}} : <br> {{empresaModel.noAtiendeOtro}}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <br><br>
-
 
 </div>
 

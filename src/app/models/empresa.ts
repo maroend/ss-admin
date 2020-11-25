@@ -19,37 +19,42 @@ export class vicerrectorias {
     constructor(
     ) { }
   }
-export class Empresa {
+  export class Empresa {
     constructor(
+      public noAtiendeOtro:number,
+      public areaOtro:string,
+      public atiendeOtro:string,
+  
+      public vision:string,
         public descripcionArea:string,
-
+  
         public vicerrectoria:string,
         public direccion:string,
         public cordinacion:string,
         public idCordinacion:number,
         public idDireccion:number,
         public idVicerrectoria:number,
-
-
+  
+  
         public IdResponsable: number,
-
+  
         public ImagenArchivo: string,
         public Imagen: string,
-
+  
         public facebook: string,
         public instagram: string,
         public youtube: string,
         public tiktok: string,
-
+  
         public antiguedad: number,
-
+  
         public estadoOrganizacion: string,
         public universidad:  string,
         public organizacion: string,
         public nombreComun: string,
         public razon: string,
         public reconocimiento: string,
-
+  
         public mision: string,
         public objetivo: string,
         public logros: string,
@@ -78,27 +83,27 @@ export class Empresa {
         public jovenes: number,
         public mujeres: number,
         public ninos: number,
-
+  
         public ancianos: number,
         public discapacitados: number,
   public listaAreasAccion:any,
   public listaRubros: any,
-  public Responsable:any,
-  public vision:string
-//   { "nombre": "" ,"apellidos": "","genero": "",
-//   "puesto": "","departamento": "",  "disponible": false,"usuario": "","contrasena": true ,
-//   "telefono": "",  "correo": false,"id": 0,"activo": true,"fechaCreacion":"" }
-
+  public Responsable:any
   
-
-
+  //   { "nombre": "" ,"apellidos": "","genero": "",
+  //   "puesto": "","departamento": "",  "disponible": false,"usuario": "","contrasena": true ,
+  //   "telefono": "",  "correo": false,"id": 0,"activo": true,"fechaCreacion":"" }
+  
+  
+  
+  
   
     ) { }
-
-
+  
+  
     
-
-}
+  
+  }
 export class estadoActualizar {
     constructor(
         public idEstado: number,

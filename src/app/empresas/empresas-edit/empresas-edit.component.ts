@@ -56,7 +56,7 @@ public validar=false;
 
   public responsablemodel = new Responsablemodel("","","","","","","","",true,false)
   checkmodel = new check("false","false")
-  public empresaModel = new Empresa("","","","",0,0,0,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,1,0,undefined,undefined,undefined,"")
+  public empresaModel = new Empresa(0,"","","","","","","",0,0,0,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,1,0,undefined,undefined,undefined)
 
 
   constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute,private _location: Location) { 
@@ -142,6 +142,7 @@ $('#abrirsubir').modal('hide');
 
 
 
+
   toggleArea(checked, id){
  
     console.log(checked);
@@ -149,6 +150,10 @@ var valor= { "idAreaAccion": id ,"activo": true};
 
     if(checked) 
     {
+      if(id==13){
+
+        $("#areatext").prop("disabled", false);
+      }
       if (this.listaAreasAccion.length < 3) {
 
     this.listaAreasAccion.push(valor);
@@ -161,11 +166,22 @@ var valor= { "idAreaAccion": id ,"activo": true};
     }
     else 
     {
+      if(id==13){
+
+        $("#areatext").prop("disabled", true);
+        $("#areatext").val("");
+
+      }
+
       this.listaAreasAccion = this.listaAreasAccion.filter(item => item.idAreaAccion !== id);   
     }
     console.log(this.listaAreasAccion);
     
   }
+      
+
+
+
 
   togleRubros(checked, id){
     console.log(checked);
@@ -587,6 +603,11 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
         const myObj3 = {}
         const myObj4 = {}
         const myObj5 = {}
+        this.empresaModel.colonia= listacoloniast[0];
+        this.empresaModel.municipio= listamunicipiost[0];
+        this.empresaModel.estado= listaestadost[0];
+        this.empresaModel.ciudad= listaciudadt[0];
+        this.empresaModel.pais= listapaist[0];
 
 listapaist.forEach(el => {
           // comprobamos si el valor existe en el objeto
