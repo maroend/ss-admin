@@ -65,7 +65,7 @@ public validar=false;
 
   public responsablemodel = new Responsablemodel("","","","","","","","",true,false)
   checkmodel = new check("false","false")
-  public empresaModel = new Empresa("","","","",1,1,1,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,1,0,undefined,undefined,undefined,"")
+  public empresaModel = new Empresa(0,"","","","","","","",0,0,0,0,"","","","","","",0,"","","","","","","","","","","","","","","","","","","","",true,0,"",0,false,1,1,1,1,1,0,0,0,0,1,0,undefined,undefined,undefined)
 
   constructor(private organizacionService: OrganizationService,private router: Router,private activatedRoute: ActivatedRoute) { 
   
