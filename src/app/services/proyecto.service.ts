@@ -102,6 +102,9 @@ export class ProyectoService {
     return this.http.get(`${this.api}/AlumnosProyectosAsignados/getByIdProyecto?idProyecto=${idProyecto}`);
   }
 
+  updateHorasACuplirEnProyectoAlumno(idAlumno: string | number, idProyecto: string | number, horas: string | number) {
+    return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaNoHorasACumplirAlumnoByIdProyectoAndIdAlumno?idAlumno=${idAlumno}&idProyecto=${idProyecto}&horas=${horas}`, { withCredentials: false });
+  }
   getPerfilesActividades() {
     const uri = `${this.api}/PerfilesActividades
     `;

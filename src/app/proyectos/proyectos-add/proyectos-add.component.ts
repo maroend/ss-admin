@@ -27,7 +27,6 @@ export class ProyectosAddComponent implements OnInit {
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
   public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 1, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
-
   public validar = false;
   public organizaciones: Empresa[] = [];
   public proyectosCompetencias: ProyectosCompetencias[] = [];
@@ -54,6 +53,8 @@ export class ProyectosAddComponent implements OnInit {
     this.obtenerEstadosProyectos();
     this.obtenerPeriodos();
     this.proyectoModel.horas = 240;
+    this.proyectoModel.capacitacion = "si"
+
   }
   ngAfterViewInit() {
     Feather.replace();

@@ -45,6 +45,7 @@ export class Proyecto {
     public competenciasList?: Array<ProyectosCompetencias>,
     public carrerasList?: Array<ProyectosCarreras>,
     public horas?:number,
+    public razonCapacitacion?:string,
 
   ) { }
 
@@ -256,6 +257,7 @@ export class AlumnosProyectosAsignadosModel{
   public universidad: string;
   public fechaCreacion: string;
   public activo: boolean;
+  public noHoras: number;
   constructor(
   ) { }
 }

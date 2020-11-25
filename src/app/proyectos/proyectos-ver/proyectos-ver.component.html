@@ -10,6 +10,15 @@
         </div>
         <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
     </div>
+    </div>
+  <div class="modal" id="success-modal-Actualiza-Alumno">
+    <div class="modal__content">
+        <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+            <div class="text-3xl mt-5">¡Muy bien!</div>
+            <div class="text-gray-600 mt-2">¡Has editado un alumno inscrito!</div>
+        </div>
+        <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+    </div>
 </div>
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
@@ -191,8 +200,18 @@
                   <div class="text-base text-gray-600 mt-1">
                     ¿El alumno recibe capacitación/formación por parte de la Institución?
                   </div>
-                  <div *ngIf="proyectoModel.capacitacion; else elseBlock" class="text-base font-bold leading-8 mt-6">Si</div>
-                  <ng-template #elseBlock><div *ngIf="proyectoModel.capacitacion; else elseBlock1" class="text-base font-bold leading-8 mt-6">No</div></ng-template>
+                  <div *ngIf="proyectoModel.capacitacion=='si'; else elseBlock" class="text-base font-bold leading-8 mt-6">
+                    Si<br />
+                    Tipo de capacitaciòn:<br>
+                    {{proyectoModel.razonCapacitacion}}
+                  </div>
+                  <ng-template #elseBlock>
+                    <div *ngIf="proyectoModel.capacitacion; else elseBlock1" class="text-base font-bold leading-8 mt-6">
+                      No<br />
+                      Razòn por la que no ofrece capacitaciòn:<br>
+                      {{proyectoModel.razonCapacitacion}}
+                    </div>
+                  </ng-template>
                 </div>
               </div>
             </div>
@@ -457,6 +476,7 @@
           <th class="border-b-2 text-center whitespace-no-wrap">Universidad</th>
           <th class="border-b-2 text-center whitespace-no-wrap">Estatus</th>
           <th class="border-b-2 text-center whitespace-no-wrap">Cambiar Estatus</th>
+          <th class="border-b-2 text-center whitespace-no-wrap">Cambiar Cantidad de horas</th>
 
 
         </tr>
@@ -489,7 +509,10 @@
             <div class="font-medium flex sm:justify-center items-center">{{alumno.estado}}</div>
           </td>
           <td>
-            <div class="ext-base text-xs whitespace-no-wrap"> <a (click)="mostraractualizarestado(alumno.idAlumno)"   ><button class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> Cambiar Estado</button></a></div>
+            <div class="ext-base text-xs whitespace-no-wrap"> <button class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" (click)="mostraractualizarestado(alumno.idAlumno)"> Cambiar Estado</button></div>
+        </td>
+          <td>
+            <div class="ext-base text-xs whitespace-no-wrap"> <button class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" (click)="mostareditarlumnohoras(alumno.idAlumno,alumno.noHoras)" >cambiar horas</button></div>
         </td>
           <div class="modal" id="mostareditaralumno-{{alumno.idAlumno}}">
             <div class="modal__content">
@@ -518,6 +541,22 @@
                   </form>
           
                   </div>
+          </div>
+
+          <div class="modal" id="mostareditaralumnohoras-{{alumno.idAlumno}}">
+            <div class="modal__content">
+              <form #form="ngForm" (ngSubmit)="cambiarhorasalumno()" >     
+                <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                  <div class="flex flex-col sm:flex-row items-center mt-3">
+                    <label class="sm:w-32 sm:text-right sm:mr-5">Cantidad de horas:</label>
+                    <input type="text" class="input border sm:w-64" placeholder="" [(ngModel)]="noHorasCambiar" [ngModelOptions]="{standalone: true}" value="alumno.noHoras" required>
+                  </div>
+                </div>
+                
+                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button>
+                <button type="submit"   data-dismiss="modal"  class="button w-64 bg-theme-1 text-white">Cambiar cantidad de horas</button> </div>
+              </form>
+            </div>
           </div>
 
         </tr>
