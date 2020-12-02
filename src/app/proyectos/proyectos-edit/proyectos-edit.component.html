@@ -160,24 +160,24 @@
 
 
               <!--<div class="relative mt-8">
-                <div>
-                  <label>
-                    ¿Plazas de Servicio Social disponibles para el proyecto | Perfil de alumno de 240 hrs.?
-                  </label>
-                  <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazas240" [ngModelOptions]="{standalone: true}">
-                    <option [ngValue]="1">1</option>
-                    <option [ngValue]="2">2</option>
-                    <option [ngValue]="3">3</option>
-                    <option [ngValue]="4">4</option>
-                    <option [ngValue]="5">5</option>
-                    <option [ngValue]="6">6</option>
-                    <option [ngValue]="7">7</option>
-                    <option [ngValue]="8">8</option>
-                    <option [ngValue]="9">9</option>
-                    <option [ngValue]="10">10</option>
-                  </select>
-                </div>
-              </div>-->
+        <div>
+          <label>
+            ¿Plazas de Servicio Social disponibles para el proyecto | Perfil de alumno de 240 hrs.?
+          </label>
+          <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazas240" [ngModelOptions]="{standalone: true}">
+            <option [ngValue]="1">1</option>
+            <option [ngValue]="2">2</option>
+            <option [ngValue]="3">3</option>
+            <option [ngValue]="4">4</option>
+            <option [ngValue]="5">5</option>
+            <option [ngValue]="6">6</option>
+            <option [ngValue]="7">7</option>
+            <option [ngValue]="8">8</option>
+            <option [ngValue]="9">9</option>
+            <option [ngValue]="10">10</option>
+          </select>
+        </div>
+      </div>-->
 
               <div class="relative mt-8">
                 <div>
@@ -204,16 +204,16 @@
             <div class="sm:grid grid-cols-2 gap-2">
 
               <!--<div class="relative mt-8">
-                <div>
-                  <label>
-                    ¿Cantidad de horas totales del proyecto?*
-                  </label>
-                  <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.horas" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()">
-                    <option [ngValue]="240">240</option>
-                    <option [ngValue]="480">480</option>
-                  </select>
-                </div>
-              </div>-->
+        <div>
+          <label>
+            ¿Cantidad de horas totales del proyecto?*
+          </label>
+          <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.horas" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()">
+            <option [ngValue]="240">240</option>
+            <option [ngValue]="480">480</option>
+          </select>
+        </div>
+      </div>-->
               <div class="relative mt-8">
                 <div>
                   <label>Fecha de inicio*</label>
@@ -221,18 +221,18 @@
                 </div>
               </div>
               <!--
-              <div class="relative mt-8">
-                <div>
-                  <label>Fecha de termino* </label>
-                  <input type="date" class="input  w-full border mt-2 "
-                         [(ngModel)]="proyectoModel.fechaTermino"
-                         [ngModelOptions]="{standalone: true}"
-                         [disabled]="!fechaMinima"
-                         min="{{fechaMinima|date:'yyyy-MM-dd'}}"
-                         required>
-                </div>
-              </div>
-              -->
+      <div class="relative mt-8">
+        <div>
+          <label>Fecha de termino* </label>
+          <input type="date" class="input  w-full border mt-2 "
+                 [(ngModel)]="proyectoModel.fechaTermino"
+                 [ngModelOptions]="{standalone: true}"
+                 [disabled]="!fechaMinima"
+                 min="{{fechaMinima|date:'yyyy-MM-dd'}}"
+                 required>
+        </div>
+      </div>
+      -->
               <div class="relative mt-8">
                 <div>
                   <label>
@@ -454,10 +454,34 @@
             </div>
           </div>
           <br>
+          <div class="mt-8 p-5">
+            <div class="sm:grid grid-cols-1 gap-2">
+
+              <div class="relative mt-8">
+                <div>
+                  <b>
+                    Selecciones los campus en los que aplica el proyecto:
+                  </b>
+                </div>
+                <div class="sm:grid grid-cols-3 gap-2">
+                  <div *ngFor="let universidad of universidades">
+
+                    <label>
+                      <input type="checkbox" id="campus{{universidad.id}}" (change)="toggleUniversidades($event.target.checked, universidad.id)" [checked]="idsCampus.indexOf(universidad.id) >=0" >
+                      {{universidad.universidad}}
+                    </label>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <br />
 
           <div class="mt-1 p-5">
             <div class="sm:grid grid-cols-3 gap-2">
-              <div class="relative mt-3">
+              <!--<div class="relative mt-3">
                 <div>
                   <label>Campus:</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idUniversidad" [ngModelOptions]="{standalone: true}">
@@ -465,7 +489,7 @@
                   </select>
                 </div>
 
-              </div>
+              </div>-->
               <div class="relative mt-3">
                 <div>
                   <label>Estado:</label>
