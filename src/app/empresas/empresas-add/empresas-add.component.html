@@ -18,9 +18,9 @@
                 <div class="text-3xl mt-5">Muy bien!</div>
                 <div class="text-gray-600 mt-2">Has agregado una empresa!</div>
             </div>
-            <a (click)="recargar();" >
-            <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
-        </a>
+            <a (click)="recargar();">
+                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+            </a>
         </div>
     </div>
     <div class="modal" id="validacion">
@@ -49,14 +49,14 @@
                 </h2>
             </div>
 
-<br>
+            <br>
 
             <div class="mt-3">
                 <div class="sm:grid grid-cols-1 gap-2">
-                     <div class="relative mt-2">
+                    <div class="relative mt-2">
                         <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                             <h2 class="font-medium text-base mr-auto">
-                                 Empresa Externa
+                                Empresa Externa
                             </h2>
                         </div>
 
@@ -71,12 +71,12 @@
                         </div>
 
 
-                    </div> 
+                    </div>
                 </div>
-            </div> 
+            </div>
             <br><br><br>
 
-            <div  class="p-5" id="horizontal-form" *ngIf="cambio">
+            <div class="p-5" id="horizontal-form" *ngIf="cambio">
 
 
                 <div class="flex flex-1 px-5 items-center justify-center lg:justify-start">
@@ -90,13 +90,13 @@
                     </div>
                 </div>
                 <p>
-                    *La resolución de la imagen debe ser de  1280 x 720.
-                 </p>
+                    *La resolución de la imagen debe ser de 1280 x 720.
+                </p>
                 <div class="modal" id="abrirsubir">
                     <div class="modal__content">
                         <form #form="ngForm" (ngSubmit)="subeArchivo()">
                             <div class="p-5 text-center">
-                              
+
                                 <div class="text-base mt-5">Subir Imagen</div>
                                 <br>
                                 <input type="file" id="file" accept="image/png, image/jpeg" name="file" (change)="uploadFile($event.target.files)">
@@ -131,100 +131,101 @@
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Escribir el nombre con el que es comúnmente conocida la Institución" [(ngModel)]="empresaModel.nombreComun" [ngModelOptions]="{standalone: true}" required>
                                 </div>
                             </div>
-                     
+
                         </div>
                     </div>
                     <br>
-                        <div class="mt-3">
-                            <div class="sm:grid grid-cols-1 gap-2">
-                                <div class="relative mt-2">
-                                    <div>
-                                        <label>Descripción introductoria de la Institución (Objeto o Finalidad de la Institución)*</label>
-                                        <textarea type="text" class="input  w-full border mt-2 " rows="3" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.descripcion" [ngModelOptions]="{standalone: true}" required></textarea>
-                                    </div>
-    
-                                </div>
-                           
-                            </div>
-                        </div>
-                        <br>
-                      
                     <div class="mt-3">
-                        <div class="sm:grid grid-cols-2 gap-2">
-                          
-                                 <div class="relative mt-2">
-                                    <div>
-                                        <label>Años de Antigüedad de la Institución*</label>
-                                        <input type="number" ng-value="0" class="input  w-full border mt-2 " rows="3" placeholder="¿Cuántos años lleva en pie la organización desde su fundación?" [(ngModel)]="empresaModel.antiguedad" [ngModelOptions]="{standalone: true}" required>
-                                    </div>
-    
-                                </div>
-                                <div class="relative mt-2">
-                                    <div>
-                                        <label>¿Cuál es la razón de ser de la Institución?*</label>
-                                        <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Responda en función al principal propósito de la Institución | Máximo 500 caracteres" [(ngModel)]="empresaModel.razon" [ngModelOptions]="{standalone: true}" required></textarea>
-    
-                                    </div>
-    
+                        <div class="sm:grid grid-cols-1 gap-2">
+                            <div class="relative mt-2">
+                                <div>
+                                    <label>Descripción introductoria de la Institución (Objeto o Finalidad de la Institución)*</label>
+                                    <textarea type="text" class="input  w-full border mt-2 " rows="3" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.descripcion" [ngModelOptions]="{standalone: true}" required></textarea>
                                 </div>
 
-                          
                             </div>
+
                         </div>
-                        <br>
-                        <div class="mt-3">
-                            <div class="sm:grid grid-cols-2 gap-2">
-                                <div class="relative mt-2">
-                                    <div>
-                                        <label>Visión*</label>
-                                        <textarea type="text"  maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.vision" [ngModelOptions]="{standalone: true}" required></textarea>
-                               </div>
+                    </div>
+                    <br>
+
+                    <div class="mt-3">
+                        <div class="sm:grid grid-cols-2 gap-2">
+
+                            <div class="relative mt-2">
+                                <div>
+                                    <label>Años de Antigüedad de la Institución*</label>
+                                    <input type="number" ng-value="0" class="input  w-full border mt-2 " rows="3" placeholder="¿Cuántos años lleva en pie la organización desde su fundación?" [(ngModel)]="empresaModel.antiguedad" [ngModelOptions]="{standalone: true}" required>
                                 </div>
-                                <div class="relative mt-2">
-                                    <div>
-                                        <label>Misión*</label>
-                                        <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.mision" [ngModelOptions]="{standalone: true}" required></textarea>
-                               </div>
-                                </div>
-                         
+
                             </div>
+                            <div class="relative mt-2">
+                                <div>
+                                    <label>¿Cuál es la razón de ser de la Institución?*</label>
+                                    <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Responda en función al principal propósito de la Institución | Máximo 500 caracteres" [(ngModel)]="empresaModel.razon" [ngModelOptions]="{standalone: true}"
+                                        required></textarea>
+
+                                </div>
+
+                            </div>
+
+
                         </div>
+                    </div>
+                    <br>
+                    <div class="mt-3">
+                        <div class="sm:grid grid-cols-2 gap-2">
+                            <div class="relative mt-2">
+                                <div>
+                                    <label>Visión*</label>
+                                    <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.vision" [ngModelOptions]="{standalone: true}" required></textarea>
+                                </div>
+                            </div>
+                            <div class="relative mt-2">
+                                <div>
+                                    <label>Misión*</label>
+                                    <textarea type="text" maxlength='500' class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.mision" [ngModelOptions]="{standalone: true}" required></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <br>
                     <div class="mt-3">
                         <div class="sm:grid grid-cols-3 gap-2">
-  
-  
-                          <div class="relative mt-2">
-                            <div>
-                              <label>Principales Objetivos*</label>
-                              <textarea type="text" class="input  w-full border mt-2 " rows="5" maxlength="500" placeholder="Enlistarlos en orden de prioridad / Máximo 7" [(ngModel)]="empresaModel.objetivo" [ngModelOptions]="{standalone: true}" required></textarea>
+
+
+                            <div class="relative mt-2">
+                                <div>
+                                    <label>Principales Objetivos*</label>
+                                    <textarea type="text" class="input  w-full border mt-2 " rows="5" maxlength="500" placeholder="Enlistarlos en orden de prioridad / Máximo 7" [(ngModel)]="empresaModel.objetivo" [ngModelOptions]="{standalone: true}" required></textarea>
+                                </div>
                             </div>
-                          </div>
-  
-                          <div class="relative mt-2">
-                            <div>
-  
-                              <div>
-                                <label>Enumere los Principales Logros de la Institución* </label>
-                                <textarea type="text" class="input  w-full border mt-2 " maxlength="500" rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.logros" [ngModelOptions]="{standalone: true}" required></textarea>
-  
-                              </div>
-  
+
+                            <div class="relative mt-2">
+                                <div>
+
+                                    <div>
+                                        <label>Enumere los Principales Logros de la Institución* </label>
+                                        <textarea type="text" class="input  w-full border mt-2 " maxlength="500" rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.logros" [ngModelOptions]="{standalone: true}" required></textarea>
+
+                                    </div>
+
+                                </div>
                             </div>
-                          </div>
-     
-                          <div class="relative mt-2">
-                            <div>
-                              <label>Enumere los Reconocimientos y Certificaciones con los que cuenta la Institución*</label>
-                              <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.reconocimiento" [ngModelOptions]="{standalone: true}" required></textarea>
-  
+
+                            <div class="relative mt-2">
+                                <div>
+                                    <label>Enumere los Reconocimientos y Certificaciones con los que cuenta la Institución*</label>
+                                    <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlista máximo 7" [(ngModel)]="empresaModel.reconocimiento" [ngModelOptions]="{standalone: true}" required></textarea>
+
+                                </div>
+
                             </div>
-  
-                          </div>
-  
-  
+
+
                         </div>
-                      </div>
+                    </div>
 
 
 
@@ -246,11 +247,11 @@
                             <div class="relative mt-2">
                                 <div>
                                     <label>¿La Institución pertenece a la Legión de Cristo?*</label>
-                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.legionario" [ngModelOptions]="{standalone: true}"  >
+                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.legionario" [ngModelOptions]="{standalone: true}">
                                         <option [ngValue]="true">Si </option>
 
                                         <option [ngValue]="false">No </option>
-                                                                        </select>                                </div>
+                                                                        </select> </div>
 
                             </div>
                             <!-- <div class="relative mt-2">
@@ -286,7 +287,7 @@
                     <br>
                     <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                         <h2 class="font-medium text-base mr-auto">
-                             Redes sociales
+                            Redes sociales
                         </h2>
                         <br>
                     </div>
@@ -306,15 +307,15 @@
                                     <label>Facebook*</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Link del perfil de la Institución" [(ngModel)]="empresaModel.facebook" [ngModelOptions]="{standalone: true}" required>
                                 </div>
-                            </div>         
-                            
-                   
+                            </div>
+
+
                         </div>
                     </div>
 
                     <br>
                     <div class="mt-3">
-                        
+
                         <div class="sm:grid grid-cols-3 gap-2">
                             <div class="relative mt-2">
                                 <div>
@@ -328,15 +329,15 @@
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Link del perfil de la Institución" [(ngModel)]="empresaModel.youtube" [ngModelOptions]="{standalone: true}" required>
                                 </div>
                             </div>
-                            
+
                             <div class="relative mt-2">
                                 <div>
                                     <label>Tik Tok</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="Link del perfil de la Institución" [(ngModel)]="empresaModel.tiktok" [ngModelOptions]="{standalone: true}" required>
                                 </div>
-                            </div>         
-                          
-                   
+                            </div>
+
+
                         </div>
                     </div>
                     <br>
@@ -345,7 +346,7 @@
 
                     <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                         <h2 class="font-medium text-base mr-auto">
-                             Contacto
+                            Contacto
                         </h2>
                         <br>
                     </div>
@@ -357,7 +358,7 @@
                                     <label>Nombre del Titular o Director de la Institución*</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.nombreCompletoDirector" [ngModelOptions]="{standalone: true}">
                                 </div>
-    
+
                             </div>
                             <div class="relative mt-2">
                                 <div>
@@ -365,30 +366,39 @@
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.nombreCompletoResponsable" [ngModelOptions]="{standalone: true}">
                                 </div>
                             </div>
-    
+
                         </div>
                     </div>
-    
+
                     <div class="mt-3">
-                        <div class="sm:grid grid-cols-3 gap-2">
-                        
+                        <div class="sm:grid grid-cols-4 gap-2">
+
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Departamento o Área*</label>
+                                    <label>Departamento o Área:</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.departamento" [ngModelOptions]="{standalone: true}">
                                 </div>
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Puesto del Responsable de Servicio Social*</label>
+                                    <label>Puesto del Responsable de Servicio Social:</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.puesto" [ngModelOptions]="{standalone: true}">
                                 </div>
-    
+
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Número telefónico del Responsable de Servicio Social*</label>
-                                    <input type="tel" maxlength='20' class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.telefono" [ngModelOptions]="{standalone: true}">
+                                    <label>Número telefónico del Responsable de Servicio Social:</label>
+                                    <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.telefono" [ngModelOptions]="{standalone: true}">
+                                </div>
+
+                            </div>
+
+                            <div class="relative mt-2">
+
+                                <div>
+                                    <label>Extensión:</label>
+                                    <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.extension" [ngModelOptions]="{standalone: true}">
                                 </div>
                             </div>
                         </div>
@@ -396,7 +406,7 @@
                     <br>
                     <div class="mt-3">
                         <div class="sm:grid grid-cols-2 gap-2">
-                      
+
                             <div class="relative mt-2">
                                 <div>
                                     <label>Correo del Responsable de Servicio Social*</label>
@@ -407,10 +417,9 @@
                                 <div>
                                     <label>Contraseña del Responsable de Servicio Social*</label>
                                     <input type="password" id="password" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.contrasena" [ngModelOptions]="{standalone: true}">
-                                <!-- checkbox que nos permite activar o desactivar la opcion -->
-        <div style="margin-top:3px;">
-            <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña" (change)="mostrarpass()" />
-            &nbsp;&nbsp;Mostrar Contraseña</div>
+                                    <!-- checkbox que nos permite activar o desactivar la opcion -->
+                                    <div style="margin-top:3px;">
+                                        <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña" (change)="mostrarpass()" /> &nbsp;&nbsp;Mostrar Contraseña</div>
                                 </div>
                             </div>
                         </div>
@@ -426,7 +435,7 @@
 
                     <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                         <h2 class="font-medium text-base mr-auto">
-                             Domicilio
+                            Domicilio
                         </h2>
                     </div>
 
@@ -438,35 +447,35 @@
                                     <div class="sm:grid grid-cols-2 gap-2">
                                         <div class="relative mt-2">
 
-                                    <input type="text" class="input  w-full border mt-2 " minlength="5" maxlength="5" placeholder="" placeholder="" [(ngModel)]="empresaModel.cp" [ngModelOptions]="{standalone: true}" >
+                                            <input type="text" class="input  w-full border mt-2 " minlength="5" maxlength="5" placeholder="" placeholder="" [(ngModel)]="empresaModel.cp" [ngModelOptions]="{standalone: true}">
+                                        </div>
+
+                                        <div class="relative mt-3" align="center">
+
+                                            <button type="button" (click)="obtenerdireccion()" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">buscar</button>
+
+                                        </div>
+                                    </div>
                                 </div>
-
-                                    <div class="relative mt-3" align="center">
-
-                                   <button type="button" (click)="obtenerdireccion()" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">buscar</button> 
-
-                                </div>
-                            </div>
-                        </div>
 
                             </div>
                             <div class="relative mt-2">
                                 <div>
                                     <label>País*</label>
-                       
-                                        <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.pais" [ngModelOptions]="{standalone: true}"  >
+
+                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.pais" [ngModelOptions]="{standalone: true}">
                         <option  *ngFor="let pais of listapais" [ngValue]="pais" >{{pais}} </option>
                         
                         
                         </select>
-                             
+
                                 </div>
                             </div>
                             <div class="relative mt-2">
                                 <div>
                                     <label>Estado*</label>
 
-                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.estado" [ngModelOptions]="{standalone: true}"  >
+                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.estado" [ngModelOptions]="{standalone: true}">
                                         <option *ngFor="let estado of listaestados" [ngValue]="estado" >{{estado}} </option>
                                     </select>
 
@@ -482,24 +491,24 @@
                             <div class="relative mt-2">
                                 <div>
                                     <label>Alcaldía/Municipio*</label>
-                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.municipio" [ngModelOptions]="{standalone: true}"  >
+                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.municipio" [ngModelOptions]="{standalone: true}">
                                         <option *ngFor="let municipio of listamunicipios" [ngValue]="municipio" >{{municipio}} </option>
-                                    </select>                                </div>
+                                    </select> </div>
 
                             </div>
                             <div class="relative mt-2">
                                 <div>
                                     <label>Ciudad*</label>
-                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.ciudad" [ngModelOptions]="{standalone: true}"  >
+                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.ciudad" [ngModelOptions]="{standalone: true}">
                                         <option  *ngFor="let ciudad of listaciudad" [ngValue]="ciudad" >{{ciudad}} </option>
-                                    </select>                                </div>
+                                    </select> </div>
                             </div>
                             <div class="relative mt-2">
                                 <div>
                                     <label>Colonia*</label>
-                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.colonia" [ngModelOptions]="{standalone: true}"  >
+                                    <select class="input  w-full border mt-2 " [(ngModel)]="empresaModel.colonia" [ngModelOptions]="{standalone: true}">
                                         <option *ngFor="let colonia of listacolonias" [ngValue]="colonia" >{{colonia}} </option>
-                                    </select>                                </div>
+                                    </select> </div>
                             </div>
                         </div>
                     </div>
@@ -537,7 +546,7 @@
                             <div class="relative mt-2">
                                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                                     <h2 class="font-medium text-base mr-auto">
-                                         Principal(es) Área(s) de Acción (solo 3 permitidas)*
+                                        Principal(es) Área(s) de Acción (solo 3 permitidas)*
                                     </h2>
                                 </div>
 
@@ -547,18 +556,18 @@
                                         <tbody>
                                             <tr *ngFor="let area of areas">
 
-                                                <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)" id="area-{{area.id}}" ></td>
+                                                <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)" id="area-{{area.id}}"></td>
                                                 <td>{{area.areaAccion}}
 
-                                               
+
                                                 </td>
-                                                <div *ngIf="area.id==13" >
-                                                    <input type="text" class="input  w-full border mt-2 " id="areatext" [(ngModel)]="empresaModel.areaOtro" [ngModelOptions]="{standalone: true}"placeholder="" disabled>
+                                                <div *ngIf="area.id==13">
+                                                    <input type="text" class="input  w-full border mt-2 " id="areatext" [(ngModel)]="empresaModel.areaOtro" [ngModelOptions]="{standalone: true}" placeholder="" disabled>
                                                 </div>
 
                                             </tr>
 
-                                            
+
                                         </tbody>
 
 
@@ -566,7 +575,7 @@
                                 </div>
 
                             </div>
-<!--                      
+                            <!--                      
                             <div class="relative mt-2">
 
                                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
@@ -604,78 +613,78 @@
                         </h2>
                     </div>
 
-                    <textarea class="input  w-full border mt-2 " name="textarea" [(ngModel)]="empresaModel.observaciones" name="observaciones" rows="10"></textarea>
+                    <textarea class="input  w-full border mt-2 " maxlength="500" name="textarea" [(ngModel)]="empresaModel.observaciones" name="observaciones" rows="10"></textarea>
 
                 </div>
                 <br>
-                    <div class="mt-3">
-                        <div class="sm:grid grid-cols-2 gap-2">
-                           
-                            <div class="relative mt-2">
-                                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                                    <h2 class="font-medium text-base mr-auto">
-                                        7. Sucesos en el sistema
-                                    </h2>
-                                </div>
+                <div class="mt-3">
+                    <div class="sm:grid grid-cols-2 gap-2">
 
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
-                                    <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.idEstadoOrganizacion" [ngModelOptions]="{standalone: true}">
+                        <div class="relative mt-2">
+                            <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                                <h2 class="font-medium text-base mr-auto">
+                                    7. Sucesos en el sistema
+                                </h2>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
+                                <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="empresaModel.idEstadoOrganizacion" [ngModelOptions]="{standalone: true}">
                       <option [ngValue]="gi.id" *ngFor="let gi of estado">{{gi.estado}}</option>
         
                     </select>
+                            </div>
+                        </div>
+                        <div class="relative mt-2">
+                            <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+                                <h2 class="font-medium text-base mr-auto">
+                                    Número de personas que atienden
+                                </h2>
+                            </div>
+
+
+
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.ancianos" [ngModelOptions]="{standalone: true}">
+
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Personas de la tercera edad.</label>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.discapacitados" [ngModelOptions]="{standalone: true}">
+
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Personas con discapacidad. </label>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.indigenas" [ngModelOptions]="{standalone: true}">
+
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Indígenas.</label>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.jovenes" [ngModelOptions]="{standalone: true}">
+
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Jóvenes.</label>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.mujeres" [ngModelOptions]="{standalone: true}">
+
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Mujeres.</label>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.ninos" [ngModelOptions]="{standalone: true}">
+
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Niños.</label>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center mt-3">
+                                <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.noAtiendeOtro" [ngModelOptions]="{standalone: true}">
+
+                                <label class="sm:w-32 sm:text-right sm:mr-5">Otros.</label>
+                                <div>
+                                    <input type="text" class="input  w-full border mt-2 " [(ngModel)]="empresaModel.atiendeOtro" [ngModelOptions]="{standalone: true}" placeholder="">
                                 </div>
                             </div>
-                            <div class="relative mt-2">
-                                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                                    <h2 class="font-medium text-base mr-auto">
-                                        Número de personas que atienden
-                                    </h2>
-                                </div>
-
-
-
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.ancianos" [ngModelOptions]="{standalone: true}">
-
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Personas de la tercera edad.</label>
-                                </div>
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.discapacitados" [ngModelOptions]="{standalone: true}">
-
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Personas con discapacidad. </label>
-                                </div>
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.indigenas" [ngModelOptions]="{standalone: true}">
-
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Indígenas.</label>
-                                </div>
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.jovenes" [ngModelOptions]="{standalone: true}">
-
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Jóvenes.</label>
-                                </div>
-
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.mujeres" [ngModelOptions]="{standalone: true}">
-
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Mujeres.</label>
-                                </div>
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.ninos" [ngModelOptions]="{standalone: true}">
-
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Niños.</label>
-                                </div>
-                                <div class="flex flex-col sm:flex-row items-center mt-3">
-                                    <input type="number" class="input border" placeholder="" [(ngModel)]="empresaModel.noAtiendeOtro" [ngModelOptions]="{standalone: true}">
-
-                                    <label class="sm:w-32 sm:text-right sm:mr-5">Otros.</label>
-                                    <div >
-                                        <input type="text" class="input  w-full border mt-2 " [(ngModel)]="empresaModel.atiendeOtro" [ngModelOptions]="{standalone: true}" placeholder="" >
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="relative mt-2">
+                        </div>
+                        <!-- <div class="relative mt-2">
 
                                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                                     <h2 class="font-medium text-base mr-auto">
@@ -710,14 +719,14 @@
                                 </div>
 
                             </div> -->
-                        </div>
                     </div>
-                    <br>
+                </div>
+                <br>
 
-<br>
-<br>
+                <br>
+                <br>
 
-<br>
+                <br>
 
 
 
@@ -728,30 +737,30 @@
 
             </div>
 
-            <section class="p-5"  *ngIf="!cambio" >
+            <section class="p-5" *ngIf="!cambio">
 
 
                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                     <h2 class="font-medium text-base mr-auto">
-                       Contacto
+                        Contacto
                     </h2>
                     <br>
                 </div>
 
-           
+
 
                 <div class="mt-3">
                     <div class="sm:grid grid-cols-2 gap-2">
                         <div class="relative mt-2">
                             <div>
-                                <label>Nombre del Titular o Director de la Institución*</label>
+                                <label>Nombre del director del Área*</label>
                                 <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.nombreCompletoDirector" [ngModelOptions]="{standalone: true}">
                             </div>
 
                         </div>
                         <div class="relative mt-2">
                             <div>
-                                <label>Nombre del Responsable de Servicio Social en la Institución:</label>
+                                <label>Nombre del Responsable de Servicio Social del Área:</label>
                                 <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.nombreCompletoResponsable" [ngModelOptions]="{standalone: true}">
                             </div>
                         </div>
@@ -760,8 +769,8 @@
                 </div>
 
                 <div class="mt-3">
-                    <div class="sm:grid grid-cols-3 gap-2">
-                    
+                    <div class="sm:grid grid-cols-4 gap-2">
+
                         <div class="relative mt-2">
                             <div>
                                 <label>Departamento o Área:</label>
@@ -780,13 +789,22 @@
                                 <label>Número telefónico del Responsable de Servicio Social:</label>
                                 <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.telefono" [ngModelOptions]="{standalone: true}">
                             </div>
+
+                        </div>
+
+                        <div class="relative mt-2">
+
+                            <div>
+                                <label>Extensión:</label>
+                                <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.extension" [ngModelOptions]="{standalone: true}">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <br>
                 <div class="mt-3">
                     <div class="sm:grid grid-cols-2 gap-2">
-                  
+
                         <div class="relative mt-2">
                             <div>
                                 <label>Correo del Responsable de Servicio Social:</label>
@@ -811,7 +829,7 @@
                             </div>
 
                         </div>
-                   
+
 
                     </div>
                 </div>
@@ -820,7 +838,7 @@
 
                 <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                     <h2 class="font-medium text-base mr-auto">
-                         Campo de inf. áreas internas
+                        Campo de inf. áreas internas
                     </h2>
                 </div>
                 <div class="mt-3">
@@ -834,7 +852,7 @@
                 
                 </select>
                             </div>
-                
+
                         </div>
                         <div class="relative mt-2">
                             <div>
@@ -851,7 +869,7 @@
 
                 <div class="mt-3">
                     <div class="sm:grid grid-cols-2 gap-2">
-                       
+
                         <div class="relative mt-2">
                             <div>
                                 <label>Seleccionar Dirección:</label>
@@ -871,28 +889,28 @@
                 
                 </select>
                             </div>
-                
+
                         </div>
                     </div>
                 </div>
                 <br>
-                
-                
+
+
                 <div class="mt-3">
                     <div class="sm:grid grid-cols-2 gap-2">
-  
+
                         <div class="relative mt-2">
                             <div>
                                 <label>Descripción introductoria del área:</label>
-                                <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.descripcionArea" [ngModelOptions]="{standalone: true}" required></textarea>
+                                <textarea type="text" maxlength="500" class="input  w-full border mt-2 " rows="5" placeholder="Máximo 500 caracteres" [(ngModel)]="empresaModel.descripcionArea" [ngModelOptions]="{standalone: true}" required></textarea>
 
-                
+
                             </div>
                         </div>
                         <div class="relative mt-2">
                             <div>
                                 <label>Principales Objetivos:</label>
-                                <textarea type="text" class="input  w-full border mt-2 " rows="5" placeholder="Enlistarlos en orden de prioridad / Máximo 7" [(ngModel)]="empresaModel.objetivo" [ngModelOptions]="{standalone: true}" required></textarea>
+                                <textarea type="text" maxlength="500" class="input  w-full border mt-2 " rows="5" placeholder="Enlistarlos en orden de prioridad / Máximo 7" [(ngModel)]="empresaModel.objetivo" [ngModelOptions]="{standalone: true}" required></textarea>
                             </div>
                         </div>
                     </div>
@@ -902,11 +920,11 @@
 
                 <div class="mt-3">
                     <div class="sm:grid grid-cols-1 gap-2">
-                     
+
                         <div class="relative mt-2">
                             <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
                                 <h2 class="font-medium text-base mr-auto">
-                                     Principal(es) Área(s) de Acción (solo 3 permitidas)
+                                    Principal(es) Área(s) de Acción (solo 3 permitidas)
                                 </h2>
                             </div>
 
@@ -916,28 +934,28 @@
                                     <tbody>
                                         <tr *ngFor="let area of areas">
 
-                                            <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)" id="area-{{area.id}}" ></td>
-                                            <td>{{area.areaAccion}}  
-                                           
-                                
+                                            <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)" id="area-{{area.id}}"></td>
+                                            <td>{{area.areaAccion}}
+
+
                                             </td>
-                                            <div *ngIf="area.id==13" >
-                                                <input type="text" class="input  w-full border mt-2 " id="areatext" [(ngModel)]="empresaModel.areaOtro" [ngModelOptions]="{standalone: true}"placeholder="" disabled>
+                                            <div *ngIf="area.id==13">
+                                                <input type="text" class="input  w-full border mt-2 " id="areatext" [(ngModel)]="empresaModel.areaOtro" [ngModelOptions]="{standalone: true}" placeholder="" disabled>
                                             </div>
                                         </tr>
                                     </tbody>
-                               
+
                                 </table>
-                            
+
                             </div>
 
                         </div>
-                 
-                 
+
+
                     </div>
                 </div>
 
-                </section>
+            </section>
         </div>
     </form>
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">

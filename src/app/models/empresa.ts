@@ -138,7 +138,8 @@ export class Responsablemodel {
         public contrasena: string,
         public activo: boolean,
 
-        public externa: boolean
+        public externa: boolean,
+        public extension?:string
 
         
     ) { }    
