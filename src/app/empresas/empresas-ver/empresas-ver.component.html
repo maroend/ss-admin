@@ -36,26 +36,25 @@
             Información General
         </h2>
     </div>
- 
+
     <div class="box ">
         <br>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a *ngIf="empresaModel.idEstadoOrganizacion<3" style="margin-left: auto;" class="button text-white bg-theme-12 shadow-md mr-2">Estado: {{empresaModel.estadoOrganizacion}}</a>
             <a *ngIf="empresaModel.idEstadoOrganizacion==3" style="margin-left: auto;" class="button text-white bg-theme-9 shadow-md mr-2">Estado: {{empresaModel.estadoOrganizacion}}</a>
             <a *ngIf="empresaModel.idEstadoOrganizacion==4" style="margin-left: auto;" class="button text-white bg-theme-6 shadow-md mr-2">Estado: {{empresaModel.estadoOrganizacion}}</a>
-
         </div>
         <br>
         <div class="flex flex-1 px-5 items-center justify-center " align="center">
             <div class="w-0 h-20 sm:w-24 sm:h-24 flex-none lg:w-48 lg:h-48 image-fit relative">
                 <img alt="Midone Tailwind HTML Admin Template" id="blah" class="rounded-full" src="{{logo}}">
             </div>
-           
+
 
         </div>
-     
+
         <div class="grid grid-cols-12 gap-6 mt-5">
-            
+
             <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-center text-gray-600 mt-1" align="center">Nombre Oficial de la Institución (denominación o razón social):</div>
@@ -75,14 +74,14 @@
         <div class="grid grid-cols-12 gap-12 mt-5">
             <div class="col-span-12 sm:col-span-8 xl:col-span-12 intro-y">
                 <div class=" p-5">
-                    <div class="text-base  text-gray-600 mt-1" >Descripción introductoria de la Institución (Objeto o Finalidad de la Institución):</div>
+                    <div class="text-base  text-gray-600 mt-1">Descripción introductoria de la Institución (Objeto o Finalidad de la Institución):</div>
 
-                    <div class="text-base font-bold leading-8 mt-6" > {{empresaModel.descripcion}} </div>
-               
+                    <div class="text-base font-bold leading-8 mt-6" style="text-align:justify;"> {{empresaModel.descripcion}} </div>
+
                 </div>
             </div>
 
-      
+
 
         </div>
 
@@ -137,7 +136,7 @@
         </div>
 
         <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
-     
+
 
             <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
@@ -178,94 +177,95 @@
                 </div>
             </div>
         </div>
-        
 
 
 
 
-    
 
-<br>
-<div class="grid grid-cols-12 gap-4 mt-5">
 
-    <div class="col-span-12 sm:col-span-4 xl:col-span- intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-                Años de antiguedad
 
-                <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.antiguedad}} </div>
+        <br>
+        <div class="grid grid-cols-12 gap-4 mt-5">
+
+            <div class="col-span-12 sm:col-span-4 xl:col-span- intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Años de antigüedad
+
+                        <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.antiguedad}} </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-8 xl:col-span-8 intro-y">
+            <div class="col-span-12 sm:col-span-8 xl:col-span-8 intro-y">
 
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">¿Cuál es la razón de ser de la Institución?</div>
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">¿Cuál es la razón de ser de la Institución?</div>
 
-            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.razon}}</div>
-        </div>
-    </div>
-
-</div>
-<br>
-
-<div class="grid grid-cols-12 gap-4 mt-5">
-
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-                Misíon
-
-                <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.mision}} </div>
+                    <div class="text-base font-bold leading-8 mt-6">{{empresaModel.razon}}</div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-                Visión
 
-                <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.vision}} </div>
+        </div>
+        <br>
+
+        <div class="grid grid-cols-12 gap-4 mt-5">
+
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Misíon
+
+                        <div class="text-base font-bold leading-8 mt-6" style="text-align:justify;"> {{empresaModel.mision}} </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Visión
 
-</div>
-<br>
-<div class="grid grid-cols-12 gap-12 mt-5">
-                <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                        <div class="text-base font-bold leading-8 mt-6" style="text-align:justify;"> {{empresaModel.vision}} </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="grid grid-cols-12 gap-12 mt-5">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
 
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Principales objetivos</div>
 
                     <div class="text-base font-bold leading-8 mt-6">
-                        <h1 *ngFor="let a of obejtivost">
-                            <p>{{a}}</p>
-                        </h1>
-
-                    </div>                </div>
-            </div>
-
-            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-                <div class=" p-5">
-                    <div class="text-base text-gray-600 mt-1">Reconocimientos y Certificaciones con los que cuenta la Institución: </div>
-
-                   
-
-                    <div class="text-base font-bold leading-8 mt-6">
-                        <h1 *ngFor="let a of reconocimientost">
+                        <h1 *ngFor="let a of obejtivost" style="text-align:justify;">
                             <p>{{a}}</p>
                         </h1>
 
                     </div>
                 </div>
             </div>
- 
+
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">Reconocimientos y Certificaciones con los que cuenta la Institución: </div>
+
+
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        <h1 *ngFor="let a of reconocimientost" style="text-align:justify;">
+                            <p>{{a}}</p>
+                        </h1>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-   <br>
+        <br>
 
-   <br>
+        <br>
         <div class="grid grid-cols-12 gap-12 mt-5">
 
             <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
@@ -280,12 +280,12 @@
                         </h1>
 
                     </div>
-                
+
                 </div>
             </div>
             <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
                 <div class=" p-5">
-                  <div class="text-base text-gray-600 mt-1">¿la Institución pertenece a lalegion de cristo?</div>
+                    <div class="text-base text-gray-600 mt-1">¿La Institución pertenece a la Legión de Cristo?</div>
                     <div class="text-base font-bold leading-8 mt-6">
                         <p *ngIf="empresaModel.legionario==true"> Si</p>
                         <p *ngIf="empresaModel.legionario==false"> No</p>
@@ -321,88 +321,89 @@
                     </div>
                 </div>
             </div> -->
- 
+
         </div>
 
-<br>
+        <br>
 
 
 
 
-</div>
-
-<br>
-<br>
-<div class="intro-y flex items-center h-10">
-    <h2 class="text-lg font-medium truncate mr-5">
-        Redes Sociales
-    </h2>
-</div>
-<div class="box ">    
-<div class="grid grid-cols-12 gap-6 mt-5">
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-                Pagina Web
-
-<a href="{{empresaModel.web}}">
-                <div class="text-base font-bold leading-8 mt-6">{{empresaModel.web}} </div>
-            </a>
-            </div>
-        </div>
     </div>
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-Facebook
-<a href="{{empresaModel.facebook}}">
-                <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.facebook}} </div>
-            </a>
-            </div>
-        </div>
-    </div> 
-    
-</div>
-<br>
-<div class="grid grid-cols-12 gap-6 mt-5">
-   
-     <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-            Instagram
-
-            <a href="{{empresaModel.instagram}}">
-
-                <div class="text-base font-bold leading-8 mt-6">{{empresaModel.instagram}} </div>
-            </a>
-            </div>
-        </div>
-    </div>  <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-                Youtube
-
-                <a href="{{empresaModel.youtube}}">
-
-                <div class="text-base font-bold leading-8 mt-6">{{empresaModel.youtube}} </div>
-            </a>
-            </div>
-        </div>
+    <br>
+    <br>
+    <div class="intro-y flex items-center h-10">
+        <h2 class="text-lg font-medium truncate mr-5">
+            Redes Sociales
+        </h2>
     </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
-            <div class="text-base text-gray-600 mt-1">
-                Tiktok
+    <div class="box ">
+        <div class="grid grid-cols-12 gap-6 mt-5">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Pagina Web
 
-                <a href="{{empresaModel.tiktok}}">
+                        <a href="{{empresaModel.web}}">
+                            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.web}} </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                <div class="text-base font-bold leading-8 mt-6">{{empresaModel.tiktok}} </div>
-            </a>
+            <div class="col-span-12 sm:col-span-6 xl:col-span-6 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Facebook
+                        <a href="{{empresaModel.facebook}}">
+                            <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.facebook}} </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="grid grid-cols-12 gap-6 mt-5">
+
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Instagram
+
+                        <a href="{{empresaModel.instagram}}">
+
+                            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.instagram}} </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Youtube
+
+                        <a href="{{empresaModel.youtube}}">
+
+                            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.youtube}} </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">
+                        Tiktok
+
+                        <a href="{{empresaModel.tiktok}}">
+
+                            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.tiktok}} </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
     </div>
 
 
@@ -532,7 +533,7 @@ Facebook
                     <div class="text-base font-bold leading-8 mt-6">
                         <h1 *ngFor="let a of areas">
                             <p *ngIf="idAreaAccion!=undefined && idAreaAccion.indexOf(a.id) >=0 && a.id<13">{{a.areaAccion}}</p>
-                            
+
                             <p *ngIf="idAreaAccion!=undefined && idAreaAccion.indexOf(a.id) >=0 && a.id==13">{{empresaModel.areaOtro}}</p>
 
                         </h1>
@@ -546,7 +547,7 @@ Facebook
 
     <br>
     <br>
- 
+
 
     <div class="intro-y flex items-center h-10">
         <h2 class="text-lg font-medium truncate mr-5">
@@ -574,90 +575,90 @@ Facebook
     </div>
 
 
-<br>
-<br>
+    <br>
+    <br>
 
 
 
-<section  *ngIf="cambio" >
-    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-        <h2 class="font-medium text-base mr-auto">
-            9. Campo de inf. áreas internas
-        </h2>
-    </div>
-    
-
-    <div class="grid grid-cols-12 gap-12 mt-5 bg-primary">
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-            <div class="report-box ">
-                <div class="box p-5">
-
-                    <div class="text-base font-bold leading-8 mt-6"> Campus : {{empresaModel.ancianos}} </div>
-                </div>
-            </div>
+    <section *ngIf="cambio">
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+            <h2 class="font-medium text-base mr-auto">
+                9. Campo de inf. áreas internas
+            </h2>
         </div>
 
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-            <div class="report-box ">
-                <div class="box p-5">
 
-                    <div class="text-base font-bold leading-8 mt-6">
-                         Vicerrectoría : {{empresaModel.indigenas}}
+        <div class="grid grid-cols-12 gap-12 mt-5 bg-primary">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class="report-box ">
+                    <div class="box p-5">
+
+                        <div class="text-base font-bold leading-8 mt-6"> Campus : {{empresaModel.ancianos}} </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class="report-box ">
+                    <div class="box p-5">
+
+                        <div class="text-base font-bold leading-8 mt-6">
+                            Vicerrectoría : {{empresaModel.indigenas}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class="report-box ">
+                    <div class="box p-5">
+
+                        <div class="text-base font-bold leading-8 mt-6">
+                            Dirección : {{empresaModel.discapacitados}}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-            <div class="report-box ">
-                <div class="box p-5">
+        <div class="grid grid-cols-12 gap-3 mt-5 bg-primary">
 
-                    <div class="text-base font-bold leading-8 mt-6">
-                        Dirección : {{empresaModel.discapacitados}}
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class="report-box ">
+                    <div class="box p-5">
+
+                        <div class="text-base font-bold leading-8 mt-6">
+                            Área/Coordinación : {{empresaModel.jovenes}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="grid grid-cols-12 gap-3 mt-5 bg-primary">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class="report-box ">
+                    <div class="box p-5">
 
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-            <div class="report-box ">
-                <div class="box p-5">
-
-                    <div class="text-base font-bold leading-8 mt-6">
-                        Área/Coordinación : {{empresaModel.jovenes}}
+                        <div class="text-base font-bold leading-8 mt-6">
+                            Descripción introductoria del área : {{empresaModel.mujeres}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-            <div class="report-box ">
-                <div class="box p-5">
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class="report-box ">
+                    <div class="box p-5">
 
-                    <div class="text-base font-bold leading-8 mt-6">
-                        Descripción introductoria del área : {{empresaModel.mujeres}}
+                        <div class="text-base font-bold leading-8 mt-6">
+                            Principales Objetivos : {{empresaModel.ninos}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-            <div class="report-box ">
-                <div class="box p-5">
 
-                    <div class="text-base font-bold leading-8 mt-6">
-                        Principales Objetivos : {{empresaModel.ninos}}
-                    </div>
-                </div>
-            </div>
         </div>
 
-    </div>
-  
-    
+
     </section>
 
 
-<!-- 
+    <!-- 
 
 
     <br><br>
@@ -719,15 +720,15 @@ Facebook
                     </td>
                     <td>
                         <div class="ext-base text-xs whitespace-no-wrap">
-                            <a (click)="abrirsubir(d.idDocumentoRequerido)" >
-                             
+                            <a (click)="abrirsubir(d.idDocumentoRequerido)">
+
                                 <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">   Subir Archivo </button>
                             </a>
                         </div>
                     </td>
                     <td>
-                        <div class="ext-base text-xs whitespace-no-wrap"  *ngIf="d.id >0">
-                            <a (click)="descargar(d.archivo)">                             
+                        <div class="ext-base text-xs whitespace-no-wrap" *ngIf="d.id >0">
+                            <a (click)="descargar(d.archivo)">
                                 <button type="button" data-dismiss="modal" class="button w-24 bg-theme-12 text-white">  Ver Archivo </button>
                             </a>
                         </div>
@@ -789,8 +790,8 @@ Facebook
                     <option [ngValue]="gi.id" *ngFor="let gi of estado">{{gi.estado}}</option>
         
                   </select>
-                 </div>
-                      <button class="button text-white bg-theme-1 shadow-lg ml-5 " (click)="actualizarestado()">
+            </div>
+            <button class="button text-white bg-theme-1 shadow-lg ml-5 " (click)="actualizarestado()">
                 Actualizar estado
               </button>
         </div>
@@ -800,101 +801,101 @@ Facebook
 
         <div class="col-span-12 sm:col-span-6 xl:col-span-9 intro-y">
             <div class=" p-5">
-          
-         
+
+
                 <div class="intro-y flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
                         Observaciones
                     </h2>
                 </div>
                 <textarea class="mt-3 w-full" style="padding: 5px;" name="textarea" [(ngModel)]="empresaModel.observaciones" name="observaciones" rows="5"></textarea>
-          
-            </div>
-       
-        </div>
-   
-    </div>
- 
-<br>
-<br>
-<div class="intro-y flex items-center h-10">
-    <h2 class="text-lg font-medium truncate mr-5">
-        Número de personas que atienden
-    </h2>
-</div>
 
-<div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
-    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
-
-                <div class="text-base font-bold leading-8 mt-6"> Personas de la tercera edad : <br> {{empresaModel.ancianos}} </div>
             </div>
+
         </div>
+
     </div>
 
-    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
+    <br>
+    <br>
+    <div class="intro-y flex items-center h-10">
+        <h2 class="text-lg font-medium truncate mr-5">
+            Número de personas que atienden
+        </h2>
+    </div>
 
-                <div class="text-base font-bold leading-8 mt-6">
-                  Pueblos Indígenas : <br> {{empresaModel.indigenas}}
+    <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
+        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="report-box ">
+                <div class="box p-5">
+
+                    <div class="text-base font-bold leading-8 mt-6"> Personas de la tercera edad : <br> {{empresaModel.ancianos}} </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="report-box ">
+                <div class="box p-5">
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        Pueblos Indígenas : <br> {{empresaModel.indigenas}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="report-box ">
+                <div class="box p-5">
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        Personas con discapacidad : <br> {{empresaModel.discapacitados}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+            <div class="report-box ">
+                <div class="box p-5">
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        Jóvenes : <br> {{empresaModel.jovenes}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="report-box ">
+                <div class="box p-5">
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        Mujeres : <br> {{empresaModel.mujeres}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="report-box ">
+                <div class="box p-5">
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        Niños : <br>{{empresaModel.ninos}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+            <div class="report-box ">
+                <div class="box p-5">
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        {{empresaModel.atiendeOtro}} : <br> {{empresaModel.noAtiendeOtro}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
-
-                <div class="text-base font-bold leading-8 mt-6">
-                    Personas con discapacidad : <br> {{empresaModel.discapacitados}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
-
-                <div class="text-base font-bold leading-8 mt-6">
-                    Jóvenes : <br> {{empresaModel.jovenes}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
-
-                <div class="text-base font-bold leading-8 mt-6">
-                    Mujeres : <br> {{empresaModel.mujeres}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
-
-                <div class="text-base font-bold leading-8 mt-6">
-                    Niños : <br>{{empresaModel.ninos}}
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="report-box ">
-            <div class="box p-5">
-
-                <div class="text-base font-bold leading-8 mt-6">
-                    {{empresaModel.atiendeOtro}} : <br> {{empresaModel.noAtiendeOtro}}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br><br>
+    <br><br>
 
 </div>
 
@@ -941,66 +942,73 @@ Facebook
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">
                         Campus
-        
+
                         <div class="text-base font-bold leading-8 mt-6"> {{empresaModel.universidad}} </div>
                     </div>
                 </div>
             </div>
-        
+
             <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Vicerrectoría</div>
-        
+
                     <div class="text-base font-bold leading-8 mt-6">{{empresaModel.vicerrectoria}}</div>
                 </div>
             </div>
             <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
                     <div class="text-base text-gray-600 mt-1">Dirección</div>
-        
-        
+
+
                     <div class="text-base font-bold leading-8 mt-6">{{empresaModel.direccion}}</div>
                 </div>
             </div>
         </div>
         <br>
         <div class="grid grid-cols-12 gap-4 mt-5">
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        
-                        <div class=" p-5">
-                            <div class="text-base text-gray-600 mt-1">Área/Coordinación</div>
-        
-                            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.cordinacion}}</div>
-                        </div>
-                    </div>
-        
-                    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-                        <div class=" p-5">
-                            <div class="text-base text-gray-600 mt-1">Descripción introductoria del área</div>
-        
-        
-                            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.descripcionArea}}</div>
-                        </div>
-                    </div>
-                    <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-                        <div class=" p-5">
-                            <div class="text-base text-gray-600 mt-1">
-                           
-                                Principales Objetivos:</div>
-        
-        
-                            <div class="text-base font-bold leading-8 mt-6">{{empresaModel.objetivo}}</div>
-                        </div>
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">Área/Coordinación</div>
+
+                    <div class="text-base font-bold leading-8 mt-6">{{empresaModel.cordinacion}}</div>
+                </div>
+            </div>
+
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">Descripción introductoria del área</div>
+
+
+                    <div class="text-base font-bold leading-8 mt-6">{{empresaModel.descripcionArea}}</div>
+                </div>
+            </div>
+
+
+            <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+
+                <div class=" p-5">
+                    <div class="text-base text-gray-600 mt-1">Principales objetivos</div>
+
+                    <div class="text-base font-bold leading-8 mt-6">
+                        <h1 *ngFor="let a of obejtivost" style="text-align:justify;">
+                            <p>{{a}}</p>
+                        </h1>
+
                     </div>
                 </div>
-        
-          
-        
-        
-        
-        
-        
-            <br>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        <br>
 
         <div class="grid grid-cols-12 gap-6 mt-5">
             <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
@@ -1054,7 +1062,7 @@ Facebook
         </div>
 
         <div class="grid grid-cols-12 gap-6 mt-5 bg-primary">
-     
+
 
             <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                 <div class=" p-5">
@@ -1096,14 +1104,14 @@ Facebook
             </div>
         </div>
 
-        
+
 
 
     </div>
 
-    
 
-<br>
+
+    <br>
 
 
 
@@ -1133,7 +1141,7 @@ Facebook
 
     <br>
     <br>
-   
+
 
 
 
@@ -1164,11 +1172,11 @@ Facebook
     </div>
 
 
-<br>
-<br>
+    <br>
+    <br>
 
 
-<!-- 
+    <!-- 
 
 
     <br><br>
@@ -1231,15 +1239,15 @@ Facebook
                     </td>
                     <td>
                         <div class="ext-base text-xs whitespace-no-wrap">
-                            <a (click)="abrirsubir(d.idDocumentoRequerido)" >
-                             
+                            <a (click)="abrirsubir(d.idDocumentoRequerido)">
+
                                 <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">   Subir Archivo </button>
                             </a>
                         </div>
                     </td>
                     <td>
-                        <div class="ext-base text-xs whitespace-no-wrap"  *ngIf="d.id >0">
-                            <a href="{{d.archivo}}" target="_blank">                             
+                        <div class="ext-base text-xs whitespace-no-wrap" *ngIf="d.id >0">
+                            <a href="{{d.archivo}}" target="_blank">
                                 <button type="button" data-dismiss="modal" class="button w-24 bg-theme-12 text-white">   Descargar Archivo </button>
                             </a>
                         </div>
@@ -1299,8 +1307,8 @@ Facebook
                     <option [ngValue]="gi.id" *ngFor="let gi of estado">{{gi.estado}}</option>
         
                   </select>
-                 </div>
-                 <button class="button text-white bg-theme-1 shadow-lg ml-5 " (click)="actualizarestado()">
+            </div>
+            <button class="button text-white bg-theme-1 shadow-lg ml-5 " (click)="actualizarestado()">
                     Actualizar estado
                   </button>
         </div>
@@ -1310,19 +1318,19 @@ Facebook
 
         <div class="col-span-12 sm:col-span-6 xl:col-span-9 intro-y">
             <div class=" p-5">
-          
-         
+
+
                 <div class="intro-y flex items-center h-10">
                     <h2 class="text-lg font-medium truncate mr-5">
                         Observaciones
                     </h2>
                 </div>
                 <textarea class="mt-3 w-full" style="padding: 5px;" name="textarea" [(ngModel)]="empresaModel.observaciones" name="observaciones" rows="5"></textarea>
-          
+
             </div>
-       
+
         </div>
-   
+
     </div>
 
 </div>
