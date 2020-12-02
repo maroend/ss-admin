@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS, PeriodosModel } from "../../models/proyectos";
+import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS, PeriodosModel, ProyectosCampus } from "../../models/proyectos";
 import { Empresa } from "../../models/empresa";
 import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
@@ -26,7 +26,8 @@ export class ProyectosAddComponent implements OnInit {
   public fechaMinima: Date = new Date(now.getFullYear(), now.getMonth(), now.getDate()+90);
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
-  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false,false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0,"", 1, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
+  public listaProyectosCampus = new Array<ProyectosCampus>();
+  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false, false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0, "", 1, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras, this.listaProyectosCampus);
   public validar = false;
   public organizaciones: Empresa[] = [];
   public proyectosCompetencias: ProyectosCompetencias[] = [];
@@ -126,6 +127,19 @@ export class ProyectosAddComponent implements OnInit {
     }
     else {
       this.proyectoModel.carrerasList = this.proyectoModel.carrerasList.filter(item => item.idCarrera !== id);
+    }
+
+    //console.log(this.proyectoModel.carrerasList);
+  }
+
+  toggleUniversidades(checked, id) {
+    //console.log(checked);
+    var valor = { "idCampus": id, "activo": true };
+    if (checked) {
+      this.proyectoModel.campusList.push(valor);
+    }
+    else {
+      this.proyectoModel.campusList = this.proyectoModel.campusList.filter(item => item.idCampus !== id);
     }
 
     //console.log(this.proyectoModel.carrerasList);
@@ -270,11 +284,11 @@ export class ProyectosAddComponent implements OnInit {
     else if (model.idObjetivoOnu == 0) {
       this.mensajevalidacion = "debe seleccionar el objetivos de la ONU"
       $('#validacion').modal('show');
-    } 
+    } /*
     else if (model.idUniversidad == 0) {
       this.mensajevalidacion = "debe seleccionar un campus"
       $('#validacion').modal('show');
-    } else {
+    } */else {
 
       this.proyectoService.create(model).subscribe((res: any) => {
         $('#success-modal-preview').modal('show');
