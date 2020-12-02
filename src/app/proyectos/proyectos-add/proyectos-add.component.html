@@ -44,7 +44,7 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>Institución / Área*</label>
+                  <b>Institución / Área*</b>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idOrganizacion" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="organizacion.id" *ngFor="let organizacion of organizaciones">{{organizacion.organizacion}} </option>
                   </select>
@@ -54,14 +54,14 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>Nombre del proyecto*</label>
+                  <b>Nombre del proyecto*</b>
                   <input type="text" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.proyecto" [ngModelOptions]="{standalone: true}" ng-reflect-required="ejemplo nombre" maxlength="70" placeholder="Máximo 70 caracteres" required>
                 </div>
               </div>
 
               <div class="relative mt-8">
                 <div>
-                  <label>Descripción del proyecto*</label>
+                  <b>Descripción del proyecto*</b>
                   <textarea type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.descripcion" [ngModelOptions]="{standalone: true}" placeholder="Máximo 500 caracteres" maxlength="500" rows="5" required>
               </textarea>
                 </div>
@@ -69,54 +69,54 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Nombre del Responsable del Proyecto*
-                  </label>
+                  </b>
                   <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.nombreResponsable" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
                 </div>
               </div>
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Puesto del Responsable del Proyecto*
-                  </label>
+                  </b>
                   <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.puesto" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
                 </div>
               </div>
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Área del Responsbale del Proyecto*
-                  </label>
+                  </b>
                   <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.area" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
                 </div>
               </div>
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Correo electrónico del responsable del proyecto*
-                  </label>
+                  </b>
                   <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.correoResponsable" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
                 </div>
               </div>
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Teléfono de responsable del proyecto
-                  </label>
+                  </b>
                   <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.telefono" [ngModelOptions]="{standalone: true}" required>
                 </div>
               </div>
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     ¿Plazas de Servicio Social disponibles para el proyecto?*
-                  </label>
+                  </b>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazas" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="1">1</option>
                     <option [ngValue]="2">2</option>
@@ -134,9 +134,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     ¿Se puede hacer el servicio social bajo la modalidad a distancia en este proyecto?*
-                  </label>
+                  </b>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.modalidadDistancia" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="'si'">Si</option>
                     <option [ngValue]="'no'">No</option>
@@ -146,9 +146,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Justifica el impacto social del proyecto*
-                  </label>
+                  </b>
                   <textarea type="text" class="input   w-full border mt-2 " placeholder="Máximo 500 caracteres" [(ngModel)]="proyectoModel.justificacionImpactoSocial" [ngModelOptions]="{standalone: true}" maxlength="500" rows="7" required>
               </textarea>
                 </div>
@@ -179,9 +179,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Enlista los objetivos del proyecto máximo(7)*
-                  </label>
+                  </b>
                   <textarea type="text" rows="7" class="input  w-full border mt-2 " placeholder="Enlista máximo 7" [(ngModel)]="proyectoModel.objetivo" [ngModelOptions]="{standalone: true}" required>
               </textarea>
                 </div>
@@ -214,7 +214,7 @@
         </div>-->
               <div class="relative mt-8">
                 <div>
-                  <label>Fecha de inicio*</label>
+                  <b>Fecha de inicio*</b>
                   <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()" required>
                 </div>
               </div>
@@ -233,15 +233,15 @@
         -->
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     ¿El alumno recibe capacitación/formación por parte de la Institución?*
-                  </label>
+                  </b>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.capacitacion" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="'si'">Si</option>
                     <option [ngValue]="'no'">No</option>
                   </select>
-                  <label *ngIf="proyectoModel.capacitacion=='si'">¿Que tipo de capacitacòn se ofrece?</label>
-                  <label *ngIf="proyectoModel.capacitacion=='no'">¿Razòn por la que no ofrece capacitaciòn?</label>
+                  <b *ngIf="proyectoModel.capacitacion=='si'">¿Que tipo de capacitacòn se ofrece?</b>
+                  <b *ngIf="proyectoModel.capacitacion=='no'">¿Razòn por la que no ofrece capacitaciòn?</b>
                   <textarea type="text" class="input   w-full border mt-2 " placeholder="Máximo 500 caracteres" [(ngModel)]="proyectoModel.razonCapacitacion" [ngModelOptions]="{standalone: true}" maxlength="500" rows="7" required>
                   </textarea>
                 </div>
@@ -249,9 +249,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Días hábiles para la prestación de servicio social*
-                  </label>
+                  </b>
                 </div>
                 <div class="well">
                   <table style="padding: 15px; margin-left: 25px;">
@@ -315,9 +315,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Horarios disponibles para la prestación de servicio social*
-                  </label>
+                  </b>
                 </div>
                 <div class="well">
                   <table style="padding: 15px; margin-left: 25px;">
@@ -346,9 +346,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Rol o función del prestador de servicio social (estudiante) dentro del proyecto:
-                  </label>
+                  </b>
                   <textarea type="text" class="input w-full border mt-2 " placeholder="Máximo 400 caracteres" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" maxlength="400" rows="5" required>
               </textarea>
                 </div>
@@ -356,9 +356,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Responsabilidades del prestador de servicio social máximo(7):
-                  </label>
+                  </b>
                   <textarea type="text" rows="7" class="input  w-full border mt-2 " placeholder="Enumere las principales responsabilidades que tendrá el estudiante. Máximo 7" [(ngModel)]="proyectoModel.responsabilidades" [ngModelOptions]="{standalone: true}" value="objetivo ejemplo" rows="5" required></textarea>
                 </div>
               </div>
@@ -378,9 +378,9 @@
 
               <div class="relative mt-2">
                 <div>
-                  <label>
+                  <b>
                     Seleccione las competencias que el alumno podrá desarrollar por medio del proyecto:
-                  </label>
+                  </b>
                 </div>
                 <div class="sm:grid grid-cols-3 gap-2">
                   <div *ngFor="let competencia of listaProyectosCompetencias">
@@ -396,9 +396,9 @@
 
               <div class="relative mt-8">
                 <div>
-                  <label>
+                  <b>
                     Selecciones las carreras más afines según el perfil que requiera el proyecto:
-                  </label>
+                  </b>
                 </div>
                 <div class="sm:grid grid-cols-3 gap-2">
                   <div *ngFor="let carrera of listaProyectosCarreras">
@@ -428,9 +428,9 @@
 
               <div class="relative mt-2">
                 <div>
-                  <label>
+                  <b>
                     Según la naturaleza del proyecto, ¿a cuál de los siguientes objetivos de la ONU contribuye?
-                  </label>
+                  </b>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idObjetivoOnu" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="odss.id" *ngFor="let odss of ods">{{odss.odSstring}} </option>
                   </select>
@@ -439,9 +439,9 @@
 
               <div class="relative mt-2">
                 <div>
-                  <label>
+                  <b>
                     Periodo
-                  </label>
+                  </b>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idPeriodo" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="periodo.id" *ngFor="let periodo of periodos">{{periodo.periodo}} </option>
                   </select>
@@ -452,9 +452,33 @@
           </div>
           <br>
 
+          <div class="mt-8 p-5">
+            <div class="sm:grid grid-cols-1 gap-2">
+
+              <div class="relative mt-8">
+                <div>
+                  <b>
+                    Selecciones los campus en los que aplica el proyecto:
+                  </b>
+                </div>
+                <div class="sm:grid grid-cols-3 gap-2">
+                  <div *ngFor="let universidad of universidades">
+
+                    <label>
+                      <input type="checkbox" id="campus{{universidad.id}}" (change)="toggleUniversidades($event.target.checked, universidad.id)">
+                      {{universidad.universidad}}
+                    </label>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           <div class="mt-1 p-5">
-            <div class="sm:grid grid-cols-3 gap-2">
-              <div class="relative mt-3">
+            <div class="sm:grid grid-cols-2 gap-2">
+              <!--<div class="relative mt-3">
                 <div>
                   <label>Campus:</label>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idUniversidad" [ngModelOptions]="{standalone: true}">
@@ -462,10 +486,10 @@
                   </select>
                 </div>
 
-              </div>
+              </div>-->
               <div class="relative mt-3">
                 <div>
-                  <label>Estado:</label>
+                  <b>Estado:</b>
                   <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idEstadoProyecto" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="estadoProyecto.id" *ngFor="let estadoProyecto of estadosProyectos">{{estadoProyecto.estadoProyecto}}</option>
                   </select>
@@ -473,7 +497,7 @@
               </div>
               <div class="relative mt-3">
                 <div>
-                  <label>Observaciones:</label>
+                  <b>Observaciones:</b>
                   <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.observaciones" [ngModelOptions]="{standalone: true}" required>
 
                 </div>
