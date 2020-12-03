@@ -740,7 +740,7 @@
                         <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}}</div>
                     </td>
                     <td class="border-b" *ngIf="d.idEstado==0;else tem">
-                        <div class="font-medium flex sm:justify-center items-center">Nuevo</div>
+                        <div class="font-medium flex sm:justify-center items-center">Pendiente</div>
                     </td>
                     <ng-template #tem>
                         <td>
