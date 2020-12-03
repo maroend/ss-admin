@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "https://localhost:44330/api"
- // baseUrl:  'https://serviciosocial.gesdesapplication.com/api/'
+  // baseUrl: "https://localhost:44330/api"
+ baseUrl:  'https://serviciosocial.gesdesapplication.com/api'
 };
 
 /*

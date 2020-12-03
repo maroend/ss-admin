@@ -22,6 +22,7 @@
             <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
         </div>
     </div>
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Institución / Área
@@ -708,7 +709,9 @@
                     <th class="whitespace-no-wrap">SUBIR</th>
                     <th class="whitespace-no-wrap">ADJUNTO</th>
                     <th class="whitespace-no-wrap"> FECHA ENTREGA</th>
-                    <th class="whitespace-no-wrap">ENTREGADO</th>
+                    <th class="whitespace-no-wrap">ESTADO</th>
+
+                    <th class="whitespace-no-wrap">ACCIÓN</th>
 
                 </tr>
             </thead>
@@ -736,9 +739,52 @@
                     <td>
                         <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}}</div>
                     </td>
-                    <td style="padding: 5px; background: #ffffff; " align="center">
-                        <input type="checkbox" id="1" onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true">
+                    <td class="border-b" *ngIf="d.idEstado==0;else tem">
+                        <div class="font-medium flex sm:justify-center items-center">Pendiente</div>
                     </td>
+                    <ng-template #tem>
+                        <td>
+                            <div class="font-medium flex sm:justify-center items-center">{{d.estado}}</div>
+                        </td>
+                    </ng-template>
+                    <td *ngIf="d.id>0;else templateName">
+                        <div class="ext-base text-xs whitespace-no-wrap"> <a (click)="mostraractualizarestado(d.id)"><button class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white"> Cambiar Estado</button></a></div>
+                    </td>
+                    <ng-template #templateName>
+                        <td>
+                            <div class="ext-base text-xs whitespace-no-wrap"> Documento por entregar</div>
+                        </td>
+                    </ng-template>
+
+                    <div class="modal" id="mostareditardoc-{{d.id}}">
+                        <div class="modal__content">
+                            <form #form="ngForm" (ngSubmit)="cambiarestatusdocumento(d.idEstado,d.idDocumento,d.id)">
+                                <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+
+                                    <div class="flex flex-col sm:flex-row items-center mt-3">
+                                        <label class="sm:w-32 sm:text-right sm:mr-5">Estado:</label>
+                                        <select class="input input--sm border mr-2 sm:w-64" [(ngModel)]="d.idEstado" [ngModelOptions]="{standalone: true}" id="myselect">
+
+<option [ngValue]="doc.id" *ngFor="let doc of estadodocumento">{{doc.estado}} </option>
+
+
+</select>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button>
+                                    <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Cambiar Estado</button> </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+
+
+
 
                     <div class="modal" id="abrirsubir-{{d.idDocumentoRequerido}}">
                         <div class="modal__content">
@@ -762,12 +808,43 @@
                         </div>
                     </div>
 
+
+
+
                 </tr>
 
 
 
             </tbody>
         </table>
+        <br>
+        <button class="button text-white bg-theme-1 shadow-lg ml-5 " style="float: right; display: block;" (click)="modalenviardoc()" id="myDIV">
+            Enviar documentacion a Jurídico
+                  </button>
+
+
+        <div class="modal" id="modalenviardoc">
+            <div class="modal__content">
+                <form #form="ngForm" (ngSubmit)="enviarcorreo()">
+                    <div class="p-5 text-center">
+                        <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                        <div class="text-base mt-5">¿Estas seguro de enviar documentacion a Jurídico?</div>
+                    </div>
+
+                    <div class="px-5 pb-8 text-center">
+                        <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
+        Cancelar
+      </button>
+                        <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Enviar</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
     </div>
 
 
@@ -1209,85 +1286,6 @@
     <br>
 
 
-
-
-    <div class="intro-y flex items-center h-10">
-        <h2 class="text-lg font-medium truncate mr-5">
-            Documentos
-        </h2>
-    </div>
-
-    <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-        <table class="table table-report sm:mt-2">
-            <thead>
-                <tr>
-
-                    <th class="whitespace-no-wrap">DOCUMENTO</th>
-                    <th class="whitespace-no-wrap">SUBIR</th>
-                    <th class="whitespace-no-wrap">ADJUNTO</th>
-
-                    <th class="whitespace-no-wrap"> FECHA ENTREGA</th>
-                    <th class="whitespace-no-wrap">ENTREGADO</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
-
-                    <td>
-                        <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
-                    </td>
-                    <td>
-                        <div class="ext-base text-xs whitespace-no-wrap">
-                            <a (click)="abrirsubir(d.idDocumentoRequerido)">
-
-                                <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">   Subir Archivo </button>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="ext-base text-xs whitespace-no-wrap" *ngIf="d.id >0">
-                            <a href="{{d.archivo}}" target="_blank">
-                                <button type="button" data-dismiss="modal" class="button w-24 bg-theme-12 text-white">   Descargar Archivo </button>
-                            </a>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}}</div>
-                    </td>
-                    <td style="padding: 5px; background: #ffffff; " align="center">
-                        <input type="checkbox" id="1" onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true">
-                    </td>
-
-                    <div class="modal" id="abrirsubir-{{d.idDocumentoRequerido}}">
-                        <div class="modal__content">
-                            <form #form="ngForm" (ngSubmit)="subeArchivo()">
-                                <div class="p-5 text-center">
-                                    <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                                    <div class="text-base mt-5">Subir Archivo del documento: {{d.documento}}</div>
-                                    <br>
-                                    <input type="file" id="file" name="file" accept="application/pdf" (change)="uploadFile($event.target.files)">
-                                </div>
-
-                                <div class="px-5 pb-8 text-center">
-                                    <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
-                    Cancelar
-                  </button>
-                                    <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Subir</button>
-                                </div>
-                            </form>
-
-
-                        </div>
-                    </div>
-
-                </tr>
-
-
-
-            </tbody>
-        </table>
-    </div>
 
 
 

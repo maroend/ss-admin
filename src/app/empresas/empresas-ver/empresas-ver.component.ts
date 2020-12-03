@@ -3,7 +3,7 @@ import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
 import { Empresa, Responsablemodel, check, estadoActualizar, OrganizacionesSucesosModel } from "../../models/empresa"
 import { AreaAccion } from "../../models/areaaccion"
-import { Documentos, DocumentosCadena, Documentosfile, DocumentosSubidos, DocumentosSubidosRequeridos } from "../../models/documentos"
+import { Documentos, DocumentosCadena, Documentosfile, DocumentosSubidos, DocumentosSubidosRequeridos,Estadodocumento,Documentoupdate } from "../../models/documentos"
 import { RubroEmpresa } from "../../models/rubrosempresa"
 import { Universidad } from "../../models/universidad"
 import { TipoEmpresa } from "../../models/tipoempresa"
@@ -35,7 +35,10 @@ export class EmpresasverComponent implements OnInit {
 public idobtenido:string;
   public giro: GiroEmpresa[] = [];
   public documentos: Documentos[] = [];
+  public estadodocumento: Estadodocumento[] = [];
+  public documentoupdate: Documentoupdate;
 
+public iddoc=0;
   public estado: EstadoEmpresa[] = [];
   public listaAreasAccion = [];
   public listaRubros = [];
@@ -83,7 +86,7 @@ public validar=false;
     this.obtenerEstado();
     this.obtenerdocumentosSubidosConRequeridos();
     this.obtenerSucesos();
-
+this.obtenerestatusdoc();
     this.externa();
 
   }
@@ -180,8 +183,17 @@ var valor= { "idRubro": id ,"activo": true};
       .obtenerDocumentosSubidosConRequeridos(this.idobtenido)
       .subscribe((documentosS: DocumentosSubidosRequeridos[]) => {
         this.DocumentosSubidos = documentosS;
-        //console.log("iddocumentos subidos "+this.idDocumentosSubidos);
-        console.log("requeridos " + this.DocumentosSubidos);
+
+        
+        for(var i=0;i<documentosS.length;i++)
+        {
+          if(documentosS[i]['idEstado']!=4){
+            document.getElementById("myDIV").style.display = "none";
+
+return;
+          }
+        }
+
 
       });
   }
@@ -277,4 +289,54 @@ let model=this.estadoact;
      this.cambio=this.responsablemodel.externa;
  
   }
+
+  obtenerestatusdoc() {
+    return this.organizacionService
+      .getestadodocumento()
+      .subscribe((estadodocumento: Estadodocumento[]) => this.estadodocumento = estadodocumento);
+  }
+
+  
+  mostraractualizarestado(id){
+    this.iddoc=Number(id);
+
+        $('#mostareditardoc-'+this.iddoc).modal('show');
+    
+    
+      }
+      modalenviardoc(){
+    
+            $('#modalenviardoc').modal('show');
+        
+        
+          }
+
+
+      cambiarestatusdocumento(ide,idd,id){
+
+console.log(ide+idd+id);
+
+      
+       
+    console.log(ide);
+         this.organizacionService.updateestadodcoc(Number(this.idobtenido),idd,ide,id).subscribe((res: any[])=>{
+           $('#success-modal-preview').modal('show');
+           console.log(res);
+      //  location.reload();
+    
+
+      })
+    
+      }
+
+      enviarcorreo(){
+
+        this.organizacionService.enviarcorreo(Number(this.idobtenido)).subscribe((res: any[])=>{
+          $('#success-modal-preview').modal('show');
+          console.log(res);
+
+
+      })
+    }
+    
 }
