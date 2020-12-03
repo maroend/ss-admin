@@ -22,6 +22,7 @@
             <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
         </div>
     </div>
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
             Institución / Área
@@ -693,7 +694,7 @@
 
 
 
-    <div class="intro-y flex items-center h-10" *>
+    <div class="intro-y flex items-center h-10">
         <h2 class="text-lg font-medium truncate mr-5">
             Documentos
         </h2>
@@ -816,6 +817,34 @@
 
             </tbody>
         </table>
+        <br>
+        <button class="button text-white bg-theme-1 shadow-lg ml-5 " style="float: right; display: block;" (click)="modalenviardoc()" id="myDIV">
+            Enviar documentacion a Jurídico
+                  </button>
+
+
+        <div class="modal" id="modalenviardoc">
+            <div class="modal__content">
+                <form #form="ngForm" (ngSubmit)="enviarcorreo()">
+                    <div class="p-5 text-center">
+                        <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                        <div class="text-base mt-5">¿Estas seguro de enviar documentacion a Jurídico?</div>
+                    </div>
+
+                    <div class="px-5 pb-8 text-center">
+                        <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
+        Cancelar
+      </button>
+                        <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Enviar</button>
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
     </div>
 
 

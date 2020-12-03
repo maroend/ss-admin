@@ -183,7 +183,17 @@ var valor= { "idRubro": id ,"activo": true};
       .obtenerDocumentosSubidosConRequeridos(this.idobtenido)
       .subscribe((documentosS: DocumentosSubidosRequeridos[]) => {
         this.DocumentosSubidos = documentosS;
-        //console.log("iddocumentos subidos "+this.idDocumentosSubidos);
+
+        
+        for(var i=0;i<documentosS.length;i++)
+        {
+          if(documentosS[i]['idEstado']!=4){
+            document.getElementById("myDIV").style.display = "none";
+
+return;
+          }
+        }
+
 
       });
   }
@@ -294,6 +304,13 @@ let model=this.estadoact;
     
     
       }
+      modalenviardoc(){
+    
+            $('#modalenviardoc').modal('show');
+        
+        
+          }
+
 
       cambiarestatusdocumento(ide,idd,id){
 
@@ -311,5 +328,15 @@ console.log(ide+idd+id);
       })
     
       }
+
+      enviarcorreo(){
+
+        this.organizacionService.enviarcorreo(Number(this.idobtenido)).subscribe((res: any[])=>{
+          $('#success-modal-preview').modal('show');
+          console.log(res);
+
+
+      })
+    }
     
 }

@@ -177,5 +177,10 @@ console.log(estado);
     return this.http.post(uri, ido);
   }
 
+  enviarcorreo(id) {
+    const uri =(`${this.api}/Organizaciones/?idOrganizacion=${id}`);
+      return this.http.post(uri, id);
+    }
+
 
 }
