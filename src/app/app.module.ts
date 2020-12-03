@@ -38,6 +38,7 @@ import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.compo
 import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
 import { CookieService } from 'ngx-cookie-service';
+import { DatatableComponent } from './components/datatable/datatable.component';
 
 
 
@@ -69,6 +70,7 @@ import { CookieService } from 'ngx-cookie-service';
     UsuariosComponent,
     UsuariosAddComponent,
     UsuariosEditComponent,
+    DatatableComponent,
 
   ],
   imports: [
@@ -78,6 +80,7 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     DataTablesModule,
     ReactiveFormsModule,
+    DataTablesModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

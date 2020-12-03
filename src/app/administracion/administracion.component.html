@@ -1,5 +1,5 @@
-
-<app-menu></app-menu>
+<app-menu>
+</app-menu>
 
 <!-- BEGIN: Content -->
 <div class="content">
@@ -25,8 +25,8 @@
 
 
     <!-- BEGIN: Datatable -->
-    <div class="intro-y datatable-wrapper box p-5 mt-5">
-        <table datatable  class="table table-report table-report--bordered display datatable w-full">
+    <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
             <thead>
                 <tr>
                     <th class="border-b-2 whitespace-no-wrap">NOMBRE COMPLETO</th>
@@ -39,11 +39,11 @@
             </thead>
             <tbody>
                 <tr>
-                    
+
                     <td class="border-b">
                         <a href="#">
-                        <div class="font-medium whitespace-no-wrap">Jose Carlos Ruiz García</div>
-                        <div class="text-gray-600 text-xs whitespace-no-wrap">Admón. Turística 1995 UAX</div>
+                            <div class="font-medium whitespace-no-wrap">Jose Carlos Ruiz García</div>
+                            <div class="text-gray-600 text-xs whitespace-no-wrap">Admón. Turística 1995 UAX</div>
                         </a>
                     </td>
                     <td class="border-b">
@@ -61,7 +61,7 @@
                         </div>
                     </td>
                 </tr>
-                
+
             </tbody>
         </table>
     </div>

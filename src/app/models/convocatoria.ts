@@ -11,8 +11,9 @@ export class Convocatoria {
         public fechaTermino:Date,
         
         public activo: boolean,
-        public descripcion: string
-
+        public descripcion: string,
+        public Inicio:string,
+        public Termino:string,
         
     ) { }
 

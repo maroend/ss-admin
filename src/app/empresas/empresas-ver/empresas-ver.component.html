@@ -700,8 +700,8 @@
         </h2>
     </div>
 
-    <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-        <table class="table table-report sm:mt-2">
+    <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
             <thead>
                 <tr>
 
@@ -719,10 +719,10 @@
                 <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
 
                     <td>
-                        <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
+                        <div class="text-center text-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
                     </td>
                     <td>
-                        <div class="ext-base text-xs whitespace-no-wrap">
+                        <div class="text-center  text-xs whitespace-no-wrap">
                             <a (click)="abrirsubir(d.idDocumentoRequerido)">
 
                                 <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">   Subir Archivo </button>
@@ -730,14 +730,14 @@
                         </div>
                     </td>
                     <td>
-                        <div class="ext-base text-xs whitespace-no-wrap" *ngIf="d.id >0">
+                        <div class=" text-xs whitespace-no-wrap text-center" *ngIf="d.id >0">
                             <a (click)="descargar(d.archivo)">
                                 <button type="button" data-dismiss="modal" class="button w-24 bg-theme-12 text-white">  Ver Archivo </button>
                             </a>
                         </div>
                     </td>
                     <td>
-                        <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}}</div>
+                        <div class="text-center text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion}}</div>
                     </td>
                     <td class="border-b" *ngIf="d.idEstado==0;else tem">
                         <div class="font-medium flex sm:justify-center items-center">Pendiente</div>
@@ -748,11 +748,11 @@
                         </td>
                     </ng-template>
                     <td *ngIf="d.id>0;else templateName">
-                        <div class="ext-base text-xs whitespace-no-wrap"> <a (click)="mostraractualizarestado(d.id)"><button class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white"> Cambiar Estado</button></a></div>
+                        <div class=" text-xs whitespace-no-wrap text-center"> <a (click)="mostraractualizarestado(d.id)"><button class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white"> Cambiar Estado</button></a></div>
                     </td>
                     <ng-template #templateName>
                         <td>
-                            <div class="ext-base text-xs whitespace-no-wrap"> Documento por entregar</div>
+                            <div class="text-center text-xs whitespace-no-wrap"> Documento por entregar</div>
                         </td>
                     </ng-template>
 
