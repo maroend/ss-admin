@@ -26,340 +26,330 @@
 
     <form #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
 
-        <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-            <h2 class="text-lg font-medium mr-auto">
-                Agregar Alumno
-            </h2>
-            <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-                <a routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-                <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
-            </div>
+      <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+          Agregar Alumno
+        </h2>
+        <!--<div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+          <a routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
+          <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+        </div>-->
+      </div>
+
+
+      <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
+
+      <div class="intro-y box mt-5">
+        <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+          <h2 class="font-medium text-base mr-auto">
+            Información Personal
+          </h2>
         </div>
+        <div class="p-5" id="horizontal-form">
+          <div class="preview">
 
 
-        <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
-
-        <div class="intro-y box mt-5">
-            <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                <h2 class="font-medium text-base mr-auto">
-                    Información Personal
-                </h2>
+            <div class="flex flex-col sm:flex-row items-center mt-3" style="display: none">
+              <label class="sm:w-32 sm:text-right sm:mr-5">Activo:</label>
+              <input type="radio" ng-value="true" name="activo" [(ngModel)]="activo" [checked]="true" />
             </div>
-            <div class="p-5" id="horizontal-form">
-                <div class="preview">
 
 
-                    <div class="flex flex-col sm:flex-row items-center mt-3" style="display: none">
-                        <label class="sm:w-32 sm:text-right sm:mr-5">Activo:</label>
-                        <input type="radio" ng-value="true" name="activo" [(ngModel)]="activo" [checked]="true" />
-                    </div>
+            <div class="mt-3">
+              <div class="sm:grid grid-cols-3 gap-2">
 
-
-                    <div class="mt-3">
-                      <div class="sm:grid grid-cols-3 gap-2">
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>Nombre</label>
-                            <input type="text" class="input  w-full border mt-2 " name="nombre" ngModel placeholder="">
-                          </div>
-
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>Apellido Paterno:</label>
-                            <input type="text" class="input  w-full border mt-2 " name="paterno" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>Apellido Materno:</label>
-                            <input type="text" class="input  w-full border mt-2 " name="materno" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>ID Matricula</label>
-                            <input type="text" class="input  w-full border mt-2 " name="matricula" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>Universidad:</label>
-                            <select class="input  w-full border mt-2 " name="idUniversidad" [(ngModel)]="uni">
-                              <option *ngFor="let universidad of universidades" [ngValue]="universidad.id">{{ universidad.universidad }}</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>Facultad:</label>
-                            <select class="input  w-full border mt-2 " name="idFacultad" [(ngModel)]="facu">
-                              <option *ngFor="let facultad of facultades" [ngValue]="facultad.id">{{ facultad.facultad }}</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>Carrera:</label>
-                            <select class="input  w-full border mt-2 " name="idCarrera" [(ngModel)]="carre">
-                              <option *ngFor="let carrera of carreras" [ngValue]="carrera.id">{{ carrera.carrera }}</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>Porcentaje Academico:</label>
-                            <input type="number" class="input  w-full border mt-2 " name="porcentaje" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Avance en créditos de la carrera:
-                            </label>
-                            <input type="number" class="input  w-full border mt-2 " name="avanceCreditos" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Número de Semestre / Cuatrimestre:
-                            </label>
-                            <input type="number" class="input  w-full border mt-2 " name="noCuatrimestreSemestre" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              ¿Tu carrera es semestral o cuatrimestral?
-                            </label>
-                            <select class="input  w-full border mt-2 " name="esquemaPeriodo" ngModel>
-                              <option [ngValue]="'semestral'">Semestral</option>
-                              <option [ngValue]="'cuatrimestral'">Cuatrimestral</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Generación:
-                            </label>
-                            <input type="text" class="input  w-full border mt-2 " name="generacion" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Fecha estimada de graduación:
-                            </label>
-                            <input type="date" class="input  w-full border mt-2 " name="fechaEstimadaGraduacion" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Correo Institucional:
-                            </label>
-                            <input type="email" class="input  w-full border mt-2 " name="correoInstitucional" ngModel placeholder="">
-                          </div>
-                        </div>
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Correo Personal:
-                            </label>
-                            <input type="email" class="input  w-full border mt-2 " name="CorreoPersonal" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <div>
-                              <label>Contraseña:</label>
-                              <input type="password" class="input  w-full border mt-2 " placeholder="" name="password" ngModel>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Teléfono de Contacto:
-                            </label>
-                            <input type="tel" class="input  w-full border mt-2 " name="celular" ngModel placeholder="">
-                          </div>
-                        </div>
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Fecha de Nacimiento:
-                            </label>
-                            <input type="date" class="input  w-full border mt-2 " name="fechaNacimiento" ngModel placeholder="">
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Sexo:
-                            </label>
-                            <select class="input  w-full border mt-2 " name="sexo" ngModel>
-                              <option [ngValue]="'Hombre'">Hombre</option>
-                              <option [ngValue]="'Mujer'">Mujer</option>
-                            </select>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-                  <br>
-                  <!--
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                      <h2 class="font-medium text-base mr-auto">
-                        Información del servicio social
-                      </h2>
-                    </div>
-                    <div class="mt-3">
-                        <div class="sm:grid grid-cols-3 gap-2">
-                            <div class="relative mt-8">
-                                <div>
-                                    <label>cambiar:</label>
-                                    <input type="text" class="input  w-full border mt-2 " placeholder="" name="correo" ngModel>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <br>-->
-
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                      <h2 class="font-medium text-base mr-auto">
-                        Información Complementaria
-                      </h2>
-                    </div>
-
-
-                    <div class="mt-3">
-                      <div class="sm:grid grid-cols-2 gap-2">
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              ¿Has participado en ASUA?:
-                            </label>
-                            <select class="input  w-full border mt-2 " name="participacionAsua" ngModel>
-                              <option [ngValue]="'si'">Si</option>
-                              <option [ngValue]="'no'">No</option>
-                            </select>
-                          </div>
-                        </div>
-
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              ¿Actualmente trabajas?:
-                            </label>
-                            <select class="input  w-full border mt-2 " name="trabajas" ngModel>
-                              <option [ngValue]="'si'">Si</option>
-                              <option [ngValue]="'no'">No</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              ¿Bajo qué modalidad trabajas?
-                            </label>
-                            <select class="input  w-full border mt-2" name="idModalidadTrabajo" ngModel>
-                              <option *ngFor="let modalidad of listaModalidadesTrabajo" [ngValue]="modalidad.id">{{ modalidad.modalidad }}</option>
-                            </select>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              ¿A partir de qué semestre / cuatrimestre comenzaste a trabajar?
-                            </label>
-                            <select class="input  w-full border mt-2 " name="CuatrimestreComienzoTrabajo" ngModel>
-                              <option [ngValue]="1">1</option>
-                              <option [ngValue]="2">2</option>
-                              <option [ngValue]="3">3</option>
-                              <option [ngValue]="4">4</option>
-                              <option [ngValue]="5">5</option>
-                              <option [ngValue]="6">6</option>
-                              <option [ngValue]="7">7</option>
-                              <option [ngValue]="8">8</option>
-                              <option [ngValue]="9">9</option>
-                              <option [ngValue]="10">10</option>
-                            </select>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div class="sm:grid grid-cols-1 gap-2">
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              Indica en cuál(es) área(s) de Vida Universitaria has participado
-                            </label>
-                          </div>
-                          <div class="sm:grid grid-cols-3 gap-2">
-                            <div *ngFor="let area of listaAreasUniversidad">
-
-                              <label>
-                                <input type="checkbox" id="{{area.id}}" (change)="toggleAreasVidaUniversitariaParticipado($event.target.checked, area.id)">
-                                {{area.areaVidaUniversitaria}}
-                              </label>
-
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="relative mt-8">
-                          <div>
-                            <label>
-                              ¿Actualmente formas parte de alguna área de Vida Universitaria?
-                            </label>
-                          </div>
-                          <div class="sm:grid grid-cols-3 gap-2">
-                            <div *ngFor="let area of listaAreasUniversidad">
-
-                              <label>
-                                <input type="checkbox" id="{{area.id}}" (change)="toggleAreasVidaUniversitariaActuales($event.target.checked, area.id)">
-                                {{area.areaVidaUniversitaria}}
-                              </label>
-
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-
-                    <br>
+                <div class="relative mt-8">
+                  <div>
+                    <label>Nombre*</label>
+                    <input type="text" class="input  w-full border mt-2 " name="nombre" ngModel placeholder="">
+                  </div>
 
                 </div>
 
+                <div class="relative mt-8">
+                  <div>
+                    <label>Apellido Paterno*</label>
+                    <input type="text" class="input  w-full border mt-2 " name="paterno" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>Apellido Materno*</label>
+                    <input type="text" class="input  w-full border mt-2 " name="materno" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>ID Matrícula*</label>
+                    <input type="text" class="input  w-full border mt-2 " name="matricula" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>Universidad*</label>
+                    <select class="input  w-full border mt-2 " name="idUniversidad" [(ngModel)]="uni">
+                      <option *ngFor="let universidad of universidades" [ngValue]="universidad.id">{{ universidad.universidad }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>Facultad*</label>
+                    <select class="input  w-full border mt-2 " name="idFacultad" [(ngModel)]="facu">
+                      <option *ngFor="let facultad of facultades" [ngValue]="facultad.id">{{ facultad.facultad }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>Carrera*</label>
+                    <select class="input  w-full border mt-2 " name="idCarrera" [(ngModel)]="carre">
+                      <option *ngFor="let carrera of carreras" [ngValue]="carrera.id">{{ carrera.carrera }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>Porcentaje Académico*</label>
+                    <input type="number" class="input  w-full border mt-2 " name="porcentaje" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <!--<div class="relative mt-8">
+                  <div>
+                    <label>
+                      Avance en créditos de la carrera:
+                    </label>
+                    <input type="number" class="input  w-full border mt-2 " name="avanceCreditos" ngModel placeholder="">
+                  </div>
+                </div>-->
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Número de Semestre / Cuatrimestre*
+                    </label>
+                    <input type="number" class="input  w-full border mt-2 " name="noCuatrimestreSemestre" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      ¿Tu carrera es semestral o cuatrimestral?*
+                    </label>
+                    <select class="input  w-full border mt-2 " name="esquemaPeriodo" ngModel>
+                      <option [ngValue]="'semestral'">Semestral</option>
+                      <option [ngValue]="'cuatrimestral'">Cuatrimestral</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Generación*
+                    </label>
+                    <input type="text" class="input  w-full border mt-2 " name="generacion" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Fecha estimada de graduación*
+                    </label>
+                    <input type="date" class="input  w-full border mt-2 " name="fechaEstimadaGraduacion" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Correo Institucional*
+                    </label>
+                    <input type="email" class="input  w-full border mt-2 " name="correoInstitucional" ngModel placeholder="">
+                  </div>
+                </div>
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Correo Personal*
+                    </label>
+                    <input type="email" class="input  w-full border mt-2 " name="CorreoPersonal" ngModel placeholder="">
+                  </div>
+                </div>
+                <!--
+                <div class="relative mt-8">
+                  <div>
+                    <div>
+                      <label>Contraseña:</label>
+                      <input type="password" class="input  w-full border mt-2 " placeholder="" name="password" ngModel>
+                    </div>
+                  </div>
+                </div>
+                  -->
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Teléfono de Contacto*
+                    </label>
+                    <input type="tel" class="input  w-full border mt-2 " name="celular" ngModel placeholder="">
+                  </div>
+                </div>
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Fecha de Nacimiento*
+                    </label>
+                    <input type="date" class="input  w-full border mt-2 " name="fechaNacimiento" ngModel placeholder="">
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Sexo*
+                    </label>
+                    <select class="input  w-full border mt-2 " name="sexo" ngModel>
+                      <option [ngValue]="'Hombre'">Hombre</option>
+                      <option [ngValue]="'Mujer'">Mujer</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
             </div>
+            <br>
+
+            <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
+              <h2 class="font-medium text-base mr-auto">
+                Información Complementaria
+              </h2>
+            </div>
+
+
+            <div class="mt-3">
+              <div class="sm:grid grid-cols-2 gap-2">
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      ¿Has participado en ASUA?:
+                    </label>
+                    <select class="input  w-full border mt-2 " name="participacionAsua" ngModel>
+                      <option [ngValue]="'si'">Si</option>
+                      <option [ngValue]="'no'">No</option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      ¿Actualmente trabajas?:
+                    </label>
+                    <select class="input  w-full border mt-2 " name="trabajas" ngModel>
+                      <option [ngValue]="'si'">Si</option>
+                      <option [ngValue]="'no'">No</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      ¿Bajo qué modalidad trabajas?
+                    </label>
+                    <select class="input  w-full border mt-2" name="idModalidadTrabajo" ngModel>
+                      <option *ngFor="let modalidad of listaModalidadesTrabajo" [ngValue]="modalidad.id">{{ modalidad.modalidad }}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      ¿A partir de qué semestre / cuatrimestre comenzaste a trabajar?
+                    </label>
+                    <select class="input  w-full border mt-2 " name="CuatrimestreComienzoTrabajo" ngModel>
+                      <option [ngValue]="1">1</option>
+                      <option [ngValue]="2">2</option>
+                      <option [ngValue]="3">3</option>
+                      <option [ngValue]="4">4</option>
+                      <option [ngValue]="5">5</option>
+                      <option [ngValue]="6">6</option>
+                      <option [ngValue]="7">7</option>
+                      <option [ngValue]="8">8</option>
+                      <option [ngValue]="9">9</option>
+                      <option [ngValue]="10">10</option>
+                    </select>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="sm:grid grid-cols-1 gap-2">
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      Indica en cuál(es) área(s) de Vida Universitaria has participado
+                    </label>
+                  </div>
+                  <div class="sm:grid grid-cols-3 gap-2">
+                    <div *ngFor="let area of listaAreasUniversidad">
+
+                      <label>
+                        <input type="checkbox" id="{{area.id}}" (change)="toggleAreasVidaUniversitariaParticipado($event.target.checked, area.id)">
+                        {{area.areaVidaUniversitaria}}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="relative mt-8">
+                  <div>
+                    <label>
+                      ¿Actualmente formas parte de alguna área de Vida Universitaria?
+                    </label>
+                  </div>
+                  <div class="sm:grid grid-cols-3 gap-2">
+                    <div *ngFor="let area of listaAreasUniversidad">
+
+                      <label>
+                        <input type="checkbox" id="{{area.id}}" (change)="toggleAreasVidaUniversitariaActuales($event.target.checked, area.id)">
+                        {{area.areaVidaUniversitaria}}
+                      </label>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <br>
+
+          </div>
+
         </div>
+      </div>
+      <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+          <!--Completar informacion-->
+        </h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+          <!--<a routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>-->
+          <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+        </div>
+      </div>
     </form>
     <!-- END: FORM -->
 </div>

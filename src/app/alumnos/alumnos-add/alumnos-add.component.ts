@@ -150,11 +150,6 @@ console.log(temporal);
       this.mensajevalidacion="No puedes dejar el campo de porcentaje académico vacío"
       $('#validacion').modal('show');
     }
-    else if (temporal['avanceCreditos']==""){
-
-      this.mensajevalidacion="No puedes dejar el campo de avance de creditos vacío"
-      $('#validacion').modal('show');
-    }
     else if (temporal['noCuatrimestre']==""){
 
       this.mensajevalidacion="No puedes dejar el campo no de cuatrimestre vacío"
@@ -185,13 +180,8 @@ console.log(temporal);
       $('#validacion').modal('show');
       
     }
-    else if (temporal['password']==""){
-      this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
-      $('#validacion').modal('show');
-      
-    }
-    else if(temporal['telefono']==""){
-      this.mensajevalidacion="No puedes dejar el campo de telefono vacío"
+    else if (temporal['celular']==""){
+      this.mensajevalidacion="No puedes dejar el campo de teléfono de contacto vacío"
       $('#validacion').modal('show');
       
     }
@@ -204,16 +194,6 @@ console.log(temporal);
 
       this.mensajevalidacion="No puedes dejar el campo de sexo vacío"
       $('#validacion').modal('show');
-    } 
-    else if (temporal['participacionAsua']==""){
-      this.mensajevalidacion="No puedes dejar el campo de participacion Asua vacío"
-      $('#validacion').modal('show');
-      
-    }
-    else if (temporal['trabajas']==""){
-      this.mensajevalidacion="No puedes dejar el campo de trabajas vacío"
-      $('#validacion').modal('show');
-      
     }
     else {
       //console.log(data.value);
