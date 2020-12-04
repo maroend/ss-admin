@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../services/organization.service';
-import { Empresa } from "../models/empresa"
+import { Empresa,Vacantes } from "../models/empresa"
 import { ConvocatoriaServices } from '../services/convocatoria.service';
 import { Convocatoria,Tipo } from "../models/convocatoria"
 import { count } from 'rxjs-compat/operator/count';
@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   public empresa: Empresa[] = [  ];
   public empresacantidad: number;
   public empresapermisos: Empresa[] = [  ];
+  public vacantes: Vacantes[] = [  ];
 
   public empresaactiva: Empresa[] = [  ];
   public empresadesaciva: Empresa[] = [  ];
@@ -199,6 +200,7 @@ obtenerpermisos() {
     .subscribe((empresapermisos: Empresa[]) => this.empresapermisos = empresapermisos );
 }
   
+
 subeArchivo(id) {
     
   this.organizacionService.cambiarestado(id).subscribe(data => {
@@ -215,5 +217,11 @@ abrirsubir(id){
   $('#abrirsubir-'+id).modal('show');
 
 }
+obtenervacantes() {
+  return this.organizacionService
+    .getvacantes()
+    .subscribe((vacantes: Vacantes[]) => this.vacantes = vacantes );
+}
+  
 
 }

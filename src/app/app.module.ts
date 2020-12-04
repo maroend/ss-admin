@@ -40,6 +40,7 @@ import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component
 import { CookieService } from 'ngx-cookie-service';
 import { DatatableComponent } from './components/datatable/datatable.component';
 
+import { TestimoniosComponent } from './testimonios/testimonios.component';
 
 
 @NgModule({
@@ -71,6 +72,7 @@ import { DatatableComponent } from './components/datatable/datatable.component';
     UsuariosAddComponent,
     UsuariosEditComponent,
     DatatableComponent,
+    TestimoniosComponent
 
   ],
   imports: [
