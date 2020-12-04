@@ -40,6 +40,7 @@ data: any;
 
   }
   ngOnInit(): void {
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
@@ -85,6 +86,7 @@ this.empresa1.push(res[i]);
 }
 this.dtTrigger.next();
 this.dtTrigger2.next();
+    Feather.replace();
 
 
       });
