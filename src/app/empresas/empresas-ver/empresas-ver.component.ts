@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../../services/organization.service';
 import { Empresa, Responsablemodel, check, estadoActualizar, OrganizacionesSucesosModel } from "../../models/empresa"
@@ -10,6 +10,7 @@ import { TipoEmpresa } from "../../models/tipoempresa"
 import { GiroEmpresa } from "../../models/giroempresa"
 import { ClasificacionEmpresa } from "../../models/clasificacionempresa"
 import { EstadoEmpresa } from "../../models/estadoempresa"
+import { Subject } from 'rxjs';
 
 
 
@@ -23,10 +24,12 @@ declare var $: any;
   templateUrl: './empresas-ver.component.html',
   styleUrls: ['./empresas-ver.component.scss']
 })
-export class EmpresasverComponent implements OnInit {
+export class EmpresasverComponent implements OnDestroy, OnInit {
   public areas: AreaAccion[] = [];
   public estadoact = new estadoActualizar(0,"",0)
   public  logo="https://img.icons8.com/ios/452/company.png";
+  dtOptions: DataTables.Settings = {};
+  dtTrigger  = new Subject<any>();
 
   public responsable: Responsablemodel[] = [];
   public rubros: RubroEmpresa[] = [];
@@ -74,6 +77,12 @@ public validar=false;
   
   }
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+  
+      language:{url:'//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'}
+    };
     this.idobtenido = this.activatedRoute.snapshot.paramMap.get("id");
     this.getempresa(this.idobtenido);
 
@@ -91,6 +100,10 @@ this.obtenerestatusdoc();
 
   }
  
+  ngOnDestroy():void{
+    this.dtTrigger.unsubscribe();
+
+  }
   toggleArea(checked, id){
 var valor= { "idAreaAccion": id ,"activo": true};
 
@@ -183,8 +196,23 @@ var valor= { "idRubro": id ,"activo": true};
       .obtenerDocumentosSubidosConRequeridos(this.idobtenido)
       .subscribe((documentosS: DocumentosSubidosRequeridos[]) => {
         this.DocumentosSubidos = documentosS;
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+console.log(this.DocumentosSubidos);
+        for(var i=0;i<this.DocumentosSubidos.length;i++){
 
+
+          var Fecha1 = new Date((this.DocumentosSubidos[i]['fechaCreacion'].toString()));
         
+                  console.log(Fecha1);
+          this.DocumentosSubidos[i]['fechaCreacion']=Fecha1.toLocaleDateString("es-ES", options);
+        
+         
+        
+        
+        }
+
+        this.dtTrigger.next();
+
         for(var i=0;i<documentosS.length;i++)
         {
           if(documentosS[i]['idEstado']!=4){

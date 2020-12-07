@@ -1,8 +1,10 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { Empresa } from "../models/empresa"
 import { OrganizationService } from '../services/organization.service';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 declare var $: any;
 
@@ -11,29 +13,50 @@ declare var $: any;
   templateUrl: './empresas-home.component.html',
   styleUrls: ['./empresas-home.component.scss']
 })
-export class EmpresashomeComponent implements OnInit {
+export class EmpresashomeComponent implements OnDestroy, OnInit {
+  dtOptions: DataTables.Settings = {};
+  // We use this trigger because fetching the list of persons can be quite long,
+  // thus we ensure the data is fetched before rendering
+  dtTrigger  = new Subject<any>();
+  dtTrigger2  = new Subject<any>();
+
+data: any;
   public empresa: Empresa[] = [  ];
 
   public empresa1: Empresa[] = [  ];
 
   public empresa2: Empresa[] = [  ];
 
-  @ViewChild('dataTable', {static: true}) table;
   public  logo="https://img.icons8.com/ios/452/company.png";
 
-  dataTable:any;
   public validar=true;
 
-  constructor(private organizacionService: OrganizationService,private router: Router) { 
+  constructor(private organizacionService: OrganizationService,private router: Router,private httpClient: HttpClient) { 
   
   }
+  ngOnDestroy():void{
+    this.dtTrigger.unsubscribe();
+    this.dtTrigger2.unsubscribe();
+
+  }
   ngOnInit(): void {
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      language:{url:'//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'}
+    };
+
+  
+    Feather.replace();
+
+   
+
     this.obtenerorganizaciones();
     document.getElementById("empresa").style.backgroundColor ="blue";
 
     document.getElementById("alumnos").style.backgroundColor ="gray";
 
-    this.dataTable.DataTable();
 
   }
 
@@ -55,9 +78,16 @@ this.empresa1.push(res[i]);
 
 
   }
-  this.empresa = res;
+  this.empresa = this.empresa1;
+  this.empresa2 = this.empresa2;
+
+  // Calling the DT trigger to manually render the table
 
 }
+this.dtTrigger.next();
+this.dtTrigger2.next();
+    Feather.replace();
+
 
       });
   }
@@ -91,16 +121,17 @@ this.empresa1.push(res[i]);
   {
 
 
-    this.empresa=[];
-    var red = Math.floor(Math.random() * 256);
-    var blue = Math.floor(Math.random() * 256);
-    var green = Math.floor(Math.random() * 256);
     document.getElementById("empresa").style.backgroundColor ="blue";
 
     document.getElementById("alumnos").style.backgroundColor ="gray";
 
-this.empresa=this.empresa1;
-    this.ngAfterViewInit();
+    var tabla1 = document.getElementById("tabla1");
+    var tabla2 = document.getElementById("tabla2");
+    tabla1.style.display = "block";
+    tabla2.style.display = "none";
+
+
+
 
 
   }
@@ -108,15 +139,15 @@ this.empresa=this.empresa1;
   recargar2()
   {
 
+
     document.getElementById("empresa").style.backgroundColor ="gray";
 
     document.getElementById("alumnos").style.backgroundColor ="blue";
-    this.empresa=[];
-    $('#empresa').backgroundColor="green";
 
-    this.empresa=this.empresa2;
-    this.ngAfterViewInit();
-
+    var tabla1 = document.getElementById("tabla1");
+    var tabla2 = document.getElementById("tabla2");
+    tabla1.style.display = "none";
+    tabla2.style.display = "block";
 
   }
 }

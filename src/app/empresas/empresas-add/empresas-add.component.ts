@@ -465,11 +465,7 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
       $('#validacion').modal('show');
 
     } 
-    else if(this.listaRubros.length==0){
-      this.mensajevalidacion="Debes selecciónar al menos un rubro"
-      $('#validacion').modal('show');
-
-    } 
+   
     
     else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){
       this.mensajevalidacion="Debes selecciónar al menos una Area y maximo 3"

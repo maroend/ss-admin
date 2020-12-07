@@ -813,8 +813,11 @@
                         </div>
                         <div class="relative mt-2">
                             <div>
-                                <label>Contraseña del Responsable de Servicio Social:</label>
-                                <input type="password" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.contrasena" [ngModelOptions]="{standalone: true}">
+                                <label>Contraseña del Responsable de Servicio Social*</label>
+                                <input type="password" id="password" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="responsablemodel.contrasena" [ngModelOptions]="{standalone: true}">
+                                <!-- checkbox que nos permite activar o desactivar la opcion -->
+                                <div style="margin-top:3px;">
+                                    <input style="margin-left:20px;" type="checkbox" id="mostrar_contrasena" title="clic para mostrar contraseña" (change)="mostrarpass()" /> &nbsp;&nbsp;Mostrar Contraseña</div>
                             </div>
                         </div>
                     </div>

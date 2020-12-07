@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { OrganizationService } from '../services/organization.service';
-import { Empresa } from "../models/empresa"
+import { Empresa,Vacantes } from "../models/empresa"
 import { ConvocatoriaServices } from '../services/convocatoria.service';
 import { Convocatoria,Tipo } from "../models/convocatoria"
 import { count } from 'rxjs-compat/operator/count';
@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   public empresa: Empresa[] = [  ];
   public empresacantidad: number;
   public empresapermisos: Empresa[] = [  ];
+  public vacantes: Vacantes[] = [  ];
 
   public empresaactiva: Empresa[] = [  ];
   public empresadesaciva: Empresa[] = [  ];
@@ -108,16 +109,22 @@ console.log(this.empresa);
     model.tipo=1;
     this.convocatoriaService.getConvocatoriatipo(model).subscribe((res: any[])=>{        
       var Fecha = new Date((this.d.toString()));
-           
+      var options = { year: 'numeric', month: 'long', day: 'numeric' };
+      console.log(res);
+
 this.convocatorias=res;
 for(var i=0;i<this.convocatorias.length;i++){
 
 
   var Fecha1 = new Date((this.convocatorias[i].fechaTermino.toString()));
+  var ini = new Date((this.convocatorias[i].fechaInicio.toString()));
 
 if(Fecha1> Fecha ){
+  this.convocatorias[i].Termino=Fecha1.toLocaleDateString("es-ES", options);
+  this.convocatorias[i].Inicio=ini.toLocaleDateString("es-ES", options);
   console.log(Fecha1);
 this.convocatoriasf.push(this.convocatorias[i]);
+
 
 }
 }
@@ -129,17 +136,22 @@ this.convocatoriasf.push(this.convocatorias[i]);
   obtenerConvocatoria2() {
     let model = this.tipoModel;
     model.tipo=2;
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
 
     var Fecha = new Date((this.d.toString()));
 
     this.convocatoriaService.getConvocatoriatipo(model).subscribe((res: any[])=>{
 this.convocatoriasalumnos=res;
-for(var i=0;i<this.convocatorias.length;i++){
-  var Fecha1 = new Date((this.convocatorias[i].fechaTermino.toString()));
+for(var i=0;i<this.convocatoriasalumnos.length;i++){
+  var Fecha1 = new Date((this.convocatoriasalumnos[i].fechaTermino.toString()));
 
+  var ini = new Date((this.convocatoriasalumnos[i].fechaInicio.toString()));
 
   if(Fecha1> Fecha ){
-    this.convocatoriasalumnosf.push(this.convocatorias[i]);
+    this.convocatoriasalumnos[i].Termino=Fecha1.toLocaleDateString("es-ES", options);
+    this.convocatoriasalumnos[i].Inicio=ini.toLocaleDateString("es-ES", options);
+    console.log(Fecha1);
+    this.convocatoriasalumnosf.push(this.convocatoriasalumnos[i]);
 
 }
 }
@@ -188,6 +200,7 @@ obtenerpermisos() {
     .subscribe((empresapermisos: Empresa[]) => this.empresapermisos = empresapermisos );
 }
   
+
 subeArchivo(id) {
     
   this.organizacionService.cambiarestado(id).subscribe(data => {
@@ -204,5 +217,11 @@ abrirsubir(id){
   $('#abrirsubir-'+id).modal('show');
 
 }
+obtenervacantes() {
+  return this.organizacionService
+    .getvacantes()
+    .subscribe((vacantes: Vacantes[]) => this.vacantes = vacantes );
+}
+  
 
 }

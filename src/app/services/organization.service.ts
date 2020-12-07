@@ -182,5 +182,8 @@ console.log(estado);
       return this.http.post(uri, id);
     }
 
-
+    getvacantes(){
+      const uri = `${this.api}/Organizaciones/`;
+      return this.http.get(uri);
+    }
 }
