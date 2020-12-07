@@ -19,6 +19,20 @@ public apellidos="";
 
   }
   ngOnInit(): void {
+
+    
   }
 
+  ocultar(){
+    console.log(screen.width);
+    if(screen.width <614){
+    var menu = document.getElementById("menu");
+if(menu.style.display=="none"){
+    menu.style.display = "block";
+}else{
+  menu.style.display = "none";
+
+}
+    }
+  }
 }
