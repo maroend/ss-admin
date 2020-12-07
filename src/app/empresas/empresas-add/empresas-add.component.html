@@ -549,29 +549,31 @@
                                         Principal(es) Área(s) de Acción (solo 3 permitidas)*
                                     </h2>
                                 </div>
+                                <div class="relative mt-8">
 
 
-                                <div class="well">
-                                    <table style="padding: 15px; margin-left: 25px;">
-                                        <tbody>
-                                            <tr *ngFor="let area of areas">
+                                    <div class="well">
+                                        <table style="padding: 15px; margin-left: 25px;">
+                                            <tbody>
+                                                <tr *ngFor="let area of areas">
 
-                                                <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)" id="area-{{area.id}}"></td>
-                                                <td>{{area.areaAccion}}
-
-
-                                                </td>
-                                                <div *ngIf="area.id==13">
-                                                    <input type="text" class="input  w-full border mt-2 " id="areatext" [(ngModel)]="empresaModel.areaOtro" [ngModelOptions]="{standalone: true}" placeholder="" disabled>
-                                                </div>
-
-                                            </tr>
+                                                    <td style="padding:5px;"> <input type="checkbox" (change)="toggleArea(($event.target.checked), area.id)" id="area-{{area.id}}"></td>
+                                                    <td>{{area.areaAccion}}
 
 
-                                        </tbody>
+                                                    </td>
+                                                    <div *ngIf="area.id==13">
+                                                        <input type="text" class="input  w-full border mt-2 " id="areatext" [(ngModel)]="empresaModel.areaOtro" [ngModelOptions]="{standalone: true}" placeholder="" disabled>
+                                                    </div>
+
+                                                </tr>
 
 
-                                    </table>
+                                            </tbody>
+
+
+                                        </table>
+                                    </div>
                                 </div>
 
                             </div>
