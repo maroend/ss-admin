@@ -50,6 +50,11 @@ this.obtenerUniversidad();
   }
 
   update(){
+    $('#nombre').css("border", "#dee2e6 solid 1px");
+    $('#apellidos').css("border", "#dee2e6 solid 1px");
+    $('#email').css("border", "#dee2e6 solid 1px");
+    $('#password').css("border", "#dee2e6 solid 1px");
+
     let model = this.usuarios;
 
     console.log(model)
@@ -57,26 +62,36 @@ this.obtenerUniversidad();
     if(model.nombre==""){
       this.mensajevalidacion="No puedes dejar el campo de nombre vacío"
             $('#validacion').modal('show');
+            $('#nombre').css("border", "red solid 1px");
+
       
           }
           else if(!this.validarEmail(model.email)){
             this.mensajevalidacion="Ingrese un correo valido"
             $('#validacion').modal('show');
+            $('#email').css("border", "red solid 1px");
+
           } 
 
           else   if(model.apellidos==""){
             this.mensajevalidacion="No puedes dejar el campo de apellidos vacío"
                   $('#validacion').modal('show');
+                  $('#apellidos').css("border", "red solid 1px");
+
             
                 }
                 else     if(model.email==""){
                   this.mensajevalidacion="No puedes dejar el campo de email vacío"
                         $('#validacion').modal('show');
+                        $('#email').css("border", "red solid 1px");
+
                   
                       }
                       else     if(model.password==""){
                         this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
                               $('#validacion').modal('show');
+                              $('#password').css("border", "red solid 1px");
+
                         
                             }
                      else{

@@ -55,6 +55,11 @@ this.convocatoria.idPeriodo=1;
   }
 
   create(){
+    $('#convocatoria').css("border", "#dee2e6 solid 1px");
+    $('#descripcion').css("border", "#dee2e6 solid 1px");
+    $('#fechaTermino').css("border", "#dee2e6 solid 1px");
+    $('#fechaInicio').css("border", "#dee2e6 solid 1px");
+
     let model = this.convocatoria;
 
     console.log(model)
@@ -63,19 +68,26 @@ this.convocatoria.idPeriodo=1;
     if(model.convocatoria==""){
       this.mensajevalidacion="No puedes dejar el campo de empresa vacío"
             $('#validacion').modal('show');
-      
+            $('#convocatoria').css("border", "red solid 1px");
+
           }
           else if(model.descripcion==""){
             this.mensajevalidacion="No puedes dejar el campo de mision vacío"
             $('#validacion').modal('show');
+            $('#descripcion').css("border", "red solid 1px");
+
           }
           else if(model.fechaTermino==this.d){
             this.mensajevalidacion="No puedes dejar el campo de fecha Termino vacío"
             $('#validacion').modal('show');
+            $('#fechaTermino').css("border", "red solid 1px");
+
           }
           else if(model.fechaInicio==this.d){
             this.mensajevalidacion="No puedes dejar el campo de fecha Inicio vacío"
             $('#validacion').modal('show');
+            $('#fechaInicio').css("border", "red solid 1px");
+
           }
         else{
 

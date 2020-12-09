@@ -183,7 +183,7 @@ console.log(estado);
     }
 
     getvacantes(){
-      const uri = `${this.api}/Organizaciones/`;
-      return this.http.get(uri);
+      const uri = `${this.api}/Proyectos/obtenerDisponiblesCarrerasProyectos`;
+      return this.http.post(uri,"1");
     }
 }
