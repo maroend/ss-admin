@@ -211,16 +211,15 @@ console.log(this.DocumentosSubidos);
         
         }
 
-        this.dtTrigger.next();
 
         for(var i=0;i<documentosS.length;i++)
         {
           if(documentosS[i]['idEstado']!=4){
             document.getElementById("myDIV").style.display = "none";
 
-return;
           }
         }
+        this.dtTrigger.next();
 
 
       });
