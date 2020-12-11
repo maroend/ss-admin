@@ -511,7 +511,7 @@ this._location.back();
   }
 }
 else{
-  model.organizacion = model.vicerrectoria+"/"+ model.cordinacion;
+  model.organizacion =  model.cordinacion;
   model.nombreComun="Interna";
 
 console.log(model);
