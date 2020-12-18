@@ -74,7 +74,7 @@
                                 <div>
                                     <label>Periodo*</label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.idPeriodo" id="idPeriodo" [ngModelOptions]="{standalone: true}">
-                    <option [ngValue]="periodo.id" *ngFor="let periodo of periodos">{{periodo.periodo}} </option>
+                                      <option [ngValue]="periodo.id" *ngFor="let periodo of periodos">{{periodo.periodo}} - {{periodo.descripcion}} </option>
 
                   </select> </div>
 
@@ -85,7 +85,7 @@
                                     <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.tipo" id="tipo" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="1">Alumnos </option>
 
-                    <option [ngValue]="2">Escuelas </option>
+                    <option [ngValue]="2">Instituciones </option>
                   </select> </div>
                             </div>
                             <div class="relative mt-2">
