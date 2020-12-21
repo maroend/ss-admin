@@ -47,6 +47,7 @@ export class Proyecto {
     public campusList?: Array<ProyectosCampus>,
     public horas?: number,
     public razonCapacitacion?:string,
+    public PlazasAutorizadas?:number,
 
   ) { }
 
