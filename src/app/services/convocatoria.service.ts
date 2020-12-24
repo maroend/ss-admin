@@ -33,7 +33,7 @@ export class ConvocatoriaServices {
     return this.http.get(uri);
   }
   getUniversidad(){
-    const uri = `${this.api}/Universidades`;
+    const uri = `${this.api}/Universidades2`;
     console.log(uri);
     return this.http.get(uri);
   }

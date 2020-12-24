@@ -4,39 +4,46 @@
         <a [routerLink]="['/dashboard']" class="flex mr-auto">
             <img alt="Servicio Social" class="w-6" src="assets/images/logo.png">
         </a>
-        <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
+        <a (click)="ocultar()" id="mobile-menu-toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
     </div>
-    <ul class="border-t border-theme-24 py-5 hidden">
+    <ul id="menu" style="display: none;">
         <li>
-            <a href="index.html" class="menu">
+            <a routerLink="/dashboard" routerLinkActive="menu menu--active" class="menu">
                 <div class="menu__icon"> <i data-feather="home"></i> </div>
-                <div class="menu__title"> Dashboard s</div>
+                <div class="menu__title"> Dashboard </div>
             </a>
         </li>
         <li>
-            <a href="javascript:;" class="menu">
+            <a routerLink="/alumnos" routerLinkActive="menu menu--active" class="menu">
                 <div class="menu__icon"> <i data-feather="box"></i> </div>
-                <div class="menu__title"> Estudiantes <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
+                <div class="menu__title"> Estudiantes </div>
             </a>
-            
         </li>
-        
-        <li class="menu__devider my-6"></li>
-        
         <li>
-            <a href="javascript:;" class="menu">
+            <a routerLink="/empresas" routerLinkActive="menu menu--active" class="menu">
+                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                <div class="menu__title"> Instituciones / Áreas </div>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/proyectos" routerLinkActive="menu menu--active" class="menu">
+                <div class="menu__icon"> <i data-feather="layout"></i> </div>
+                <div class="menu__title"> Proyectos </div>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/convocatorias" routerLinkActive="menu menu--active" class="menu">
+                <div class="menu__icon"> <i data-feather="inbox"></i> </div>
+                <div class="menu__title"> Convocatorías </div>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/usuarios" routerLinkActive="menu menu--active" class="menu">
                 <div class="menu__icon"> <i data-feather="sidebar"></i> </div>
-                <div class="menu__title"> Forms <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
+                <div class="menu__title"> Administración </div>
             </a>
-            
         </li>
-        <li>
-            <a href="javascript:;" class="menu">
-                <div class="menu__icon"> <i data-feather="hard-drive"></i> </div>
-                <div class="menu__title"> Widgets <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
-            </a>
-            
-        </li>
+
     </ul>
 </div>
 <!-- END: Mobile Menu -->
@@ -45,18 +52,18 @@
 <div class="border-b border-theme-white -mt-10 md:-mt-5 -mx-3 sm:-mx-8 px-3 sm:px-8 pt-3 md:pt-0 mb-10">
     <div class="top-bar-boxed flex items-center">
         <!-- BEGIN: Logo -->
-        <a [routerLink]="['/dashboard']"  class="-intro-x hidden md:flex">
+        <a [routerLink]="['/dashboard']" class="-intro-x hidden md:flex">
             <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="assets/images/logo.png">
             <span class="text-white text-lg ml-3"> Universidad<span class="font-medium"> Anáhuac</span> </span>
         </a>
         <!-- END: Logo -->
         <!-- BEGIN: Breadcrumb -->
-        <div class="-intro-x breadcrumb breadcrumb--light mr-auto border-theme-white"> <a [routerLink]="['/dashboard']" class="">Application</a> <i data-feather="chevron-right" class="breadcrumb__icon"></i> <a [routerLink]="['/dashboard']" class="breadcrumb--active">Servicio Social</a> </div>
+        <div class="-intro-x breadcrumb breadcrumb--light mr-auto border-theme-white"> <a [routerLink]="['/dashboard']" class="breadcrumb--active">Servicio Social</a> </div>
         <!-- END: Breadcrumb -->
         <!-- BEGIN: Search -->
-        
+
         <!-- BEGIN: Notifications -->
-        
+
         <!-- BEGIN: Account Menu -->
         <div class="intro-x dropdown w-8 h-8 relative">
             <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in scale-110">
@@ -123,7 +130,7 @@
                 <div class="top-menu__title"> Administración <i data-feather="chevron-down" class="top-menu__sub-icon"></i> </div>
             </a>
         </li>
-    
+
     </ul>
 </nav>
 <!-- END: Top Menu -->

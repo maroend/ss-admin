@@ -36,7 +36,9 @@ export class DocumentosSubidosRequeridos {
       public documento :string,
       public configuracion :number,
 
-      public file: any
+      public file: any,
+      public descripcion?:string
+
     ) { }
 }
 
@@ -72,7 +74,7 @@ export class Documentoupdate {
       public IdDocumento: number,
       public IdEstado: number,
       public activo: boolean,
-      public id:number
+      public id:number,
 
 
       

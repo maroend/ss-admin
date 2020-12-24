@@ -298,16 +298,42 @@ listapaist.forEach(el => {
     }
   }
   mostrarpass(){
-    console.log("cambioar");
     if ($('#mostrar_contrasena').is(':checked')) {
-      $('#password').attr('type', 'text');
+      $('#contrasena').attr('type', 'text');
     } else {
-      $('#password').attr('type', 'password');
+      $('#contrasena').attr('type', 'password');
     }
   
-  }
+  }   
 
   create(){
+    
+    $('#NombreResponsable').css("border", "#dee2e6 solid 1px");
+    $('#telefono').css("border", "#dee2e6 solid 1px");
+    $('#correo').css("border", "#dee2e6 solid 1px");
+     $('#nombreComun').css("border", "#dee2e6 solid 1px");
+     $('#razon').css("border", "#dee2e6 solid 1px");
+     $('#logros').css("border", "#dee2e6 solid 1px");
+     $('#reconocimiento').css("border", "#dee2e6 solid 1px");
+     $('#facebook').css("border", "#dee2e6 solid 1px");
+     $('#vision').css("border", "#dee2e6 solid 1px");
+     $('#mision').css("border", "#dee2e6 solid 1px");
+     $('#objetivo').css("border", "#dee2e6 solid 1px");
+     $('#logros').css("border", "#dee2e6 solid 1px");
+     $('#web').css("border", "#dee2e6 solid 1px");
+     $('#cp').css("border", "#dee2e6 solid 1px");
+     $('#estado').css("border", "#dee2e6 solid 1px");
+     $('#ciudad').css("border", "#dee2e6 solid 1px");
+     $('#colonia').css("border", "#dee2e6 solid 1px");
+     $('#calle').css("border", "#dee2e6 solid 1px");
+     $('#noExt').css("border", "#dee2e6 solid 1px");
+     $('#NombreCompletoDirector').css("border", "#dee2e6 solid 1px");
+     $('#NombreCompletoresponsable').css("border", "#dee2e6 solid 1px");
+     $('#correo').css("border", "#dee2e6 solid 1px");
+     $('#telefono').css("border", "#dee2e6 solid 1px");
+     $('#departamento').css("border", "#dee2e6 solid 1px");
+     $('#puesto').css("border", "#dee2e6 solid 1px");
+     $('#contrasena').css("border", "#dee2e6 solid 1px");
     this.responsablemodel.usuario=this.responsablemodel.correo;
 
     let model = this.empresaModel;
@@ -321,158 +347,194 @@ model.Imagen=this.imagensubidaurl;
 console.log(this.responsablemodel.externa);
 
 if(model.Responsable.externa){
-     if(model.organizacion==""){
-this.mensajevalidacion="No puedes dejar el campo de Nombre Oficial de la Institución vacío"
-      $('#validacion').modal('show');
-
-    }
-
-//responsable
-else if(this.responsablemodel.telefono.length<10){
-  this.mensajevalidacion="Ingrese un telefono valido"
-  $('#validacion').modal('show');
-} 
-else if(!this.validarEmail(this.responsablemodel.correo)){
-  this.mensajevalidacion="Ingrese un correo valido"
-  $('#validacion').modal('show');
-} 
-
-
-//maximo
-    else if(model.descripcion.length>500){
-      this.mensajevalidacion="El campo de descripcion debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.razon.length>500){
-      this.mensajevalidacion="El campo de Razón de ser debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.mision.length>500){
-      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.vision.length>500){
-      this.mensajevalidacion="El campo de Visión debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-    else if(model.mision.length>500){
-      this.mensajevalidacion="El campo de misión debe tener menos de 500 caracteres"
-      $('#validacion').modal('show');
-    } 
-
+  if(model.organizacion==""){
+    this.mensajevalidacion="No puedes dejar el campo de Nombre Oficial de la Institución vacío"
+          $('#validacion').modal('show');
+          $('#organizacion').css("border", "red solid 1px");
     
-    else if(model.nombreComun==""){
-      this.mensajevalidacion="No puedes dejar el campo de Nombre Común de la Institución vacío"
+        }
+    //responsable
+    else if(this.responsablemodel.telefono.length<10){
+      this.mensajevalidacion="Ingrese un telefono valido"
       $('#validacion').modal('show');
-    }
-    else if(model.razon==""){
-      this.mensajevalidacion="No puedes dejar el campo de razón de ser de la Institución vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.logros==""){
-      this.mensajevalidacion="No puedes dejar el campo de  los Principales Logros de la Institución vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.reconocimiento==""){
-      this.mensajevalidacion="No puedes dejar el campo de  Reconocimientos y Certificaciones vacío"
-      $('#validacion').modal('show');
-    }
-
-    else if(model.facebook==""){
-      this.mensajevalidacion="No puedes dejar el campo de  facebook vacío"
-      $('#validacion').modal('show');
-    }  
-
-
-    else if(model.mision==""){
-      this.mensajevalidacion="No puedes dejar el campo de mision vacío"
-      $('#validacion').modal('show');
-    }
-    else  if(model.objetivo==""){
-      this.mensajevalidacion="No puedes dejar el campo de objetivo vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.logros==""){
-      this.mensajevalidacion="No puedes dejar el campo de logros vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.web==""){
-      this.mensajevalidacion="No puedes dejar el campo de web vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.cp==""){
-      this.mensajevalidacion="No puedes dejar el campo de cp vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.estado==""){
-      this.mensajevalidacion="No puedes dejar el campo de estado vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.ciudad==""){
-      this.mensajevalidacion="No puedes dejar el campo de ciudad vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.colonia==""){
-      this.mensajevalidacion="No puedes dejar el campo de colonia vacío"
-      $('#validacion').modal('show');
-    }
-    else if(model.calle==""){
-      this.mensajevalidacion="No puedes dejar el campo de calle vacío"
-      $('#validacion').modal('show');
-    }
-
-    else if(model.noExt==""){
-      this.mensajevalidacion="No puedes dejar el campo de noExt vacío"
-      $('#validacion').modal('show');
-    }
-
-    else if(model.Responsable['NombreCompletoDirector']==""){
-      this.mensajevalidacion="No puedes dejar el campo de Nombre Completo del Director vacío"
-      $('#validacion').modal('show');
-
-    }
-    else if(model.Responsable['NombreCompletoresponsable']==""){
-      this.mensajevalidacion="No puedes dejar el campo de Nombre Completo del responsable vacío"
-      $('#validacion').modal('show');
-
-    }  else if(model.Responsable['correo']==""){
-        this.mensajevalidacion="No puedes dejar el campo de correo vacío"
-      $('#validacion').modal('show');
-
-    }  
-    else if(model.Responsable['telefono']==""){
-      this.mensajevalidacion="No puedes dejar el campo de telefono vacío"
-      $('#validacion').modal('show');
-
-    }  
-    else if(model.Responsable['departamento']==""){
-      this.mensajevalidacion="No puedes dejar el campo de departamento vacío"
-      $('#validacion').modal('show');
-
-    }  
-    else if(model.Responsable['puesto']==""){
-      this.mensajevalidacion="No puedes dejar el campo de puesto vacío"
-      $('#validacion').modal('show');
-
-    }  
-    // else if(model.Responsable['usuario']==""){
-    //   this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
-    //   $('#validacion').modal('show');
-
-    // } 
-    else if(model.Responsable['contraseña']==""){
-      this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
-      $('#validacion').modal('show');
-
-    } 
-   
+      $('#telefono').css("border", "red solid 1px");
     
-    else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){
-      this.mensajevalidacion="Debes selecciónar al menos una Area y maximo 3"
+    } 
+    else if(!this.validarEmail(this.responsablemodel.correo)){
+      this.mensajevalidacion="Ingrese un correo valido"
       $('#validacion').modal('show');
-
+      $('#correo').css("border", "red solid 1px");
+    
     } 
     
+    
+    
+    
+        else if(model.nombreComun==""){
+          this.mensajevalidacion="No puedes dejar el campo de Nombre Común de la Institución vacío"
+          $('#validacion').modal('show');
+          $('#nombreComun').css("border", "red solid 1px");
+    
+          
+        }
+        else if(model.razon==""){
+          this.mensajevalidacion="No puedes dejar el campo de razón de ser de la Institución vacío"
+          $('#validacion').modal('show');
+          $('#razon').css("border", "red solid 1px");
+    
+        }
+        else if(model.logros==""){
+          this.mensajevalidacion="No puedes dejar el campo de  los Principales Logros de la Institución vacío"
+          $('#validacion').modal('show');
+          $('#logros').css("border", "red solid 1px");
+    
+        }
+        else if(model.reconocimiento==""){
+          this.mensajevalidacion="No puedes dejar el campo de  Reconocimientos y Certificaciones vacío"
+          $('#validacion').modal('show');
+          $('#reconocimiento').css("border", "red solid 1px");
+    
+        }
+    
+        else if(model.facebook==""){
+          this.mensajevalidacion="No puedes dejar el campo de  facebook vacío"
+          $('#validacion').modal('show');
+          $('#facebook').css("border", "red solid 1px");
+    
+        }  
+        else if(model.vision=="" || model.vision==null){
+          this.mensajevalidacion="El campo de Visión no debe ir vacío"
+          $('#validacion').modal('show');
+          $('#vision').css("border", "red solid 1px");
+    
+        } 
+    
+        else if(model.mision==""){
+          this.mensajevalidacion="No puedes dejar el campo de mision vacío"
+          $('#validacion').modal('show');
+          $('#mision').css("border", "red solid 1px");
+    
+        }
+        else  if(model.objetivo==""){
+          this.mensajevalidacion="No puedes dejar el campo de objetivo vacío"
+          $('#validacion').modal('show');
+          $('#objetivo').css("border", "red solid 1px");
+    
+        }
+        else if(model.logros==""){
+          this.mensajevalidacion="No puedes dejar el campo de logros vacío"
+          $('#validacion').modal('show');
+          $('#logros').css("border", "red solid 1px");
+    
+        }
+        else if(model.web==""){
+          this.mensajevalidacion="No puedes dejar el campo de web vacío"
+          $('#validacion').modal('show');
+          $('#web').css("border", "red solid 1px");
+    
+        }
+        else if(model.cp==""){
+          this.mensajevalidacion="No puedes dejar el campo de cp vacío"
+          $('#validacion').modal('show');
+          $('#cp').css("border", "red solid 1px");
+    
+        }
+        else if(model.estado==""){
+          this.mensajevalidacion="No puedes dejar el campo de estado vacío"
+          $('#validacion').modal('show');
+          $('#estado').css("border", "red solid 1px");
+    
+        }
+        else if(model.ciudad==""){
+          this.mensajevalidacion="No puedes dejar el campo de ciudad vacío"
+          $('#validacion').modal('show');
+          $('#ciudad').css("border", "red solid 1px");
+    
+        }
+        else if(model.colonia==""){
+          this.mensajevalidacion="No puedes dejar el campo de colonia vacío"
+          $('#validacion').modal('show');
+          $('#colonia').css("border", "red solid 1px");
+    
+        }
+        else if(model.calle==""){
+          this.mensajevalidacion="No puedes dejar el campo de calle vacío"
+          $('#validacion').modal('show');
+          $('#calle').css("border", "red solid 1px");
+    
+        }
+    
+        else if(model.noExt==""){
+          this.mensajevalidacion="No puedes dejar el campo de noExt vacío"
+          $('#validacion').modal('show');
+          $('#noExt').css("border", "red solid 1px");
+    
+        }
+    
+        else if(model.Responsable['NombreCompletoDirector']==""){
+          this.mensajevalidacion="No puedes dejar el campo de Nombre Completo del Director vacío"
+          $('#validacion').modal('show');
+          $('#NombreCompletoDirector').css("border", "red solid 1px");
+    
+    
+        }
+        else if(model.Responsable['NombreCompletoresponsable']==""){
+          this.mensajevalidacion="No puedes dejar el campo de Nombre Completo del responsable vacío"
+          $('#validacion').modal('show');
+          $('#NombreCompletoresponsable').css("border", "red solid 1px");
+    
+    
+        }  else if(model.Responsable['correo']==""){
+            this.mensajevalidacion="No puedes dejar el campo de correo vacío"
+          $('#validacion').modal('show');
+          $('#correo').css("border", "red solid 1px");
+    
+    
+        }  
+        else if(model.Responsable['telefono']==""){
+          this.mensajevalidacion="No puedes dejar el campo de telefono vacío"
+          $('#validacion').modal('show');
+          $('#telefono').css("border", "red solid 1px");
+    
+    
+        }  
+        else if(model.Responsable['departamento']==""){
+          this.mensajevalidacion="No puedes dejar el campo de departamento vacío"
+          $('#validacion').modal('show');
+          $('#departamento').css("border", "red solid 1px");
+    
+        }  
+        else if(model.Responsable['puesto']==""){
+          this.mensajevalidacion="No puedes dejar el campo de puesto vacío"
+          $('#validacion').modal('show');
+          $('#puesto').css("border", "red solid 1px");
+    
+        }  
+        // else if(model.Responsable['usuario']==""){
+        //   this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
+        //   $('#validacion').modal('show');
+    
+        // } 
+        else if(model.Responsable['contraseña']==""){
+          this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
+          $('#validacion').modal('show');
+          $('#contrasena').css("border", "red solid 1px");
+    
+        } 
+        // else if(this.listaRubros.length==0){
+        //   this.mensajevalidacion="Debes selecciónar al menos un rubro"
+        //   $('#validacion').modal('show');
+    
+        // } 
+        //maximo
+       
+       
+        else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){
+          this.mensajevalidacion="Debes selecciónar al menos una Area y maximo 3"
+          $('#validacion').modal('show');
+    
+        } 
+        
     else{
 
 
@@ -498,7 +560,18 @@ console.log(this.responsablemodel);
   }
 
 }else{
-  model.organizacion = model.vicerrectoria+"/"+ model.cordinacion;
+  var cor="";
+
+
+
+  for(var v=0;v<this.cordinaciones.length;v++){
+    if(model.idVicerrectoria==this. cordinaciones[v]['id']){
+      cor=this.cordinaciones[v]['cordinacion'];
+    }
+
+  }
+  model.organizacion=cor;
+  
   model.nombreComun="Interna";
 
 console.log(model);
@@ -513,11 +586,16 @@ console.log(model);
 else if(this.responsablemodel.telefono.length<10){
   this.mensajevalidacion="Ingrese un telefono valido"
   $('#validacion').modal('show');
+  $('#telefono').css("border", "red solid 1px");
+
 } 
 else if(!this.validarEmail(this.responsablemodel.correo)){
   this.mensajevalidacion="Ingrese un correo valido"
   $('#validacion').modal('show');
+  $('#correo').css("border", "red solid 1px");
+
 } 
+
 
 
 
@@ -525,26 +603,29 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
         else if(model.Responsable['NombreCompletoresponsable']==""){
           this.mensajevalidacion="No puedes dejar el campo de Nombre Completo del responsable vacío"
           $('#validacion').modal('show');
+          $('#NombreCompletoresponsable').css("border", "red solid 1px");
+
     
         }  else if(model.Responsable['correo']==""){
             this.mensajevalidacion="No puedes dejar el campo de correo vacío"
           $('#validacion').modal('show');
+          $('#correo').css("border", "red solid 1px");
+
     
         }  
         else if(model.Responsable['telefono']==""){
           this.mensajevalidacion="No puedes dejar el campo de telefono vacío"
           $('#validacion').modal('show');
+          $('#telefono').css("border", "red solid 1px");
+
     
         }  
-        else if(model.Responsable['departamento']==""){
-          this.mensajevalidacion="No puedes dejar el campo de departamento vacío"
-          $('#validacion').modal('show');
-    
-        }  
+       
         else if(model.Responsable['puesto']==""){
           this.mensajevalidacion="No puedes dejar el campo de puesto vacío"
           $('#validacion').modal('show');
-    
+          $('#puesto').css("border", "red solid 1px");
+
         }  
         // else if(model.Responsable['usuario']==""){
         //   this.mensajevalidacion="No puedes dejar el campo de usuario vacío"
@@ -554,21 +635,19 @@ else if(!this.validarEmail(this.responsablemodel.correo)){
         else if(model.Responsable['contraseña']==""){
           this.mensajevalidacion="No puedes dejar el campo de contraseña vacío"
           $('#validacion').modal('show');
-    
+          $('#contrasena').css("border", "red solid 1px");
+
         } 
         
        
-        else if(model.descripcionArea==""){
-          this.mensajevalidacion="No puedes dejar el campo de  los descripcion de la área  vacío"
-          $('#validacion').modal('show');
-        }
+       
         else if(model.objetivo==""){
           this.mensajevalidacion="No puedes dejar el campo de  los objetivos n vacío"
-          $('#validacion').modal('show');
-         }
-         else if (model.vision== "") {
-          this.mensajevalidacion="No puedes dejar el campo visión vacío"
-          $('#validacion').modal('show');
+          $('#objetivo').modal('show');
+        }
+        else if(model.descripcionArea==""){
+          this.mensajevalidacion="No puedes dejar el campo de  los objetivos n vacío"
+          $('#descripcionArea').modal('show');
         }
      
         else if(this.listaAreasAccion.length==0 && this.listaAreasAccion.length < 4){

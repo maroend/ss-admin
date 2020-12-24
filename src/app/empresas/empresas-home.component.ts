@@ -44,6 +44,7 @@ data: any;
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
+  
       language:{url:'//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'}
     };
 
@@ -65,11 +66,13 @@ data: any;
      this.organizacionService
       .getAll()
       .subscribe((res: any[])=>{
-console.log(this.empresa);
+console.log(res);
+for(var i=0;i<res.length;i++){ 
+  var t=res[i]['responsable'];
 
-for(var i=0;i<res.length;i++){
+  if(t!=null){
 
-  if(res[i]['responsable']['externa']){
+  if(t['externa']){
 this.empresa1.push(res[i]);
 
   }
@@ -78,15 +81,16 @@ this.empresa1.push(res[i]);
 
 
   }
+  
+}
+  // Calling the DT trigger to manually render the table
   this.empresa = this.empresa1;
   this.empresa2 = this.empresa2;
 
-  // Calling the DT trigger to manually render the table
-
 }
+
 this.dtTrigger.next();
 this.dtTrigger2.next();
-    Feather.replace();
 
 
       });

@@ -116,10 +116,8 @@ export class estadoActualizar {
 }
 export class Vacantes {
   constructor(
-      public id: number,
-      public vacante: string,
       public carrera: string,
-      public idCarrera: number,
+      public plazasDisponibles: number,
 
 
       
