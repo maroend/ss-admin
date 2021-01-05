@@ -122,4 +122,8 @@ export class ProyectoService {
     const uri = `${this.api}/AlumnosProyectosAsignados`
     return this.http.post(uri, model);
   }
+  cambiar(id,plazas) {
+    const uri = `${this.api}/Proyectos/actualizaNoPlazasAutorizadas?idProyecto=${id}&noPlazas=${plazas}`
+    return this.http.put(uri,id);
+  }
 }

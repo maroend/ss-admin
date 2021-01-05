@@ -21,6 +21,7 @@
       <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
     </div>-->
     </div>
+
     <div class="modal" id="validacion">
         <div class="modal__content">
             <div class="p-5 text-center">
@@ -131,12 +132,32 @@
                     <option [ngValue]="9">9</option>
                     <option [ngValue]="10">10</option>
                   </select>
-                                </div>
-                            </div>
+                </div>
+              </div>
+              <div class="relative mt-8">
+                <div>
+                  <label>
+                    ¿Plazas de Servicio Social autorizadas para el proyecto?* {{proyectoModel.plazasAutorizadas}}
+                  </label>
+                  <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazasAutorizadas" [ngModelOptions]="{standalone: true}">
+                    <option [ngValue]="0">0</option>
 
-                            <div class="relative mt-8">
-                                <div>
-                                    <label>
+                    <option [ngValue]="1">1</option>
+                    <option [ngValue]="2" *ngIf="proyectoModel.plazas>1">2</option>
+                    <option [ngValue]="3" *ngIf="proyectoModel.plazas>2">3</option>
+                    <option [ngValue]="4" *ngIf="proyectoModel.plazas>3">4</option>
+                    <option [ngValue]="5"*ngIf="proyectoModel.plazas>4">5</option>
+                    <option [ngValue]="6" *ngIf="proyectoModel.plazas>5">6</option>
+                    <option [ngValue]="7" *ngIf="proyectoModel.plazas>6">7</option>
+                    <option [ngValue]="8" *ngIf="proyectoModel.plazas>7">8</option>
+                    <option [ngValue]="9" *ngIf="proyectoModel.plazas>8">9</option>
+                    <option [ngValue]="10" *ngIf="proyectoModel.plazas>9">10</option>
+                  </select>
+                </div>
+              </div>
+              <div class="relative mt-8">
+                <div>
+                  <label>
                     ¿Se puede hacer el servicio social bajo la modalidad a distancia en este proyecto?*
                   </label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.modalidadDistancia" [ngModelOptions]="{standalone: true}">
