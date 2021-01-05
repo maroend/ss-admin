@@ -23,7 +23,7 @@ export class ProyectosVerComponent implements OnInit {
   public idobtenido: number;
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
-  public proyectoModel = new Proyecto("", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false, false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0, "", 0, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
+  public proyectoModel = new Proyecto(0,"", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false, false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0, "", 0, "", "", "", true, 0, this.listaProyectosCompetencias, this.listaProyectosCarreras);
   public validar = false;
   public organizaciones: Empresa[] = [];
   public periodos: PeriodosModel[] = [];
@@ -214,5 +214,22 @@ console.log(this.estadoalumnocambio);
     })
 
   }
+  cambiarplazas(){
+    
+    $('#plazasmodal').modal('show');
 
+  }
+
+  updateplazas(){
+    console.log(this.proyectoModel.plazasAutorizadas);
+
+
+    this.proyectoService.cambiar(this.idobtenido,this.proyectoModel.plazasAutorizadas).subscribe((res) => {
+      if (res) {
+        $('#success-modal-plazas').modal('show');
+        location.reload();
+      }
+    })
+
+  }
 }
