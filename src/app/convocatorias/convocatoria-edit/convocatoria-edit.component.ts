@@ -22,7 +22,7 @@ export class ConvocatoriaEditComponent implements OnInit {
   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
   public mensajevalidacion="";
 
-  public convocatoria = new Convocatoria("",0,0,"",0,0,"",this.d,this.d,false,"");
+  public convocatoria = new Convocatoria("",0,0,"",0,0,"",this.d,this.d,false,"","","");
   validar=false;
 public fechaini="";
 public fechafin="";
@@ -61,6 +61,11 @@ this.obtenerUniversidad();
   }
 
   update(){
+    $('#convocatoria').css("border", "#dee2e6 solid 1px");
+    $('#descripcion').css("border", "#dee2e6 solid 1px");
+    $('#fechaTermino').css("border", "#dee2e6 solid 1px");
+    $('#fechaInicio').css("border", "#dee2e6 solid 1px");
+
     let model = this.convocatoria;
 
 model.fechaInicio=new Date(this.fechaini);
@@ -73,19 +78,26 @@ model.fechaTermino=new Date(this.fechafin);
     if(model.convocatoria==""){
       this.mensajevalidacion="No puedes dejar el campo de empresa vacío"
             $('#validacion').modal('show');
-      
+            $('#convocatoria').css("border", "red solid 1px");
+
           }
           else if(model.descripcion==""){
             this.mensajevalidacion="No puedes dejar el campo de mision vacío"
             $('#validacion').modal('show');
+            $('#descripcion').css("border", "red solid 1px");
+
           }
           else if(model.fechaTermino==this.d){
             this.mensajevalidacion="No puedes dejar el campo de fecha Termino vacío"
             $('#validacion').modal('show');
+            $('#fechaTermino').css("border", "red solid 1px");
+
           }
           else if(model.fechaInicio==this.d){
             this.mensajevalidacion="No puedes dejar el campo de fecha Inicio vacío"
             $('#validacion').modal('show');
+            $('#fechaInicio').css("border", "red solid 1px");
+
           }
         else{
     this.convocatoriaservices.updateconvocatoria(this.idobtenido,model).subscribe((res: any)=>{

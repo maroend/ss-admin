@@ -45,8 +45,10 @@ export class Proyecto {
     public id: number,
     public competenciasList?: Array<ProyectosCompetencias>,
     public carrerasList?: Array<ProyectosCarreras>,
-    public horas?:number,
+    public campusList?: Array<ProyectosCampus>,
+    public horas?: number,
     public razonCapacitacion?:string,
+    public PlazasAutorizadas?:number,
 
   ) { }
 
@@ -109,6 +111,15 @@ export class ProyectosCarreras{
     public idProyecto?: number,
     public proyecto?: string,
     public carrera ?: string,
+  ) { }
+}
+export class ProyectosCampus{
+  constructor(
+    public idCampus: number,
+    public activo: boolean,
+    public idProyecto?: number,
+    public proyecto?: string,
+    public campus ?: string,
   ) { }
 }
 

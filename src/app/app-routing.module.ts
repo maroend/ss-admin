@@ -26,6 +26,7 @@ import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.co
 import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.component';
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { TestimoniosComponent } from './testimonios/testimonios.component';
 
 EmpresasverComponent
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path:'convocatorias/add',component:ConvocatoriaAddComponent},
   {path:'convocatorias/edit/:id',component:ConvocatoriaEditComponent},
   { path:'perfil',component:PerfilComponent},
+  { path:'Testimonios',component:TestimoniosComponent},
 
   {path:'administracion',component:AdministracionComponent},
   {path:'empresas',component:EmpresashomeComponent},

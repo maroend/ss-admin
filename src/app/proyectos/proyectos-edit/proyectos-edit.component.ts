@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { ProyectoService } from '../../services/proyecto.service';
-import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS, PeriodosModel } from "../../models/proyectos" ;
+import { Proyecto, EstadosProyectosModel, ProyectosCompetencias, ProyectosCarreras, ODS, PeriodosModel, ProyectosCampus } from "../../models/proyectos" ;
 import { Empresa } from "../../models/empresa";
 import { OrganizationService } from '../../services/organization.service';
 import { Universidad } from "../../models/universidad";
@@ -25,6 +25,7 @@ export class ProyectosEditComponent implements OnInit {
   public listaProyectosCompetencias = new Array<ProyectosCompetencias>();
   public listaProyectosCarreras = new Array<ProyectosCarreras>();
   public proyectoModel = new Proyecto(0,"", "", "", 0, "", "", "", "", "", "", "", "", 0, "", "", "", "", false, false, false, false, false, false, false, "", "", "", 0, "", 0, "", 0, "", 0, "", "", "", true, 0,  this.listaProyectosCompetencias, this.listaProyectosCarreras);
+  public listaProyectosCampus = new Array<ProyectosCampus>();
 
   public validar = false;
   public organizaciones: Empresa[] = [];
@@ -35,8 +36,9 @@ export class ProyectosEditComponent implements OnInit {
   public periodos: PeriodosModel[] = [];
   public estadosProyectos: EstadosProyectosModel[] = [];
   public mensajevalidacion = "";
-  public idsCarreras :any
-  public idsCompetencias:any
+  public idsCarreras :any=""
+  public idsCompetencias:any=""
+  public idsCampus:any=""
 
   constructor(private proyectoService: ProyectoService,
     private organizacionService: OrganizationService,
@@ -75,12 +77,14 @@ export class ProyectosEditComponent implements OnInit {
       this.proyectoModel = <Proyecto><any>res;
       this.listaProyectosCarreras = res['carrerasList'];
       this.listaProyectosCompetencias = res['competenciasList'];
+      this.listaProyectosCampus = res['campusList'];
 
       //console.log(this.apoyos);
       //console.log(this.listaLineasTrabajo);
 
       this.idsCarreras = this.listaProyectosCarreras.map(({ idCarrera }) => idCarrera);
       this.idsCompetencias = this.listaProyectosCompetencias.map(({ idCompetencia }) => idCompetencia);
+      this.idsCampus = this.listaProyectosCampus.map(({ idCampus }) => idCampus);
       //console.log(this.idApoyo);
       //console.log(this.idLineasTrabajo);
       
@@ -155,6 +159,20 @@ export class ProyectosEditComponent implements OnInit {
     
     //console.log(this.proyectoModel.carrerasList);
   }
+
+  toggleUniversidades(checked, id) {
+    //console.log(checked);
+    var valor = { "idCampus": id, "activo": true };
+    if (checked) {
+      this.proyectoModel.campusList.push(valor);
+    }
+    else {
+      this.proyectoModel.campusList = this.proyectoModel.campusList.filter(item => item.idCampus !== id);
+    }
+
+    //console.log(this.proyectoModel.carrerasList);
+  }
+
 
   toggleDias(checked, id) {
     console.log(checked);
@@ -303,10 +321,11 @@ export class ProyectosEditComponent implements OnInit {
     }else if (model.idPeriodo == 0) {
       this.mensajevalidacion = "debe seleccionar el periodo"
       $('#validacion').modal('show');
-    } else if (model.idUniversidad == 0) {
+    }/* else if (model.idUniversidad == 0) {
       this.mensajevalidacion = "debe seleccionar un campus"
       $('#validacion').modal('show');
-    } else {
+    }*/
+    else {
 
       this.proyectoService.updateproyecto(this.idobtenido, model).subscribe((res: any) => {
         if (res) {

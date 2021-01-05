@@ -21,62 +21,64 @@
             </div>-->
         </div>
     </div>
-
+    <br>
 
     <!-- BEGIN: Datatable -->
     <div class="intro-y col-span-12 overflow-auto lg:overflow-visible">
-      <table datatable #dataTable
-          class="table table-report -mt-2">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
             <thead>
                 <tr>
-                  <th class="border-b-2 whitespace-no-wrap">proyecto</th>
-                  <th class="border-b-2 text-center whitespace-no-wrap">organizacion</th>
-                  <th class="border-b-2 text-center whitespace-no-wrap">Campus</th>
-                  <th class="border-b-2 text-center whitespace-no-wrap">Periodo</th>
-                  <th class="border-b-2 text-center whitespace-no-wrap">Estado</th>
+                    <th class="border-b-2 whitespace-no-wrap">proyecto</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">organizacion</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Campus</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Periodo</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">Estado</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACCIONES</th>
                 </tr>
             </thead>
             <tbody *ngIf="proyectos?.length != 0">
                 <tr *ngFor="let proyecto of proyectos">
-                  <td class="border-b">
-                    <a [routerLink]="['/proyectos/ver', proyecto.id]">    <div class="font-medium flex sm:justify-center items-center"> {{proyecto.proyecto}}</div></a>
-                  </td>
+                    <td class="border-b">
+                        <a [routerLink]="['/proyectos/ver', proyecto.id]">
+                            <div class="font-medium flex sm:justify-center items-center"> {{proyecto.proyecto}}</div>
+                        </a>
+                    </td>
                     <td class="border-b">
                         <div class="font-medium flex sm:justify-center items-center">{{proyecto.organizacion}}</div>
                     </td>
-               
+
                     <td class="w-40 border-b">
-                      <div class="font-medium flex sm:justify-center items-center"> {{proyecto.universidad}}</div>
+                        <div class="font-medium flex sm:justify-center items-center"> {{proyecto.universidad}}</div>
                     </td>
                     <td class="w-40 border-b">
-                      <div class="font-medium flex sm:justify-center items-center"> {{proyecto.periodo}}</div>
+                        <div class="font-medium flex sm:justify-center items-center"> {{proyecto.periodo}}</div>
                     </td>
                     <td class="border-b">
-                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="proyecto.idEstadoProyecto<3">{{proyecto.estadoProyecto}}</div>
-                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" *ngIf="proyecto.idEstadoProyecto==3">{{proyecto.estadoProyecto}}</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="proyecto.idEstadoProyecto<3">{{proyecto.estadoProyecto}}</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" *ngIf="proyecto.idEstadoProyecto==3">{{proyecto.estadoProyecto}}</div>
 
-                      <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-6 text-white" *ngIf="proyecto.idEstadoProyecto==4">{{proyecto.estadoProyecto}}</div>
+                        <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-6 text-white" *ngIf="proyecto.idEstadoProyecto==4">{{proyecto.estadoProyecto}}</div>
 
                     </td>
                     <td class="border-b w-5">
-                      <div class="flex sm:justify-center items-center">
-                        <a class="flex items-center mr-3" [routerLink]="['/proyectos/edit', proyecto.id]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
-                        <a class="flex items-center text-theme-6" href="javascript:void(0)" (click)="modaleliminar(proyecto.id)"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
-                      </div>
-                      <div class="modal" id="delete-modal-preview-{{proyecto.id}}">
-                        <div class="modal__content">
-                          <div class="p-5 text-center">
-                            <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                            <div class="text-3xl mt-5">¿Estas seguro de eliminar el proyecto?</div>
-                            <div class="text-gray-600 mt-2">Eliminar el proyecto es irreversible y no se puede deshacer.</div>
-                          </div>
-                          <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button> <button type="button" (click)="eliminar(proyecto.id)" data-dismiss="modal" class="button w-24 bg-theme-6 text-white">Eliminar</button> </div>
+                        <div class="flex sm:justify-center items-center">
+                            <a class="flex items-center mr-3" [routerLink]="['/proyectos/edit', proyecto.id]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
+                            <a class="flex items-center text-theme-6" href="javascript:void(0)" (click)="modaleliminar(proyecto.id)"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
                         </div>
-                      </div>
+                        <div class="modal" id="delete-modal-preview-{{proyecto.id}}">
+                            <div class="modal__content">
+                                <div class="p-5 text-center">
+                                    <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                                    <div class="text-3xl mt-5">¿Estas seguro de eliminar el proyecto?</div>
+                                    <div class="text-gray-600 mt-2">Eliminar el proyecto es irreversible y no se puede deshacer.</div>
+                                </div>
+                                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button> <button type="button" (click)="eliminar(proyecto.id)" data-dismiss="modal"
+                                        class="button w-24 bg-theme-6 text-white">Eliminar</button> </div>
+                            </div>
+                        </div>
                     </td>
                 </tr>
-                
+
             </tbody>
         </table>
     </div>

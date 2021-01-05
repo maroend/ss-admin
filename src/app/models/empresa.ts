@@ -114,6 +114,16 @@ export class estadoActualizar {
     ) { }    
 
 }
+export class Vacantes {
+  constructor(
+      public carrera: string,
+      public plazasDisponibles: number,
+
+
+      
+  ) { }    
+
+}
 
 export class listaRubrosModel {
     constructor(
@@ -138,7 +148,8 @@ export class Responsablemodel {
         public contrasena: string,
         public activo: boolean,
 
-        public externa: boolean
+        public externa: boolean,
+        public extension?:string
 
         
     ) { }    

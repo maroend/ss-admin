@@ -1,29 +1,33 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { Alumno } from '../models/alumno';
 import { AlumnoService } from '../services/alumno.service';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 declare var $: any;
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
   styleUrls: ['./alumnos.component.css']
 })
-export class AlumnosComponent implements OnInit {
+export class AlumnosComponent implements OnDestroy, OnInit {
 
   dtOptions: DataTables.Settings = {};
   alumnos: Alumno[];
-  @ViewChild('dataTable', {static: false}) table;
   public validar = false;
+  dtTrigger  = new Subject<any>();
 
-  dataTable:any;  
   constructor(private alumnosService: AlumnoService,private http: HttpClient) { }
 
   ngOnInit(): void {
-
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+  
+      language:{url:'//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'}
+    };
    this.obtenerAlumnos();
-   this.dataTable.DataTable();
 
   }
 
@@ -31,10 +35,16 @@ export class AlumnosComponent implements OnInit {
 
     return this.alumnosService
     .getAlumnos()
-    .subscribe((alumnos: Alumno[]) => this.alumnos = alumnos);
+    .subscribe((alumnos: Alumno[]) =>{ this.alumnos = alumnos;
+      this.dtTrigger.next();
+
+    });
   }
 
+  ngOnDestroy():void{
+    this.dtTrigger.unsubscribe();
 
+  }
   eliminar(id) {
     this.alumnosService.deleteAlumno(id).subscribe((res: any) => {
 

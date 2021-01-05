@@ -164,4 +164,26 @@ console.log(estado);
   const uri =(`${this.api}/Organizaciones/concederPermisoEditar?idOrganizacion=${idd}`);
     return this.http.post(uri, idd);
   }
+
+  getestadodocumento(){
+    const uri = `${this.api}/EstadosDocumentos`;
+         console.log(uri);
+    return this.http.get(uri);
+  }
+
+  updateestadodcoc(ido,idd,ide,id) {
+    const uri =(`${this.api}/DocumentosOrganizaciones/updateStatusDocument?IdOrganizacion=${ido}&IdDocumento=${idd}&IdEstado=${ide}&Id=${id}&Activo=${true}`);
+
+    return this.http.post(uri, ido);
+  }
+
+  enviarcorreo(id) {
+    const uri =(`${this.api}/Organizaciones/?idOrganizacion=${id}`);
+      return this.http.post(uri, id);
+    }
+
+    getvacantes(){
+      const uri = `${this.api}/Proyectos/obtenerDisponiblesCarrerasProyectos`;
+      return this.http.post(uri,"1");
+    }
 }

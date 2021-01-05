@@ -36,7 +36,9 @@ export class DocumentosSubidosRequeridos {
       public documento :string,
       public configuracion :number,
 
-      public file: any
+      public file: any,
+      public descripcion?:string
+
     ) { }
 }
 
@@ -55,4 +57,27 @@ export class Documentosfile {
   public file: File;
   constructor(
     ) { }
+}
+export class Estadodocumento {
+  constructor(
+      public id: number,
+      public estado: string,
+
+      
+  ) { }    
+
+}
+
+export class Documentoupdate {
+  constructor(
+      public IdOrganizacion: number,
+      public IdDocumento: number,
+      public IdEstado: number,
+      public activo: boolean,
+      public id:number,
+
+
+      
+  ) { }    
+
 }

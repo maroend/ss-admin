@@ -1,7 +1,9 @@
-  import { Component, OnInit,ViewChild } from '@angular/core';
+  import { Component, OnInit,ViewChild,OnDestroy } from '@angular/core';
 import * as Feather from 'feather-icons';
 import { UsuarioServices } from '../services/usuario.service';
 import { Usuario } from "../models/usuario"
+import { Subject } from 'rxjs';
+
 declare var $: any;
 
 @Component({
@@ -9,18 +11,22 @@ declare var $: any;
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
-export class UsuariosComponent implements OnInit {
+export class UsuariosComponent implements OnDestroy, OnInit {
   public usuarios: Usuario[] = [ ];
-  @ViewChild('dataTable', {static: false}) table;
-
-  dataTable: any;
+  dtTrigger  = new Subject<any>();
+  dtOptions: DataTables.Settings = {};
 
   constructor(private convocatoriaService:UsuarioServices ) { }
 
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+  
+      language:{url:'//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'}
+    };
     this.obtenerConvocatoria();
-    this.dataTable = $(this.table.nativeElement);
-    this.dataTable.DataTable();
+
   }
 
   ngAfterViewInit() {
@@ -29,7 +35,10 @@ export class UsuariosComponent implements OnInit {
   obtenerConvocatoria() {
     return this.convocatoriaService
       .getUsuarios()
-      .subscribe((usuarios: Usuario[]) => this.usuarios = usuarios);
+      .subscribe((usuarios: Usuario[]) =>{ this.usuarios = usuarios;
+        this.dtTrigger.next();
+      
+      });
   }
 
   eliminar(id) {
@@ -45,6 +54,10 @@ export class UsuariosComponent implements OnInit {
  
  }
 
+ ngOnDestroy():void{
+  this.dtTrigger.unsubscribe();
+
+}
  modaleliminar(id) {
    console.log("dfdsfdsfds"+ id);
    $('#delete-modal-preview-'+id).modal('show');
