@@ -192,6 +192,7 @@ var valor= { "idRubro": id ,"activo": true};
   }
 
   obtenerdocumentosSubidosConRequeridos() {
+    console.log(this.idobtenido);
     return this.organizacionService
       .obtenerDocumentosSubidosConRequeridos(this.idobtenido)
       .subscribe((documentosS: DocumentosSubidosRequeridos[]) => {
@@ -349,7 +350,7 @@ console.log(ide+idd+id);
          this.organizacionService.updateestadodcoc(Number(this.idobtenido),idd,ide,id).subscribe((res: any[])=>{
            $('#success-modal-preview').modal('show');
            console.log(res);
-      //  location.reload();
+        location.reload();
     
 
       })
