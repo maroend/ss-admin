@@ -11,6 +11,7 @@ import { GiroEmpresa } from "../../models/giroempresa"
 import { ClasificacionEmpresa } from "../../models/clasificacionempresa"
 import { EstadoEmpresa } from "../../models/estadoempresa"
 import { Subject } from 'rxjs';
+import { environment } from "../../../environments/environment";
 
 
 
@@ -30,6 +31,7 @@ export class EmpresasverComponent implements OnDestroy, OnInit {
   public  logo="https://img.icons8.com/ios/452/company.png";
   dtOptions: DataTables.Settings = {};
   dtTrigger  = new Subject<any>();
+  baseUrl = environment.baseUrl;
 
   public responsable: Responsablemodel[] = [];
   public rubros: RubroEmpresa[] = [];
@@ -268,12 +270,13 @@ if(this.validar){
   }
   descargar(id){
 
+    window.open(this.baseUrl + "/DocumentosOrganizaciones/GetFile?id=" + id, '_blank');
+    /*
     let pdfWindow = window.open("")
     pdfWindow.document.write(
-        "<iframe width='100%' height='100%' src='data:application/pdf;base64, " +
-        encodeURI(id) + "'></iframe>"
-    )
-
+        "<iframe width='100%' height='100%' src='"+this.baseUrl+"/DocumentosOrganizaciones/GetFile?id="+id+"'></iframe>"
+    )*/
+    
   }
 
   uploadFile(files: FileList) {
@@ -281,15 +284,23 @@ if(this.validar){
   }
   
   subeArchivo() {
-    
+    console.log(this.idDocumento);
+    document.getElementById("carg").style.display = "block";
+
     this.organizacionService.postFile(this.fileToUpload, this.idDocumento, this.idobtenido).subscribe(data => {
       if (data.resultado == 1) {
         $('#abrirsubir-' + this.idDocumento).modal('hide');
         $('#success-modal-preview-file').modal('show');
-        location.reload();
+        console.log(data);
+        document.getElementById("carg").style.display = "none";
+
+        //location.reload();
+        this.obtenerdocumentosSubidosConRequeridos();
       }
     }, error => {
       console.log(error);
+      document.getElementById("carg").style.display = "none";
+
     });
   }
   //TODO SERGIO
@@ -350,8 +361,7 @@ console.log(ide+idd+id);
          this.organizacionService.updateestadodcoc(Number(this.idobtenido),idd,ide,id).subscribe((res: any[])=>{
            $('#success-modal-preview').modal('show');
            console.log(res);
-        location.reload();
-    
+this.obtenerdocumentosSubidosConRequeridos();    
 
       })
     

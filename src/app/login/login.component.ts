@@ -16,7 +16,6 @@ public mensaje="";
 
   ngOnInit(): void {
     this.session.Signoff();
-
   }
 
   onSubmit(data) {

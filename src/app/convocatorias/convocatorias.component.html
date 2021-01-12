@@ -44,7 +44,7 @@
         </div>
         <br>
 
-        <button id="empresa" (click)="recargar()" class="button text-white bg-theme-1 shadow-md mr-2">Intituciones</button>
+        <button id="empresa" (click)="recargar()" class="button text-white bg-theme-1 shadow-md mr-2">Instituciones</button>
 
         <button id="alumnos" (click)="recargar2()" class="button text-white bg-theme-8 shadow-md mr-2">Alumnos</button>
         <br>
@@ -73,8 +73,17 @@
 
 
                         <td class=" border-b">
-                            <div class="font-medium flex sm:justify-center items-center"> {{convocatoria.universidad}}
+                            <div class="font-medium flex sm:justify-center items-center" [(ngModel)]="convocatoria.idUniversidad" id="idUniversidad" name="idUniversidad">
+                                <div class="" [(ngModel)]="convocatoria.idUniversidad" id="idUniversidad" name="idUniversidad">
+                                    <option [ngValue]="universidad.id" *ngFor="let universidad of universidades">
+                                      {{ universidad.universidad }}</option>
+                
+                                    </div> 
+                                 
+                                
+
                             </div>
+
                         </td>
                         <td class="border-b">
                             <div class="font-medium flex sm:justify-center items-center">{{convocatoria.periodo}}</div>
@@ -135,8 +144,17 @@
 
 
                         <td class=" border-b">
-                            <div class="font-medium flex sm:justify-center items-center"> {{convocatoria.universidad}}
+                            <div class="font-medium flex sm:justify-center items-center" [(ngModel)]="convocatoria.idUniversidad" id="idUniversidad" name="idUniversidad">
+                                <div class="" [(ngModel)]="convocatoria.idUniversidad" id="idUniversidad" name="idUniversidad">
+                                    <option [ngValue]="universidad.id" *ngFor="let universidad of universidades">
+                                      {{ universidad.universidad }}</option>
+                
+                                    </div> 
+                                 
+                                
+
                             </div>
+
                         </td>
                         <td class="border-b">
                             <div class="font-medium flex sm:justify-center items-center">{{convocatoria.periodo}}</div>

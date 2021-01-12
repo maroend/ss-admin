@@ -719,17 +719,15 @@
                     </td>
                     <td>
                         <div class="ext-base text-xs whitespace-no-wrap">
-                            <a (click)="abrirsubir(d.idDocumentoRequerido)">
+                            <a (click)="abrirsubir(d.idDocumento)" style="margin-right: auto; border-radius: 25px; text-align:justify; font-size:15px;background-color: #FF8300;  " class="button text-white   mr-2"> Subir Archivo </a>
 
-                                <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">   Subir Archivo </button>
-                            </a>
                         </div>
                     </td>
                     <td>
                         <div class="ext-base text-xs whitespace-no-wrap" *ngIf="d.id >0">
-                            <a (click)="descargar(d.archivo)">
-                                <button type="button" data-dismiss="modal" class="button w-24 bg-theme-12 text-white">  Ver Archivo </button>
-                            </a>
+                            <a (click)="descargar(d.id)" style="margin-right: auto; border-radius: 25px; text-align:justify; font-size:15px; background-color: #FF8300; " class="button text-white  mr-2">
+                                Ver Archivo
+                              </a>
                         </div>
                     </td>
                     <td>
@@ -743,7 +741,7 @@
                             <div class="font-medium flex ">{{d.estado}}</div>
                         </td>
                     </ng-template>
-                    <div class="modal" id="abrirsubir-{{d.idDocumentoRequerido}}">
+                    <div class="modal" id="abrirsubir-{{d.idDocumento}}">
                         <div class="modal__content">
                             <form #form="ngForm" (ngSubmit)="subeArchivo()">
                                 <div class="p-5 text-center">
@@ -936,6 +934,7 @@
     <br><br>
 
 </div>
+<div class="cargador" id="carg" style="display:none;"></div>
 
 <div class="content" *ngIf="!responsablemodel.externa">
 
