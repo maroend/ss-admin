@@ -14,16 +14,16 @@ export class LoginServices {
   constructor(private http:HttpClient) { }
 
 
-  login(model) {
+  login(user,pass) {
 
-   var email=model['email'];
-   var contraseña=model['contraseña'];
+   var email=user;
+   var contraseña=pass;
    console.log(email);
    console.log(contraseña);
 
     const uri = `${this.api}/Usuarios/login?email=${email}&contrase%C3%B1a=${contraseña}`;
     console.log(uri);
-    return this.http.get(uri,model);
+    return this.http.get(uri,user);
  
   } 
   

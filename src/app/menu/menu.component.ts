@@ -21,6 +21,7 @@ public apellidos="";
   ngOnInit(): void {
 
     
+    
   }
 
   ocultar(){

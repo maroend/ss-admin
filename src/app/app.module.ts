@@ -42,6 +42,7 @@ import { DatatableComponent } from './components/datatable/datatable.component';
 
 import { TestimoniosComponent } from './testimonios/testimonios.component';
 
+import { RecaptchaModule } from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { TestimoniosComponent } from './testimonios/testimonios.component';
     HttpClientModule,
     DataTablesModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    RecaptchaModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

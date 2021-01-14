@@ -1,26 +1,29 @@
 <app-menu></app-menu>
+<br>
+<br>
+<br>
 
 <!-- BEGIN: Content -->
-<div class="content">
-    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-        <h2 class="text-lg font-medium mr-auto">
-            Proyectos
-        </h2>
-        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button routerLink="/proyectos/add" class="button text-white bg-theme-1 shadow-md mr-2">Agregar proyecto</button>
-            <!--<div class="dropdown relative ml-auto sm:ml-0">
-                <button class="dropdown-toggle button px-2 box text-gray-700 dark:text-gray-300">
-                    <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
-                </button>
-                <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
-                    <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> New Category </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="users" class="w-4 h-4 mr-2"></i> New Group </a>
-                    </div>
-                </div>
-            </div>-->
+<div class="container" style="font-family:Helvetica;">
+
+
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8 p-5 border-b border-gray-200 dark:border-dark-5">
+        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; float: right; ">
+            Proyectos            </h2>
+
+
+     
+
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0" style="float: left;">
+            <a routerLink="/proyectos/add"class="button text-white shadow-md mr-2" style="background-color: #FF8300;">Agregar Proyecto</a>
+            <div class="dropdown relative ml-auto sm:ml-0">
+         
+            
+            </div>
         </div>
     </div>
+    
+
     <br>
 
     <!-- BEGIN: Datatable -->
@@ -38,29 +41,29 @@
             </thead>
             <tbody *ngIf="proyectos?.length != 0">
                 <tr *ngFor="let proyecto of proyectos">
-                    <td class="border-b">
+                    <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <a [routerLink]="['/proyectos/ver', proyecto.id]">
                             <div class="font-medium flex sm:justify-center items-center"> {{proyecto.proyecto}}</div>
                         </a>
                     </td>
-                    <td class="border-b">
+                    <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="font-medium flex sm:justify-center items-center">{{proyecto.organizacion}}</div>
                     </td>
 
-                    <td class="w-40 border-b">
+                    <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="font-medium flex sm:justify-center items-center"> {{proyecto.universidad}}</div>
                     </td>
-                    <td class="w-40 border-b">
+                    <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="font-medium flex sm:justify-center items-center"> {{proyecto.periodo}}</div>
                     </td>
-                    <td class="border-b">
+                    <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white" *ngIf="proyecto.idEstadoProyecto<3">{{proyecto.estadoProyecto}}</div>
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" *ngIf="proyecto.idEstadoProyecto==3">{{proyecto.estadoProyecto}}</div>
 
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-6 text-white" *ngIf="proyecto.idEstadoProyecto==4">{{proyecto.estadoProyecto}}</div>
 
                     </td>
-                    <td class="border-b w-5">
+                    <td class="border-b w-5" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="flex sm:justify-center items-center">
                             <a class="flex items-center mr-3" [routerLink]="['/proyectos/edit', proyecto.id]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
                             <a class="flex items-center text-theme-6" href="javascript:void(0)" (click)="modaleliminar(proyecto.id)"> <i data-feather="trash-2" class="w-4 h-4 mr-1"></i> Eliminar </a>
