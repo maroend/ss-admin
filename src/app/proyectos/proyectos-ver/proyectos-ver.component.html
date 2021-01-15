@@ -2,21 +2,21 @@
 
 
 <div class="modal" id="success-modal-preview">
-    <div class="modal__content">
+    <div class="modal__content modal__content--xl p-10 text-center">
         <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
             <div class="text-3xl mt-5">Muy bien!</div>
             <div class="text-gray-600 mt-2">Has editado una Institución / Área!</div>
         </div>
-        <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Aceptar</button> </div>
+        <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" style="background-color:#ff8300"  class="button w-24  text-white">Aceptar</button> </div>
     </div>
 </div>
 <div class="modal" id="success-modal-Actualiza-Alumno">
-    <div class="modal__content">
+    <div class="modal__content modal__content--xl p-10 text-center">
         <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
             <div class="text-3xl mt-5">¡Muy bien!</div>
             <div class="text-gray-600 mt-2">¡Has editado un alumno inscrito!</div>
         </div>
-        <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Aceptar</button> </div>
+        <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" style="background-color:#ff8300"  class="button w-24  text-white">Aceptar</button> </div>
     </div>
 </div>
 <div class="modal" id="success-modal-plazas">
@@ -25,22 +25,21 @@
           <div class="text-3xl mt-5">¡Muy bien!</div>
           <div class="text-gray-600 mt-2">¡Has editado las plazas autorizadas del proyecto!</div>
       </div>
-      <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Aceptar</button> </div>
+      <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" style="background-color:#ff8300"  class="button w-24  text-white">Aceptar</button> </div>
   </div>
 </div>
 <div class="modal" id="plazasmodal">
-  <div class="modal__content">
-      <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
-          <div class="text-gray-600 mt-2">¿Quieres modificar las plazas Autorizadas?</div>
-      </div>
-      <input type="number" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazasAutorizadas" [ngModelOptions]="{standalone: true}">
+    <div class="modal__content modal__content--xl p-10 text-center">
+          <div  class="text-3xl mt-5 text-center" style="color: #FF8300; font-size: 28px;">¿Quieres modificar las plazas Autorizadas?</div>
 
+<br>          <input type="number" class="input  w-full border " [(ngModel)]="proyectoModel.plazasAutorizadas" [ngModelOptions]="{standalone: true}">
 
-      <div class="px-5 pb-8 text-center">
+<br>
+      <div class="px-5 pb-8 text-center mt-3 ">
         <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
 Cancelar
 </button>
-        <button (click)="updateplazas()" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Cambiar</button>
+        <button (click)="updateplazas()" data-dismiss="modal" style="background-color:#ff8300"  class="button w-24  text-white">Cambiar</button>
     </div>
     </div>
 </div>
@@ -596,7 +595,7 @@ Cancelar
                                                     <div class="ext-base text-xs whitespace-no-wrap"> <button class="rounded-md text-center px-1 py-1 mb-2 bg-theme-9 text-white" (click)="mostareditarlumnohoras(alumno.idAlumno,alumno.noHoras)">cambiar horas</button></div>
                                                 </td>
                                                 <div class="modal" id="mostareditaralumno-{{alumno.idAlumno}}">
-                                                    <div class="modal__content">
+                                                    <div class="modal__content modal__content--xl p-10 text-center">
                                                         <form #form="ngForm" (ngSubmit)="cambiarestatusalumno(estadoalumnocambio.observaciones,alumno.idEstado)">
                                                             <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
 
@@ -618,14 +617,14 @@ Cancelar
 
 
                                                             <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button>
-                                                                <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Cambiar Estado</button> </div>
+                                                                <button type="submit" data-dismiss="modal" style="background-color:#ff8300"  class="button w-24  text-white">Cambiar Estado</button> </div>
                                                         </form>
 
                                                     </div>
                                                 </div>
 
                                                 <div class="modal" id="mostareditaralumnohoras-{{alumno.idAlumno}}">
-                                                    <div class="modal__content">
+                                                    <div class="modal__content modal__content--xl p-10 text-center">
                                                         <form #form="ngForm" (ngSubmit)="cambiarhorasalumno()">
                                                             <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
                                                                 <div class="flex flex-col sm:flex-row items-center mt-3">

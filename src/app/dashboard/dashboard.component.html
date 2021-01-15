@@ -253,11 +253,10 @@
                             </div>
                         </div>
                         <div class="modal" id="abrirsubir-{{empresasp.id}}">
-                            <div class="modal__content">
+                            <div class="modal__content modal__content--xl p-10 text-center">
                                 <form #form="ngForm" (ngSubmit)="subeArchivo(empresasp.id)">
                                     <div class="p-5 text-center">
-                                        <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                                        <div class="text-base mt-5">Concederle permisos a la institución {{empresasp.organizacion}}</div>
+                                        <div class="text-3xl mt-5 text-center" style="color: #FF8300; font-size: 28px;">Concederle permisos a la institución {{empresasp.organizacion}}</div>
                                         <br>
                                     </div>
 

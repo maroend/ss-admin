@@ -1,23 +1,34 @@
 <app-menu>
 </app-menu>
 
-<div class="content">
+<div class="container" style="font-family:Helvetica;" >
+    <br>
+<br>
+<br>
+
+
+    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+            Testimonios          </h2>
+      </div>
+
+
     <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
         <h2 class="text-lg font-medium mr-auto">
-            Testimonios
+            
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a routerLink="/dashboard" class="button text-black bg-theme-2 shadow-md mr-2">Regresar</a>
-            <button (click)="agregar()" class="button text-white bg-theme-1 shadow-md mr-2">Agregar Testimonio</button>
+            <button (click)="agregar()" class="button text-white  shadow-md mr-2" style="background-color: #FF8300;" >Agregar Testimonio</button>
         </div>
     </div>
     <div class="modal" id="agregar">
-        <div class="modal__content">
+        <div class="modal__content modal__content--xl p-10 text-center">
             <form #form="ngForm" (ngSubmit)="subeArchivo()">
                 <div class="p-5 text-center">
-                    <div class="text-base mt-5">Nuevo testimonio: </div>
+                    <div  class="text-3xl mt-5 text-center" style="color: #FF8300; font-size: 28px;">Nuevo testimonio: </div>
                     <br>
-                    <label>Titulo: </label>
+                    <label >Titulo: </label>
                     <br>
                     <input type="text" class="input border sm:w-64" id="titulo" required>
                     <br>
@@ -49,7 +60,7 @@
         <div class="intro-y col-span-12 md:col-span-6 xl:col-span-4 box" *ngFor="let test of testimonios">
             <div class="flex items-center border-b border-gray-200 dark:border-dark-5 px-5 py-4">
 
-                <div class="ml-3 mr-auto">
+                <div class="ml-3 mr-auto" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                     <a href="" class="font-medium">{{test.titulo}}</a>
                 </div>
 

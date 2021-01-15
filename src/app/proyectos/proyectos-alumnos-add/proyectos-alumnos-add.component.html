@@ -1,5 +1,5 @@
 <app-menu></app-menu>
-<div class="content">
+<div class="container" style="font-family:Helvetica;">
   <div class="modal" id="success-modal-preview">
     <div class="modal__content">
       <div class="p-5 text-center">
@@ -10,29 +10,30 @@
       <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
     </div>
   </div>
+  <br>
+  <br>
+  <br>
 
-  <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-    <h2 class="text-lg font-medium mr-auto">
-      Asignar alumnos a proyectos
-    </h2>
-    <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-      <a routerLink="/proyectos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-      <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
-    </div>
-  </div>
+  <div class=" flex-col sm:flex-row items-center p-5 " style="font-size:25px;  font-weight: bold; color: #FF8300;">
+   <h2 class="font-medium text-center" style="font-size:25px;  font-weight: bold; color: #FF8300;" >
+    Asignar alumnos a proyectos
+  </h2>
+ </div>
+
+
+ 
 
   <form (ngSubmit)="create()" #form="ngForm">
-    <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
-    <div class="intro-y box mt-5">
-      <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-        <h2 class="font-medium text-base mr-auto">
-          Información General
-        </h2>
+    <!-- BEGIN: FORM   p-5 mt-5 w-full -->
+    <div class="intro-y  mt-5">
+      <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+            Información General    </h2>
       </div>
       <div class="p-5" id="horizontal-form">
 
         <!-- BEGIN: Datatable -->
-        <div class="intro-y datatable-wrapper box p-5 mt-5">
+        <div class="intro-y datatable-wrapper  p-5 mt-5">
           <table datatable class="table table-report table-report--bordered display datatable w-full">
             <thead>
               <tr>
@@ -48,31 +49,31 @@
             </thead>
             <tbody *ngIf="alumnos?.length != 0">
               <tr *ngFor="let alumno of alumnos">
-                <td class="border-b">
+                <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; " >
                   <div class="font-medium flex sm:justify-center items-center">
                     <input type="radio" name="alumno" id="{{alumno.id}}" (change)="toggleAlumnos($event.target.checked, alumno.id)">
                   </div>
                 </td>
-                <td class="border-b">
+                <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                   <div class="font-medium flex sm:justify-center items-center"> {{alumno.nombre}} {{alumno.paterno}} {{alumno.materno}}</div>
                 </td>
-                <td class="w-40 border-b">
+                <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                   <div class="font-medium flex sm:justify-center items-center"> {{alumno.matricula}}</div>
                 </td>
-                <td class="border-b">
+                <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                   <div class="font-medium flex sm:justify-center items-center">{{alumno.correo}}</div>
                 </td>
 
-                <td class="w-40 border-b">
+                <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                   <div class="font-medium flex sm:justify-center items-center"> {{alumno.celular}}</div>
                 </td>
-                <td class="w-40 border-b">
+                <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                   <div class="font-medium flex sm:justify-center items-center"> {{alumno.facultad}}</div>
                 </td>
-                <td class="w-40 border-b">
+                <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                   <div class="font-medium flex sm:justify-center items-center"> {{alumno.carrera}}</div>
                 </td>
-                <td class="w-40 border-b">
+                <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; " >
                   <div class="font-medium flex sm:justify-center items-center"> {{alumno.universidad}}</div>
                 </td>
               </tr>
@@ -84,7 +85,19 @@
 
       </div>
     </div>
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+      <h2 class="text-lg font-medium mr-auto">
+          <!--Agregar Proyecto-->
+      </h2>
+      <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+        <a routerLink="/proyectos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
+        <button (click)="create()" class="button text-white shadow-md mr-2" style="background-color: #FF8300;" >Guardar</button>
+     </div>
+  </div>
+
+
   </form>
+
 
     <!-- END: FORM -->
 </div>
