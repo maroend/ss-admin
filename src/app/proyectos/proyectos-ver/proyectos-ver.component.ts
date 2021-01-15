@@ -110,7 +110,7 @@ export class ProyectosVerComponent implements OnInit {
   obtenerAlumnosInscritos() {
     return this.proyectoService
       .getAlumnosInscritosByIdProyecto(this.idobtenido)
-      .subscribe((alumnos: AlumnosProyectosAsignadosModel[]) => this.alumnos = alumnos);
+      .subscribe((alumnos: AlumnosProyectosAsignadosModel[]) =>{ this.alumnos = alumnos; console.log(this.alumnos)});
   }
   
   onSubmit() {
@@ -173,33 +173,32 @@ export class ProyectosVerComponent implements OnInit {
 
 
   }
-  cambiarestatusalumno(){
+  cambiarestatusalumno(a,idr){
 
 
     this.estadoalumnocambio.idProyecto = Number(this.idobtenido);
     this.estadoalumnocambio.idAlumno = Number(this.idalum);   
-     var idf=  $( "#myselect option:selected" ).val();
+     var idf=  idr;
 
      console.log(idf);
-     var ultimoCaracter = idf.charAt(idf.length - 1);
+var t=$("#observaciones").val().toString();
+console.log(a);
 
+    this.estadoalumnocambio.idEstado = idf;
 
-    this.estadoalumnocambio.idEstado = Number(ultimoCaracter);
-
-
+    this.estadoalumnocambio.observaciones=t; 
 console.log(this.estadoalumnocambio);
     // this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
     //   $('#success-modal-preview').modal('show');
     //   location.reload();
 
 //camibo
-     this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe(() => {
+     this.organizacionService.updateestadoalumno(this.estadoalumnocambio).subscribe((res) => {
       $('#success-modal-preview').modal('show');
       location.reload();
-//fincambio
-
-    // }, error => {
-    //   alert(error.error)
+console.log(res);
+     }, error => {
+       alert(error.error)
     })
 
   }

@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 
 
-<div class="content">
+<div class="container" style="font-family:Helvetica;">
     <div class="modal" id="success-modal-preview">
         <div class="modal__content">
             <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
@@ -12,12 +12,14 @@
         </div>
     </div>
 
-    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-        <h2 class="text-lg font-medium mr-auto">
-            Agregar Convocatoria
-        </h2>
-
-    </div>
+   <br>
+   <br>
+   <br>
+    <div class=" flex-col sm:flex-row items-center p-5 " style="font-size:25px;  font-weight: bold; color: #FF8300;">
+        <h2 class="font-medium text-center" style="font-size:25px;  font-weight: bold; color: #FF8300;" >
+            Agregar Convocatoria   
+             </h2>
+      </div>
     <div class="modal" id="validacion">
         <div class="modal__content">
             <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
@@ -28,14 +30,15 @@
     </div>
     <form (ngSubmit)="create()" #form="ngForm">
 
-        <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
+        <!-- BEGIN: FORM  p-5 mt-5 w-full -->
 
-        <div class="intro-y box mt-5">
-            <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                <h2 class="font-medium text-base mr-auto">
-                    Información General
-                </h2>
-            </div>
+        <div class="intro-y  mt-5">
+       
+
+            <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                    Información General            </h2>
+              </div>
             <div class="p-5" id="horizontal-form">
 
 
@@ -45,20 +48,20 @@
                         <div class="sm:grid grid-cols-3 gap-2">
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Convocatoria*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >Convocatoria*</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" id="convocatoria" [(ngModel)]="convocatoria.convocatoria" [ngModelOptions]="{standalone: true}" required>
                                 </div>
 
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Descripción*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >Descripción*</label>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" id="descripcion" [(ngModel)]="convocatoria.descripcion" [ngModelOptions]="{standalone: true}" required>
                                 </div>
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Universidad*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >Universidad*</label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.idUniversidad" id="idUniversidad" name="idUniversidad">
                     <option [ngValue]="universidad.id" *ngFor="let universidad of universidades">
                       {{ universidad.universidad }}</option>
@@ -72,7 +75,7 @@
                         <div class="sm:grid grid-cols-3 gap-2">
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Periodo*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >Periodo*</label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.idPeriodo" id="idPeriodo" [ngModelOptions]="{standalone: true}">
                                       <option [ngValue]="periodo.id" *ngFor="let periodo of periodos">{{periodo.periodo}} - {{periodo.descripcion}} </option>
 
@@ -81,7 +84,7 @@
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Tipo*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >Tipo*</label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.tipo" id="tipo" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="1">Instituciónes </option>
 
@@ -90,7 +93,7 @@
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>¿Activo?*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >¿Activo?*</label>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="convocatoria.activo" id="activo" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="true">Si </option>
 
@@ -105,14 +108,14 @@
                         <div class="sm:grid grid-cols-2 gap-2">
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Fecha Inicio*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >Fecha Inicio*</label>
                                     <input type="date" ng-model="date" class="input  w-full border mt-2 " placeholder="" id="fechaInicio" [(ngModel)]="convocatoria.fechaInicio" [ngModelOptions]="{standalone: true}" required>
                                 </div>
 
                             </div>
                             <div class="relative mt-2">
                                 <div>
-                                    <label>Fecha Termino*</label>
+                                    <label style="font-size:19px; color:#ff8800; font-weight: bold;" >Fecha Termino*</label>
                                     <input type="date" ng-model="date" class="input  w-full border mt-2 " placeholder="" id="fechaTermino" [(ngModel)]="convocatoria.fechaTermino" [ngModelOptions]="{standalone: true}" required>
                                 </div>
                             </div>
@@ -136,7 +139,7 @@
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a routerLink="/convocatorias" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-            <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+            <button (click)="create()" class="button text-white shadow-md mr-2" style="background-color: #FF8300;">Guardar</button>
         </div>
     </div>
     <!-- END: FORM -->

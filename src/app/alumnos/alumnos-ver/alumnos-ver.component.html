@@ -307,21 +307,21 @@
         <tbody>
           <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
 
-            <td>
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
               <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
             </td>
-            <td>
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
               <div class="ext-base text-xs whitespace-no-wrap">
-                <a (click)="abrirsubir(d.idDocumentoRequerido)">
+                <a (click)="abrirsubir(d.idDocumentoRequerido)" style="margin-right: auto; border-radius: 25px; text-align:justify; font-size:15px;background-color: #FF8300; cursor:pointer">
                   <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo
                 </a>
               </div>
             </td>
 
-            <td>
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
               <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}} </div>
             </td>
-            <td style="padding: 5px; background: #ffffff; " align="center">
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; " align="center">
               <input type="checkbox" id="1" 
                      onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true">
             </td>

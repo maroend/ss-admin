@@ -132,7 +132,8 @@ console.log(estado);
   updateestadoalumno(estadoAct: Estadosalumnoscambio) {
     let estado=estadoAct;
     console.log(estado);
-    return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observacions}`, estado);
+    console.log(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observaciones}`);
+    return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observaciones}`, estado);
   }
 
   getSucesosByIdOrganizacion(idOrganizacion: string | number) {
