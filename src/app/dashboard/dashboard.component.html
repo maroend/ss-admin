@@ -2,37 +2,38 @@
 </app-menu>
 
 <!-- BEGIN: Content -->
-
-<div class="content">
+<br>
+<br>
+<br>
+<div class="container" style="font-family:Helvetica;">
     <div class="grid grid-cols-12 gap-6">
         <div class="col-span-12 xxl:col-span-9 grid grid-cols-12 gap-6">
             <!-- BEGIN: General Report -->
             <div class="col-span-12 mt-8">
-                <div class="intro-y flex items-center h-10">
-                    <h2 class="text-lg font-medium truncate mr-5">
-                        Reporte General
-                    </h2>
-                    <button class="ml-auto flex text-theme-1 dark:text-theme-10" (click)="ngOnInit()"> <i data-feather="refresh-ccw" class="w-4 h-4 mr-3"></i>  Recargar </button>
-                </div>
+                <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                    <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                      Dashboard            </h2>
+                  </div>
+
                 <div class="grid grid-cols-12 gap-6 mt-5">
 
-                    <div routerLink="/empresas" class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
-                                <div class="flex">
+                    <div routerLink="/empresas" class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y" >
+                        <div class=" zoom-in">
+                            <div class=" p-5" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
+                                <div class="flex" >
                                     <i data-feather="briefcase" class="report-box__icon text-theme-10"></i>
                                     <div class="ml-auto">
                                         <!-- <div class="report-box__indicator bg-theme-9 tooltip cursor-pointer" title="33% Higher than last month"> {{ ((empresaactiva.length * 100 )/empresa.length).toFixed(2)}} % <i data-feather="chevron-up" class="w-4 h-4"></i> </div> -->
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresaactiva.length}}</div>
-                                <div class="text-base text-gray-600 mt-1">Intituciones Aprobadas</div>
+                                <div class="text-base text-gray-600 mt-1">Instituciones Aprobadas</div>
                             </div>
                         </div>
                     </div>
                     <div routerLink="/empresas" class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
+                        <div class=" zoom-in">
+                            <div class=" p-5" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                 <div class="flex">
                                     <i data-feather="briefcase" class="report-box__icon text-theme-11"></i>
                                     <div class="ml-auto">
@@ -40,13 +41,13 @@
                                     </div>
                                 </div>
                                 <div class="text-3xl font-bold leading-8 mt-6">{{empresadesaciva.length}}</div>
-                                <div class="text-base text-gray-600 mt-1">Intituciones Pendientes</div>
+                                <div class="text-base text-gray-600 mt-1">Instituciones Pendientes</div>
                             </div>
                         </div>
                     </div>
                     <div routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
+                        <div class=" zoom-in">
+                            <div class=" p-5" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                 <div class="flex">
                                     <i data-feather="layout" class="report-box__icon text-theme-12"></i>
                                     <div class="ml-auto">
@@ -59,8 +60,8 @@
                         </div>
                     </div>
                     <div routerLink="/proyectos" class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                        <div class="report-box zoom-in">
-                            <div class="box p-5">
+                        <div class=" zoom-in">
+                            <div class=" p-5" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                 <div class="flex">
                                     <i data-feather="layout" class="report-box__icon text-theme-9"></i>
                                     <div class="ml-auto">
@@ -73,51 +74,44 @@
                         </div>
                     </div>
                 </div>
+                <div class="grid grid-cols-12 gap-6 mt-5">
 
+            
+                </div>
 
                 <!-- BEGIN: Convocatorias Abiertas -->
                 <div class="col-span-12 mt-6">
-                    <div class="intro-y block sm:flex items-center h-10">
-                        <h2 class="text-lg font-medium truncate mr-5">
-                            Convocatorias
-                        </h2>
-
-                    </div>
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                          Convocatorias            </h2>
+                      </div>
                     <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
                         <table class="table table-report sm:mt-2">
-                            <thead>
-                                <tr>
-
-                                    <th class="whitespace-no-wrap">CONVOCATORIAS DE INSTITUCIONES / ÁREAS </th>
-                                    <th class="text-center whitespace-no-wrap">INICIA</th>
-                                    <th class="text-center whitespace-no-wrap">TERMINA</th>
-                                    <th class="text-center whitespace-no-wrap">STATUS</th>
-                                    <th class="text-center whitespace-no-wrap">ACCIÓN</th>
-                                </tr>
-                            </thead>
+                      
                             <tbody *ngFor="let convocatoria of convocatoriasf">
                                 <tr class="intro-x" *ngIf="convocatoria.activo==true || (convocatoria.fechaTermino) <  (d)">
-                                    <td>
+                                    <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <a class="font-medium whitespace-no-wrap">{{  convocatoria.convocatoria}} </a>
-                                        <div class="text-gray-600 text-xs whitespace-no-wrap">Descripción {{convocatoria.descripcion}}</div>
                                     </td>
-                                    <td class="W-56">
-                                        <div class="flex items-center justify-center text-theme-6">
+                                    <td class="W-56" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; "  align="center"   >
+                                        <div class="text-theme-6">
+                                            <div style="font-size: 18px; color: black;  font-weight: bold;">Inicia</div>
                                             {{convocatoria.Inicio }}
                                         </div>
                                     </td>
-                                    <td class="W-56">
-                                        <div class="flex items-center justify-center text-theme-6">
+                                    <td class="W-56" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
+                                        <div class="text-theme-6">
+                                            <div style="font-size: 18px; color: black;  font-weight: bold;">Termina</div>
                                             {{convocatoria.Termino}}
                                         </div>
                                     </td>
-                                    <td class="w-40">
+                                    <td class="w-40" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
 
                                         <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white  font-medium" *ngIf="convocatoria.activo==true">ACTIVA</div>
                                         <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white  font-medium" *ngIf="convocatoria.activo==false">DESACTIVA</div>
 
                                     </td>
-                                    <td class="table-report__action w-100">
+                                    <td class="table-report__action w-100" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <div class="flex justify-center items-center">
                                             <a class="py-1 px-2 rounded-full text-center text-white text-xs bg-theme-1 text-white cursor-pointer font-medium w-100" [routerLink]="['/convocatorias/edit', convocatoria.id  ]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
 
@@ -133,34 +127,28 @@
                     </div>
                     <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
                         <table class="table table-report sm:mt-2">
-                            <thead>
-                                <tr>
-
-                                    <th class="whitespace-no-wrap">CONVOCATORIAS ALUMNOS</th>
-                                    <th class="text-center whitespace-no-wrap">INICIA</th>
-                                    <th class="text-center whitespace-no-wrap">TERMINA</th>
-                                    <th class="text-center whitespace-no-wrap">STATUS</th>
-                                    <th class="text-center whitespace-no-wrap">ACCIÓN</th>
-                                </tr>
-                            </thead>
+                   
                             <tbody *ngFor="let convocatoria of convocatoriasalumnosf">
 
                                 <tr class="intro-x" *ngIf="convocatoria.activo==true || (convocatoria.fechaTermino) <  (d)">
-                                    <td>
+                                    <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <a class="font-medium whitespace-no-wrap">{{convocatoria.convocatoria}}</a>
-                                        <div class="text-gray-600 text-xs whitespace-no-wrap">Descripción {{convocatoria.descripcion}}</div>
                                     </td>
-                                    <td class="W-56">
+                                    <td class="W-56" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <div class="flex items-center justify-center text-theme-6">
+                                            <div style="font-size: 18px; color: black;  font-weight: bold;" class="text-center">Inicia</div>
+                                            <br> 
                                             {{convocatoria.Inicio}}
                                         </div>
                                     </td>
-                                    <td class="W-56">
+                                    <td class="W-56" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <div class="flex items-center justify-center text-theme-6">
+                                            <div style="font-size: 18px; color: black;  font-weight: bold;">Termina</div>
+                                            <br> 
                                             {{convocatoria.Termino}}
                                         </div>
                                     </td>
-                                    <td class="w-40">
+                                    <td class="w-40" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
 
                                         <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-9 text-white  font-medium" *ngIf="convocatoria.activo==true">ACTIVA</div>
                                         <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white  font-medium" *ngIf="convocatoria.activo==false">DESACTIVA</div>
@@ -180,6 +168,13 @@
                             </tbody>
                         </table>
                     </div>
+
+
+              <div *ngIf="convocatoriasf.length==0 && convocatoriasalumnosf.length==0" class=" text-center font-italic leading-8 mt-6" style="font-style: italic; text-align:center; font-size:25px; color: rgb(226, 226, 226);">
+                Sin convocatorias abiertas
+
+             </div>
+
                 </div>
                 <!-- END: Convocatorias Abiertas -->
 
@@ -187,34 +182,24 @@
 
                 <!-- BEGIN: Weekly Top Products -->
                 <div class="col-span-8 mt-6">
-                    <div class="intro-y block sm:flex items-center h-10">
-                        <h2 class="text-lg font-medium truncate mr-5">
-                            Proyectos Pendientes
-                        </h2>
-
-                    </div>
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                          Proyectos Pendientes            </h2>
+                      </div>
                     <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
                         <table class="table table-report sm:mt-2">
-                            <thead>
-                                <tr>
-
-                                    <th class="whitespace-no-wrap">PROYECTOS PENDIENTES</th>
-
-                                    <th class="text-center whitespace-no-wrap">STATUS</th>
-                                    <th class="text-center whitespace-no-wrap">ACCIÓN</th>
-                                </tr>
-                            </thead>
+                        
                             <tbody>
                                 <tr class="intro-x" *ngFor="let proyect of proyectospendientes">
-                                    <td>
+                                    <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <a class="font-medium whitespace-no-wrap">{{proyect.proyecto}}</a>
                                         <div class="text-gray-600 text-xs whitespace-no-wrap">Responsable: {{proyect.nombreResponsable}}</div>
                                     </td>
 
-                                    <td class="w-40">
+                                    <td class="w-40" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <div class="py-1 px-2 rounded-full text-center text-xs bg-theme-6 text-white  font-medium">PENDIENTE</div>
                                     </td>
-                                    <td class="table-report__action w-56">
+                                    <td class="table-report__action w-56" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                                         <div class="flex justify-center items-center">
                                             <a class="py-1 px-2 rounded-full text-center text-white text-xs bg-theme-1 text-white cursor-pointer font-medium" [routerLink]="['/proyectos/edit', proyect.id  ]"> <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar </a>
 
@@ -228,7 +213,10 @@
                             </tbody>
                         </table>
                     </div>
-
+                    <div *ngIf="proyectospendientes.length==0 " class=" text-center font-italic leading-8 mt-6" style="font-style: italic; text-align:center; font-size:25px; color: rgb(226, 226, 226);">
+                        Sin proyectos pendientes
+        
+                     </div>
                 </div>
                 <!-- END: Weekly Top Products -->
 
@@ -248,12 +236,13 @@
             <div class="xxl:pl-6 grid grid-cols-12 gap-6">
                 <!-- BEGIN: Transactions -->
                 <div class="col-span-12 md:col-span-6 xl:col-span-4 xxl:col-span-12 mt-3 xxl:mt-8">
-                    <div class="intro-x flex items-center h-10">
-                        <h2 class="text-lg font-medium truncate mr-5">
+                
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:20px;  font-weight: bold; ">
                             Solicitudes para editar Instituciones
-                        </h2>
-                    </div>
-
+   
+                                 </h2>
+                      </div>
                     <div class="mt-5" *ngFor="let empresasp of empresapermisos">
                         <div class="intro-x">
                             <div class="box px-5 py-3 mb-3 flex items-center zoom-in">
@@ -267,11 +256,10 @@
                             </div>
                         </div>
                         <div class="modal" id="abrirsubir-{{empresasp.id}}">
-                            <div class="modal__content">
+                            <div class="modal__content modal__content--xl p-10 text-center">
                                 <form #form="ngForm" (ngSubmit)="subeArchivo(empresasp.id)">
                                     <div class="p-5 text-center">
-                                        <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                                        <div class="text-base mt-5">Concederle permisos a la institución {{empresasp.organizacion}}</div>
+                                        <div class="text-3xl mt-5 text-center" style="color: #FF8300; font-size: 28px;">Concederle permisos a la institución {{empresasp.organizacion}}</div>
                                         <br>
                                     </div>
 
@@ -295,12 +283,13 @@
 
                 <!-- BEGIN: Important Notes -->
                 <div class="col-span-12 md:col-span-6 xl:col-span-12 xxl:col-span-12 xl:col-start-1 xl:row-start-1 xxl:col-start-auto xxl:row-start-auto mt-3">
-                    <div class="intro-x flex items-center h-10">
-                        <h2 class="text-lg font-medium truncate mr-auto">
+                  
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:20px;  font-weight: bold; ">
                             Vacantes disponibles
-                        </h2>
-
-                    </div>
+   
+                                 </h2>
+                      </div>
                     <div class="mt-5 intro-x">
                         <div class="">
                             <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
@@ -336,7 +325,7 @@
 
                     </div>
                     <br><br>
-                    <a [routerLink]="['/Testimonios' ]" class="intro-x w-full block text-center rounded-md py-3 border border-dotted text-white border-theme-15 dark:border-dark-5 bg-theme-1  dark:text-gray-600">Testimonios</a>
+                    <a [routerLink]="['/Testimonios' ]" class="intro-x w-full block text-center rounded-md py-3 border border-dotted text-white border-theme-15 dark:border-dark-5  dark:text-gray-600" style="background-color: #FF8300;">Testimonios</a>
 
                 </div>
                 <!-- END: Important Notes -->

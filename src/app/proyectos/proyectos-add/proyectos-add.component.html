@@ -1,5 +1,5 @@
 <app-menu></app-menu>
-<div class="content">
+<div class="container" style="font-family:Helvetica;">
     <div class="modal" id="success-modal-preview">
         <div class="modal__content">
             <div class="p-5 text-center">
@@ -11,15 +11,15 @@
         </div>
     </div>
 
-    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-        <h2 class="text-lg font-medium mr-auto">
-            Agregar Proyecto
-        </h2>
-        <!--<div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-      <a routerLink="/proyectos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-      <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
-    </div>-->
-    </div>
+   <br>
+   <br>
+   <br>
+
+   <div class=" flex-col sm:flex-row items-center p-5 " style="font-size:25px;  font-weight: bold; color: #FF8300;">
+    <h2 class="font-medium text-center" style="font-size:25px;  font-weight: bold; color: #FF8300;" >
+        Agregar Proyecto         </h2>
+  </div>
+
     <div class="modal" id="validacion">
         <div class="modal__content">
             <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
@@ -33,18 +33,20 @@
         <div class="intro-y">
             <form class="" #form="ngForm">
                 <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
-                <div class="intro-y box mt-5">
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                        <h2 class="font-medium text-base mr-auto">
-                            Información General
-                        </h2>
-                    </div>
+                <div class="intro-y  mt-5">
+              
+
+
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                            Información General    </h2>
+                      </div>
                     <div class="mt-3 p-5">
                         <div class="sm:grid grid-cols-2 gap-2">
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>Institución / Área*</b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">Institución / Área*</b>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idOrganizacion" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="organizacion.id" *ngFor="let organizacion of organizaciones">{{organizacion.organizacion}} </option>
                   </select>
@@ -54,14 +56,14 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>Nombre del proyecto*</b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">Nombre del proyecto*</b>
                                     <input type="text" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.proyecto" [ngModelOptions]="{standalone: true}" ng-reflect-required="ejemplo nombre" maxlength="70" placeholder="Máximo 70 caracteres" required>
                                 </div>
                             </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>Descripción del proyecto*</b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">Descripción del proyecto*</b>
                                     <textarea type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.descripcion" [ngModelOptions]="{standalone: true}" placeholder="Máximo 500 caracteres" maxlength="500" rows="5" required>
               </textarea>
                                 </div>
@@ -69,7 +71,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Nombre del Responsable del Proyecto*
                   </b>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.nombreResponsable" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
@@ -78,7 +80,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Puesto del Responsable del Proyecto*
                   </b>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.puesto" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
@@ -87,7 +89,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Área del Responsbale del Proyecto*
                   </b>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.area" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
@@ -96,7 +98,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Correo electrónico del responsable del proyecto*
                   </b>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.correoResponsable" [ngModelOptions]="{standalone: true}" value="ejemplo descripcion" required>
@@ -105,7 +107,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Teléfono de responsable del proyecto
                   </b>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.telefono" [ngModelOptions]="{standalone: true}" required>
@@ -114,7 +116,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     ¿Plazas de Servicio Social disponibles para el proyecto?*
                   </b>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazas" [ngModelOptions]="{standalone: true}">
@@ -134,28 +136,16 @@
               <div class="relative mt-8">
                 <div>
                   <label>
-                    ¿Plazas de Servicio Social autorizadas para el proyecto?* {{proyectoModel.plazasAutorizadas}}
+                    ¿Plazas de Servicio Social autorizadas para el proyecto?* 
                   </label>
-                  <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazasAutorizadas" [ngModelOptions]="{standalone: true}">
-                    <option [ngValue]="0">0</option>
-
-                    <option [ngValue]="1">1</option>
-                    <option [ngValue]="2" *ngIf="proyectoModel.plazas>1">2</option>
-                    <option [ngValue]="3" *ngIf="proyectoModel.plazas>2">3</option>
-                    <option [ngValue]="4" *ngIf="proyectoModel.plazas>3">4</option>
-                    <option [ngValue]="5"*ngIf="proyectoModel.plazas>4">5</option>
-                    <option [ngValue]="6" *ngIf="proyectoModel.plazas>5">6</option>
-                    <option [ngValue]="7" *ngIf="proyectoModel.plazas>6">7</option>
-                    <option [ngValue]="8" *ngIf="proyectoModel.plazas>7">8</option>
-                    <option [ngValue]="9" *ngIf="proyectoModel.plazas>8">9</option>
-                    <option [ngValue]="10" *ngIf="proyectoModel.plazas>9">10</option>
-                  </select>
+                  <input type="number" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.plazasAutorizadas" [ngModelOptions]="{standalone: true}">
+                    
                 </div>
               </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     ¿Se puede hacer el servicio social bajo la modalidad a distancia en este proyecto?*
                   </b>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.modalidadDistancia" [ngModelOptions]="{standalone: true}">
@@ -167,7 +157,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Justifica el impacto social del proyecto*
                   </b>
                                     <textarea type="text" class="input   w-full border mt-2 " placeholder="Máximo 500 caracteres" [(ngModel)]="proyectoModel.justificacionImpactoSocial" [ngModelOptions]="{standalone: true}" maxlength="500" rows="7" required>
@@ -200,7 +190,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Enlista los objetivos del proyecto máximo(7)*
                   </b>
                                     <textarea type="text" rows="7" class="input  w-full border mt-2 " placeholder="Enlista máximo 7" [(ngModel)]="proyectoModel.objetivo" [ngModelOptions]="{standalone: true}" required>
@@ -213,12 +203,12 @@
 
                     <br>
 
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                        <h2 class="font-medium text-base mr-auto">
-                            Información referente al Prestador de Servicio Social (Estudiante)
-                        </h2>
-                    </div>
 
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                            Información referente al Prestador de Servicio Social (Estudiante)
+                                </h2>
+                      </div>
                     <div class="mt-8 p-5">
                         <div class="sm:grid grid-cols-2 gap-2">
 
@@ -233,36 +223,44 @@
             </select>
           </div>
         </div>-->
-                            <div class="relative mt-8">
-                                <div>
-                                    <b>Fecha de inicio*</b>
-                                    <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()" required>
-                                </div>
-                            </div>
-                            <!--
-        <div class="relative mt-8">
-          <div>
-            <label>Fecha de termino* </label>
-            <input type="date" class="input  w-full border mt-2 "
-                   [(ngModel)]="proyectoModel.fechaTermino"
-                   [ngModelOptions]="{standalone: true}"
-                   [disabled]="!fechaMinima"
-                   min="{{fechaMinima|date:'yyyy-MM-dd'}}"
-                   required>
-          </div>
+        <div class="relative">
+            <div>
+                <label style="font-size:19px; color:#FF8800; font-weight: bold;">Fecha de inicio*</label>
+      
+           <div class="sm:grid grid-cols-2 gap-2">
+            <div class="relative mt-2">
+
+               <input matInput [matDatepicker]="picker" id="fechaInicio" max="10" placeholder="02/01/2021" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" id="fechaInicio" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()" required>
+                 <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+               <div class="relative mt-3">
+
+                <div class="flex justify-center text-center items-center mt-3 text-center" style="background: #FF8300; border-radius: 15px;font-weight: bold; width: 180px; margin: auto;
+                "> <a (click)="picker.open()" style=" border-radius: 10px; font-size: 15px;" class="button text-white  p-2">Ver Calendario</a> </div>
+
+
+            </div>
+
+           </div>
+               <div style="margin-top:3px;">
+
+                    * Indique a partir de qué fecha el estudiante podría comenzar su prestación de servicio social en el proyecto
+                </div>
+
+            </div>
         </div>
-        -->
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     ¿El alumno recibe capacitación/formación por parte de la Institución?*
                   </b>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.capacitacion" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="'si'">Si</option>
                     <option [ngValue]="'no'">No</option>
                   </select>
-                                    <b *ngIf="proyectoModel.capacitacion=='si'">¿Que tipo de capacitacòn se ofrece?</b>
-                                    <b *ngIf="proyectoModel.capacitacion=='no'">¿Razòn por la que no ofrece capacitaciòn?</b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;" *ngIf="proyectoModel.capacitacion=='si'">¿Que tipo de capacitacòn se ofrece?</b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;" *ngIf="proyectoModel.capacitacion=='no'">¿Razòn por la que no ofrece capacitaciòn?</b>
                                     <textarea type="text" class="input   w-full border mt-2 " placeholder="Máximo 500 caracteres" [(ngModel)]="proyectoModel.razonCapacitacion" [ngModelOptions]="{standalone: true}" maxlength="500" rows="7" required>
                   </textarea>
                                 </div>
@@ -270,7 +268,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Días hábiles para la prestación de servicio social*
                   </b>
                                 </div>
@@ -333,30 +331,39 @@
                                     </table>
                                 </div>
                             </div>
-
-                            <div class="relative mt-8">
+                            <div class="relative mt-3">
                                 <div>
-                                    <b>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                     Horarios disponibles para la prestación de servicio social*
-                  </b>
+                  </label>
                                 </div>
-                                <div class="well">
+                                <div class="">
                                     <table style="padding: 15px; margin-left: 25px;">
                                         <tbody>
                                             <tr>
 
                                                 <td style="padding:5px;">
-                                                    <label>
+                                                    <label style="font-size:19px; font-weight: bold;">
                             Entrada:
-                            <input type="time" [(ngModel)]="proyectoModel.horaEntrada" [ngModelOptions]="{standalone: true}" />
-                          </label>
+                    </label>
+
+                            <div class="default-time-example">
+                                <input class="input  w-full border mt-2 "  aria-label="default time" [format]="24" [(ngModel)]="proyectoModel.horaEntrada" id="horaEntrada" [ngModelOptions]="{standalone: true}"   [ngxTimepicker]="defaultValue"   >
+                                <ngx-material-timepicker #defaultValue></ngx-material-timepicker>
+                           </div>
+
                                                 </td>
 
                                                 <td style="padding:5px;">
-                                                    <label>
+                                                    <label style="font-size:19px; font-weight: bold;">
                             Salida:
-                            <input type="time" [(ngModel)]="proyectoModel.horaSalida" [ngModelOptions]="{standalone: true}" />
-                          </label>
+                        </label>
+                        
+                        <div class="default-time-example">
+    <input class="input  w-full border mt-2 "  aria-label="default time" [format]="24"  [(ngModel)]="proyectoModel.horaSalida" id="horaSalida" [ngModelOptions]="{standalone: true}" [ngxTimepicker]="defaultValue2"  >
+    <ngx-material-timepicker #defaultValue2></ngx-material-timepicker>
+</div>
+
                                                 </td>
 
                                             </tr>
@@ -367,7 +374,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Rol o función del prestador de servicio social (estudiante) dentro del proyecto:
                   </b>
                                     <textarea type="text" class="input w-full border mt-2 " placeholder="Máximo 400 caracteres" [(ngModel)]="proyectoModel.rolPrestador" [ngModelOptions]="{standalone: true}" maxlength="400" rows="5" required>
@@ -377,7 +384,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Responsabilidades del prestador de servicio social máximo(7):
                   </b>
                                     <textarea type="text" rows="7" class="input  w-full border mt-2 " placeholder="Enumere las principales responsabilidades que tendrá el estudiante. Máximo 7" [(ngModel)]="proyectoModel.responsabilidades" [ngModelOptions]="{standalone: true}" value="objetivo ejemplo"
@@ -389,18 +396,18 @@
                     </div>
                     <br>
 
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                        <h2 class="font-medium text-base mr-auto">
+                 
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
                             Competencias & Carreras
-                        </h2>
-                    </div>
-
+                                </h2>
+                      </div>
                     <div class="mt-8 p-5">
                         <div class="sm:grid grid-cols-1 gap-2">
 
                             <div class="relative mt-2">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Seleccione las competencias que el alumno podrá desarrollar por medio del proyecto:
                   </b>
                                 </div>
@@ -418,7 +425,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Selecciones las carreras más afines según el perfil que requiera el proyecto:
                   </b>
                                 </div>
@@ -439,18 +446,18 @@
                     <br>
 
 
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                        <h2 class="font-medium text-base mr-auto">
-                            Objetivos de Desarrollo Sostenibles (ODS)
-                        </h2>
-                    </div>
 
+                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                            Objetivos de Desarrollo Sostenibles (ODS)
+                                </h2>
+                      </div>
                     <div class="mt-8 p-5">
                         <div class="sm:grid grid-cols-2 gap-2">
 
                             <div class="relative mt-2">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Según la naturaleza del proyecto, ¿a cuál de los siguientes objetivos de la ONU contribuye?
                   </b>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idObjetivoOnu" [ngModelOptions]="{standalone: true}">
@@ -461,7 +468,7 @@
 
                             <div class="relative mt-2">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Periodo
                   </b>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idPeriodo" [ngModelOptions]="{standalone: true}">
@@ -479,7 +486,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
                     Selecciones los campus en los que aplica el proyecto:
                   </b>
                                 </div>
@@ -511,7 +518,7 @@
               </div>-->
                             <div class="relative mt-3">
                                 <div>
-                                    <b>Estado:</b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">Estado:</b>
                                     <select class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.idEstadoProyecto" [ngModelOptions]="{standalone: true}">
                     <option [ngValue]="estadoProyecto.id" *ngFor="let estadoProyecto of estadosProyectos">{{estadoProyecto.estadoProyecto}}</option>
                   </select>
@@ -519,7 +526,7 @@
                             </div>
                             <div class="relative mt-3">
                                 <div>
-                                    <b>Observaciones:</b>
+                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">Observaciones:</b>
                                     <input type="text" class="input  w-full border mt-2 " placeholder="" [(ngModel)]="proyectoModel.observaciones" [ngModelOptions]="{standalone: true}" required>
 
                                 </div>
@@ -536,13 +543,13 @@
                     </h2>
                     <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
                         <a routerLink="/proyectos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-                        <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+                        <button (click)="create()" class="button text-white bg-theme-1 shadow-md mr-2" style="background-color: #FF8300;">Guardar</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-
+<br><br>
     <!-- END: FORM -->
 </div>
 <!-- END: Content -->

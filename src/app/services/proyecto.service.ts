@@ -89,6 +89,9 @@ export class ProyectoService {
   }
   updateestado(estadoAct: estadoProyectoActualizar) {
     let estado = estadoAct;
+    if(estado.observaciones=="null" || estado.observaciones==null){
+estado.observaciones="";
+    }
     console.log(estado);
     return this.http.put(`${this.api}/Proyectos/actualizaEstado?idProyecto=${estado.idProyecto}&idEstado=${estado.idEstado}&observaciones=${estado.observaciones}`, estado);
   }

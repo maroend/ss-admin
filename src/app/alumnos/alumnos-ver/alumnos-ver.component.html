@@ -1,79 +1,80 @@
 <app-menu></app-menu>
 
 
-<div class="content">
+<div class="container" style="font-family:Helvetica;">
+<br>
+<br>
+<br>
 
 
-
-  <div class="intro-y flex items-center h-10">
-    <h2 class="text-lg font-medium truncate mr-5">
-      Información General
-    </h2>
-  </div>
-  <div class="box">
+<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+  <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+      Información Personal            </h2>
+</div>
+  <div class="container">
     <div class="grid grid-cols-12 gap-6 mt-5">
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">
+          <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">
             Nombre
-
-            <div class="text-base font-bold leading-8 mt-6"> {{alumno.nombre}} </div>
           </div>
-        </div>
+
+            <div class="text-base font-bold leading-8 mt-6 "> {{alumno.nombre}} </div>
+          </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">Apellido Paterno</div>
+          <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">Apellido Paterno</div>
 
           <div class="text-base font-bold leading-8 mt-6">{{alumno.paterno}}</div>
         </div>
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1">Apellido Materno</div>
+          <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">Apellido Materno</div>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.materno}}</div>
         </div>
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>ID Matricula</label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">ID Matricula</label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.matricula}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>Universidad:</label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">Universidad:</label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.universidad}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>Facultad:</label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">Facultad:</label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.facultad}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>Carrera:</label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">Carrera:</label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.carrera}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>Porcentaje Academico:</label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">Porcentaje Academico:</label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.porcentaje}} %</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Avance en créditos de la carrera:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.avanceCreditos}}</div>
@@ -82,7 +83,7 @@
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Número de Semestre / Cuatrimestre:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.noCuatrimestreSemestre}}</div>
@@ -91,7 +92,7 @@
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             ¿Tu carrera es semestral o cuatrimestral?
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.esquemaPeriodo}}</div>
@@ -100,7 +101,7 @@
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Generación:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.generacion}}</div>
@@ -109,7 +110,7 @@
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Fecha estimada de graduación:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.fechaEstimadaGraduacionString}}</div>
@@ -118,7 +119,7 @@
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Correo Institucional:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.correoInstitucional}}</div>
@@ -126,7 +127,7 @@
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Correo Personal:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.correoPersonal}}</div>
@@ -135,7 +136,7 @@
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Teléfono de Contacto:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.celular}}</div>
@@ -143,7 +144,7 @@
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Fecha de Nacimiento:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.fechaNacimientoString}}</div>
@@ -152,7 +153,7 @@
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Sexo:
           </label>
           <div class="text-base font-bold leading-8 mt-6">{{alumno.sexo}}</div>
@@ -164,17 +165,18 @@
 
   <br>
 
-  <div class="intro-y flex items-center h-10">
-    <h2 class="text-lg font-medium truncate mr-5">
-      Información Complementaria
-    </h2>
-  </div>
-  <div class="box">
+
+<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+  <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+    Información Complementaria         </h2>
+</div>
+
+  <div class="container">
     <div class="grid grid-cols-12 gap-6 mt-5">
 
         <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
           <div class="p-5">
-            <label>
+            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
               ¿Has participado en ASUA?:
             </label>
             <div class="text-base font-bold leading-8 mt-6">{{alumno.participacionAsua}}</div>
@@ -183,7 +185,7 @@
       
         <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
           <div class="p-5">
-            <label>
+            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
               ¿Actualmente trabajas?:
             </label>
             <div class="text-base font-bold leading-8 mt-6">{{alumno.trabajas}}</div>
@@ -192,7 +194,7 @@
 
         <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
           <div class="p-5">
-            <label>
+            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
               ¿Bajo qué modalidad trabajas?
             </label>
             <div class="text-base font-bold leading-8 mt-6">{{ alumno.modalidadTrabajo}}</div>
@@ -201,7 +203,7 @@
 
         <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
           <div class="p-5">
-            <label>
+            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
               ¿A partir de qué semestre / cuatrimestre comenzaste a trabajar?
             </label>
             <div class="text-base font-bold leading-8 mt-6">{{alumno.cuatrimestreComienzoTrabajo}}</div>
@@ -213,15 +215,15 @@
     <div class="sm:grid grid-cols-1 gap-2">
       <div class="relative mt-8">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Indica en cuál(es) área(s) de Vida Universitaria has participado
           </label>
         </div>
         <div class="sm:grid grid-cols-3 gap-2">
-          <div *ngFor="let area of alumno.listaAreaVidaUniversitariaParticipado" class="text-base text-gray-600 mt-1">
+          <div *ngFor="let area of alumno.listaAreaVidaUniversitariaParticipado" class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">
             <div class="flex items-center p-5">
               <div class="w-3 h-2 bg-theme-9 rounded-full mr-3"></div>
-              <span>{{area.areaVidaUniversitaria}}</span>
+              <span style="color: black;" >{{area.areaVidaUniversitaria}}</span>
             </div>
           </div>
         </div>
@@ -229,15 +231,15 @@
 
       <div class="relative mt-8">
         <div class="p-5">
-          <label>
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             ¿Actualmente formas parte de alguna área de Vida Universitaria?
           </label>
         </div>
         <div class="sm:grid grid-cols-3 gap-2">
-          <div *ngFor="let area of alumno.listaAreaVidaUniversitariaActuales" class="text-base text-gray-600 mt-1">
+          <div *ngFor="let area of alumno.listaAreaVidaUniversitariaActuales" class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">
             <div class="flex items-center p-5">
               <div class="w-3 h-2 bg-theme-9 rounded-full mr-3"></div>
-              <span>{{area.areaVidaUniversitaria}}</span>
+              <span style="color: black;">{{area.areaVidaUniversitaria}}</span>
             </div>
           </div>
           
@@ -248,17 +250,19 @@
   </div>
   <br>
   
-  <div class="intro-y flex items-center h-10">
-    <h2 class="text-lg font-medium truncate mr-5">
-      Proyecto Asignado
-    </h2>
-  </div>
+
+
+<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+  <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+    Proyecto Asignado       </h2>
+</div>
+
 
   <div class="grid grid-cols-12 gap-6 mt-5">
     <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
-      <div class="report-box">
-        <div class="box p-5">
-          <div class="text-base text-gray-600 mt-1" *ngIf="alumnoproyecto!=undefined && alumnoproyecto.id>0; else templateName">
+      <div class="">
+        <div class=" p-5">
+          <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;" *ngIf="alumnoproyecto!=undefined && alumnoproyecto.id>0; else templateName">
             Proyecto
 
             <div class="text-base font-bold leading-8 mt-6"> {{alumnoproyecto.proyectoNombre}} </div>
@@ -267,7 +271,7 @@
 
           </div>
           <ng-template #templateName>
-            <div class="text-base text-gray-600 mt-1">
+            <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;" >
               Sin proyecto asignado
 
 
@@ -280,18 +284,17 @@
   <br>
 
 
-  <div class="intro-y flex items-center h-10">
-    <h2 class="text-lg font-medium truncate mr-5">
-      Documentos
-    </h2>
+ 
+  <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+    <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+      Documentos      </h2>
   </div>
-
-
+  
   <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-    <div class="box p-5">
+    <div class=" p-5">
 
       <table class="table table-report sm:mt-2">
-        <thead>
+        <thead style="font-size:19px; color:#FF8800; font-weight: bold;">
           <tr>
 
             <th class="whitespace-no-wrap">DOCUMENTO</th>
@@ -304,21 +307,21 @@
         <tbody>
           <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
 
-            <td>
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
               <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
             </td>
-            <td>
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
               <div class="ext-base text-xs whitespace-no-wrap">
-                <a (click)="abrirsubir(d.idDocumentoRequerido)">
+                <a (click)="abrirsubir(d.idDocumentoRequerido)" style="margin-right: auto; border-radius: 25px; text-align:justify; font-size:15px;background-color: #FF8300; cursor:pointer">
                   <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo
                 </a>
               </div>
             </td>
 
-            <td>
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
               <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}} </div>
             </td>
-            <td style="padding: 5px; background: #ffffff; " align="center">
+            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; " align="center">
               <input type="checkbox" id="1" 
                      onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true">
             </td>
@@ -362,7 +365,7 @@
         </tbody>
       </table>
     </div>
-
+<br><br><br>
 
   </div>
 </div>

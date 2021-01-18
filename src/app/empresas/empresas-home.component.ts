@@ -54,7 +54,7 @@ data: any;
    
 
     this.obtenerorganizaciones();
-    document.getElementById("empresa").style.backgroundColor ="blue";
+    document.getElementById("empresa").style.backgroundColor ="#FF8300";
 
     document.getElementById("alumnos").style.backgroundColor ="gray";
 
@@ -125,7 +125,7 @@ this.dtTrigger2.next();
   {
 
 
-    document.getElementById("empresa").style.backgroundColor ="blue";
+    document.getElementById("empresa").style.backgroundColor ="#FF8300";
 
     document.getElementById("alumnos").style.backgroundColor ="gray";
 
@@ -146,7 +146,7 @@ this.dtTrigger2.next();
 
     document.getElementById("empresa").style.backgroundColor ="gray";
 
-    document.getElementById("alumnos").style.backgroundColor ="blue";
+    document.getElementById("alumnos").style.backgroundColor ="#FF8300";
 
     var tabla1 = document.getElementById("tabla1");
     var tabla2 = document.getElementById("tabla2");

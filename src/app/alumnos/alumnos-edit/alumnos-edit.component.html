@@ -2,8 +2,10 @@
 </app-menu>
 
 <!-- BEGIN: Content -->
-<div class="content">
-
+<div class="container" style="font-family:Helvetica;">
+<br>
+<br>
+<br>
 
     <div class="modal" id="success-modal-preview">
         <div class="modal__content">
@@ -25,28 +27,25 @@
     </div>
 
     <form #formAlumno="ngForm" (ngSubmit)="onSubmit(formAlumno)">
-        <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-            <h2 class="text-lg font-medium mr-auto">
-                Agregar Alumno
-            </h2>
-
-        </div>
-
-
+        
+        <div class=" flex-col sm:flex-row items-center p-5 " style="font-size:25px;  font-weight: bold; color: #FF8300;">
+            <h2 class="font-medium text-center" style="font-size:25px;  font-weight: bold; color: #FF8300;" >
+                Editar Alumno         </h2>
+          </div>
         <!-- BEGIN: FORM  box p-5 mt-5 w-full -->
 
-        <div class="intro-y box mt-5">
-            <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                <h2 class="font-medium text-base mr-auto">
-                    Información Personal
-                </h2>
-            </div>
+        <div class="intro-y ">
+            <div class="flex flex-col sm:flex-rfow items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+                <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                    Información Personal            </h2>
+              </div>
+
             <div class="p-5" id="horizontal-form">
                 <div class="preview">
 
 
                     <div class="flex flex-col sm:flex-row items-center mt-3" style="display: none">
-                        <label class="sm:w-32 sm:text-right sm:mr-5">Activo:</label>
+                        <label style="font-size:19px; color:#FF8800; font-weight: bold;" class="sm:w-32 sm:text-right sm:mr-5">Activo:</label>
                         <input type="radio" ng-value="true" name="activo" [(ngModel)]="activo" [checked]="true" />
                     </div>
 
@@ -56,7 +55,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>Nombre</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">Nombre</label>
                                     <input type="text" class="input  w-full border mt-2 " name="nombre" [(ngModel)]="alumno.nombre" [ngModelOptions]="{standalone: true}" placeholder="">
                                 </div>
 
@@ -64,28 +63,28 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>Apellido Paterno:</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">Apellido Paterno:</label>
                                     <input type="text" class="input  w-full border mt-2 " name="paterno" [(ngModel)]="alumno.paterno" [ngModelOptions]="{standalone: true}" placeholder="">
                                 </div>
                             </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>Apellido Materno:</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">Apellido Materno:</label>
                                     <input type="text" class="input  w-full border mt-2 " name="materno" [(ngModel)]="alumno.materno" [ngModelOptions]="{standalone: true}" placeholder="">
                                 </div>
                             </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>ID Matricula</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">ID Matricula</label>
                                     <input type="text" class="input  w-full border mt-2 " name="matricula" [(ngModel)]="alumno.matricula" [ngModelOptions]="{standalone: true}" placeholder="">
                                 </div>
                             </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>Universidad:</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">Universidad:</label>
                                     <select class="input  w-full border mt-2 " name="idUniversidad" [(ngModel)]="alumno.idUniversidad" [ngModelOptions]="{standalone: true}">
                       <option *ngFor="let universidad of universidades" [ngValue]="universidad.id">{{ universidad.universidad }}</option>
                     </select>
@@ -94,7 +93,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>Facultad:</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">Facultad:</label>
                                     <select class="input  w-full border mt-2 " name="idFacultad" [(ngModel)]="alumno.idFacultad" [ngModelOptions]="{standalone: true}">
                       <option *ngFor="let facultad of facultades" [ngValue]="facultad.id">{{ facultad.facultad }}</option>
                     </select>
@@ -103,7 +102,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>Carrera:</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">Carrera:</label>
                                     <select class="input  w-full border mt-2 " name="idCarrera" [(ngModel)]="alumno.idCarrera" [ngModelOptions]="{standalone: true}">
                       <option *ngFor="let carrera of carreras" [ngValue]="carrera.id">{{ carrera.carrera }}</option>
                     </select>
@@ -112,14 +111,14 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>Porcentaje Academico:</label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">Porcentaje Academico:</label>
                                     <input type="number" class="input  w-full border mt-2 " name="porcentaje" [(ngModel)]="alumno.porcentaje" [ngModelOptions]="{standalone: true}" placeholder="">
                                 </div>
                             </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Avance en créditos de la carrera:
                     </label>
                                     <input type="number" class="input  w-full border mt-2 " name="avanceCreditos" [(ngModel)]="alumno.avanceCreditos" [ngModelOptions]="{standalone: true}" placeholder="">
@@ -128,7 +127,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Número de Semestre / Cuatrimestre:
                     </label>
                                     <input type="number" class="input  w-full border mt-2 " name="noCuatrimestreSemestre" [(ngModel)]="alumno.noCuatrimestreSemestre" [ngModelOptions]="{standalone: true}" placeholder="">
@@ -137,7 +136,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       ¿Tu carrera es semestral o cuatrimestral?
                     </label>
                                     <select class="input  w-full border mt-2 " name="esquemaPeriodo" [(ngModel)]="alumno.esquemaPeriodo" [ngModelOptions]="{standalone: true}">
@@ -149,7 +148,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Generación:
                     </label>
                                     <input type="text" class="input  w-full border mt-2 " name="generacion" [(ngModel)]="alumno.generacion" [ngModelOptions]="{standalone: true}" placeholder="">
@@ -157,17 +156,35 @@
                             </div>
 
                             <div class="relative mt-8">
-                                <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Fecha estimada de graduación:
                     </label>
-                                    <input type="date" class="input  w-full border mt-2 " name="fechaEstimadaGraduacion" [(ngModel)]="alumno.fechaEstimadaGraduacion" [ngModelOptions]="{standalone: true}" placeholder="">
-                                </div>
+                                   
+
+
+                                <div class="sm:grid grid-cols-2 gap-2">
+                                    <div class="relative mt-2">
+                        
+                                       <input matInput [matDatepicker]="picker2" max="10" placeholder="02/01/2021" class="input  w-full border mt-2 " name="fechaEstimadaGraduacion" [(ngModel)]="alumno.fechaEstimadaGraduacion" [ngModelOptions]="{standalone: true}"  ngModel >
+                                         <mat-datepicker #picker2></mat-datepicker>
+                                    </div>
+                        
+                                       <div class="relative mt-3">
+
+
+                                        <div class="flex justify-center text-center items-center mt-3 text-center" style="background: #FF8300; border-radius: 15px;font-weight: bold; width: 180px; margin: auto;
+                                        "> <a (click)="picker2.open()" style=" border-radius: 10px; font-size: 15px;" class="button text-white  p-2">Ver Calendario</a> </div>
+                        
+                        
+                                    </div>
+                        
+                                   </div>
+                               
                             </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Correo Institucional:
                     </label>
                                     <input type="email" class="input  w-full border mt-2 " name="correoInstitucional" [(ngModel)]="alumno.correoInstitucional" [ngModelOptions]="{standalone: true}" placeholder="">
@@ -175,7 +192,7 @@
                             </div>
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Correo Personal:
                     </label>
                                     <input type="email" class="input  w-full border mt-2 " name="correoPersonal" [(ngModel)]="alumno.correoPersonal" [ngModelOptions]="{standalone: true}" placeholder="">
@@ -185,7 +202,7 @@
                             <div class="relative mt-8">
                                 <div>
                                     <div>
-                                        <label>Contraseña:</label>
+                                        <label style="font-size:19px; color:#FF8800; font-weight: bold;">Contraseña:</label>
                                         <input type="password" class="input  w-full border mt-2 " placeholder="" name="password" [(ngModel)]="alumno.password" [ngModelOptions]="{standalone: true}">
                                     </div>
                                 </div>
@@ -193,24 +210,38 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Teléfono de Contacto:
                     </label>
                                     <input type="tel" class="input  w-full border mt-2 " name="celular" [(ngModel)]="alumno.celular" [ngModelOptions]="{standalone: true}" placeholder="">
                                 </div>
                             </div>
                             <div class="relative mt-8">
-                                <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Fecha de Nacimiento:
-                    </label>
-                                    <input type="date" class="input  w-full border mt-2 " name="fechaNacimiento" [(ngModel)]="alumno.fechaNacimiento" [ngModelOptions]="{standalone: true}" placeholder="">
-                                </div>
+                                    </label>
+
+                                <div class="sm:grid grid-cols-2 gap-2">
+                                    <div class="relative mt-2">
+                        
+                                       <input matInput [matDatepicker]="picker" max="10" placeholder="02/01/2021" name="fechaNacimiento" class="input  w-full border mt-2 " [(ngModel)]="alumno.fechaNacimiento" [ngModelOptions]="{standalone: true}"  ngModel >
+                                         <mat-datepicker #picker></mat-datepicker>
+                                    </div>
+                        
+                                       <div class="relative mt-3">
+
+                                        <div class="flex justify-center text-center items-center mt-3 text-center" style="background: #FF8300; border-radius: 15px;font-weight: bold; width: 180px; margin: auto;
+                                        "> <a (click)="picker.open()" style=" border-radius: 10px; font-size: 15px;" class="button text-white  p-2">Ver Calendario</a> </div>
+                        
+                        
+                                    </div>
+                        
+                                   </div>
                             </div>
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Sexo:
                     </label>
                                     <select class="input  w-full border mt-2 " name="sexo" [(ngModel)]="alumno.sexo" [ngModelOptions]="{standalone: true}">
@@ -233,7 +264,7 @@
               <div class="sm:grid grid-cols-3 gap-2">
                   <div class="relative mt-8">
                       <div>
-                          <label>cambiar:</label>
+                          <label style="font-size:19px; color:#FF8800; font-weight: bold;">cambiar:</label>
                           <input type="text" class="input  w-full border mt-2 " placeholder="" name="correo" ngModel>
                       </div>
 
@@ -243,18 +274,17 @@
 
           <br>-->
 
-                    <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5">
-                        <h2 class="font-medium text-base mr-auto">
-                            Información Complementaria
-                        </h2>
-                    </div>
-
+          <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+            <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+                Información Complementaria
+                  </h2>
+          </div>
 
                     <div class="mt-3">
                         <div class="sm:grid grid-cols-2 gap-2">
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       ¿Has participado en ASUA?:
                     </label>
                                     <select class="input  w-full border mt-2 " name="participacionAsua" [(ngModel)]="alumno.participacionAsua" [ngModelOptions]="{standalone: true}">
@@ -267,7 +297,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       ¿Actualmente trabajas?:
                     </label>
                                     <select class="input  w-full border mt-2 " name="trabajas" [(ngModel)]="alumno.trabajas" [ngModelOptions]="{standalone: true}">
@@ -279,7 +309,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       ¿Bajo qué modalidad trabajas?
                     </label>
                                     <select class="input  w-full border mt-2" name="idModalidadTrabajo" [(ngModel)]="alumno.idModalidadTrabajo" [ngModelOptions]="{standalone: true}">
@@ -290,7 +320,7 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       ¿A partir de qué semestre / cuatrimestre comenzaste a trabajar?
                     </label>
                                     <select class="input  w-full border mt-2 " name="cuatrimestreComienzoTrabajo" [(ngModel)]="alumno.cuatrimestreComienzoTrabajo" [ngModelOptions]="{standalone: true}">
@@ -313,14 +343,15 @@
                         <div class="sm:grid grid-cols-1 gap-2">
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Indica en cuál(es) área(s) de Vida Universitaria has participado
                     </label>
                                 </div>
+                                <br>
                                 <div class="sm:grid grid-cols-3 gap-2">
                                     <div *ngFor="let area of listaAreasUniversidad">
 
-                                        <label>
+                                        <label style="font-size:15px; color:black;">
                         <input type="checkbox" id="{{area.id}}" (change)="toggleAreasVidaUniversitariaParticipado($event.target.checked, area.id)" [checked]="idsPasados.indexOf(area.id) >=0">
                         {{area.areaVidaUniversitaria}}
                       </label>
@@ -331,14 +362,15 @@
 
                             <div class="relative mt-8">
                                 <div>
-                                    <label>
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;" >
                       ¿Actualmente formas parte de alguna área de Vida Universitaria?
                     </label>
                                 </div>
+                                <br>
                                 <div class="sm:grid grid-cols-3 gap-2">
                                     <div *ngFor="let area of listaAreasUniversidad">
 
-                                        <label>
+                                        <label style="font-size:15px; color:black; ">
                         <input type="checkbox" id="{{area.id}}" (change)="toggleAreasVidaUniversitariaActuales($event.target.checked, area.id)" [checked]="idsActuales.indexOf(area.id) >=0">
                         {{area.areaVidaUniversitaria}}
                       </label>
@@ -362,7 +394,7 @@
         </h2>
         <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
             <a routerLink="/alumnos" class="button text-black bg-theme-2 shadow-md mr-2">Cancelar</a>
-            <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2">Guardar</button>
+            <button type="submit" class="button text-white bg-theme-1 shadow-md mr-2" style="background-color: #FF8300;">Guardar</button>
         </div>
     </div>
     <!-- END: FORM -->

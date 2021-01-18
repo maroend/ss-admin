@@ -3,6 +3,7 @@ import * as Feather from 'feather-icons';
 import { ConvocatoriaServices } from '../services/convocatoria.service';
 import { Convocatoria,Tipo } from "../models/convocatoria";
 import { Subject } from 'rxjs';
+import { Universidad } from "../models/universidad"
 
 declare var $: any;
 
@@ -17,10 +18,10 @@ export class ConvocatoriasComponent implements OnDestroy, OnInit {
   // thus we ensure the data is fetched before rendering
   dtTrigger  = new Subject<any>();
   dtTrigger2  = new Subject<any>();
-
 data: any;
   public convocatorias:Convocatoria [] = [ ];
   public convocatorias2:Convocatoria [] = [ ];
+  public universidades:Universidad[] = [];
 
   
   
@@ -34,14 +35,22 @@ data: any;
     
         language:{url:'//cdn.datatables.net/plug-ins/1.10.22/i18n/Spanish.json'}
       };
-
+this.obtenerUniversidad();
     this.obtenerConvocatoria1(1);
     this.obtenerConvocatoria2(2);
 
-    document.getElementById("empresa").style.backgroundColor ="blue";
+    document.getElementById("empresa").style.backgroundColor ="#FF8300";
 
     document.getElementById("alumnos").style.backgroundColor ="gray";
 
+
+  }
+
+  obtenerUniversidad(){
+
+    return this.convocatoriaService
+      .getUniversidad()
+      .subscribe((universidades: Universidad[]) => this.universidades = universidades);
 
   }
   ngOnDestroy():void{
@@ -110,7 +119,7 @@ this.dtTrigger2.next();
   {
 
 
-    document.getElementById("empresa").style.backgroundColor ="blue";
+    document.getElementById("empresa").style.backgroundColor ="#FF8300";
 
     document.getElementById("alumnos").style.backgroundColor ="gray";
 
@@ -129,7 +138,7 @@ this.dtTrigger2.next();
 
     document.getElementById("empresa").style.backgroundColor ="gray";
 
-    document.getElementById("alumnos").style.backgroundColor ="blue";
+    document.getElementById("alumnos").style.backgroundColor ="#FF8300";
   
     var tabla1 = document.getElementById("tabla1");
     var tabla2 = document.getElementById("tabla2");

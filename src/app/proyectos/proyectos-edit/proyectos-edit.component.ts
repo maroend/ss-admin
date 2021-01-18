@@ -10,14 +10,56 @@ import { ConvocatoriaServices } from '../../services/convocatoria.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import {
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
+// Depending on whether rollup is used, moment needs to be imported differently.
+// Since Moment.js doesn't have a default export, we normally need to import using the `* as`
+// syntax. However, rollup creates a synthetic default module and we thus need to import it using
+// the `default as` syntax.
+
+
+
 declare var $: any;
 let now = new Date();
+export const MY_FORMATS = {
+  parse: {
+    dateInput: "LL"
+  },
+  display: {
+    dateInput: "DD/MM/YYYY",
+    monthYearLabel: "YYYY",
+    dateA11yLabel: "LL",
+    monthYearA11yLabel: "YYYY"
+  }
+};
 
 @Component({
-  selector: 'app-proyectos-add',
+  selector: 'app-proyectos-edit',
   templateUrl: './proyectos-edit.component.html',
-  styleUrls: ['./proyectos-edit.component.scss']
+  styleUrls: ['./proyectos-edit.component.scss'],
+  providers: [
+    // The locale would typically be provided on the root module of your application. We do it at
+    // the component level here, due to limitations of our example generation script.
+    {provide: MAT_DATE_LOCALE, useValue: 'es-MX'},
+
+    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
+    // `MatMomentDateModule` in your applications root module. We provide it at the component level
+    // here, due to limitations of our example generation script.
+    {
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
 })
+
+
 export class ProyectosEditComponent implements OnInit {
   public idobtenido: number;
   public fechaMinima: Date = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 90);

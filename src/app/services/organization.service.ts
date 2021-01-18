@@ -91,9 +91,11 @@ export class OrganizationService {
     const uri = `${this.api}/DocumentosOrganizaciones/getDocumentoByIdOrganizacion?idOrganizacion=${id}`
     return this.http.get(uri);
   }
-  obtenerDocumentosSubidosConRequeridos(id: string | number) {
-    const uri = `${this.api}/DocumentosOrganizaciones/getDocumentoByIdOrganizacionWithRequeridos?idOrganizacion=${id}`
-    return this.http.get(uri);
+  obtenerDocumentosSubidosConRequeridos(id) {
+    console.log(id);
+    var i=Number(id);
+    const uri = `${this.api}/DocumentosOrganizaciones/getDocumentoByIdOrganizacionWithRequeridos?idOrganizacion=${i}`
+    return this.http.post(uri,null);
   }
   subirdocumentos(model){
     const uri = `${this.api}/DocumentosOrganizaciones/UploadFile`
@@ -102,7 +104,7 @@ export class OrganizationService {
 
   subirdocumentoscadena(model){
     const uri = `${this.api}/DocumentosOrganizaciones/saveDocuments`
-    return this.http.post(uri, model);
+    return this.http.post(uri, model); 
   }
 
 
@@ -130,7 +132,8 @@ console.log(estado);
   updateestadoalumno(estadoAct: Estadosalumnoscambio) {
     let estado=estadoAct;
     console.log(estado);
-    return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observacions}`, estado);
+    console.log(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observaciones}`);
+    return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observaciones}`, estado);
   }
 
   getSucesosByIdOrganizacion(idOrganizacion: string | number) {

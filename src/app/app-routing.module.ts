@@ -27,6 +27,7 @@ import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.compo
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { TestimoniosComponent } from './testimonios/testimonios.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 EmpresasverComponent
 const routes: Routes = [
@@ -60,7 +61,7 @@ const routes: Routes = [
   {path:'usuarios/add',component:UsuariosAddComponent},
   {path:'usuarios/edit/:id',component:UsuariosEditComponent},
   {path:'alumnos/ver/:id',component:AlumnosverComponent},
-
+  {path:'reportes',component:ReportesComponent}
 
 ];
 

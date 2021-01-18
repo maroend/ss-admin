@@ -1,25 +1,22 @@
 <app-menu></app-menu>
+<br>
+<br>
+<br>
 
-<div class="content">
-    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-        <h2 class="text-lg font-medium mr-auto">
-            Institución / Área
-        </h2>
-        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <button routerLink="/empresas/add" class="button text-white bg-theme-1 shadow-md mr-2">Agregar Institución / Área</button>
-            <div class="dropdown relative ml-auto sm:ml-0">
-                <button class="dropdown-toggle button px-2 box text-gray-700 dark:text-gray-300">
-                        <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
-                    </button>
-                <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
-                    <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> New Category </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md"> <i data-feather="users" class="w-4 h-4 mr-2"></i> New Group </a>
-                    </div>
-                </div>
-            </div>
+<div class="container" style="font-family:Helvetica;">
+   
+    
+    <div class=" mt-8 p-5 border-b border-gray-200 dark:border-dark-5">
+        <div class="" style="float: right; ">
+            <a routerLink="/empresas/add" class="button text-white shadow-md mr-2" style="background-color: #FF8300;">Agregar  Institución / Área</a>
         </div>
+        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+            Institución / Área            </h2>
+      
     </div>
+   <br>
+
+
     <div class="modal" id="success-modal-preview">
         <div class="modal__content">
             <div class="p-5 text-center"> <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
@@ -31,7 +28,7 @@
     </div>
     <br>
 
-    <button id="empresa" (click)="recargar()" class="button text-white bg-theme-1 shadow-md mr-2">Externas</button>
+    <button id="empresa" (click)="recargar()" class="button text-white shadow-md mr-2" style="background-color: #FF8300;">Externas</button>
 
     <button id="alumnos" (click)="recargar2()" class="button text-white bg-theme-8 shadow-md mr-2">Internas</button>
     <br>
@@ -113,7 +110,7 @@
                     <div class="modal" id="delete-modal-preview-{{empresa.id}}">
                         <div class="modal__content">
                             <div class="p-5 text-center"> <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                                <div class="text-3xl mt-5">¿Estas seguro de eliminar Institución / Área?</div>
+                                <div  class="text-3xl mt-5 text-center" style="color: #FF8300; font-size: 28px;">¿Estas seguro de eliminar Institución / Área?</div>
                                 <div class="text-gray-600 mt-2">Eliminar a Institución / Área es irreversible y no se puede deshacer.</div>
                             </div>
                             <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">Cancelar</button> <button type="button" (click)="eliminar(empresa.id)" data-dismiss="modal" class="button w-24 bg-theme-6 text-white">Eliminar</button>                                </div>

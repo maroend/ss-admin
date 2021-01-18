@@ -1,36 +1,24 @@
 <app-menu></app-menu>
 
+<br>
+<br>
+<br>
+
 <!-- BEGIN: Content -->
-<div class="content">
+<div class="container" style="font-family:Helvetica;">
 
 
 
-    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
-        <h2 class="text-lg font-medium mr-auto">
-            Alumnos
-        </h2>
-        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a routerLink="/alumnos/add" class="button text-white bg-theme-1 shadow-md mr-2">Agregar Alumno</a>
-            <div class="dropdown relative ml-auto sm:ml-0">
-                <button class="dropdown-toggle button px-2 box text-gray-700 dark:text-gray-300">
-          <span class="w-5 h-5 flex items-center justify-center">
-            <i class="w-4 h-4" data-feather="plus"></i>
-          </span>
-        </button>
-                <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
-                    <div class="dropdown-box__content box dark:bg-dark-1 p-2">
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md">
-                            <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> New Category
-                        </a>
-                        <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white dark:bg-dark-1 hover:bg-gray-200 dark:hover:bg-dark-2 rounded-md">
-                            <i data-feather="users" class="w-4 h-4 mr-2"></i> New Group
-                        </a>
-                    </div>
-                </div>
-            </div>
+    <div class=" mt-8 p-5 border-b border-gray-200 dark:border-dark-5">
+        <div class="" style="float: right; ">
+            <a routerLink="/alumnos/add" class="button text-white shadow-md mr-2" style="background-color: #FF8300;">Agregar Alumno</a>
         </div>
+        <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+            Alumnos            </h2>
+      
     </div>
-    <br>
+   <br>
+
 
     <!-- BEGIN: Datatable -->
 
@@ -48,12 +36,12 @@
             </thead>
             <tbody *ngIf="alumnos?.length != 0">
                 <tr *ngFor="let alumno of alumnos">
-                    <td class="border-b">
+                    <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="modal" id="delete-modal-preview-{{alumno.id}}">
                             <div class="modal__content">
                                 <div class="p-5 text-center">
                                     <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                                    <div class="text-3xl mt-5">¿Estas seguro de eliminar al alumno?</div>
+                                    <div  class="text-3xl mt-5 text-center" style="color: #FF8300; font-size: 28px;">¿Estas seguro de eliminar al alumno?</div>
                                     <div class="text-gray-600 mt-2">Eliminar al alumno es irreversible y no se puede deshacer.</div>
                                 </div>
                                 <div class="px-5 pb-8 text-center">
@@ -69,17 +57,17 @@
                             <div class="text-gray-600 text-xs whitespace-no-wrap">{{ alumno.carrera }}</div>
                         </a>
                     </td>
-                    <td class="border-b">
+                    <td class="border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="font-medium flex sm:justify-center items-center">{{ alumno.matricula }}</div>
                     </td>
-                    <td class="text-center border-b">
+                    <td class="text-center border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="font-medium flex sm:justify-center items-center">{{ alumno.universidad }}</div>
                     </td>
-                    <td class="text-center border-b">{{ alumno.facultad }}</td>
-                    <td class="w-40 border-b">
+                    <td class="text-center border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">{{ alumno.facultad }}</td>
+                    <td class="w-40 border-b" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="rounded-md text-center px-1 py-1 mb-2 bg-theme-12 text-white"> INCONCLUSO </div>
                     </td>
-                    <td class="border-b w-5">
+                    <td class="border-b w-5" style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
                         <div class="flex sm:justify-center items-center">
                             <a class="flex items-center mr-3" [routerLink]="['/alumnos/edit', alumno.id]">
                                 <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Editar

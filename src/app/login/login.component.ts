@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginServices } from '../services/login.service';
 import { SessionService } from '../services/session.service';
+import { RecaptchaModule } from "ng-recaptcha";
 
 declare var $: any;
 
@@ -12,17 +13,21 @@ declare var $: any;
 })
 export class LoginComponent implements OnInit {
 public mensaje="";
+public validado=false;
+
   constructor(public session: SessionService,private router: Router,private loginservice: LoginServices){ }
 
   ngOnInit(): void {
     this.session.Signoff();
-
   }
 
   onSubmit(data) {
-
+    console.log("login");
+if(this.validado){
     console.log(data);
-    this.loginservice.login(data.value).subscribe((res: any)=>{
+    var user=$('#email').val();
+    var pass = $('#contraseña').val();
+    this.loginservice.login(user,pass).subscribe((res: any)=>{
 if(res['resultado']==1){
   var datosvalue=res['datos'];
   this.session.setToken(datosvalue['id']);
@@ -43,9 +48,26 @@ if(res['resultado']==1){
     })
     
     
+  }else{
+    this.mensaje=("Falta el captcha");
+    var x = document.getElementById("alerta");
+      x.style.display = "block";
+
+  }
+  
+
+  }
+  resolved(captchaResponse: string) {
+    this.validado=true;
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
+  ocultar() {
+    var x = document.getElementById("alerta");
+      x.style.display = "none";
+
+    
 
   
 
   }
-
 }

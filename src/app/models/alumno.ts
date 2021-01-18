@@ -94,5 +94,14 @@ export class ModalidadesTrabajo {
     ) { }
 }
 
+export class Reporte {
+  constructor(
+    public activo: boolean,
+    ) { }
+}
+
+
+
+
 
 
