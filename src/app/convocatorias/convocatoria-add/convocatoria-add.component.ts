@@ -8,13 +8,42 @@ import { Universidad } from "../../models/universidad"
 import {Location} from '@angular/common';
 
 import { Router } from '@angular/router';
+import {
+  MomentDateAdapter,
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS } from "@angular/material-moment-adapter";
+
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+
+
 declare var $: any;
+let now = new Date();
+export const MY_FORMATS = {
+  parse: {
+    dateInput: "LL"
+  },
+  display: {
+    dateInput: "DD/MM/YYYY",
+    monthYearLabel: "YYYY",
+    dateA11yLabel: "LL",
+    monthYearA11yLabel: "YYYY"
+  }
+};
 
 @Component({
-  selector: 'app-organization-add',
+  selector: 'app-convocatoria-add',
   templateUrl: './convocatoria-add.component.html',
-  styleUrls: ['./convocatoria-add.component.scss']
+  styleUrls: ['./convocatoria-add.component.scss'],
+  providers: [
+   {provide: MAT_DATE_LOCALE, useValue: 'es-MX'},
+{
+      provide: DateAdapter,
+      useClass: MomentDateAdapter,
+      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+    },
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  ],
 })
+
 export class ConvocatoriaAddComponent implements OnInit {
   public d: Date = new Date(); // but the type can also be inferred from "new Date()" already
 
@@ -77,13 +106,13 @@ this.convocatoria.idPeriodo=1;
             $('#descripcion').css("border", "red solid 1px");
 
           }
-          else if(model.fechaTermino==this.d){
+          else if(model.fechaTermino==null){
             this.mensajevalidacion="No puedes dejar el campo de fecha Termino vacío"
             $('#validacion').modal('show');
             $('#fechaTermino').css("border", "red solid 1px");
 
           }
-          else if(model.fechaInicio==this.d){
+          else if(model.fechaInicio==null){
             this.mensajevalidacion="No puedes dejar el campo de fecha Inicio vacío"
             $('#validacion').modal('show');
             $('#fechaInicio').css("border", "red solid 1px");

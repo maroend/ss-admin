@@ -158,12 +158,30 @@
                             </div>
 
                             <div class="relative mt-8">
-                                <div>
                                     <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Fecha estimada de graduación*
                     </label>
-                                    <input type="date" class="input  w-full border mt-2 " name="fechaEstimadaGraduacion" ngModel placeholder="">
-                                </div>
+                            
+
+                              
+                                   <div class="sm:grid grid-cols-2 gap-2">
+                                    <div class="relative mt-2">
+
+                                       <input matInput [matDatepicker]="picker" max="10" placeholder="02/01/2021" class="input  w-full border mt-2 " name="fechaEstimadaGraduacion" ngModel >
+                                         <mat-datepicker #picker></mat-datepicker>
+                                    </div>
+                        
+                                       <div class="relative mt-3">
+
+                                        <div class="flex justify-center text-center items-center mt-3 text-center" style="background: #FF8300; border-radius: 15px;font-weight: bold; width: 180px; margin: auto;
+                                        "> <a (click)="picker.open()" style=" border-radius: 10px; font-size: 15px;" class="button text-white  p-2">Ver Calendario</a> </div>
+                        
+                        
+                                    </div>
+                        
+                                   </div>
+                                  
+
                             </div>
 
                             <div class="relative mt-8">
@@ -201,12 +219,29 @@
                                 </div>
                             </div>
                             <div class="relative mt-8">
-                                <div>
                                     <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                       Fecha de Nacimiento*
                     </label>
-                                    <input type="date" class="input  w-full border mt-2 " name="fechaNacimiento" ngModel placeholder="">
-                                </div>
+
+                                <div class="sm:grid grid-cols-2 gap-2">
+                                    <div class="relative mt-2">
+                        
+                                       <input matInput  [matDatepicker]="picker2" max="10" placeholder="02/01/2021" class="input  w-full border mt-2 " name="fechaNacimiento" ngModel >
+                                         <mat-datepicker #picker2></mat-datepicker>
+                                    </div>
+                        
+                                       <div class="relative mt-3">
+
+                                        <div class="flex justify-center text-center items-center mt-3 text-center" style="background: #FF8300; border-radius: 15px;font-weight: bold; width: 180px; margin: auto;
+                                        "> <a (click)="picker2.open()" style=" border-radius: 10px; font-size: 15px;" class="button text-white  p-2">Ver Calendario</a> </div>
+                        
+                        
+                                    </div>
+                        
+                                   </div>
+                               
+
+
                             </div>
 
                             <div class="relative mt-8">

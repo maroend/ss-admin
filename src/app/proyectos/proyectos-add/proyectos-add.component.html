@@ -223,25 +223,33 @@
             </select>
           </div>
         </div>-->
-                            <div class="relative mt-8">
-                                <div>
-                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">Fecha de inicio*</b>
-                                    <input type="date" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()" required>
-                                </div>
-                            </div>
-                            <!--
-        <div class="relative mt-8">
-          <div>
-            <label>Fecha de termino* </label>
-            <input type="date" class="input  w-full border mt-2 "
-                   [(ngModel)]="proyectoModel.fechaTermino"
-                   [ngModelOptions]="{standalone: true}"
-                   [disabled]="!fechaMinima"
-                   min="{{fechaMinima|date:'yyyy-MM-dd'}}"
-                   required>
-          </div>
+        <div class="relative">
+            <div>
+                <label style="font-size:19px; color:#FF8800; font-weight: bold;">Fecha de inicio*</label>
+      
+           <div class="sm:grid grid-cols-2 gap-2">
+            <div class="relative mt-2">
+
+               <input matInput [matDatepicker]="picker" id="fechaInicio" max="10" placeholder="02/01/2021" class="input  w-full border mt-2 " [(ngModel)]="proyectoModel.fechaInicio" id="fechaInicio" [ngModelOptions]="{standalone: true}" (change)="onChangeHoras()" required>
+                 <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+               <div class="relative mt-3">
+
+                <div class="flex justify-center text-center items-center mt-3 text-center" style="background: #FF8300; border-radius: 15px;font-weight: bold; width: 180px; margin: auto;
+                "> <a (click)="picker.open()" style=" border-radius: 10px; font-size: 15px;" class="button text-white  p-2">Ver Calendario</a> </div>
+
+
+            </div>
+
+           </div>
+               <div style="margin-top:3px;">
+
+                    * Indique a partir de qué fecha el estudiante podría comenzar su prestación de servicio social en el proyecto
+                </div>
+
+            </div>
         </div>
-        -->
                             <div class="relative mt-8">
                                 <div>
                                     <b style="font-size:19px; color:#ff8800; font-weight: bold;">
@@ -323,30 +331,39 @@
                                     </table>
                                 </div>
                             </div>
-
-                            <div class="relative mt-8">
+                            <div class="relative mt-3">
                                 <div>
-                                    <b style="font-size:19px; color:#ff8800; font-weight: bold;">
+                                    <label style="font-size:19px; color:#FF8800; font-weight: bold;">
                     Horarios disponibles para la prestación de servicio social*
-                  </b>
+                  </label>
                                 </div>
-                                <div class="well">
+                                <div class="">
                                     <table style="padding: 15px; margin-left: 25px;">
                                         <tbody>
                                             <tr>
 
                                                 <td style="padding:5px;">
-                                                    <label>
+                                                    <label style="font-size:19px; font-weight: bold;">
                             Entrada:
-                            <input type="time" [(ngModel)]="proyectoModel.horaEntrada" [ngModelOptions]="{standalone: true}" />
-                          </label>
+                    </label>
+
+                            <div class="default-time-example">
+                                <input class="input  w-full border mt-2 "  aria-label="default time" [format]="24" [(ngModel)]="proyectoModel.horaEntrada" id="horaEntrada" [ngModelOptions]="{standalone: true}"   [ngxTimepicker]="defaultValue"   >
+                                <ngx-material-timepicker #defaultValue></ngx-material-timepicker>
+                           </div>
+
                                                 </td>
 
                                                 <td style="padding:5px;">
-                                                    <label>
+                                                    <label style="font-size:19px; font-weight: bold;">
                             Salida:
-                            <input type="time" [(ngModel)]="proyectoModel.horaSalida" [ngModelOptions]="{standalone: true}" />
-                          </label>
+                        </label>
+                        
+                        <div class="default-time-example">
+    <input class="input  w-full border mt-2 "  aria-label="default time" [format]="24"  [(ngModel)]="proyectoModel.horaSalida" id="horaSalida" [ngModelOptions]="{standalone: true}" [ngxTimepicker]="defaultValue2"  >
+    <ngx-material-timepicker #defaultValue2></ngx-material-timepicker>
+</div>
+
                                                 </td>
 
                                             </tr>

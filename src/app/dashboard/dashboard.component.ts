@@ -10,6 +10,7 @@ import { ConstantPool } from '@angular/compiler';
 import { ProyectoService } from '../services/proyecto.service';
 import { Proyecto } from "../models/proyectos"
 import { Subject } from 'rxjs';
+import { ReportesService } from '../services/reportes.service';
 
 declare var $: any;
 @Component({
@@ -40,7 +41,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
   dtTrigger  = new Subject<any>();
-  constructor( private organizacionService: OrganizationService, private convocatoriaService: ConvocatoriaServices,private proyectoService: ProyectoService) { 
+  constructor( private organizacionService: OrganizationService, private reportesService:ReportesService, private convocatoriaService: ConvocatoriaServices,private proyectoService: ProyectoService) { 
   
   }
 
@@ -252,5 +253,20 @@ obtenervacantes() {
   } );
 }
   
-
+reportealumnos () {
+  return this.reportesService
+    .getalumnosreport()
+    .subscribe((res) =>{ 
+    
+    
+    } );
+}
+reporteinstituciones() {
+  return this.reportesService
+    .getinstitucionesreport()
+    .subscribe((res) =>{ 
+    
+    
+    } );
+}
 }

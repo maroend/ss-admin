@@ -34,6 +34,10 @@ import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.compo
 import { PerfilComponent } from './perfil/perfil.component';
 
 import { UsuariosComponent } from './usuarios/usuarios.component';
+
+import { ReportesComponent } from './reportes/reportes.component';
+
+
 import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
@@ -43,6 +47,12 @@ import { DatatableComponent } from './components/datatable/datatable.component';
 import { TestimoniosComponent } from './testimonios/testimonios.component';
 
 import { RecaptchaModule } from "ng-recaptcha";
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -73,7 +83,8 @@ import { RecaptchaModule } from "ng-recaptcha";
     UsuariosAddComponent,
     UsuariosEditComponent,
     DatatableComponent,
-    TestimoniosComponent
+    TestimoniosComponent,
+    ReportesComponent
 
   ],
   imports: [
@@ -84,9 +95,14 @@ import { RecaptchaModule } from "ng-recaptcha";
     DataTablesModule,
     ReactiveFormsModule,
     DataTablesModule,
-    RecaptchaModule
+    RecaptchaModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    BrowserAnimationsModule,
+    NgxMaterialTimepickerModule
+
   ],
-  providers: [CookieService],
+  providers: [CookieService,MatDatepickerModule,MatNativeDateModule,NgxMaterialTimepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
