@@ -66,6 +66,7 @@ export class AlumnoService {
     const uri = `${this.baseUrl}/DocumentosAlumnos/UploadFile`
     return this.http.post(uri, model);
   }
+
   subirdocumentoscadena(model) {
     const uri = `${this.baseUrl}/DocumentosAlumnos/saveDocuments`
     return this.http.post(uri, model);
@@ -85,6 +86,19 @@ export class AlumnoService {
   obtenerDocumentosSubidosConRequeridos(id: string | number) {
     const uri = `${this.baseUrl}/DocumentosAlumnos/getDocumentoByIdAlumnoWithRequeridos?idAlumno=${id}`
     return this.http.get(uri);
+  }
+
+
+  postFileAlumnosExcel(fileToUpload: File, OpcionEvento: string): Observable<any> {
+
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
+    const endpoint = `${this.baseUrl}/Alumnos/leerArchivo`;
+    const formData: FormData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+    formData.append('opcion', OpcionEvento);
+    return this.http.post(endpoint, formData);
+
   }
 
 }

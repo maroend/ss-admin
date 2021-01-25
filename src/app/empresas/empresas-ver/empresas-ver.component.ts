@@ -200,7 +200,7 @@ var valor= { "idRubro": id ,"activo": true};
       .subscribe((documentosS: DocumentosSubidosRequeridos[]) => {
         this.DocumentosSubidos = documentosS;
         var options = { year: 'numeric', month: 'long', day: 'numeric' };
-console.log(this.DocumentosSubidos);
+        console.log(this.DocumentosSubidos);
         for(var i=0;i<this.DocumentosSubidos.length;i++){
 
 
@@ -208,8 +208,7 @@ console.log(this.DocumentosSubidos);
         
                   console.log(Fecha1);
           this.DocumentosSubidos[i]['fechaCreacion']=Fecha1.toLocaleDateString("es-ES", options);
-        
-         
+
         
         
         }
@@ -367,14 +366,23 @@ this.obtenerdocumentosSubidosConRequeridos();
     
       }
 
-      enviarcorreo(){
+  enviarArchivos() {
+    
+    console.log(this.DocumentosSubidos);
 
-        this.organizacionService.enviarcorreo(Number(this.idobtenido)).subscribe((res: any[])=>{
-          $('#success-modal-preview').modal('show');
-          console.log(res);
+    this.organizacionService.enviarcorreo(this.idobtenido).subscribe((res: any) => {
+      console.log(res);
 
+      if (res.resultado == 1) {
+        $('#success-modal-preview-envio').modal('show');
+      } else {
+        alert(res.mensaje);
+      }
 
-      })
-    }
+    }, error => {
+      console.log(error);
+      alert(error.error);
+    })
+  }
     
 }

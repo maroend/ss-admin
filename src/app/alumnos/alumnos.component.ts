@@ -16,7 +16,10 @@ export class AlumnosComponent implements OnDestroy, OnInit {
   dtOptions: DataTables.Settings = {};
   alumnos: Alumno[];
   public validar = false;
-  dtTrigger  = new Subject<any>();
+  dtTrigger = new Subject<any>();
+  public fileToUpload: File = null;
+  public idDocumento: string = "";
+
 
   constructor(private alumnosService: AlumnoService,private http: HttpClient) { }
 
@@ -93,6 +96,47 @@ export class AlumnosComponent implements OnDestroy, OnInit {
 
   ngAfterViewInit() {
     Feather.replace();
+  }
+
+
+  abrirsubir(id) {
+    this.idDocumento = id;
+    $('#abrirsubir').modal('show');
+  }
+
+  closeSubir() {
+    this.fileToUpload = null;
+    this.idDocumento = "0";
+    $("#file").val("");
+  }
+
+  uploadFile(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+
+  subeArchivo() {
+    if (this.fileToUpload != null) {
+      console.log(this.idDocumento);
+      document.getElementById("carg").style.display = "block";
+
+      this.alumnosService.postFileAlumnosExcel(this.fileToUpload, this.idDocumento).subscribe(data => {
+        if (data == true) {
+          $('#abrirsubir').modal('hide');
+          $('#success-modal-preview-file').modal('show');
+          console.log(data);
+          document.getElementById("carg").style.display = "none";
+          this.idDocumento = "0";
+          this.fileToUpload = null;
+          //location.reload();
+          //this.obtenerdocumentosSubidosConRequeridos();
+        }
+      }, error => {
+        console.log(error);
+        alert(error.error);
+        document.getElementById("carg").style.display = "none";
+
+      });
+    }
   }
 
 }

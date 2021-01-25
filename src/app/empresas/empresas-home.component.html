@@ -45,6 +45,7 @@
 
                     <th class="border-b-2 text-center whitespace-no-wrap">INSTITUCIONES / ÁREAS</th>
 
+                    <th class="border-b-2 text-center whitespace-no-wrap">RESPONSABLE</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">EXTERNO</th>
 
                     <th class="border-b-2 text-center whitespace-no-wrap">ESTADO</th>
@@ -81,6 +82,11 @@
                     <td class="border-b" *ngIf="empresa.nombreComun=='Interna'">
                         <a [routerLink]="['/empresas/ver', empresa.id]">
                             <div class="rounded-lg text-center px-1 py-1 mb-2  text-black">{{empresa.vicerrectoria}}/{{empresa.cordinacion}}</div>
+                        </a>
+                    </td>
+                    <td class="border-b" *ngIf="empresa.nombreComun!='Interna'">
+                        <a [routerLink]="['/empresas/ver', empresa.id]">
+                          <div class="rounded-lg text-center px-1 py-1 mb-2  text-black">{{empresa.responsable.nombreCompletoResponsable}}</div>
                         </a>
                     </td>
                     <td class="border-b " *ngIf="empresa.nombreComun!='Interna'   ;else template">
@@ -133,7 +139,8 @@
 
                     <th class="border-b-2 text-center whitespace-no-wrap">INSTITUCIONES / ÁREAS</th>
 
-                    <th class="border-b-2 text-center whitespace-no-wrap">EXTERNO</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">RESPONSABLE</th>
+                    <th class="border-b-2 text-center whitespace-no-wrap">CAMPUS</th>
 
                     <th class="border-b-2 text-center whitespace-no-wrap">ESTADO</th>
                     <th class="border-b-2 text-center whitespace-no-wrap">ACCIONES</th>
@@ -168,17 +175,22 @@
                     </td>
                     <td class="border-b" *ngIf="empresa.nombreComun=='Interna'">
                         <a [routerLink]="['/empresas/ver', empresa.id]">
-                            <div class="rounded-lg text-center px-1 py-1 mb-2  text-black">{{empresa.vicerrectoria}}/{{empresa.cordinacion}}</div>
+                            <div class="rounded-lg text-center px-1 py-1 mb-2  text-black"><!--{{empresa.vicerrectoria}}/-->{{empresa.cordinacion}}</div>
+                        </a>
+                    </td>
+                    <td class="border-b" *ngIf="empresa.nombreComun=='Interna'">
+                        <a [routerLink]="['/empresas/ver', empresa.id]">
+                          <div class="rounded-lg text-center px-1 py-1 mb-2  text-black">{{empresa.responsable.nombreCompletoResponsable}}</div>
                         </a>
                     </td>
                     <td class="border-b " *ngIf="empresa.nombreComun!='Interna'   ;else template">
 
-                        <div class="font-medium flex sm:justify-center items-center">Institución / Área externa</div>
+                        <div class="font-medium flex sm:justify-center items-center">{{empresa.universidad}}<!--Institución / Área externa--></div>
                     </td>
                     <ng-template #template>
                         <td class="border-b ">
 
-                            <div class="font-medium flex sm:justify-center items-center">Institución / Área Interna</div>
+                          <div class="font-medium flex sm:justify-center items-center">{{empresa.universidad}}<!--Institución / Área Interna--></div>
                         </td>
                     </ng-template>
                     <td class="w-40 border-b">

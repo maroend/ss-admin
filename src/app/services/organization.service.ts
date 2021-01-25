@@ -16,73 +16,73 @@ export class OrganizationService {
 
   constructor(private http: HttpClient) { }
 
-  getAll(){
+  getAll() {
     return this.http.get(`${this.api}/Organizaciones`);
   }
-  getOrganizacion(id: string | number){
+  getOrganizacion(id: string | number) {
     const uri = `${this.api}/Organizaciones/${id}`;
-         console.log(uri);
+    console.log(uri);
     return this.http.get(uri);
   }
-  getestadosalumnos(){
+  getestadosalumnos() {
     const uri = `${this.api}/EstadosAlumnosProyectos`;
-         console.log(uri);
+    console.log(uri);
     return this.http.get(uri);
   }
 
-  obtenerdirecciones(cp){
+  obtenerdirecciones(cp) {
     const uri = `${this.api}/VSepomex/GetFromCp?cp=${cp}`
-    return this.http.post(uri, cp,{ withCredentials: false});
+    return this.http.post(uri, cp, { withCredentials: false });
   }
-  getcordinaciones(){
+  getcordinaciones() {
     const uri = `${this.api}/Cordinaciones`;
     return this.http.get(uri);
   }
-  getescueladireccion(){
+  getescueladireccion() {
     const uri = `${this.api}/Direcciones`;
     return this.http.get(uri);
   }
-  getvice(){
+  getvice() {
     const uri = `${this.api}/Vicerrectorias`;
     return this.http.get(uri);
   }
 
-  getAreas(){
+  getAreas() {
     const uri = `${this.api}/AreasAccion`;
     return this.http.get(uri);
   }
-  getdocumentos(){
+  getdocumentos() {
     const uri = `${this.api}/Documentos`;
     return this.http.get(uri);
   }
 
-  getRubros(){
+  getRubros() {
     const uri = `${this.api}/Rubros`;
     return this.http.get(uri);
   }
-  getUniversidades(){
+  getUniversidades() {
     const uri = `${this.api}/Universidades`;
     return this.http.get(uri);
   }
-  getTipo(){
+  getTipo() {
     const uri = `${this.api}/TiposOrganizaciones`;
     return this.http.get(uri);
   }
 
-  getGiro(){
+  getGiro() {
     const uri = `${this.api}/GirosOrganizaciones`;
     return this.http.get(uri);
   }
-  getClasificacion(){
+  getClasificacion() {
     const uri = `${this.api}/ClasificacionesOrganizaciones`;
     return this.http.get(uri);
   }
-  getEstado(){
+  getEstado() {
     const uri = `${this.api}/EstadosOrganizaciones
     `;
     return this.http.get(uri);
   }
-  eliminar(id : string | number){
+  eliminar(id: string | number) {
     const uri = `${this.api}/Organizaciones/${id}`;
     return this.http.delete(uri);
   }
@@ -93,44 +93,44 @@ export class OrganizationService {
   }
   obtenerDocumentosSubidosConRequeridos(id) {
     console.log(id);
-    var i=Number(id);
+    var i = Number(id);
     const uri = `${this.api}/DocumentosOrganizaciones/getDocumentoByIdOrganizacionWithRequeridos?idOrganizacion=${i}`
-    return this.http.post(uri,null);
+    return this.http.post(uri, null);
   }
-  subirdocumentos(model){
+  subirdocumentos(model) {
     const uri = `${this.api}/DocumentosOrganizaciones/UploadFile`
-    return this.http.post(uri, model,{ withCredentials: false});
+    return this.http.post(uri, model, { withCredentials: false });
   }
 
-  subirdocumentoscadena(model){
+  subirdocumentoscadena(model) {
     const uri = `${this.api}/DocumentosOrganizaciones/saveDocuments`
-    return this.http.post(uri, model); 
+    return this.http.post(uri, model);
   }
 
 
-  create(model){
+  create(model) {
     const uri = `${this.api}/Organizaciones/CreateWithImage`
     return this.http.post(uri, model);
   }
-  createWithDetails(model){
+  createWithDetails(model) {
     const uri = `${this.api}/CreateWithDetails`
     return this.http.post(uri, model);
   }
-  updateempresa(id: string | number,empresa: Empresa) {
+  updateempresa(id: string | number, empresa: Empresa) {
     empresa.id = Number(id);
     empresa.activo = true;
     return this.http.post(`${this.api}/Organizaciones/UpdateWithImage`, empresa);
   }
   updateestado(estadoAct: estadoActualizar) {
-    let estado=estadoAct;
-console.log(estado);
+    let estado = estadoAct;
+    console.log(estado);
 
 
     return this.http.put(`${this.api}/Organizaciones/actualizaEstado?idOrganizacion=${estado.idOrganizacion}&idEstado=${estado.idEstado}&observaciones=${estado.observaciones}`, estado);
   }
 
   updateestadoalumno(estadoAct: Estadosalumnoscambio) {
-    let estado=estadoAct;
+    let estado = estadoAct;
     console.log(estado);
     console.log(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observaciones}`);
     return this.http.put(`${this.api}/AlumnosProyectosAsignados/actualizaEstado?idProyecto=${estadoAct.idProyecto}&idAlumno=${estadoAct.idAlumno}&idEstado=${estadoAct.idEstado}&observaciones=${estadoAct.observaciones}`, estado);
@@ -140,7 +140,7 @@ console.log(estado);
     return this.http.get(`${this.api}/OrganizacionesSucesos/getByIdOrganizacion?idOrganizacion=${idOrganizacion}`);
   }
 
-  postFile(fileToUpload: File,idDocumento:string,idOrganizacion:string): Observable<any> {
+  postFile(fileToUpload: File, idDocumento: string, idOrganizacion: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
     const endpoint = `${this.api}/DocumentosOrganizaciones/UploadFile2`;
@@ -150,7 +150,7 @@ console.log(estado);
     formData.append('idOrganizacion', idOrganizacion);
     return this.http.post(endpoint, formData);
   }
-  postFileImage(fileToUpload: File,idOrganizacion:string): Observable<any> {
+  postFileImage(fileToUpload: File, idOrganizacion: string): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
     const endpoint = `${this.api}/DocumentosOrganizaciones/UploadImagen`;
@@ -158,35 +158,35 @@ console.log(estado);
     formData.append('file', fileToUpload, fileToUpload.name);
     return this.http.post(endpoint, formData);
   }
-  getempresapermiso(){
+  getempresapermiso() {
     const uri = `${this.api}/Organizaciones/getOrganizacionesWithPermisoEditar`;
     return this.http.get(uri);
   }
   cambiarestado(id: string) {
-  var idd = Number(id);
-  const uri =(`${this.api}/Organizaciones/concederPermisoEditar?idOrganizacion=${idd}`);
+    var idd = Number(id);
+    const uri = (`${this.api}/Organizaciones/concederPermisoEditar?idOrganizacion=${idd}`);
     return this.http.post(uri, idd);
   }
 
-  getestadodocumento(){
+  getestadodocumento() {
     const uri = `${this.api}/EstadosDocumentos`;
-         console.log(uri);
+    console.log(uri);
     return this.http.get(uri);
   }
 
-  updateestadodcoc(ido,idd,ide,id) {
-    const uri =(`${this.api}/DocumentosOrganizaciones/updateStatusDocument?IdOrganizacion=${ido}&IdDocumento=${idd}&IdEstado=${ide}&Id=${id}&Activo=${true}`);
+  updateestadodcoc(ido, idd, ide, id) {
+    const uri = (`${this.api}/DocumentosOrganizaciones/updateStatusDocument?IdOrganizacion=${ido}&IdDocumento=${idd}&IdEstado=${ide}&Id=${id}&Activo=${true}`);
 
     return this.http.post(uri, ido);
   }
 
   enviarcorreo(id) {
-    const uri =(`${this.api}/Organizaciones/?idOrganizacion=${id}`);
-      return this.http.post(uri, id);
-    }
+    const uri = (`${this.api}/DocumentosOrganizaciones/sendEmailValid?id=${id}`);
+    return this.http.post(uri, id);
+  }
 
-    getvacantes(){
-      const uri = `${this.api}/Proyectos/obtenerDisponiblesCarrerasProyectos`;
-      return this.http.post(uri,"1");
-    }
+  getvacantes() {
+    const uri = `${this.api}/Proyectos/obtenerDisponiblesCarrerasProyectos`;
+    return this.http.post(uri, "1");
+  }
 }
