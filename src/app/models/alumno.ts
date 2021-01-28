@@ -54,6 +54,20 @@ export class AlumnoProyecto {
     ) { }
 
 }
+
+export class AlumnosActividades {
+  public idAlumnoProyectoAsignado: number;
+  public titulo: string;
+  public actividad: string;
+  public validaEmpresa?: boolean;
+  public id?: number;
+  public fechaCreacion?: string;
+  public activo?: boolean;
+  public archivo?: string;
+  public ruta?: string;
+  constructor() { }
+}
+
 export class AreasVidaUniversitaria{
     constructor(
       public areaVidaUniversitaria: string,
@@ -98,6 +112,34 @@ export class Reporte {
   constructor(
     public activo: boolean,
     ) { }
+}
+
+export class AlumnosProyectosAsignados {
+  public id: number;
+  public idAlumno: number;
+  public idProyecto: number;
+  public idEstado: number;
+
+  public proyectoNombre?: string;
+  public matricula?: string;
+
+  public correo?: string;
+  public celular?: string;
+  public carrera?: string;
+  public facultad?: string;
+  public universidad?: string;
+  public idOrganizacion?: string;
+  public organizacion?: string;
+  public estado?: string;
+  public alumno?: string;
+  public noHoras?: number;
+  public horasRegistradas?: number;
+  public rutaCartaInicio?: string;
+  public rutaCartaTermino?: string;
+  public archivoCartaInicio?: string;
+  public archivoCartaTermino?: string;
+
+  constructor() { }
 }
 
 

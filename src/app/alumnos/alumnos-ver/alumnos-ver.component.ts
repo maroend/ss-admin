@@ -7,7 +7,7 @@ import { FacultadService } from '../../services/facultad.service';
 import { Universidad } from "../../models/universidad";
 import { Carrera } from "../../models/carrera";
 import { Facultad } from "../../models/facultad";
-import { Alumno,AlumnoProyecto, AlumnosAreasVidaUniversitariaParticipado, AlumnosAreasVidaUniversitariaActuales } from '../../models/alumno';
+import { Alumno,AlumnoProyecto, AlumnosAreasVidaUniversitariaParticipado, AlumnosAreasVidaUniversitariaActuales, AlumnosProyectosAsignados } from '../../models/alumno';
 import { DocumentosRequeridosAlumnos, DocumentosAlumno, Documentosfile, DocumentosSubidosRequeridos } from "../../models/documentosalumnos"
 
 import { AlumnosComponent } from '../alumnos.component';
@@ -42,6 +42,7 @@ export class AlumnosverComponent implements OnInit {
   public DocumentosSubidos: DocumentosSubidosRequeridos[];
   public idDocumento: string = "";
   public fileToUpload: File = null;
+  public proyectosArray = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private facultadService: FacultadService, private carreraService: CarreraService, private universidadService: UniversidadService, private alumnoService: AlumnoService, private _location: Location) { }
 
@@ -68,7 +69,41 @@ export class AlumnosverComponent implements OnInit {
   }
   obtenerproyectoalumno() {
 
-    return this.alumnoService.getProyectoAlumno(this.idAlumno).subscribe((alumnoproyecto: AlumnoProyecto) => this.alumnoproyecto = alumnoproyecto);
+    return this.alumnoService.getProyectoAlumno(this.idAlumno).subscribe((alumnoproyectos: AlumnosProyectosAsignados[]) => {
+      //this.proyectosArray = alumnoproyectos
+      let i = 0
+      for (i = 0; i < alumnoproyectos.length; i++) {
+        var proyectoAsignado = alumnoproyectos[i];
+        
+        if (proyectoAsignado.idEstado == 1 || proyectoAsignado.idEstado == 2 || proyectoAsignado.idEstado == 3 || proyectoAsignado.idEstado == 4 || proyectoAsignado.idEstado == 5) {
+          this.proyectosArray.push(proyectoAsignado);
+            /*
+            if (proyectoAsignado.idEstado == 1 || proyectoAsignado.idEstado == 2 || proyectoAsignado.idEstado == 3) {
+
+              projectArray2.push(proyectoAsignado);
+
+            } else if (proyectoAsignado.idEstado == 4) {
+            this.project = proyectoAsignado;
+            this.estadoInscripcion = proyectoAsignado.idEstado;
+            this.idproyecto = "" + proyectoAsignado.idProyecto;
+            this.proyecto = proyectoAsignado.proyectoNombre;
+            this.noHoras = proyectoAsignado.noHoras;
+            if (this.noHoras > 0) {
+              this.bandNoHoras = false;
+            }
+            //this.getEvaluacionesProyectoOrganizacion();
+            console.log(this.project);
+          } else {
+            //this.obtenerActividadesByIdAlumnoProyectoAsignado2(proyectoAsignado);
+            this.projectArrayTerminados.push(proyectoAsignado);
+
+            //console.log(proyectoAsignado);
+          }*/
+        }
+      }
+      console.log(this.proyectosArray);
+
+    });
 
   }
 
@@ -133,5 +168,18 @@ export class AlumnosverComponent implements OnInit {
   }
   //TODO SERGIO
 
+  liberarSS() {
+    
+
+    this.alumnoService.updateLiberar(this.idAlumno, 2).subscribe((res) => {
+
+      if (res["resultado"] == 1) {
+        $('#solicitaLiberacion').modal('show');
+        this.ngOnInit();
+      }
+      //console.log(res);
+    });
+
+  }
 
 }

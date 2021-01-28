@@ -100,5 +100,34 @@ export class AlumnoService {
     return this.http.post(endpoint, formData);
 
   }
+  getRespuestasEvaluacion(id: string | number, version: string | number) {
+    return this.http.get(`${this.baseUrl}/RespuestasEvaluacionAlumnoOrganizacion/getByIdAlumnoProyectoAsignadoAndVersion?IdAlumnoProyectoAsignado=${id}&version=${version}`);
+  }
+
+  subeCarta(fileToUpload: File, idAlumnoProyectoAsignado: string, opc: number): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'multipart/form-data; charset=utf-8');
+    var endpoint = "";
+    if (opc == 0) {
+      endpoint = `${this.baseUrl}/AlumnosProyectosAsignados/actualizaCartaInicioByIdAlumnoProyectoAsignado`;
+    } else {
+      endpoint = `${this.baseUrl}/AlumnosProyectosAsignados/actualizaCartaTerminoByIdAlumnoProyectoAsignado`;
+    }
+    const formData: FormData = new FormData();
+    if (opc == 0) {
+      formData.append('cartaInicio', fileToUpload, fileToUpload.name);
+    } else {
+      formData.append('cartaTermino', fileToUpload, fileToUpload.name);
+    }
+    formData.append('idAlumnoProyectoAsignado', idAlumnoProyectoAsignado);
+    return this.http.post(endpoint, formData);
+  }
+  getAlumnoRequisitosLiberacion(id: string | number) {
+    return this.http.get(`${this.baseUrl}/Alumnos/requisitosLiberacion?id=${id}`);
+  }
+
+  updateLiberar(id: string | number, liberar: string | number) {
+    return this.http.put(`${this.baseUrl}/Alumnos/actualizaLiberar?id=${id}&liberar=${liberar}`, { withCredentials: false });
+  }
 
 }

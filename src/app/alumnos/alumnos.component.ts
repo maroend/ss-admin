@@ -19,6 +19,7 @@ export class AlumnosComponent implements OnDestroy, OnInit {
   dtTrigger = new Subject<any>();
   public fileToUpload: File = null;
   public idDocumento: string = "";
+  mensaje = "";
 
 
   constructor(private alumnosService: AlumnoService,private http: HttpClient) { }
@@ -99,8 +100,8 @@ export class AlumnosComponent implements OnDestroy, OnInit {
   }
 
 
-  abrirsubir(id) {
-    this.idDocumento = id;
+  abrirsubir() {
+    //this.idDocumento = id;
     $('#abrirsubir').modal('show');
   }
 
@@ -125,8 +126,16 @@ export class AlumnosComponent implements OnDestroy, OnInit {
           $('#success-modal-preview-file').modal('show');
           console.log(data);
           document.getElementById("carg").style.display = "none";
+
+          if (this.idDocumento == "1" || this.idDocumento == "2" ) {
+            this.mensaje = "Se agregaron las matrículas";
+          } else if (this.idDocumento == "3" || this.idDocumento == "4") {
+            this.mensaje = "Se modificaron los eventos en las matrículas";
+          }
+
           this.idDocumento = "0";
           this.fileToUpload = null;
+          $("#file").val("");
           //location.reload();
           //this.obtenerdocumentosSubidosConRequeridos();
         }

@@ -2,161 +2,177 @@
 
 
 <div class="container" style="font-family:Helvetica;">
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <div class="modal" id="solicitaLiberacion" style=" display: block; ">
+    <div class="modal__content modal__content--xl p-10 text-center">
+      <a data-dismiss="modal" href="javascript:;" class="absolute right-0 top-0 mt-3 mr-3"> <i data-feather="x" class="w-8 h-8 text-gray-500"></i> </a>
+
+      <div class="text-3xl mt-8 text-center" style="color: #FF8300; font-size: 28px;">Liberación de Servicio Social</div>
+      <div class="mt-8 text-red text-center" style="color: #6B3F23; font-size: 25px;">¡Completa!</div>
 
 
-<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
-  <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
-      Información Personal            </h2>
-</div>
-  <div class="container">
-    <div class="grid grid-cols-12 gap-6 mt-5">
+      <!--<div class="mt-8" style="font-size: 20px;">
+        En esta sección podrás visualizar los requisitos que requieres para poder liberar tu servicio social.
+      </div>-->
+      <br>
+      <div class="flex justify-center text-center items-center mt-8 text-center" style="background: #FF8300; border-radius: 15px;font-weight: bold; width: 180px; margin: auto;
+        "> <br> <a data-dismiss="modal" style=" border-radius: 15px; font-size: 17px; cursor:pointer;" class="button  btn-lg text-white  ">Continuar</a> </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row items-center p-5 pb-1 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+    <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+      Información Personal
+    </h2>
+  </div>
+  <div class="container pl-5 pr-5">
+    <div class="grid grid-cols-12 gap-6">
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
+        <div class=" p-5 pt-1 pb-1">
           <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">
             Nombre
           </div>
 
-            <div class="text-base font-bold leading-8 mt-6 "> {{alumno.nombre}} </div>
-          </div>
+          <div class="text-base font-bold leading-8 mt-1"> {{alumno.nombre}} </div>
+        </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
+        <div class=" p-5 pt-1 pb-1">
           <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">Apellido Paterno</div>
 
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.paterno}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.paterno}}</div>
         </div>
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class=" p-5">
+        <div class=" p-5 pt-1 pb-1">
           <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">Apellido Materno</div>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.materno}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.materno}}</div>
         </div>
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">ID Matricula</label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.matricula}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.matricula}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">Universidad:</label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.universidad}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.universidad}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">Facultad:</label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.facultad}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.facultad}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">Carrera:</label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.carrera}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.carrera}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">Porcentaje Academico:</label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.porcentaje}} %</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.porcentaje}} %</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Avance en créditos de la carrera:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.avanceCreditos}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.avanceCreditos}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Número de Semestre / Cuatrimestre:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.noCuatrimestreSemestre}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.noCuatrimestreSemestre}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             ¿Tu carrera es semestral o cuatrimestral?
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.esquemaPeriodo}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.esquemaPeriodo}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Generación:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.generacion}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.generacion}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Fecha estimada de graduación:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.fechaEstimadaGraduacionString}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.fechaEstimadaGraduacionString}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Correo Institucional:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.correoInstitucional}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.correoInstitucional}}</div>
         </div>
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Correo Personal:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.correoPersonal}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.correoPersonal}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Teléfono de Contacto:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.celular}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.celular}}</div>
         </div>
       </div>
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Fecha de Nacimiento:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.fechaNacimientoString}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.fechaNacimientoString}}</div>
         </div>
       </div>
 
       <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Sexo:
           </label>
-          <div class="text-base font-bold leading-8 mt-6">{{alumno.sexo}}</div>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.sexo}}</div>
         </div>
       </div>
 
@@ -166,55 +182,56 @@
   <br>
 
 
-<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
-  <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
-    Información Complementaria         </h2>
-</div>
+  <div class="flex flex-col sm:flex-row items-center p-5 pb-1 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+    <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+      Información Complementaria
+    </h2>
+  </div>
 
-  <div class="container">
+  <div class="container p-5 pr-5">
     <div class="grid grid-cols-12 gap-6 mt-5">
 
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-          <div class="p-5">
-            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
-              ¿Has participado en ASUA?:
-            </label>
-            <div class="text-base font-bold leading-8 mt-6">{{alumno.participacionAsua}}</div>
-          </div>
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5 pt-1 pb-1">
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
+            ¿Has participado en ASUA?:
+          </label>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.participacionAsua}}</div>
         </div>
-      
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-          <div class="p-5">
-            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
-              ¿Actualmente trabajas?:
-            </label>
-            <div class="text-base font-bold leading-8 mt-6">{{alumno.trabajas}}</div>
-          </div>
-        </div>
+      </div>
 
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-          <div class="p-5">
-            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
-              ¿Bajo qué modalidad trabajas?
-            </label>
-            <div class="text-base font-bold leading-8 mt-6">{{ alumno.modalidadTrabajo}}</div>
-          </div>
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5 pt-1 pb-1">
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
+            ¿Actualmente trabajas?:
+          </label>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.trabajas}}</div>
         </div>
+      </div>
 
-        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
-          <div class="p-5">
-            <label style="font-size:19px; color:#FF8800; font-weight: bold;">
-              ¿A partir de qué semestre / cuatrimestre comenzaste a trabajar?
-            </label>
-            <div class="text-base font-bold leading-8 mt-6">{{alumno.cuatrimestreComienzoTrabajo}}</div>
-          </div>
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5 pt-1 pb-1">
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
+            ¿Bajo qué modalidad trabajas?
+          </label>
+          <div class="text-base font-bold leading-8 mt-1">{{ alumno.modalidadTrabajo}}</div>
         </div>
+      </div>
+
+      <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+        <div class="p-5 pt-1 pb-1">
+          <label style="font-size:19px; color:#FF8800; font-weight: bold;">
+            ¿A partir de qué semestre / cuatrimestre comenzaste a trabajar?
+          </label>
+          <div class="text-base font-bold leading-8 mt-1">{{alumno.cuatrimestreComienzoTrabajo}}</div>
+        </div>
+      </div>
 
     </div>
 
     <div class="sm:grid grid-cols-1 gap-2">
       <div class="relative mt-8">
-        <div class="p-5">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             Indica en cuál(es) área(s) de Vida Universitaria has participado
           </label>
@@ -223,14 +240,14 @@
           <div *ngFor="let area of alumno.listaAreaVidaUniversitariaParticipado" class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">
             <div class="flex items-center p-5">
               <div class="w-3 h-2 bg-theme-9 rounded-full mr-3"></div>
-              <span style="color: black;" >{{area.areaVidaUniversitaria}}</span>
+              <span style="color: black;">{{area.areaVidaUniversitaria}}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="relative mt-8">
-        <div class="p-5">
+      <div class="relative mt-1">
+        <div class="p-5 pt-1 pb-1">
           <label style="font-size:19px; color:#FF8800; font-weight: bold;">
             ¿Actualmente formas parte de alguna área de Vida Universitaria?
           </label>
@@ -242,130 +259,231 @@
               <span style="color: black;">{{area.areaVidaUniversitaria}}</span>
             </div>
           </div>
-          
+
         </div>
       </div>
 
-    </div> 
+    </div>
   </div>
   <br>
-  
+
+  <div class="flex flex-col sm:flex-row items-center p-5 pb-1 mt-8 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+    <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+      Proyectos
+    </h2>
+    <div class="flex justify-center items-center">
+      <button (click)="liberarSS()" class="flex items-center mb-3 ml-3 button text-white" style="font-size:17px; background: #FF8300;border-radius: 15px;font-weight: bold;">  Liberar ss</button>
+    </div>
+  </div>
 
 
-<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
-  <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
-    Proyecto Asignado       </h2>
-</div>
-
-
-  <div class="grid grid-cols-12 gap-6 mt-5">
+  <div class="grid grid-cols-12 gap-6 pr-5 pl-5">
     <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
       <div class="">
         <div class=" p-5">
-          <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;" *ngIf="alumnoproyecto!=undefined && alumnoproyecto.id>0; else templateName">
+          <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0" *ngIf="proyectosArray !=null && proyectosArray.length>0; else templateName">
+            <table class="table table-report sm:mt-2">
+
+              <tbody>
+                <tr class="intro-x" *ngFor="let proyecto of proyectosArray">
+                  <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
+                    <a class="font-medium whitespace-no-wrap"> {{proyecto.proyectoNombre}}</a>
+                  </td>
+
+                  <td class="w-40" style="background: rgb(250, 250, 250);">
+                    <!--1 preregistro,2 Aprobado por empresa, 3 Inscrito,4	Terminado,5	Cancelado,6	Rechazado-->
+                    <div style="font-size: 18px; color: black;  font-weight: bold;" align="center">Estatus</div>
+
+                    <div *ngIf="proyecto.idEstado==1" class="py-1 px-2 rounded-full text-center  bg-theme-6 text-white  mt-3" style=" border-radius: 15px;font-weight: bold;">
+                      <div class="tooltip top">
+                        {{proyecto.estado}}
+                        <span class="tiptext text-left">
+                          Estatus del proyecto:<a style="font-size: 20px; "> PRE REGISTRO</a>
+                          <br><br>
+                          Has aplicado a este proyecto. Ponte en contacto vía mail con el responsable de servicio social de la institución para que puedas tener una entrevista.
+                          <br><br>
+                          El correo lo encuentras en el perfil del proyecto.
+                        </span>
+                      </div>
+                    </div>
+                    <div *ngIf="proyecto.idEstado==2" class="py-1 px-2 rounded-full text-center  bg-theme-12 text-white  mt-3" style=" border-radius: 15px;font-weight: bold;">
+                      <div class="tooltip top">
+                        {{proyecto.estado}}
+                        <span class="tiptext text-left">
+                          Estatus del proyecto:<a style="font-size: 20px; "> ENTREVISTADO</a>
+                          <br><br>
+                          Te ha entrevistado el responsable del servicio social de la Institución para el proyecto.
+                          <br><br>
+                          Ahora debes esperar a que la institución acepte tu aplicación. En caso contrario, este proyecto pasará a un estatus de "No Aprobado".
+                        </span>
+                      </div>
+                    </div>
+                    <div *ngIf="proyecto.idEstado==3" class="py-1 px-2 rounded-full text-center  bg-theme-10 text-white  mt-3" style=" border-radius: 15px;font-weight: bold;">
+                      <div class="tooltip top">
+                        {{proyecto.estado}}
+                        <span class="tiptext text-left">
+                          Estatus del proyecto:<a style="font-size: 20px; "> APROBADO</a>
+                          <br><br>
+                          La Institución ha aprobado tu aplicación al proyecto.
+                          <br><br>
+                          Ahora procede a concluir tu proceso para confirmar tu Inscripción en este proyecto.
+                        </span>
+                      </div>
+                    </div>
+                    <div *ngIf="proyecto.idEstado==4" class="py-1 px-2 rounded-full text-center  bg-theme-10 text-white  mt-3" style=" border-radius: 15px;font-weight: bold;">{{proyecto.estado}}</div>
+                    <div *ngIf="proyecto.idEstado==5" class="py-1 px-2 rounded-full text-center  bg-theme-9 text-white  mt-3" style=" border-radius: 15px;font-weight: bold;">{{proyecto.estado}}</div>
+                    <div *ngIf="proyecto.idEstado==6" class="py-1 px-2 rounded-full text-center  bg-theme-8 text-white  mt-3" style=" border-radius: 15px;font-weight: bold;">{{proyecto.estado}}</div>
+                    <div *ngIf="proyecto.idEstado==7" class="py-1 px-2 rounded-full text-center  bg-theme-6 text-white  mt-3" style=" border-radius: 15px;font-weight: bold;">{{proyecto.estado}}</div>
+                  </td>
+                  <td class="table-report__action w-56" style="background: rgb(250, 250, 250);">
+                    <div class="flex justify-center items-center" *ngIf="proyecto.idEstado!=3 && proyecto.idEstado!=7 && proyecto.idEstado!=6 ">
+                      <a class="flex items-center mr-3 button text-white" style="background: #FF8300;border-radius: 15px;font-weight: bold;  " [routerLink]="['/alumnos/verproyecto', proyecto.idProyecto,idAlumno  ]">  Ver Proyecto</a>
+                    </div>
+                    <div class="flex justify-center items-center" *ngIf="proyecto.idEstado==3 ">
+                      <a class="flex items-center mr-3 button text-white" style="background: #FF8300;border-radius: 15px;font-weight: bold;" [routerLink]="['/alumnos/verproyecto', proyecto.idProyecto,idAlumno  ]"> Confirmar inscripción</a>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+          <!--<div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;" *ngIf="alumnoproyecto!=undefined && alumnoproyecto.id>0; else templateName">
             Proyecto
 
             <div class="text-base font-bold leading-8 mt-6"> {{alumnoproyecto.proyectoNombre}} </div>
-            <div class="text-base font-bold leading-8 mt-6">Inscrito: {{alumnoproyecto.fechaCreacion.substr(0,10)}}
+            <div class="text-base font-bold leading-8 mt-6">
+              Inscrito: {{alumnoproyecto.fechaCreacion.substr(0,10)}}
             </div>
 
-          </div>
+          </div>-->
           <ng-template #templateName>
-            <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;" >
-              Sin proyecto asignado
-
-
+            <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;">
+              Sin proyectos
             </div>
           </ng-template>
         </div>
       </div>
     </div>
   </div>
-  <br>
+  <br />
 
+  <!--
 
- 
   <div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
     <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
-      Documentos      </h2>
+      Proyecto Asignado       </h2>
   </div>
-  
-  <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
-    <div class=" p-5">
 
-      <table class="table table-report sm:mt-2">
-        <thead style="font-size:19px; color:#FF8800; font-weight: bold;">
-          <tr>
 
-            <th class="whitespace-no-wrap">DOCUMENTO</th>
-            <th class="whitespace-no-wrap">ADJUNTO</th>
-            <th class="whitespace-no-wrap"> FECHA ENTREGA</th>
-            <th class="whitespace-no-wrap">ENTREGADO</th>
+    <div class="grid grid-cols-12 gap-6 mt-5">
+      <div class="col-span-12 sm:col-span-12 xl:col-span-12 intro-y">
+        <div class="">
+          <div class=" p-5">
+            <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;" *ngIf="alumnoproyecto!=undefined && alumnoproyecto.id>0; else templateName">
+              Proyecto
 
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
-
-            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
-              <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
-            </td>
-            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
-              <div class="ext-base text-xs whitespace-no-wrap">
-                <a (click)="abrirsubir(d.idDocumentoRequerido)" style="margin-right: auto; border-radius: 25px; text-align:justify; font-size:15px;background-color: #FF8300; cursor:pointer">
-                  <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo
-                </a>
+              <div class="text-base font-bold leading-8 mt-6"> {{alumnoproyecto.proyectoNombre}} </div>
+              <div class="text-base font-bold leading-8 mt-6">Inscrito: {{alumnoproyecto.fechaCreacion.substr(0,10)}}
               </div>
-            </td>
 
-            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
-              <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}} </div>
-            </td>
-            <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; " align="center">
-              <input type="checkbox" id="1" 
-                     onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true">
-            </td>
-
-            <div class="modal" id="abrirsubir-{{d.idDocumentoRequerido}}">
-              <div class="modal__content">
-                <form #form="ngForm" (ngSubmit)="subeArchivo()">
-                  <div class="p-5 text-center">
-                    <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
-                    <div class="text-base mt-5">Subir Archivo</div>
-                    <br>
-                    <input type="file" id="file" name="file" (change)="uploadFile($event.target.files)" >
-
-                  </div>
-
-                  <div class="px-5 pb-8 text-center">
-                    <button type="button" data-dismiss="modal"
-                            class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
-                      Cancelar
-                    </button>
-                    <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Subir</button>
-                  </div>
-                </form>
-
-              </div>
             </div>
+            <ng-template #templateName>
+              <div class="text-base text-gray-600 mt-1" style="font-size:19px; color:#FF8800; font-weight: bold;" >
+                Sin proyecto asignado
 
-            <div class="modal" id="success-modal-preview-file">
-              <div class="modal__content">
-                <div class="p-5 text-center">
-                  <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
-                  <div class="text-base mt-5">Muy bien!</div>
-                  <div class="text-basemt-2">¡Se subió el archivo correctamente!</div>
-                </div>
-                <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+
               </div>
-            </div>
-
-          </tr>
-
-        </tbody>
-      </table>
+            </ng-template>
+          </div>
+        </div>
+      </div>
     </div>
-<br><br><br>
+    <br>
 
-  </div>
+
+
+    <!--<div class="flex flex-col sm:flex-row items-center p-5 border-b border-gray-200 dark:border-dark-5" style="font-size:25px;  font-weight: bold; ">
+      <h2 class="font-medium text-base mr-auto" style="font-size:25px;  font-weight: bold; ">
+        Documentos      </h2>
+    </div>
+
+    <div class="intro-y overflow-auto lg:overflow-visible mt-8 sm:mt-0">
+      <div class=" p-5">
+
+        <table class="table table-report sm:mt-2">
+          <thead style="font-size:19px; color:#FF8800; font-weight: bold;">
+            <tr>
+
+              <th class="whitespace-no-wrap">DOCUMENTO</th>
+              <th class="whitespace-no-wrap">ADJUNTO</th>
+              <th class="whitespace-no-wrap"> FECHA ENTREGA</th>
+              <th class="whitespace-no-wrap">ENTREGADO</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="intro-x" *ngFor="let d of DocumentosSubidos">
+
+              <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
+                <div class="ext-base text-xs whitespace-no-wrap"> {{d.documento}}</div>
+              </td>
+              <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
+                <div class="ext-base text-xs whitespace-no-wrap">
+                  <a (click)="abrirsubir(d.idDocumentoRequerido)" style="margin-right: auto; border-radius: 25px; text-align:justify; font-size:15px;background-color: #FF8300; cursor:pointer">
+                    <i data-feather="check-square" class="w-4 h-4 mr-1"></i> Subir archivo
+                  </a>
+                </div>
+              </td>
+
+              <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; ">
+                <div class="text-base whitespace-no-wrap" *ngIf="d.id >0"> {{d.fechaCreacion.substr(0,10)}} </div>
+              </td>
+              <td style="background: rgb(250, 250, 250); font-size:17px;  font-weight: bold; " align="center">
+                <input type="checkbox" id="1"
+                       onclick="entregadoDocumento(this.id,137994,35);" [checked]="d.id >0" ng-disabled="true">
+              </td>
+
+              <div class="modal" id="abrirsubir-{{d.idDocumentoRequerido}}">
+                <div class="modal__content">
+                  <form #form="ngForm" (ngSubmit)="subeArchivo()">
+                    <div class="p-5 text-center">
+                      <i data-feather="x-circle" class="w-16 h-16 text-theme-6 mx-auto mt-3"></i>
+                      <div class="text-base mt-5">Subir Archivo</div>
+                      <br>
+                      <input type="file" id="file" name="file" (change)="uploadFile($event.target.files)" >
+
+                    </div>
+
+                    <div class="px-5 pb-8 text-center">
+                      <button type="button" data-dismiss="modal"
+                              class="button w-24 border text-gray-700 dark:border-dark-5 dark:text-gray-300 mr-1">
+                        Cancelar
+                      </button>
+                      <button type="submit" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Subir</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+
+              <div class="modal" id="success-modal-preview-file">
+                <div class="modal__content">
+                  <div class="p-5 text-center">
+                    <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i>
+                    <div class="text-base mt-5">Muy bien!</div>
+                    <div class="text-basemt-2">¡Se subió el archivo correctamente!</div>
+                  </div>
+                  <div class="px-5 pb-8 text-center"> <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok</button> </div>
+                </div>
+              </div>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+  <br><br><br>
+
+    </div>-->
 </div>

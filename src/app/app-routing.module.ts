@@ -25,6 +25,7 @@ import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.compo
 import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
 import { EmpresasverComponent } from './empresas/empresas-ver/empresas-ver.component';
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
+import { AlumnosverproyectoComponent } from './alumnos/alumnos-verproyecto/alumnos-verproyecto.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { TestimoniosComponent } from './testimonios/testimonios.component';
 import { ReportesComponent } from './reportes/reportes.component';
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:'usuarios/add',component:UsuariosAddComponent},
   {path:'usuarios/edit/:id',component:UsuariosEditComponent},
   {path:'alumnos/ver/:id',component:AlumnosverComponent},
+  { path: 'alumnos/verproyecto/:id/:iduser', component:AlumnosverproyectoComponent},
   {path:'reportes',component:ReportesComponent}
 
 ];

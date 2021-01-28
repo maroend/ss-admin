@@ -321,3 +321,59 @@ export class Proyectoactividad {
   ) { }
 
 }
+
+
+export class Proyecto3 {
+
+  public proyecto: string;
+  public descripcion: string;
+  public objetivo: string;
+  public idOrganizacion: number;
+  public organizacion: string;
+  public modalidadDistancia: string;
+  public nombreResponsable: string;
+  public puesto: string;
+  public area: string;
+  public correoResponsable: string;
+  public telefono: string;
+  public justificacionImpactoSocial: string;
+  public plazas480: number;
+  public plazas240: number;
+  public rolPrestador: string;
+  public responsabilidades: string;
+  public fechaInicio: string;
+  public fechaTermino: string;
+  public lunes: boolean;
+  public martes: boolean;
+  public miercoles: boolean;
+  public jueves: boolean;
+  public viernes: boolean;
+  public sabado: boolean;
+  public domingo: boolean;
+  public horaEntrada: string;
+  public horaSalida: string;
+  public capacitacion: string;
+  public idObjetivoOnu: number;
+  public objetivoOnu: string;
+  public idPeriodo: number;
+  public periodo: string;
+  public idUniversidad: number;
+  public universidad: string;
+  public idEstadoProyecto: number;
+  public estadoProyecto: string;
+  public observaciones: string;
+  public organizacionDireccion: string;
+  public activo: boolean;
+  public id: number;
+  public plazas?: number;
+  public competenciasList?: Array<ProyectosCompetencias>;
+  public carrerasList?: Array<ProyectosCarreras>;
+  public horas?: number;
+  public razonCapacitacion?: string;
+  public imagen?: string;
+  public imagenArchivo?: string;
+  constructor(
+
+  ) { }
+
+}

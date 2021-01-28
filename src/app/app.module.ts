@@ -41,6 +41,7 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { UsuariosAddComponent } from './usuarios/usuarios-add/usuarios-add.component';
 import { UsuariosEditComponent } from './usuarios/usuarios-edit/usuarios-edit.component';
 import { AlumnosverComponent } from './alumnos/alumnos-ver/alumnos-ver.component';
+import { AlumnosverproyectoComponent } from './alumnos/alumnos-verproyecto/alumnos-verproyecto.component';
 import { CookieService } from 'ngx-cookie-service';
 import { DatatableComponent } from './components/datatable/datatable.component';
 
@@ -54,11 +55,14 @@ import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     AlumnosComponent,
     AlumnosverComponent,
+    AlumnosverproyectoComponent,
     LoginComponent,
     AlumnosAddComponent,
     AlumnosEditComponent,
@@ -99,8 +103,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatNativeDateModule,
     MatDatepickerModule,
     BrowserAnimationsModule,
-    NgxMaterialTimepickerModule
-
+    NgxMaterialTimepickerModule,
   ],
   providers: [CookieService,MatDatepickerModule,MatNativeDateModule,NgxMaterialTimepickerModule],
   bootstrap: [AppComponent]
