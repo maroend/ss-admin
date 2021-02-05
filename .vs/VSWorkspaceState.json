@@ -3,13 +3,8 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\alumnos",
-    "\\src\\app\\alumnos\\alumnos-ver",
-    "\\src\\app\\empresas",
-    "\\src\\app\\empresas\\empresas-ver",
-    "\\src\\app\\services",
-    "\\src\\environments"
+    "\\src\\app\\empresas\\empresas-ver"
   ],
-  "SelectedNode": "\\src\\app\\services\\alumno.service.ts",
+  "SelectedNode": "\\src\\app\\app.module.ts",
   "PreviewInSolutionExplorer": false
 }
